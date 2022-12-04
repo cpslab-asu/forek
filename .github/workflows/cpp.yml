@@ -14,7 +14,7 @@ jobs:
       - name: Run Clang Formatter Check
         run: find ${{ github.workspace }} -type f -iname *.cpp -or -iname *.hpp | xargs clang-format --Werror --dry-run --verbose --style=file
   cppcheck:
-    name: Cpp Check
+    name: Cppcheck
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
