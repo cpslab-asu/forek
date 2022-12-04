@@ -1,0 +1,34 @@
+name: C++ Workflow
+on: push
+
+env:
+  BUILD_TYPE: "RELEASE"
+
+jobs:
+  clang-format:
+    name: Clang Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run Clang Formatter Check
+        run: find ${{ github.workspace }} -type f -iname *.cpp -or -iname *.hpp | xargs clang-format --Werror --dry-run --verbose --style=file
+  cppcheck:
+    name: Cpp Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run Cpp Check
+        run: cppcheck --enable=all --error-exitcode=2 -I${{ github.workspace }}/src/ --std=c++20 ${{ github.workspace }}
+  build:
+    name: Compile
+    runs-on: ubuntu-latest
+    needs: [clang-format, cppcheck]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure & Generate Project Files
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      - name: Build Project Files
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
