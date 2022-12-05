@@ -15,7 +15,7 @@ jobs:
       - name: Clang Format Version
         run: clang-format --version
       - name: Run Clang Formatter Check
-        run: find ${{ github.workspace }} -type f -iname *.cpp -or -iname *.hpp | xargs clang-format --Werror --dry-run --verbose --style=file
+        run: find ./ -type f -iname *.cpp -or -iname *.hpp | xargs clang-format --Werror --dry-run --verbose --style=file
   cppcheck:
     name: Cppcheck
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
       - name: List GitHub Workspace
         run: ls ${{ github.workspace }}
       - name: Run Cppcheck
-        run: cppcheck --enable=all --error-exitcode=2 --std=c++20 ${{ github.workspace }}
+        run: cppcheck --enable=all --error-exitcode=2 --std=c++20 ./
   build:
     name: Compile
     runs-on: ubuntu-latest
@@ -38,6 +38,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Configure & Generate Project Files
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        run: cmake -B build/ -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
       - name: Build Project Files
-        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        run: cmake --build build/ --config ${{env.BUILD_TYPE}}
