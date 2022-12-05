@@ -18,6 +18,7 @@ jobs:
     name: Clang Tidy
     runs-on: ubuntu-latest
     container: andersonjwan/clang-extra-tools:15.0.6
+    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v3
