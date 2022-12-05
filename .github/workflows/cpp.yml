@@ -26,6 +26,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build
+          path: build/
       - name: Run Clang Tidy Check
         run: find src/ -type f -iname *.cpp -or -iname *.hpp | xargs clang-tidy -p build --config-file=".clang-tidy"
   cppcheck:
