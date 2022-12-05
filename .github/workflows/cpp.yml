@@ -46,7 +46,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Configure & Generate Project Files
-        run: cmake -B build/ -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
       - name: Build Project Files
         run: cmake --build build/ --config ${{env.BUILD_TYPE}}
       - name: Upload Artifacts
