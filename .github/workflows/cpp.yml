@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run Cppcheck
-        run: cppcheck --enable=all --error-exitcode=2 -I${{ github.workspace }}/src/ --std=c++20 ${{ github.workspace }}
+        run: cppcheck --enable=all --error-exitcode=2 --std=c++20 ${{ github.workspace }}
   build:
     name: Compile
     runs-on: ubuntu-latest
