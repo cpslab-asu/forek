@@ -37,7 +37,7 @@
  * Note: The plural version of `CommonToken` is used so as not to conflict with
  * the ANTLR API's `CommonToken` class.
  */
-lexer grammar CommonTokens;
+lexer grammar CommonLexer;
 
 // Generic, Single Character Tokens
 //
