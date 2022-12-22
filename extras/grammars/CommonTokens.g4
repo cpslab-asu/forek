@@ -172,7 +172,13 @@ fragment HEXDIGIT : [0-9a-fA-F] ;
 fragment OCTALDIGIT : [0-7] ;
 
 fragment FRACTION : '.' DIGIT+ ;
-fragment EXPONENT : [eE] [+-]? DIGIT+ ;
+fragment EXPONENT : [eE] [+\-]? DIGIT+ ;
 
 fragment NONZERODIGIT : [1-9] ;
 fragment DIGIT: [0-9] ;
+
+/// Ignore whitespace by default.
+///
+/// This includes one or more spaces, tabs, carriage-returns (Windows), and
+/// newlines.
+Whitespace : [ \t\r\n]+ -> skip;
