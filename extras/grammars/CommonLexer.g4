@@ -1,42 +1,41 @@
-/** A lexical grammar to define the set of universally common tokens used in many
- * formal languages.
- *
- * Please, feel free to add anything that is not already here. However, do keep
- * in mind that these should be universal tokens (i.e., if your token definition
- * has a specific application, then it should probably be defined in a separate
- * and closer to the application grammar file).
- *
- * In addition, if importing this grammar for use, and your application requires
- * more semantically meaningful names, please rename as shown in the following
- * example below:
- *
- * # Renaming Token Definitions
- *
- * ```antlr4
- * * CommonTokens.g4
- * Slash : '/' ; * lexer rule we want to re-name
- *
- * // CustomGrammar.g4
- * Divide : Slash ; // re-naming of import lexer rule
- * ```
- *
- * # Skipping Token Definitions
- *
- * Also, if you prefer to explicitly ignore and not generate tokens for specific
- * literal constructs, you can do the following:
- *
- * ```antlr4
- * // CommonTokens.g4
- * At : '@' ; // token we want to not generate/capture
- * Star : '*' ; // another token we want to not generate/capture
- *
- * // CustomGrammar.g4
- * Skip: (At | Star) -> skip ; // send tokens to the `skip` channel
- * ```
- *
- * Note: The plural version of `CommonToken` is used so as not to conflict with
- * the ANTLR API's `CommonToken` class.
- */
+/// A lexical grammar to define the set of universally common tokens used in many
+/// formal languages.
+///
+/// Please, feel free to add anything that is not already here. However, do keep
+/// in mind that these should be universal tokens (i.e., if your token definition
+/// has a specific application, then it should probably be defined in a separate
+/// and closer to the application grammar file).
+///
+/// In addition, if importing this grammar for use, and your application requires
+/// more semantically meaningful names, please rename as shown in the following
+/// example below:
+///
+/// # Renaming Token Definitions
+///
+/// ```antlr4
+/// // CommonTokens.g4
+/// Slash : '/' ; * lexer rule we want to re-name
+///
+/// // CustomGrammar.g4
+/// Divide : Slash ; // re-naming of import lexer rule
+/// ```
+///
+/// # Skipping Token Definitions
+///
+/// Also, if you prefer to explicitly ignore and not generate tokens for specific
+/// literal constructs, you can do the following:
+///
+/// ```antlr4
+/// // CommonTokens.g4
+/// At : '@' ; // token we want to not generate/capture
+/// Star : '*' ; // another token we want to not generate/capture
+///
+/// // CustomGrammar.g4
+/// Skip: (At | Star) -> skip ; // send tokens to the `skip` channel
+/// ```
+///
+/// Note: The plural version of `CommonToken` is used so as not to conflict with
+/// the ANTLR API's `CommonToken` class.
 lexer grammar CommonLexer;
 
 // Generic, Single Character Tokens
