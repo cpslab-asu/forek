@@ -5,5 +5,8 @@ project(pyforel VERSION 0.0.1)
 # provided CMake scripts to build.
 add_subdirectory(external)
 
+# Add the extra project tooling and build relevant items.
+add_subdirectory(extras)
+
 # Add the source directory of this project.
 add_subdirectory(src)
