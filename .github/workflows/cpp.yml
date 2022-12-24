@@ -49,6 +49,7 @@ jobs:
       - name: Install Git
         run: apk add --no-cache git
       - name: Checkout Submodules
+        working-directory: ${{github.workspace}}
         run: git submodule update --init --recursive
       - name: Configure & Generate Project Files
         run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
