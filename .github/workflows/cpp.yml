@@ -18,15 +18,11 @@ jobs:
     name: Clang Tidy
     runs-on: ubuntu-latest
     container: andersonjwan/clang-extra-tools:15.0.6
-    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Download Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: build/
+      - name: Configure CMake Compile Commands
+        run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
       - name: Run Clang Tidy Check
         run: find src/ -type f -iname *.cpp -or -iname *.hpp | xargs clang-tidy -p build --config-file=".clang-tidy"
   cppcheck:
@@ -42,7 +38,7 @@ jobs:
     name: Compile
     runs-on: ubuntu-latest
     container: andersonjwan/cmake:3.25.1
-    needs: [clang-format, cppcheck]
+    needs: [clang-format, clang-tidy, cppcheck]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
