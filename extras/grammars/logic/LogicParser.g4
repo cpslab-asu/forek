@@ -32,7 +32,7 @@ logicFormula : LeftParenthesis logicFormula RightParenthesis
     | logicFormula DisjunctionOperator logicFormula
     | logicFormula ImplicationOperator logicFormula
     | logicFormula IffOperator logicFormula
-    | atom
+    | logicAtom
     ;
 
 /// The atomic component of `Logic`.
