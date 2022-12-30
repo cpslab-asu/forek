@@ -18,10 +18,6 @@
 
 parser grammar LogicParser;
 
-options {
-    tokenVocab=LogicLexer;
-}
-
 /// A logic formula that is well-formed ("wff").
 ///
 /// This rule includes the core logical connectives operating over the atomic
