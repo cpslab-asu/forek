@@ -1,8 +1,6 @@
 parser grammar LinearTemporalLogicParser;
 
-options {
-    tokenVocab=LinearTemporalLogicLexer;
-}
+import LogicParser;
 
 ltlFormula : logicFormula
     | LeftParenthesis ltlFormula RightParenthesis
