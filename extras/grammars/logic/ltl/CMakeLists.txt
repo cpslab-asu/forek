@@ -48,6 +48,7 @@ add_custom_target(LinearTemporalLogicParserGrammarFile
 antlr_target(LinearTemporalLogicParser
   ${CMAKE_BINARY_DIR}/antlr/grammars/LinearTemporalLogicParser.g4
   PARSER
+  VISITOR
   OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/LinearTemporalLogic/
   DEPENDS_ANTLR LinearTemporalLogicLexer
   COMPILE_FLAGS -DtokenVocab=LinearTemporalLogicLexer

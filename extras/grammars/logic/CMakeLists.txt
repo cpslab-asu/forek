@@ -47,6 +47,7 @@ add_custom_target(LogicParserGrammarFile
 antlr_target(LogicParser
   ${CMAKE_BINARY_DIR}/antlr/grammars/LogicParser.g4
   PARSER
+  VISITOR
   OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/Logic/
   DEPENDS_ANTLR LogicLexer
   COMPILE_FLAGS -DtokenVocab=LogicLexer
