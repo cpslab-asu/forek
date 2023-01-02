@@ -44,9 +44,9 @@ IffOperator : '<->'
 /// The truth value, True.
 ///
 /// Examples: `true`.
-True : 'true' ;
+True : 'True' ;
 
 /// The truth value, False.
 ///
 /// Examples: `false`.
-False : 'false' ;
+False : 'False' ;
