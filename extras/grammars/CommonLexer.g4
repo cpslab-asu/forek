@@ -13,7 +13,7 @@
 /// # Renaming Token Definitions
 ///
 /// ```antlr4
-/// // CommonTokens.g4
+/// // CommonLexer.g4
 /// Slash : '/' ; * lexer rule we want to re-name
 ///
 /// // CustomGrammar.g4
@@ -26,16 +26,13 @@
 /// literal constructs, you can do the following:
 ///
 /// ```antlr4
-/// // CommonTokens.g4
+/// // CommonLexer.g4
 /// At : '@' ; // token we want to not generate/capture
 /// Star : '*' ; // another token we want to not generate/capture
 ///
 /// // CustomGrammar.g4
 /// Skip: (At | Star) -> skip ; // send tokens to the `skip` channel
 /// ```
-///
-/// Note: The plural version of `CommonToken` is used so as not to conflict with
-/// the ANTLR API's `CommonToken` class.
 lexer grammar CommonLexer;
 
 // Generic, Single Character Tokens
