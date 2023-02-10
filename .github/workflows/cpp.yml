@@ -17,7 +17,7 @@ jobs:
   clang-tidy:
     name: Clang Tidy
     runs-on: ubuntu-latest
-    container: andersonjwan/clang-extra-tools:15.0.6
+    container: andersonjwan/devel:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -44,11 +44,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install Git
-        run: apk add --no-cache git
-      - name: Checkout Submodules
-        working-directory: $GITHUB_WORKSPACE
-        run: git submodule update --init --recursive
+        with:
+          submodules: true
       - name: Configure & Generate Project Files
         run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
       - name: Build Project Files
