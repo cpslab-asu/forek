@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: recursive
+          submodules: true
       - name: Configure CMake Compile Commands
         run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
       - name: Run Clang Tidy Check
