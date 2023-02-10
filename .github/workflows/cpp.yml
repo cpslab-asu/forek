@@ -22,7 +22,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Checkout Submodules
-        working-directory: $GITHUB_WORKSPACE
         run: git submodule update --init --recursive
       - name: Configure CMake Compile Commands
         run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
