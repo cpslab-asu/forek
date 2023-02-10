@@ -39,7 +39,7 @@ jobs:
   build:
     name: Compile
     runs-on: ubuntu-latest
-    container: andersonjwan/cmake:3.25.1
+    container: andersonjwan/devel:latest
     needs: [clang-format, clang-tidy, cppcheck]
     steps:
       - name: Checkout
