@@ -23,14 +23,14 @@ DisjunctionOperator : Bar
     | 'or'
     ;
 
-/// The binary connective, material implication.
+/// The binary connective, Material Implication.
 ///
 /// Examples: `->`, `implies`.
 ImplicationOperator : '->'
     | 'implies'
     ;
 
-/// The binary connective, biconditional.
+/// The binary connective, Biconditional.
 ///
 /// Examples: `<->`, `ifff`.
 IffOperator : '<->'
