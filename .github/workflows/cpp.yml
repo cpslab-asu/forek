@@ -26,7 +26,7 @@ jobs:
       - name: Configure CMake Compile Commands
         run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
       - name: Run Clang Tidy Check
-        run: find src/ -type f -iname *.cpp -or -iname *.hpp | xargs clang-tidy -p build --config-file=".clang-tidy"
+        run: find src/ -not -path "*/gen/*" -type f -iname *.cpp -or -iname *.hpp | xargs clang-tidy -p build --config-file=".clang-tidy"
   cppcheck:
     name: Cppcheck
     runs-on: ubuntu-latest
