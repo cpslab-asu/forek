@@ -35,7 +35,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run Cppcheck
-        run: cppcheck --suppress="*:src/specification/**/gen/*" --enable=all --error-exitcode=2 --std=c++20 ./
+        run: cppcheck --suppress="*:src/specification/*/gen/*" --enable=all --error-exitcode=2 --std=c++20 src/ include/
   build:
     name: Compile
     runs-on: ubuntu-latest
