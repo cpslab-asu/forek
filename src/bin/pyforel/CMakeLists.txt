@@ -1,1 +1,1 @@
-add_executable(pyforel main.cpp)
+add_executable(pyforeltool main.cpp)

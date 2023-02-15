@@ -16,24 +16,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON) # C++20 features are used in this project
 # overridden on a per-target basis.
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Check for link time optimization support.
-#
-# This is a compiler-specific feature. Therefore, it must first be checked before
-# enabling it. It allows optimization of code after linking.
-# include(CheckIPOSupported)
-# check_ipo_supported(RESULT ipo_supported)
-# if(ipo_supported)
-#   set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
-# endif()
+add_library(pyforel)
+add_library(pyforel::pyforel ALIAS pyforel)
 
-option(ANTLR_GENERATE "Generate ANTLR targets from grammar files." OFF)
-
-# Add project external dependendies managed by Git submodules and use their
-# provided CMake scripts to build.
-add_subdirectory(external)
-
-# Add the extra project tooling and build relevant items.
-add_subdirectory(extras)
+target_include_directories(pyforel
+  PUBLIC
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+  PRIVATE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
+)
 
 # Add the source directory of this project.
 add_subdirectory(src)
