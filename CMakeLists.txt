@@ -16,15 +16,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON) # C++20 features are used in this project
 # overridden on a per-target basis.
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(pyforel)
-add_library(pyforel::pyforel ALIAS pyforel)
+add_library(${PROJECT_NAME})
+add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS pyforel)
 
 target_include_directories(pyforel
-  PUBLIC
-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-  PRIVATE
-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
+  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 )
 
 # Add the source directory of this project.
 add_subdirectory(src)
+
+add_subdirectory(external)
+add_subdirectory(extras)
+
+# Examples
+add_subdirectory(examples EXCLUDE_FROM_ALL)
