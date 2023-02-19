@@ -21,7 +21,10 @@ add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS pyforel)
 
 target_include_directories(pyforel
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+  PRIVATE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external/antlr4/runtime/Cpp/runtime/src/>
 )
+
+target_link_libraries(pyforel antlr4_static)
 
 # Add the source directory of this project.
 add_subdirectory(src)
