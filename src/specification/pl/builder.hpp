@@ -3,6 +3,7 @@
 
 #include <pyforel/ir/formula.hpp>
 
+#include "gen/PropositionalLogicParser.h"
 #include "gen/PropositionalLogicParserBaseVisitor.h"
 
 /// A custom PL visitor.
@@ -20,9 +21,68 @@ class IntermediateRepresentationBuilder
    public:
     auto visitStart(PropositionalLogicParser::StartContext *ctx)
         -> std::any override {
-        visitChildren(ctx);
-        return pyforel::ir::Formula{};
+        auto formula = visit(ctx->plFormula());
+        return pyforel::ir::Formula(formula);
     };
+
+    auto visitPlNegation(PropositionalLogicParser::PlNegationContext *ctx)
+        -> std::any override {
+        auto left = visit(ctx->plFormula());
+        return Negation(left);
+    }
+
+    auto visitPlIff(PropositionalLogicParser::PlIffContext *ctx)
+        -> std::any override {
+        auto left = visit(ctx->plFormula(0));
+        auto right = visit(ctx->plFormula(1));
+
+        return Iff(left, right);
+    }
+
+    auto visitPlTrue(PropositionalLogicParser::PlTrueContext *ctx)
+        -> std::any override {
+        return True();
+    }
+
+    auto visitPlAtom(PropositionalLogicParser::PlAtomContext *ctx)
+        -> std::any override {
+        auto atom = visit(ctx->proposition());
+        return Atom(atom);
+    }
+
+    auto visitPlDisjunction(PropositionalLogicParser::PlDisjunctionContext *ctx)
+        -> std::any override {
+        auto left = visit(ctx->plFormula(0));
+        auto right = visit(ctx->plFormula(1));
+
+        return Or(left, right);
+    }
+
+    auto visitPlImplication(PropositionalLogicParser::PlImplicationContext *ctx)
+        -> std::any override {
+        auto left = visit(ctx->plFormula(0));
+        auto right = ctx->plFormula(1);
+
+        return Implies(left, right);
+    }
+
+    auto visitPlConjunction(PropositionalLogicParser::PlConjunctionContext *ctx)
+        -> std::any override {
+        auto left = visit(ctx->plFormula(0));
+        auto right = visit(ctx->plFormula(1));
+
+        return And(left, right);
+    }
+
+    auto visitPlFalse(PropositionalLogicParser::PlFalseContext *ctx)
+        -> std::any override {
+        return False();
+    }
+
+    auto visitPlProposition(PropositionalLogicParser::PropositionContext *ctx)
+        -> std::any override {
+        return Proposition();
+    }
 };
 
 #endif
