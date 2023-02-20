@@ -1,5 +1,5 @@
 target_sources(pyforel PRIVATE
-  operator.cpp
+  operation.cpp
 )
 
 add_subdirectory(pl)
