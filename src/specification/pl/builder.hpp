@@ -1,7 +1,15 @@
 #ifndef PYFOREL_SPECIFICATION_PL_BUILDER_HPP
 #define PYFOREL_SPECIFICATION_PL_BUILDER_HPP
 
+#include <pyforel/ir/atom/proposition.hpp>
 #include <pyforel/ir/formula.hpp>
+#include <pyforel/ir/operation/pl/and.hpp>
+#include <pyforel/ir/operation/pl/false.hpp>
+#include <pyforel/ir/operation/pl/iff.hpp>
+#include <pyforel/ir/operation/pl/implies.hpp>
+#include <pyforel/ir/operation/pl/not.hpp>
+#include <pyforel/ir/operation/pl/or.hpp>
+#include <pyforel/ir/operation/pl/true.hpp>
 
 #include "gen/PropositionalLogicParser.h"
 #include "gen/PropositionalLogicParserBaseVisitor.h"
@@ -27,8 +35,8 @@ class IntermediateRepresentationBuilder
 
     auto visitPlNegation(PropositionalLogicParser::PlNegationContext *ctx)
         -> std::any override {
-        auto left = visit(ctx->plFormula());
-        return Negation(left);
+        auto child = visit(ctx->plFormula());
+        return pyforel::ir::operation::pl::Not(child);
     }
 
     auto visitPlIff(PropositionalLogicParser::PlIffContext *ctx)
@@ -36,18 +44,17 @@ class IntermediateRepresentationBuilder
         auto left = visit(ctx->plFormula(0));
         auto right = visit(ctx->plFormula(1));
 
-        return Iff(left, right);
+        return pyforel::ir::operation::pl::Iff(left, right);
     }
 
     auto visitPlTrue(PropositionalLogicParser::PlTrueContext *ctx)
         -> std::any override {
-        return True();
+        return pyforel::ir::operation::pl::True();
     }
 
-    auto visitPlAtom(PropositionalLogicParser::PlAtomContext *ctx)
+    auto visitPlParenthesis(PropositionalLogicParser::PlParenthesisContext *ctx)
         -> std::any override {
-        auto atom = visit(ctx->proposition());
-        return Atom(atom);
+        return visit(ctx->plFormula());
     }
 
     auto visitPlDisjunction(PropositionalLogicParser::PlDisjunctionContext *ctx)
@@ -55,15 +62,15 @@ class IntermediateRepresentationBuilder
         auto left = visit(ctx->plFormula(0));
         auto right = visit(ctx->plFormula(1));
 
-        return Or(left, right);
+        return pyforel::ir::operation::pl::Or(left, right);
     }
 
     auto visitPlImplication(PropositionalLogicParser::PlImplicationContext *ctx)
         -> std::any override {
         auto left = visit(ctx->plFormula(0));
-        auto right = ctx->plFormula(1);
+        auto right = visit(ctx->plFormula(1));
 
-        return Implies(left, right);
+        return pyforel::ir::operation::pl::Implies(left, right);
     }
 
     auto visitPlConjunction(PropositionalLogicParser::PlConjunctionContext *ctx)
@@ -71,17 +78,17 @@ class IntermediateRepresentationBuilder
         auto left = visit(ctx->plFormula(0));
         auto right = visit(ctx->plFormula(1));
 
-        return And(left, right);
+        return pyforel::ir::operation::pl::And(left, right);
     }
 
     auto visitPlFalse(PropositionalLogicParser::PlFalseContext *ctx)
         -> std::any override {
-        return False();
+        return pyforel::ir::operation::pl::False();
     }
 
-    auto visitPlProposition(PropositionalLogicParser::PropositionContext *ctx)
+    auto visitProposition(PropositionalLogicParser::PropositionContext *ctx)
         -> std::any override {
-        return Proposition();
+        return pyforel::ir::atom::Proposition();
     }
 };
 
