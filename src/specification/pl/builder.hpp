@@ -1,8 +1,8 @@
 #ifndef PYFOREL_SPECIFICATION_PL_BUILDER_HPP
 #define PYFOREL_SPECIFICATION_PL_BUILDER_HPP
 
-#include <pyforel/ir/atom/proposition.hpp>
 #include <pyforel/ir/formula.hpp>
+#include <pyforel/ir/operand/proposition.hpp>
 #include <pyforel/ir/operation/pl/and.hpp>
 #include <pyforel/ir/operation/pl/false.hpp>
 #include <pyforel/ir/operation/pl/iff.hpp>
@@ -88,7 +88,7 @@ class IntermediateRepresentationBuilder
 
     auto visitProposition(PropositionalLogicParser::PropositionContext *ctx)
         -> std::any override {
-        return pyforel::ir::atom::Proposition();
+        return pyforel::ir::operand::Proposition();
     }
 };
 
