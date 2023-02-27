@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run Clang Formatter Check
-        run: find ./ -type f -iname *.cpp -or -iname *.hpp | xargs clang-format --Werror --dry-run --verbose --style=file
+        run: find include/ src/ -type f -iname *.cpp -or -iname *.hpp | xargs clang-format --Werror --dry-run --verbose --style=file
   clang-tidy:
     name: Clang Tidy
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
       - name: Configure CMake Compile Commands
         run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
       - name: Run Clang Tidy Check
-        run: find src/ -not -path "*/gen/*" -type f -iname *.cpp -or -iname *.hpp | xargs clang-tidy -p build --config-file=".clang-tidy"
+        run: find include/ src/ -not -path "*/gen/*" -type f -iname *.cpp -or -iname *.hpp | xargs clang-tidy -p build --config-file=".clang-tidy"
   cppcheck:
     name: Cppcheck
     runs-on: ubuntu-latest
