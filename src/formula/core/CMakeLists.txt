@@ -1,3 +1,3 @@
 target_sources(pyforel PRIVATE
-  pl.cpp
+  node.cpp
 )
