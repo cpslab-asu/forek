@@ -103,21 +103,25 @@ IfMacros:
   - KJ_IF_MAYBE
 IncludeBlocks:   Regroup
 IncludeCategories:
-  - Regex:           '^<ext/.*\.h>'
-    Priority:        2
-    SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '^<.*\.h>'
+  # Headers in <> without extension.
+  - Regex:           '<([A-Za-z0-9\Q/-_\E])+>'
     Priority:        1
-    SortPriority:    0
+    SortPriority:    1
     CaseSensitive:   false
-  - Regex:           '^<.*'
+  # External libraries.
+  - Regex:           '^((<|")(pyforel)/)'
     Priority:        2
-    SortPriority:    0
+    SortPriority:    3
     CaseSensitive:   false
-  - Regex:           '.*'
+  # Headers in <> with extension.
+  - Regex:           '<([A-Za-z0-9.\Q/-_\E])+>'
     Priority:        3
-    SortPriority:    0
+    SortPriority:    2
+    CaseSensitive:   false
+  # Headers in "" with extension.
+  - Regex:           '"([A-Za-z0-9.\Q/-_\E])+"'
+    Priority:        4
+    SortPriority:    4
     CaseSensitive:   false
 IncludeIsMainRegex: '([-_](test|unittest))?$'
 IncludeIsMainSourceRegex: ''
