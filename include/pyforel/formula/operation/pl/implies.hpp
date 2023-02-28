@@ -4,7 +4,16 @@
 #include <pyforel/formula/operation/binary.hpp>
 
 namespace pyforel::formula::operation::pl {
-class Implies : public Binary {};
+namespace kind {
+enum { Implies = 3 };
+}
+
+class Implies : public Binary {
+   public:
+    Implies() = delete;
+    Implies(const core::Node& lexpr, const core::Node& rexpr)
+        : Binary(kind::Implies, lexpr, rexpr) {}
+};
 }  // namespace pyforel::formula::operation::pl
 
 #endif
