@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "pyforel/formula/formula.hpp"
+#include <pyforel/formula/formula.hpp>
 #include <pyforel/specification/specification.hpp>
 
 namespace pyforel::specification::pl {

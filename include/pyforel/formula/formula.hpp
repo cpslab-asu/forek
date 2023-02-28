@@ -3,7 +3,8 @@
 
 #include <memory>
 
-#include "pyforel/formula/core/node.hpp"
+#include <pyforel/formula/core/node.hpp>
+
 namespace pyforel::formula {
 class Formula {
    private:

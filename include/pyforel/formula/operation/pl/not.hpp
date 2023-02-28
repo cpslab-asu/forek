@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "pyforel/formula/core/node.hpp"
+#include <pyforel/formula/core/node.hpp>
 #include <pyforel/formula/operation/unary.hpp>
 
 namespace pyforel::formula::operation::pl {
