@@ -6,7 +6,7 @@ env:
 
 jobs:
   generate-common:
-    name: Generate Common
+    name: Generate Common Lexer
     runs-on: ubuntu-latest
     container: andersonjwan/devel:latest
     steps:
@@ -33,7 +33,7 @@ jobs:
       - name: Generate Propositional Logic ANTLRv4 Targets
         run: cmake --build build --config=${{env.BUILD_TYPE}} --target=PropositionalLogicLexer
   generate-pl-parser:
-    name: Generate PL
+    name: Generate PL Parser
     runs-on: ubuntu-latest
     container: andersonjwan/devel:latest
     needs: [generate-common]
