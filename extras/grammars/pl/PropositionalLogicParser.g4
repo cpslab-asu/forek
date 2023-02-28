@@ -1,17 +1,15 @@
 parser grammar PropositionalLogicParser;
 
-start : plFormula EOF ;
+start : formula EOF ;
 
-plFormula : LeftParenthesis plFormula RightParenthesis  #plParenthesis
-    | NegationOperator plFormula                        #plNegation
-    | plFormula ConjunctionOperator plFormula           #plConjunction
-    | plFormula DisjunctionOperator plFormula           #plDisjunction
-    | plFormula ImplicationOperator plFormula           #plImplication
-    | plFormula IffOperator plFormula                   #plIff
+formula : LeftParenthesis formula RightParenthesis  #parentheses
+    | NegationOperator formula                      #plNegation
+    | formula ConjunctionOperator formula           #plConjunction
+    | formula DisjunctionOperator formula           #plDisjunction
+    | formula ImplicationOperator formula           #plImplication
+    | formula IffOperator formula                   #plIff
 
-    | True                                              #plTrue
-    | False                                             #plFalse
-    | proposition                                       #plAtom
+    | proposition                                   #plAtom
     ;
 
 proposition : Identifier ;

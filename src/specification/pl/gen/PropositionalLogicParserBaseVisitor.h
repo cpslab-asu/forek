@@ -25,19 +25,15 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitParentheses(PropositionalLogicParser::ParenthesesContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitPlIff(PropositionalLogicParser::PlIffContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitPlTrue(PropositionalLogicParser::PlTrueContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual std::any visitPlAtom(PropositionalLogicParser::PlAtomContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPlParenthesis(PropositionalLogicParser::PlParenthesisContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -50,10 +46,6 @@ public:
   }
 
   virtual std::any visitPlConjunction(PropositionalLogicParser::PlConjunctionContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPlFalse(PropositionalLogicParser::PlFalseContext *ctx) override {
     return visitChildren(ctx);
   }
 

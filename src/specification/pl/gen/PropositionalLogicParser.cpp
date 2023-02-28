@@ -44,7 +44,7 @@ void propositionallogicparserParserInitialize() {
   assert(propositionallogicparserParserStaticData == nullptr);
   auto staticData = std::make_unique<PropositionalLogicParserStaticData>(
     std::vector<std::string>{
-      "start", "plFormula", "proposition"
+      "start", "formula", "proposition"
     },
     std::vector<std::string>{
       "", "", "", "", "", "", "'True'", "'False'", "'@'", "'&'", "'''", 
@@ -66,19 +66,18 @@ void propositionallogicparserParserInitialize() {
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,52,41,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,3,1,20,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,5,1,34,8,1,10,1,12,1,37,9,1,1,2,1,2,1,2,0,1,2,3,0,2,4,0,0,45,0,
-  	6,1,0,0,0,2,19,1,0,0,0,4,38,1,0,0,0,6,7,3,2,1,0,7,8,5,0,0,1,8,1,1,0,0,
-  	0,9,10,6,1,-1,0,10,11,5,38,0,0,11,12,3,2,1,0,12,13,5,39,0,0,13,20,1,0,
-  	0,0,14,15,5,1,0,0,15,20,3,2,1,8,16,20,5,6,0,0,17,20,5,7,0,0,18,20,3,4,
-  	2,0,19,9,1,0,0,0,19,14,1,0,0,0,19,16,1,0,0,0,19,17,1,0,0,0,19,18,1,0,
-  	0,0,20,35,1,0,0,0,21,22,10,7,0,0,22,23,5,2,0,0,23,34,3,2,1,8,24,25,10,
-  	6,0,0,25,26,5,3,0,0,26,34,3,2,1,7,27,28,10,5,0,0,28,29,5,4,0,0,29,34,
-  	3,2,1,6,30,31,10,4,0,0,31,32,5,5,0,0,32,34,3,2,1,5,33,21,1,0,0,0,33,24,
-  	1,0,0,0,33,27,1,0,0,0,33,30,1,0,0,0,34,37,1,0,0,0,35,33,1,0,0,0,35,36,
-  	1,0,0,0,36,3,1,0,0,0,37,35,1,0,0,0,38,39,5,51,0,0,39,5,1,0,0,0,3,19,33,
-  	35
+  	4,1,52,39,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
+  	1,1,1,1,3,1,18,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,
+  	1,32,8,1,10,1,12,1,35,9,1,1,2,1,2,1,2,0,1,2,3,0,2,4,0,0,41,0,6,1,0,0,
+  	0,2,17,1,0,0,0,4,36,1,0,0,0,6,7,3,2,1,0,7,8,5,0,0,1,8,1,1,0,0,0,9,10,
+  	6,1,-1,0,10,11,5,38,0,0,11,12,3,2,1,0,12,13,5,39,0,0,13,18,1,0,0,0,14,
+  	15,5,1,0,0,15,18,3,2,1,6,16,18,3,4,2,0,17,9,1,0,0,0,17,14,1,0,0,0,17,
+  	16,1,0,0,0,18,33,1,0,0,0,19,20,10,5,0,0,20,21,5,2,0,0,21,32,3,2,1,6,22,
+  	23,10,4,0,0,23,24,5,3,0,0,24,32,3,2,1,5,25,26,10,3,0,0,26,27,5,4,0,0,
+  	27,32,3,2,1,4,28,29,10,2,0,0,29,30,5,5,0,0,30,32,3,2,1,3,31,19,1,0,0,
+  	0,31,22,1,0,0,0,31,25,1,0,0,0,31,28,1,0,0,0,32,35,1,0,0,0,33,31,1,0,0,
+  	0,33,34,1,0,0,0,34,3,1,0,0,0,35,33,1,0,0,0,36,37,5,51,0,0,37,5,1,0,0,
+  	0,3,17,31,33
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -133,8 +132,8 @@ PropositionalLogicParser::StartContext::StartContext(ParserRuleContext *parent, 
   : ParserRuleContext(parent, invokingState) {
 }
 
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::StartContext::plFormula() {
-  return getRuleContext<PropositionalLogicParser::PlFormulaContext>(0);
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::StartContext::formula() {
+  return getRuleContext<PropositionalLogicParser::FormulaContext>(0);
 }
 
 tree::TerminalNode* PropositionalLogicParser::StartContext::EOF() {
@@ -168,7 +167,7 @@ PropositionalLogicParser::StartContext* PropositionalLogicParser::start() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(6);
-    plFormula(0);
+    formula(0);
     setState(7);
     match(PropositionalLogicParser::EOF);
    
@@ -182,18 +181,18 @@ PropositionalLogicParser::StartContext* PropositionalLogicParser::start() {
   return _localctx;
 }
 
-//----------------- PlFormulaContext ------------------------------------------------------------------
+//----------------- FormulaContext ------------------------------------------------------------------
 
-PropositionalLogicParser::PlFormulaContext::PlFormulaContext(ParserRuleContext *parent, size_t invokingState)
+PropositionalLogicParser::FormulaContext::FormulaContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t PropositionalLogicParser::PlFormulaContext::getRuleIndex() const {
-  return PropositionalLogicParser::RulePlFormula;
+size_t PropositionalLogicParser::FormulaContext::getRuleIndex() const {
+  return PropositionalLogicParser::RuleFormula;
 }
 
-void PropositionalLogicParser::PlFormulaContext::copyFrom(PlFormulaContext *ctx) {
+void PropositionalLogicParser::FormulaContext::copyFrom(FormulaContext *ctx) {
   ParserRuleContext::copyFrom(ctx);
 }
 
@@ -203,11 +202,11 @@ tree::TerminalNode* PropositionalLogicParser::PlNegationContext::NegationOperato
   return getToken(PropositionalLogicParser::NegationOperator, 0);
 }
 
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::PlNegationContext::plFormula() {
-  return getRuleContext<PropositionalLogicParser::PlFormulaContext>(0);
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::PlNegationContext::formula() {
+  return getRuleContext<PropositionalLogicParser::FormulaContext>(0);
 }
 
-PropositionalLogicParser::PlNegationContext::PlNegationContext(PlFormulaContext *ctx) { copyFrom(ctx); }
+PropositionalLogicParser::PlNegationContext::PlNegationContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
 std::any PropositionalLogicParser::PlNegationContext::accept(tree::ParseTreeVisitor *visitor) {
@@ -216,41 +215,49 @@ std::any PropositionalLogicParser::PlNegationContext::accept(tree::ParseTreeVisi
   else
     return visitor->visitChildren(this);
 }
-//----------------- PlIffContext ------------------------------------------------------------------
+//----------------- ParenthesesContext ------------------------------------------------------------------
 
-std::vector<PropositionalLogicParser::PlFormulaContext *> PropositionalLogicParser::PlIffContext::plFormula() {
-  return getRuleContexts<PropositionalLogicParser::PlFormulaContext>();
+tree::TerminalNode* PropositionalLogicParser::ParenthesesContext::LeftParenthesis() {
+  return getToken(PropositionalLogicParser::LeftParenthesis, 0);
 }
 
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::PlIffContext::plFormula(size_t i) {
-  return getRuleContext<PropositionalLogicParser::PlFormulaContext>(i);
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::ParenthesesContext::formula() {
+  return getRuleContext<PropositionalLogicParser::FormulaContext>(0);
+}
+
+tree::TerminalNode* PropositionalLogicParser::ParenthesesContext::RightParenthesis() {
+  return getToken(PropositionalLogicParser::RightParenthesis, 0);
+}
+
+PropositionalLogicParser::ParenthesesContext::ParenthesesContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any PropositionalLogicParser::ParenthesesContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
+    return parserVisitor->visitParentheses(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- PlIffContext ------------------------------------------------------------------
+
+std::vector<PropositionalLogicParser::FormulaContext *> PropositionalLogicParser::PlIffContext::formula() {
+  return getRuleContexts<PropositionalLogicParser::FormulaContext>();
+}
+
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::PlIffContext::formula(size_t i) {
+  return getRuleContext<PropositionalLogicParser::FormulaContext>(i);
 }
 
 tree::TerminalNode* PropositionalLogicParser::PlIffContext::IffOperator() {
   return getToken(PropositionalLogicParser::IffOperator, 0);
 }
 
-PropositionalLogicParser::PlIffContext::PlIffContext(PlFormulaContext *ctx) { copyFrom(ctx); }
+PropositionalLogicParser::PlIffContext::PlIffContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
 std::any PropositionalLogicParser::PlIffContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlIff(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PlTrueContext ------------------------------------------------------------------
-
-tree::TerminalNode* PropositionalLogicParser::PlTrueContext::True() {
-  return getToken(PropositionalLogicParser::True, 0);
-}
-
-PropositionalLogicParser::PlTrueContext::PlTrueContext(PlFormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any PropositionalLogicParser::PlTrueContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlTrue(this);
   else
     return visitor->visitChildren(this);
 }
@@ -260,7 +267,7 @@ PropositionalLogicParser::PropositionContext* PropositionalLogicParser::PlAtomCo
   return getRuleContext<PropositionalLogicParser::PropositionContext>(0);
 }
 
-PropositionalLogicParser::PlAtomContext::PlAtomContext(PlFormulaContext *ctx) { copyFrom(ctx); }
+PropositionalLogicParser::PlAtomContext::PlAtomContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
 std::any PropositionalLogicParser::PlAtomContext::accept(tree::ParseTreeVisitor *visitor) {
@@ -269,44 +276,21 @@ std::any PropositionalLogicParser::PlAtomContext::accept(tree::ParseTreeVisitor 
   else
     return visitor->visitChildren(this);
 }
-//----------------- PlParenthesisContext ------------------------------------------------------------------
-
-tree::TerminalNode* PropositionalLogicParser::PlParenthesisContext::LeftParenthesis() {
-  return getToken(PropositionalLogicParser::LeftParenthesis, 0);
-}
-
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::PlParenthesisContext::plFormula() {
-  return getRuleContext<PropositionalLogicParser::PlFormulaContext>(0);
-}
-
-tree::TerminalNode* PropositionalLogicParser::PlParenthesisContext::RightParenthesis() {
-  return getToken(PropositionalLogicParser::RightParenthesis, 0);
-}
-
-PropositionalLogicParser::PlParenthesisContext::PlParenthesisContext(PlFormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any PropositionalLogicParser::PlParenthesisContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlParenthesis(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- PlDisjunctionContext ------------------------------------------------------------------
 
-std::vector<PropositionalLogicParser::PlFormulaContext *> PropositionalLogicParser::PlDisjunctionContext::plFormula() {
-  return getRuleContexts<PropositionalLogicParser::PlFormulaContext>();
+std::vector<PropositionalLogicParser::FormulaContext *> PropositionalLogicParser::PlDisjunctionContext::formula() {
+  return getRuleContexts<PropositionalLogicParser::FormulaContext>();
 }
 
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::PlDisjunctionContext::plFormula(size_t i) {
-  return getRuleContext<PropositionalLogicParser::PlFormulaContext>(i);
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::PlDisjunctionContext::formula(size_t i) {
+  return getRuleContext<PropositionalLogicParser::FormulaContext>(i);
 }
 
 tree::TerminalNode* PropositionalLogicParser::PlDisjunctionContext::DisjunctionOperator() {
   return getToken(PropositionalLogicParser::DisjunctionOperator, 0);
 }
 
-PropositionalLogicParser::PlDisjunctionContext::PlDisjunctionContext(PlFormulaContext *ctx) { copyFrom(ctx); }
+PropositionalLogicParser::PlDisjunctionContext::PlDisjunctionContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
 std::any PropositionalLogicParser::PlDisjunctionContext::accept(tree::ParseTreeVisitor *visitor) {
@@ -317,19 +301,19 @@ std::any PropositionalLogicParser::PlDisjunctionContext::accept(tree::ParseTreeV
 }
 //----------------- PlImplicationContext ------------------------------------------------------------------
 
-std::vector<PropositionalLogicParser::PlFormulaContext *> PropositionalLogicParser::PlImplicationContext::plFormula() {
-  return getRuleContexts<PropositionalLogicParser::PlFormulaContext>();
+std::vector<PropositionalLogicParser::FormulaContext *> PropositionalLogicParser::PlImplicationContext::formula() {
+  return getRuleContexts<PropositionalLogicParser::FormulaContext>();
 }
 
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::PlImplicationContext::plFormula(size_t i) {
-  return getRuleContext<PropositionalLogicParser::PlFormulaContext>(i);
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::PlImplicationContext::formula(size_t i) {
+  return getRuleContext<PropositionalLogicParser::FormulaContext>(i);
 }
 
 tree::TerminalNode* PropositionalLogicParser::PlImplicationContext::ImplicationOperator() {
   return getToken(PropositionalLogicParser::ImplicationOperator, 0);
 }
 
-PropositionalLogicParser::PlImplicationContext::PlImplicationContext(PlFormulaContext *ctx) { copyFrom(ctx); }
+PropositionalLogicParser::PlImplicationContext::PlImplicationContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
 std::any PropositionalLogicParser::PlImplicationContext::accept(tree::ParseTreeVisitor *visitor) {
@@ -340,19 +324,19 @@ std::any PropositionalLogicParser::PlImplicationContext::accept(tree::ParseTreeV
 }
 //----------------- PlConjunctionContext ------------------------------------------------------------------
 
-std::vector<PropositionalLogicParser::PlFormulaContext *> PropositionalLogicParser::PlConjunctionContext::plFormula() {
-  return getRuleContexts<PropositionalLogicParser::PlFormulaContext>();
+std::vector<PropositionalLogicParser::FormulaContext *> PropositionalLogicParser::PlConjunctionContext::formula() {
+  return getRuleContexts<PropositionalLogicParser::FormulaContext>();
 }
 
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::PlConjunctionContext::plFormula(size_t i) {
-  return getRuleContext<PropositionalLogicParser::PlFormulaContext>(i);
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::PlConjunctionContext::formula(size_t i) {
+  return getRuleContext<PropositionalLogicParser::FormulaContext>(i);
 }
 
 tree::TerminalNode* PropositionalLogicParser::PlConjunctionContext::ConjunctionOperator() {
   return getToken(PropositionalLogicParser::ConjunctionOperator, 0);
 }
 
-PropositionalLogicParser::PlConjunctionContext::PlConjunctionContext(PlFormulaContext *ctx) { copyFrom(ctx); }
+PropositionalLogicParser::PlConjunctionContext::PlConjunctionContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
 std::any PropositionalLogicParser::PlConjunctionContext::accept(tree::ParseTreeVisitor *visitor) {
@@ -361,34 +345,19 @@ std::any PropositionalLogicParser::PlConjunctionContext::accept(tree::ParseTreeV
   else
     return visitor->visitChildren(this);
 }
-//----------------- PlFalseContext ------------------------------------------------------------------
 
-tree::TerminalNode* PropositionalLogicParser::PlFalseContext::False() {
-  return getToken(PropositionalLogicParser::False, 0);
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::formula() {
+   return formula(0);
 }
 
-PropositionalLogicParser::PlFalseContext::PlFalseContext(PlFormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any PropositionalLogicParser::PlFalseContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlFalse(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula() {
-   return plFormula(0);
-}
-
-PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula(int precedence) {
+PropositionalLogicParser::FormulaContext* PropositionalLogicParser::formula(int precedence) {
   ParserRuleContext *parentContext = _ctx;
   size_t parentState = getState();
-  PropositionalLogicParser::PlFormulaContext *_localctx = _tracker.createInstance<PlFormulaContext>(_ctx, parentState);
-  PropositionalLogicParser::PlFormulaContext *previousContext = _localctx;
+  PropositionalLogicParser::FormulaContext *_localctx = _tracker.createInstance<FormulaContext>(_ctx, parentState);
+  PropositionalLogicParser::FormulaContext *previousContext = _localctx;
   (void)previousContext; // Silence compiler, in case the context is not used by generated code.
   size_t startState = 2;
-  enterRecursionRule(_localctx, 2, PropositionalLogicParser::RulePlFormula, precedence);
+  enterRecursionRule(_localctx, 2, PropositionalLogicParser::RuleFormula, precedence);
 
     
 
@@ -402,18 +371,18 @@ PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula(
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(19);
+    setState(17);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case PropositionalLogicParser::LeftParenthesis: {
-        _localctx = _tracker.createInstance<PlParenthesisContext>(_localctx);
+        _localctx = _tracker.createInstance<ParenthesesContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
 
         setState(10);
         match(PropositionalLogicParser::LeftParenthesis);
         setState(11);
-        plFormula(0);
+        formula(0);
         setState(12);
         match(PropositionalLogicParser::RightParenthesis);
         break;
@@ -426,25 +395,7 @@ PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula(
         setState(14);
         match(PropositionalLogicParser::NegationOperator);
         setState(15);
-        plFormula(8);
-        break;
-      }
-
-      case PropositionalLogicParser::True: {
-        _localctx = _tracker.createInstance<PlTrueContext>(_localctx);
-        _ctx = _localctx;
-        previousContext = _localctx;
-        setState(16);
-        match(PropositionalLogicParser::True);
-        break;
-      }
-
-      case PropositionalLogicParser::False: {
-        _localctx = _tracker.createInstance<PlFalseContext>(_localctx);
-        _ctx = _localctx;
-        previousContext = _localctx;
-        setState(17);
-        match(PropositionalLogicParser::False);
+        formula(6);
         break;
       }
 
@@ -452,7 +403,7 @@ PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula(
         _localctx = _tracker.createInstance<PlAtomContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(18);
+        setState(16);
         proposition();
         break;
       }
@@ -461,7 +412,7 @@ PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula(
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(35);
+    setState(33);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 2, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -469,62 +420,62 @@ PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula(
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(33);
+        setState(31);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 1, _ctx)) {
         case 1: {
-          auto newContext = _tracker.createInstance<PlConjunctionContext>(_tracker.createInstance<PlFormulaContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<PlConjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RulePlFormula);
-          setState(21);
+          pushNewRecursionContext(newContext, startState, RuleFormula);
+          setState(19);
 
-          if (!(precpred(_ctx, 7))) throw FailedPredicateException(this, "precpred(_ctx, 7)");
-          setState(22);
+          if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
+          setState(20);
           match(PropositionalLogicParser::ConjunctionOperator);
-          setState(23);
-          plFormula(8);
+          setState(21);
+          formula(6);
           break;
         }
 
         case 2: {
-          auto newContext = _tracker.createInstance<PlDisjunctionContext>(_tracker.createInstance<PlFormulaContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<PlDisjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RulePlFormula);
-          setState(24);
+          pushNewRecursionContext(newContext, startState, RuleFormula);
+          setState(22);
 
-          if (!(precpred(_ctx, 6))) throw FailedPredicateException(this, "precpred(_ctx, 6)");
-          setState(25);
+          if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
+          setState(23);
           match(PropositionalLogicParser::DisjunctionOperator);
-          setState(26);
-          plFormula(7);
+          setState(24);
+          formula(5);
           break;
         }
 
         case 3: {
-          auto newContext = _tracker.createInstance<PlImplicationContext>(_tracker.createInstance<PlFormulaContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<PlImplicationContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RulePlFormula);
-          setState(27);
+          pushNewRecursionContext(newContext, startState, RuleFormula);
+          setState(25);
 
-          if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(28);
+          if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
+          setState(26);
           match(PropositionalLogicParser::ImplicationOperator);
-          setState(29);
-          plFormula(6);
+          setState(27);
+          formula(4);
           break;
         }
 
         case 4: {
-          auto newContext = _tracker.createInstance<PlIffContext>(_tracker.createInstance<PlFormulaContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<PlIffContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RulePlFormula);
-          setState(30);
+          pushNewRecursionContext(newContext, startState, RuleFormula);
+          setState(28);
 
-          if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(31);
+          if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
+          setState(29);
           match(PropositionalLogicParser::IffOperator);
-          setState(32);
-          plFormula(5);
+          setState(30);
+          formula(3);
           break;
         }
 
@@ -532,7 +483,7 @@ PropositionalLogicParser::PlFormulaContext* PropositionalLogicParser::plFormula(
           break;
         } 
       }
-      setState(37);
+      setState(35);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 2, _ctx);
     }
@@ -581,7 +532,7 @@ PropositionalLogicParser::PropositionContext* PropositionalLogicParser::proposit
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(38);
+    setState(36);
     match(PropositionalLogicParser::Identifier);
    
   }
@@ -596,7 +547,7 @@ PropositionalLogicParser::PropositionContext* PropositionalLogicParser::proposit
 
 bool PropositionalLogicParser::sempred(RuleContext *context, size_t ruleIndex, size_t predicateIndex) {
   switch (ruleIndex) {
-    case 1: return plFormulaSempred(antlrcpp::downCast<PlFormulaContext *>(context), predicateIndex);
+    case 1: return formulaSempred(antlrcpp::downCast<FormulaContext *>(context), predicateIndex);
 
   default:
     break;
@@ -604,12 +555,12 @@ bool PropositionalLogicParser::sempred(RuleContext *context, size_t ruleIndex, s
   return true;
 }
 
-bool PropositionalLogicParser::plFormulaSempred(PlFormulaContext *_localctx, size_t predicateIndex) {
+bool PropositionalLogicParser::formulaSempred(FormulaContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 0: return precpred(_ctx, 7);
-    case 1: return precpred(_ctx, 6);
-    case 2: return precpred(_ctx, 5);
-    case 3: return precpred(_ctx, 4);
+    case 0: return precpred(_ctx, 5);
+    case 1: return precpred(_ctx, 4);
+    case 2: return precpred(_ctx, 3);
+    case 3: return precpred(_ctx, 2);
 
   default:
     break;

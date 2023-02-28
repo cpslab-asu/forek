@@ -28,7 +28,7 @@ public:
   };
 
   enum {
-    RuleStart = 0, RulePlFormula = 1, RuleProposition = 2
+    RuleStart = 0, RuleFormula = 1, RuleProposition = 2
   };
 
   explicit PropositionalLogicParser(antlr4::TokenStream *input);
@@ -49,14 +49,14 @@ public:
 
 
   class StartContext;
-  class PlFormulaContext;
+  class FormulaContext;
   class PropositionContext; 
 
   class  StartContext : public antlr4::ParserRuleContext {
   public:
     StartContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    PlFormulaContext *plFormula();
+    FormulaContext *formula();
     antlr4::tree::TerminalNode *EOF();
 
 
@@ -66,12 +66,12 @@ public:
 
   StartContext* start();
 
-  class  PlFormulaContext : public antlr4::ParserRuleContext {
+  class  FormulaContext : public antlr4::ParserRuleContext {
   public:
-    PlFormulaContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    FormulaContext(antlr4::ParserRuleContext *parent, size_t invokingState);
    
-    PlFormulaContext() = default;
-    void copyFrom(PlFormulaContext *context);
+    FormulaContext() = default;
+    void copyFrom(FormulaContext *context);
     using antlr4::ParserRuleContext::copyFrom;
 
     virtual size_t getRuleIndex() const override;
@@ -79,100 +79,82 @@ public:
    
   };
 
-  class  PlNegationContext : public PlFormulaContext {
+  class  PlNegationContext : public FormulaContext {
   public:
-    PlNegationContext(PlFormulaContext *ctx);
+    PlNegationContext(FormulaContext *ctx);
 
     antlr4::tree::TerminalNode *NegationOperator();
-    PlFormulaContext *plFormula();
+    FormulaContext *formula();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlIffContext : public PlFormulaContext {
+  class  ParenthesesContext : public FormulaContext {
   public:
-    PlIffContext(PlFormulaContext *ctx);
+    ParenthesesContext(FormulaContext *ctx);
 
-    std::vector<PlFormulaContext *> plFormula();
-    PlFormulaContext* plFormula(size_t i);
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    FormulaContext *formula();
+    antlr4::tree::TerminalNode *RightParenthesis();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlIffContext : public FormulaContext {
+  public:
+    PlIffContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *IffOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlTrueContext : public PlFormulaContext {
+  class  PlAtomContext : public FormulaContext {
   public:
-    PlTrueContext(PlFormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *True();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PlAtomContext : public PlFormulaContext {
-  public:
-    PlAtomContext(PlFormulaContext *ctx);
+    PlAtomContext(FormulaContext *ctx);
 
     PropositionContext *proposition();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlParenthesisContext : public PlFormulaContext {
+  class  PlDisjunctionContext : public FormulaContext {
   public:
-    PlParenthesisContext(PlFormulaContext *ctx);
+    PlDisjunctionContext(FormulaContext *ctx);
 
-    antlr4::tree::TerminalNode *LeftParenthesis();
-    PlFormulaContext *plFormula();
-    antlr4::tree::TerminalNode *RightParenthesis();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PlDisjunctionContext : public PlFormulaContext {
-  public:
-    PlDisjunctionContext(PlFormulaContext *ctx);
-
-    std::vector<PlFormulaContext *> plFormula();
-    PlFormulaContext* plFormula(size_t i);
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *DisjunctionOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlImplicationContext : public PlFormulaContext {
+  class  PlImplicationContext : public FormulaContext {
   public:
-    PlImplicationContext(PlFormulaContext *ctx);
+    PlImplicationContext(FormulaContext *ctx);
 
-    std::vector<PlFormulaContext *> plFormula();
-    PlFormulaContext* plFormula(size_t i);
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *ImplicationOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlConjunctionContext : public PlFormulaContext {
+  class  PlConjunctionContext : public FormulaContext {
   public:
-    PlConjunctionContext(PlFormulaContext *ctx);
+    PlConjunctionContext(FormulaContext *ctx);
 
-    std::vector<PlFormulaContext *> plFormula();
-    PlFormulaContext* plFormula(size_t i);
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *ConjunctionOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlFalseContext : public PlFormulaContext {
-  public:
-    PlFalseContext(PlFormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *False();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  PlFormulaContext* plFormula();
-  PlFormulaContext* plFormula(int precedence);
+  FormulaContext* formula();
+  FormulaContext* formula(int precedence);
   class  PropositionContext : public antlr4::ParserRuleContext {
   public:
     PropositionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -189,7 +171,7 @@ public:
 
   bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;
 
-  bool plFormulaSempred(PlFormulaContext *_localctx, size_t predicateIndex);
+  bool formulaSempred(FormulaContext *_localctx, size_t predicateIndex);
 
   // By default the static state used to implement the parser is lazily initialized during the first
   // call to the constructor. You can call this function if you wish to initialize the static state

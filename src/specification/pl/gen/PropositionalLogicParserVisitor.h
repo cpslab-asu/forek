@@ -24,21 +24,17 @@ public:
 
     virtual std::any visitPlNegation(PropositionalLogicParser::PlNegationContext *context) = 0;
 
+    virtual std::any visitParentheses(PropositionalLogicParser::ParenthesesContext *context) = 0;
+
     virtual std::any visitPlIff(PropositionalLogicParser::PlIffContext *context) = 0;
 
-    virtual std::any visitPlTrue(PropositionalLogicParser::PlTrueContext *context) = 0;
-
     virtual std::any visitPlAtom(PropositionalLogicParser::PlAtomContext *context) = 0;
-
-    virtual std::any visitPlParenthesis(PropositionalLogicParser::PlParenthesisContext *context) = 0;
 
     virtual std::any visitPlDisjunction(PropositionalLogicParser::PlDisjunctionContext *context) = 0;
 
     virtual std::any visitPlImplication(PropositionalLogicParser::PlImplicationContext *context) = 0;
 
     virtual std::any visitPlConjunction(PropositionalLogicParser::PlConjunctionContext *context) = 0;
-
-    virtual std::any visitPlFalse(PropositionalLogicParser::PlFalseContext *context) = 0;
 
     virtual std::any visitProposition(PropositionalLogicParser::PropositionContext *context) = 0;
 
