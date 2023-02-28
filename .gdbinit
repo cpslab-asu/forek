@@ -9,3 +9,9 @@ set print pretty on
 # For more information, see:
 # https://sourceware.org/gdb/current/onlinedocs/gdb.pdf#Debuginfod
 set debuginfod enabled on
+
+# Print the actual (derived) type of the object.
+#
+# For more information, see:
+# https://sourceware.org/gdb/current/onlinedocs/gdb.pdf#set%20print%20object
+set print object on
