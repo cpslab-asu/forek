@@ -1,8 +1,12 @@
+#include <any>
+
+#include <pyforel/formula/core/node.hpp>
 #include <pyforel/formula/formula.hpp>
 #include <pyforel/specification/pl/pl.hpp>
 
 #include "ANTLRInputStream.h"
 #include "CommonTokenStream.h"
+#include "builder.hpp"
 #include "gen/PropositionalLogicLexer.h"
 #include "gen/PropositionalLogicParser.h"
 #include "gen/PropositionalLogicParserBaseVisitor.h"
@@ -41,9 +45,9 @@ auto PropositionalLogic::parse() const -> formula::Formula {
     // This last step traverses the parse tree to build the intermediate
     // representation using a custom visitor derived from the ANTLR-generated
     // visitor interface.
-    auto visitor = gen::PropositionalLogicParserBaseVisitor();
-    auto formula = visitor.visitStart(root);
+    auto builder = builder::PropositionalLogicBuilder();
+    auto formula = builder.visitStart(root);
 
-    return formula::Formula{};
+    return std::any_cast<formula::Formula>(formula);
 }
 }  // namespace pyforel::specification::pl
