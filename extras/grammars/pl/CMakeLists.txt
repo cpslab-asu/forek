@@ -36,7 +36,7 @@ add_custom_target("${LEXER_GRAMMAR}GrammarFile"
 antlr_target(${LEXER_GRAMMAR}
   "${CMAKE_BINARY_DIR}/antlr/grammars/${LEXER_GRAMMAR}.g4"
   LEXER
-  PACKAGE "pyforel::specification::pl::gen"
+  PACKAGE "gen"
   OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/pl/
 )
 
@@ -80,7 +80,7 @@ antlr_target(${PARSER_GRAMMAR}
   "${CMAKE_BINARY_DIR}/antlr/grammars/${PARSER_GRAMMAR}.g4"
   PARSER
   VISITOR
-  PACKAGE "pyforel::specification::pl::gen"
+  PACKAGE "gen"
   OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/pl/
   DEPENDS_ANTLR ${LEXER_GRAMMAR}
   COMPILE_FLAGS -DtokenVocab=${LEXER_GRAMMAR}
