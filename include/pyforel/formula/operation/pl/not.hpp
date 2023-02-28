@@ -4,7 +4,15 @@
 #include <pyforel/formula/operation/unary.hpp>
 
 namespace pyforel::formula::operation::pl {
-class Not : public Unary {};
+namespace kind {
+enum { Not = 4 };
+}
+
+class Not : public Unary {
+   public:
+    Not() = delete;
+    explicit Not(const core::Node& expr) : Unary(kind::Not, expr) {}
+};
 }  // namespace pyforel::formula::operation::pl
 
 #endif
