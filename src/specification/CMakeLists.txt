@@ -3,3 +3,4 @@ target_sources(pyforel PRIVATE
 )
 
 add_subdirectory(pl)
+add_subdirectory(ltl)
