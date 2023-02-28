@@ -3,6 +3,7 @@ parser grammar PropositionalLogicParser;
 start : formula EOF ;
 
 formula : LeftParenthesis formula RightParenthesis  #parentheses
+
     | NegationOperator formula                      #plNegation
     | formula ConjunctionOperator formula           #plConjunction
     | formula DisjunctionOperator formula           #plDisjunction

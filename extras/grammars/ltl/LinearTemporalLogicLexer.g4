@@ -29,3 +29,10 @@ NextOperator : 'X'
 UntilOperator : 'U'
     | 'until'
     ;
+
+/// The binary temporal connective, Release.
+///
+/// Examples: `R`, `release`.
+ReleaseOperator : 'R'
+    | 'release'
+    ;

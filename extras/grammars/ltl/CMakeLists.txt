@@ -36,6 +36,7 @@ add_custom_target("${LEXER_GRAMMAR}GrammarFile"
 antlr_target(${LEXER_GRAMMAR}
   "${CMAKE_BINARY_DIR}/antlr/grammars/${LEXER_GRAMMAR}.g4"
   LEXER
+  PACKAGE "gen"
   OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/ltl/
 )
 
@@ -84,6 +85,7 @@ antlr_target(${PARSER_GRAMMAR}
   "${CMAKE_BINARY_DIR}/antlr/grammars/${PARSER_GRAMMAR}.g4"
   PARSER
   VISITOR
+  PACKAGE "gen"
   OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/ltl/
   DEPENDS_ANTLR ${LEXER_GRAMMAR}
   COMPILE_FLAGS -DtokenVocab=${LEXER_GRAMMAR}
