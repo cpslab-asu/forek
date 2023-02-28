@@ -14,25 +14,14 @@ class Node {
     int kind_;
 
    public:
-    /// Create a clone of this object dynamically allocated.
-    ///
-    /// The resource created by this method is managed through the the standard
-    /// library smart pointer, so destructing it explicitly does not need to be
-    /// managed explicitly.
-    ///
-    /// Note: For any class deriving this class, it is required to re-define
-    /// this interface to support direct interfacing.
-    [[nodiscard]] virtual inline auto clone() const -> std::unique_ptr<Node> {
-        return std::make_unique<Node>(*this);
-    }
-
     Node() = delete;
     explicit Node(int kind) : kind_(kind) {}
 
-    Node(const Node& other) { kind_ = other.kind_; }
-    Node(Node&& other) { kind_ = std::move(other.kind_); }
-
     [[nodiscard]] inline auto kind() const -> int { return kind_; }
+    inline auto kind(int kind) { kind_ = kind; }
+
+    [[nodiscard]] virtual inline auto clone() const
+        -> std::unique_ptr<Node> = 0;
 };
 }  // namespace pyforel::formula::core
 
