@@ -1,0 +1,48 @@
+name: ANTLRv4 Workflow
+on: push
+
+env:
+  BUILD_TYPE: "RELEASE"
+
+jobs:
+  generate-common:
+    name: Generate Common
+    runs-on: ubuntu-latest
+    container: andersonjwan/devel:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Configure & Generate Project Files
+        run: cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
+      - name: Generate Common ANTLRv4 Targets
+        run: cmake --build build --config=${{env.BUILD_TYPE}} --target=CommonLexer
+  generate-pl-lexer:
+    name: Generate PL Lexer
+    runs-on: ubuntu-latest
+    container: andersonjwan/devel:latest
+    needs: [generate-common]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Configure & Generate Project Files
+        run: cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
+      - name: Generate Propositional Logic ANTLRv4 Targets
+        run: cmake --build build --config=${{env.BUILD_TYPE}} --target=PropositionalLogicLexer
+  generate-pl-parser:
+    name: Generate PL
+    runs-on: ubuntu-latest
+    container: andersonjwan/devel:latest
+    needs: [generate-common]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Configure & Generate Project Files
+        run: cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
+      - name: Generate Propositional Logic ANTLRv4 Targets
+        run: cmake --build build --config=${{env.BUILD_TYPE}} --target=PropositionalLogicParser
