@@ -11,7 +11,7 @@ NegationOperator : ExclamationMark
 
 /// The binary connective, Conjunction.
 ///
-/// Examples: `&&`, `and`.
+/// Examples: `&`, `and`.
 ConjunctionOperator : Ampersand
     | 'and'
     ;
