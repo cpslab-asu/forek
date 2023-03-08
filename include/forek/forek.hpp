@@ -1,5 +1,5 @@
-#ifndef PYFOREL_PYFOREL_HPP
-#define PYFOREL_PYFOREL_HPP
+#ifndef FOREK_FOREK_HPP
+#define FOREK_FOREK_HPP
 
 #include <forek/formula/formula.hpp>
 #include <forek/specification/ltl/ltl.hpp>
