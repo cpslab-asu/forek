@@ -5,37 +5,37 @@
 #include <memory>
 #include <utility>
 
-#include <pyforel/formula/formula.hpp>
-#include <pyforel/formula/operand/operand.hpp>
-#include <pyforel/formula/operand/proposition.hpp>
-#include <pyforel/formula/operation/ltl/always.hpp>
-#include <pyforel/formula/operation/ltl/eventually.hpp>
-#include <pyforel/formula/operation/ltl/next.hpp>
-#include <pyforel/formula/operation/ltl/release.hpp>
-#include <pyforel/formula/operation/ltl/until.hpp>
-#include <pyforel/formula/operation/pl/and.hpp>
-#include <pyforel/formula/operation/pl/iff.hpp>
-#include <pyforel/formula/operation/pl/implies.hpp>
-#include <pyforel/formula/operation/pl/not.hpp>
-#include <pyforel/formula/operation/pl/or.hpp>
+#include <forek/formula/formula.hpp>
+#include <forek/formula/operand/operand.hpp>
+#include <forek/formula/operand/proposition.hpp>
+#include <forek/formula/operation/ltl/always.hpp>
+#include <forek/formula/operation/ltl/eventually.hpp>
+#include <forek/formula/operation/ltl/next.hpp>
+#include <forek/formula/operation/ltl/release.hpp>
+#include <forek/formula/operation/ltl/until.hpp>
+#include <forek/formula/operation/pl/and.hpp>
+#include <forek/formula/operation/pl/iff.hpp>
+#include <forek/formula/operation/pl/implies.hpp>
+#include <forek/formula/operation/pl/not.hpp>
+#include <forek/formula/operation/pl/or.hpp>
 
 #include "gen/LinearTemporalLogicParser.h"
 #include "gen/LinearTemporalLogicParserVisitor.h"
 
 namespace builder {
-using pyforel::formula::Formula;
-using pyforel::formula::operand::Operand;
-using pyforel::formula::operand::Proposition;
-using pyforel::formula::operation::ltl::Always;
-using pyforel::formula::operation::ltl::Eventually;
-using pyforel::formula::operation::ltl::Next;
-using pyforel::formula::operation::ltl::Release;
-using pyforel::formula::operation::ltl::Until;
-using pyforel::formula::operation::pl::And;
-using pyforel::formula::operation::pl::Iff;
-using pyforel::formula::operation::pl::Implies;
-using pyforel::formula::operation::pl::Not;
-using pyforel::formula::operation::pl::Or;
+using forek::formula::Formula;
+using forek::formula::operand::Operand;
+using forek::formula::operand::Proposition;
+using forek::formula::operation::ltl::Always;
+using forek::formula::operation::ltl::Eventually;
+using forek::formula::operation::ltl::Next;
+using forek::formula::operation::ltl::Release;
+using forek::formula::operation::ltl::Until;
+using forek::formula::operation::pl::And;
+using forek::formula::operation::pl::Iff;
+using forek::formula::operation::pl::Implies;
+using forek::formula::operation::pl::Not;
+using forek::formula::operation::pl::Or;
 
 class LinearTemporalLogicBuilder
     : public gen::LinearTemporalLogicParserVisitor {

@@ -1,1 +1,1 @@
-#include <pyforel/specification/specification.hpp>
+#include <forek/specification/specification.hpp>

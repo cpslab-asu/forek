@@ -3,9 +3,9 @@
 
 #include <memory>
 
-#include <pyforel/formula/core/node.hpp>
+#include <forek/formula/core/node.hpp>
 
-namespace pyforel::formula::operation {
+namespace forek::formula::operation {
 class Operation : public core::Node {
    public:
     Operation() = delete;
@@ -16,6 +16,6 @@ class Operation : public core::Node {
         return std::make_unique<Operation>(this->kind());
     }
 };
-}  // namespace pyforel::formula::operation
+}  // namespace forek::formula::operation
 
 #endif

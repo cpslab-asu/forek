@@ -3,10 +3,10 @@
 
 #include <memory>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/operation/unary.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/operation/unary.hpp>
 
-namespace pyforel::formula::operation::pl {
+namespace forek::formula::operation::pl {
 namespace kind {
 enum { Not = 4 };
 }
@@ -22,6 +22,6 @@ class Not : public Unary {
         return std::make_unique<Not>(std::move(this->op()->clone()));
     }
 };
-}  // namespace pyforel::formula::operation::pl
+}  // namespace forek::formula::operation::pl
 
 #endif

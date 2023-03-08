@@ -3,7 +3,7 @@
 
 #include <memory>
 
-namespace pyforel::formula::core {
+namespace forek::formula::core {
 /// The base data structure of the IR.
 ///
 /// All structures "to-be" in the IR must derive from this interface to be
@@ -23,6 +23,6 @@ class Node {
     [[nodiscard]] virtual inline auto clone() const
         -> std::unique_ptr<Node> = 0;
 };
-}  // namespace pyforel::formula::core
+}  // namespace forek::formula::core
 
 #endif

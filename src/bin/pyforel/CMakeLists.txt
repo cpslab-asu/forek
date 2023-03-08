@@ -1,1 +1,1 @@
-add_executable(pyforeltool main.cpp)
+add_executable(forektool main.cpp)

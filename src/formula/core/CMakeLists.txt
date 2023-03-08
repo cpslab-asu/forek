@@ -1,3 +1,3 @@
-target_sources(pyforel PRIVATE
+target_sources(forek PRIVATE
   node.cpp
 )

@@ -5,10 +5,10 @@
 #include <string>
 #include <utility>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/operand/operand.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/operand/operand.hpp>
 
-namespace pyforel::formula::operand {
+namespace forek::formula::operand {
 namespace kind {
 enum { Proposition = 0 };
 }
@@ -27,6 +27,6 @@ class Proposition : public Operand {
         return std::make_unique<Proposition>(name_);
     }
 };
-}  // namespace pyforel::formula::operand
+}  // namespace forek::formula::operand
 
 #endif

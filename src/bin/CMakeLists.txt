@@ -1,1 +1,1 @@
-add_subdirectory(pyforel)
+add_subdirectory(forek)

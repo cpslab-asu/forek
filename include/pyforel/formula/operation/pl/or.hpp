@@ -3,10 +3,10 @@
 
 #include <utility>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/operation/binary.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/operation/binary.hpp>
 
-namespace pyforel::formula::operation::pl {
+namespace forek::formula::operation::pl {
 namespace kind {
 enum { Or = 5 };
 }
@@ -22,6 +22,6 @@ class Or : public Binary {
                                     std::move(this->rop()->clone()));
     }
 };
-}  // namespace pyforel::formula::operation::pl
+}  // namespace forek::formula::operation::pl
 
 #endif

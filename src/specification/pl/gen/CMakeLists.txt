@@ -1,4 +1,4 @@
-target_sources(pyforel PRIVATE
+target_sources(forek PRIVATE
   PropositionalLogicLexer.cpp
   PropositionalLogicParserBaseVisitor.cpp
   PropositionalLogicParser.cpp

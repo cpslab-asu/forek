@@ -3,9 +3,9 @@
 
 #include <memory>
 
-#include <pyforel/formula/core/node.hpp>
+#include <forek/formula/core/node.hpp>
 
-namespace pyforel::formula {
+namespace forek::formula {
 class Formula {
    private:
     std::unique_ptr<core::Node> expr_;
@@ -22,6 +22,6 @@ class Formula {
         return std::move(expr_);
     }
 };
-}  // namespace pyforel::formula
+}  // namespace forek::formula
 
 #endif

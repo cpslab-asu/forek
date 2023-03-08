@@ -3,10 +3,10 @@
 
 #include <memory>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/operation/operation.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/operation/operation.hpp>
 
-namespace pyforel::formula::operation {
+namespace forek::formula::operation {
 class Unary : public Operation {
    private:
     std::unique_ptr<core::Node> op_;
@@ -25,6 +25,6 @@ class Unary : public Operation {
         return std::make_unique<Unary>(this->kind(), std::move(op_->clone()));
     }
 };
-}  // namespace pyforel::formula::operation
+}  // namespace forek::formula::operation
 
 #endif

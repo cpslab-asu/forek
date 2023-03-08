@@ -1,8 +1,8 @@
 #include <any>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/formula.hpp>
-#include <pyforel/specification/ltl/ltl.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/formula.hpp>
+#include <forek/specification/ltl/ltl.hpp>
 
 #include "ANTLRInputStream.h"
 #include "CommonTokenStream.h"
@@ -11,7 +11,7 @@
 #include "gen/LinearTemporalLogicParser.h"
 #include "gen/LinearTemporalLogicParserBaseVisitor.h"
 
-namespace pyforel::specification::ltl {
+namespace forek::specification::ltl {
 /// Build a formula::Formula from the LTL formulae. This procedure is
 /// responsible for several steps: (1) input streaming, (2) lexical analysis,
 /// (3) token streaming, (4) parsing, and (5) IR construction.
@@ -50,4 +50,4 @@ auto LinearTemporalLogic::parse() const -> formula::Formula {
 
     return std::any_cast<formula::Formula>(formula);
 }
-}  // namespace pyforel::specification::ltl
+}  // namespace forek::specification::ltl

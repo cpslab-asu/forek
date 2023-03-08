@@ -3,10 +3,10 @@
 
 #include <string>
 
-#include <pyforel/formula/formula.hpp>
-#include <pyforel/specification/specification.hpp>
+#include <forek/formula/formula.hpp>
+#include <forek/specification/specification.hpp>
 
-namespace pyforel::specification::pl {
+namespace forek::specification::pl {
 class PropositionalLogic : public Specification {
    private:
     std::string formula_;
@@ -19,6 +19,6 @@ class PropositionalLogic : public Specification {
     /// Parse a PL formulae into a Formula.
     [[nodiscard]] auto parse() const -> formula::Formula override;
 };
-}  // namespace pyforel::specification::pl
+}  // namespace forek::specification::pl
 
 #endif

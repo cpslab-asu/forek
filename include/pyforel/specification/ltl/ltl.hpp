@@ -3,10 +3,10 @@
 
 #include <string>
 
-#include <pyforel/formula/formula.hpp>
-#include <pyforel/specification/specification.hpp>
+#include <forek/formula/formula.hpp>
+#include <forek/specification/specification.hpp>
 
-namespace pyforel::specification::ltl {
+namespace forek::specification::ltl {
 class LinearTemporalLogic : public Specification {
    private:
     std::string formula_;
@@ -19,6 +19,6 @@ class LinearTemporalLogic : public Specification {
     /// Parse a LTL formulae into a Formula.
     [[nodiscard]] auto parse() const -> formula::Formula override;
 };
-}  // namespace pyforel::specification::ltl
+}  // namespace forek::specification::ltl
 
 #endif

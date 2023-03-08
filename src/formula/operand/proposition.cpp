@@ -1,1 +1,1 @@
-#include <pyforel/formula/operand/proposition.hpp>
+#include <forek/formula/operand/proposition.hpp>

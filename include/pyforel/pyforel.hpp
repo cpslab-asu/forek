@@ -1,8 +1,8 @@
 #ifndef PYFOREL_PYFOREL_HPP
 #define PYFOREL_PYFOREL_HPP
 
-#include <pyforel/formula/formula.hpp>
-#include <pyforel/specification/ltl/ltl.hpp>
-#include <pyforel/specification/pl/pl.hpp>
+#include <forek/formula/formula.hpp>
+#include <forek/specification/ltl/ltl.hpp>
+#include <forek/specification/pl/pl.hpp>
 
 #endif

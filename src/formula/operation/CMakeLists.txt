@@ -1,4 +1,4 @@
-target_sources(pyforel PRIVATE
+target_sources(forek PRIVATE
   binary.cpp
   operation.cpp
   unary.cpp

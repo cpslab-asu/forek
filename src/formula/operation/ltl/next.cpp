@@ -1,1 +1,1 @@
-#include <pyforel/formula/operation/ltl/next.hpp>
+#include <forek/formula/operation/ltl/next.hpp>

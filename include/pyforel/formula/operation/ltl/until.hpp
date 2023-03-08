@@ -3,10 +3,10 @@
 
 #include <memory>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/operation/binary.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/operation/binary.hpp>
 
-namespace pyforel::formula::operation::ltl {
+namespace forek::formula::operation::ltl {
 namespace kind {
 enum { Until = 10 };
 }
@@ -22,5 +22,5 @@ class Until : public Binary {
                                        std::move(this->rop()->clone()));
     }
 };
-}  // namespace pyforel::formula::operation::ltl
+}  // namespace forek::formula::operation::ltl
 #endif

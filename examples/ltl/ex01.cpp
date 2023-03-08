@@ -1,6 +1,6 @@
-#include <pyforel/pyforel.hpp>
+#include <forek/forek.hpp>
 
-using pyforel::specification::ltl::LinearTemporalLogic;
+using forek::specification::ltl::LinearTemporalLogic;
 
 auto main() -> int {
     auto spec =

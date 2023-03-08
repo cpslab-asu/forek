@@ -1,14 +1,14 @@
 #ifndef PYFOREL_SPECIFICATION_SPECIFICATION_HPP
 #define PYFOREL_SPECIFICATION_SPECIFICATION_HPP
 
-#include <pyforel/formula/formula.hpp>
+#include <forek/formula/formula.hpp>
 
-namespace pyforel::specification {
+namespace forek::specification {
 class Specification {
    public:
     /// Parse a specification.
     [[nodiscard]] virtual auto parse() const -> formula::Formula = 0;
 };
-}  // namespace pyforel::specification
+}  // namespace forek::specification
 
 #endif

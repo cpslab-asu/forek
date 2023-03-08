@@ -1,8 +1,8 @@
 #include <any>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/formula.hpp>
-#include <pyforel/specification/pl/pl.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/formula.hpp>
+#include <forek/specification/pl/pl.hpp>
 
 #include "ANTLRInputStream.h"
 #include "CommonTokenStream.h"
@@ -11,7 +11,7 @@
 #include "gen/PropositionalLogicParser.h"
 #include "gen/PropositionalLogicParserBaseVisitor.h"
 
-namespace pyforel::specification::pl {
+namespace forek::specification::pl {
 /// Build a formula::Formula from the PL formulae. This procedure is responsible
 /// for several steps: (1) input streaming, (2) lexical analysis, (3) token
 /// streaming, (4) parsing, and (5) IR construction.
@@ -50,4 +50,4 @@ auto PropositionalLogic::parse() const -> formula::Formula {
 
     return std::any_cast<formula::Formula>(formula);
 }
-}  // namespace pyforel::specification::pl
+}  // namespace forek::specification::pl

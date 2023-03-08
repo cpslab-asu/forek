@@ -5,27 +5,27 @@
 #include <memory>
 #include <utility>
 
-#include <pyforel/formula/formula.hpp>
-#include <pyforel/formula/operand/operand.hpp>
-#include <pyforel/formula/operand/proposition.hpp>
-#include <pyforel/formula/operation/pl/and.hpp>
-#include <pyforel/formula/operation/pl/iff.hpp>
-#include <pyforel/formula/operation/pl/implies.hpp>
-#include <pyforel/formula/operation/pl/not.hpp>
-#include <pyforel/formula/operation/pl/or.hpp>
+#include <forek/formula/formula.hpp>
+#include <forek/formula/operand/operand.hpp>
+#include <forek/formula/operand/proposition.hpp>
+#include <forek/formula/operation/pl/and.hpp>
+#include <forek/formula/operation/pl/iff.hpp>
+#include <forek/formula/operation/pl/implies.hpp>
+#include <forek/formula/operation/pl/not.hpp>
+#include <forek/formula/operation/pl/or.hpp>
 
 #include "gen/PropositionalLogicParser.h"
 #include "gen/PropositionalLogicParserVisitor.h"
 
 namespace builder {
-using pyforel::formula::Formula;
-using pyforel::formula::operand::Operand;
-using pyforel::formula::operand::Proposition;
-using pyforel::formula::operation::pl::And;
-using pyforel::formula::operation::pl::Iff;
-using pyforel::formula::operation::pl::Implies;
-using pyforel::formula::operation::pl::Not;
-using pyforel::formula::operation::pl::Or;
+using forek::formula::Formula;
+using forek::formula::operand::Operand;
+using forek::formula::operand::Proposition;
+using forek::formula::operation::pl::And;
+using forek::formula::operation::pl::Iff;
+using forek::formula::operation::pl::Implies;
+using forek::formula::operation::pl::Not;
+using forek::formula::operation::pl::Or;
 
 class PropositionalLogicBuilder : public gen::PropositionalLogicParserVisitor {
    public:

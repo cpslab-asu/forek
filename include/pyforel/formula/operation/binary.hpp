@@ -5,10 +5,10 @@
 #include <memory>
 #include <utility>
 
-#include <pyforel/formula/core/node.hpp>
-#include <pyforel/formula/operation/operation.hpp>
+#include <forek/formula/core/node.hpp>
+#include <forek/formula/operation/operation.hpp>
 
-namespace pyforel::formula::operation {
+namespace forek::formula::operation {
 class Binary : public Operation {
    private:
     std::unique_ptr<core::Node> lop_;
@@ -36,6 +36,6 @@ class Binary : public Operation {
                                         std::move(rop_->clone()));
     }
 };
-}  // namespace pyforel::formula::operation
+}  // namespace forek::formula::operation
 
 #endif
