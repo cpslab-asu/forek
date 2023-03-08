@@ -3,4 +3,3 @@ target_sources(forek PRIVATE
 )
 
 add_subdirectory(pl)
-add_subdirectory(ltl)
