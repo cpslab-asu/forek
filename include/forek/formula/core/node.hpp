@@ -7,7 +7,7 @@ namespace forek::formula::core {
 class Node {
    public:
     virtual ~Node() = default;
-    virtual auto accept(visitor::Visitor& visitor) -> void = 0;
+    virtual auto accept(visitor::Visitor& visitor) -> void const = 0;
 };
 }  // namespace forek::formula::core
 
