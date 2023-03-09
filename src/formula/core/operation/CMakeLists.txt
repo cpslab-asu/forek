@@ -3,5 +3,3 @@ target_sources(forek PRIVATE
   operation.cpp
   unary.cpp
 )
-
-add_subdirectory(pl)

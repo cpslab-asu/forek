@@ -3,5 +3,3 @@ target_sources(forek PRIVATE
 )
 
 add_subdirectory(core)
-add_subdirectory(operand)
-add_subdirectory(operation)
