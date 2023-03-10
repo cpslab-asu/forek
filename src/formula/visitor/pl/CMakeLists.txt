@@ -1,5 +1,3 @@
 target_sources(forek PRIVATE
   visitor.cpp
 )
-
-add_subdirectory(pl)
