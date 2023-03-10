@@ -1,18 +1,34 @@
+#include "ex01.hpp"
+
+#include <memory>
+
 #include <forek/forek.hpp>
-#include <forek/formula/operand/proposition.hpp>
-#include <forek/formula/operation/pl/and.hpp>
+#include <forek/formula/core/operand/pl/false.hpp>
+#include <forek/formula/core/operand/pl/proposition.hpp>
+#include <forek/formula/core/operand/pl/true.hpp>
+#include <forek/formula/core/operation/pl/and.hpp>
+#include <forek/formula/core/operation/pl/or.hpp>
+#include <forek/formula/formula.hpp>
 
-using forek::formula::operand::Proposition;
-using forek::formula::operation::pl::And;
+using forek::examples::pl::ex01::PropositionalLogicSemantics;
 
-using forek::specification::pl::PropositionalLogic;
+using forek::formula::core::operation::pl::And;
+using forek::formula::core::operation::pl::Or;
+
+using forek::formula::core::operand::pl::False;
+using forek::formula::core::operand::pl::Proposition;
+using forek::formula::core::operand::pl::True;
 
 auto main() -> int {
-    auto spec = PropositionalLogic("(not p) implies (q and r)");
-    auto formula = spec.parse();
+    auto p = Proposition("x");
+    auto req = And(
+        std::make_unique<Proposition>("p"),
+        std::make_unique<And>(std::make_unique<Proposition>("q"),
+                              std::make_unique<Or>(std::make_unique<True>(),
+                                                   std::make_unique<False>())));
 
-    // visiting
-    auto result = formula.visit(new Visitor);
+    auto visitor = PropositionalLogicSemantics();
 
+    req.accept(visitor);
     return 0;
 }
