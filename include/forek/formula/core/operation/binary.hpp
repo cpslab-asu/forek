@@ -14,7 +14,18 @@ class Binary : public Operation {
 
    public:
     Binary() = delete;
-    auto accept(visitor::Visitor& visitor) -> void const override = 0;
+    Binary(std::unique_ptr<Node> lexpr, std::unique_ptr<Node> rexpr)
+        : lexpr_(std::move(lexpr)), rexpr_(std::move(rexpr)) {}
+
+    auto accept(visitor::Visitor& visitor) const -> void override = 0;
+
+    [[nodiscard]] inline auto lexpr() const -> const Node& {
+        return *lexpr_.get();
+    }
+
+    [[nodiscard]] inline auto rexpr() const -> const Node& {
+        return *rexpr_.get();
+    }
 };
 }  // namespace forek::formula::core::operation
 

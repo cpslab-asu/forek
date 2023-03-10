@@ -7,7 +7,7 @@
 namespace forek::formula::core::operation {
 class Operation : public Node {
    public:
-    auto accept(visitor::Visitor& visitor) -> void const override = 0;
+    auto accept(visitor::Visitor& visitor) const -> void override = 0;
 };
 }  // namespace forek::formula::core::operation
 

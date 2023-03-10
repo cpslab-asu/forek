@@ -13,7 +13,13 @@ class Unary : public Operation {
 
    public:
     Unary() = delete;
-    auto accept(visitor::Visitor& visitor) -> void const override = 0;
+    explicit Unary(std::unique_ptr<Node> expr) : expr_(std::move(expr)) {}
+
+    auto accept(visitor::Visitor& visitor) const -> void override = 0;
+
+    [[nodiscard]] inline auto expr() const -> const Node& {
+        return *expr_.get();
+    }
 };
 }  // namespace forek::formula::core::operation
 
