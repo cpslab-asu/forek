@@ -26,6 +26,12 @@ class And : public Binary {
                 "unable to visit And with provided visitor");
         }
     }
+
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override {
+        return std::make_unique<And>(std::move(lexpr_->clone()),
+                                     std::move(rexpr_->clone()));
+    }
 };
 }  // namespace forek::formula::core::operation::pl
 #endif

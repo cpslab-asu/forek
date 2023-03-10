@@ -25,6 +25,11 @@ class Not : public Unary {
                 "unable to visit Not with provided visitor");
         }
     }
+
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override {
+        return std::make_unique<Not>(std::move(expr_->clone()));
+    }
 };
 }  // namespace forek::formula::core::operation::pl
 #endif

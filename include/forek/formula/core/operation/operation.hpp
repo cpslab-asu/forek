@@ -8,6 +8,9 @@ namespace forek::formula::core::operation {
 class Operation : public Node {
    public:
     auto accept(visitor::Visitor& visitor) const -> void override = 0;
+
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override = 0;
 };
 }  // namespace forek::formula::core::operation
 

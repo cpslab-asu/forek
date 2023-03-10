@@ -31,6 +31,11 @@ class Proposition : public Operand {
         }
     }
 
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override {
+        return std::make_unique<Proposition>(name_);
+    }
+
     [[nodiscard]] auto name() const -> const std::string& { return name_; }
 };
 }  // namespace forek::formula::core::operand::pl

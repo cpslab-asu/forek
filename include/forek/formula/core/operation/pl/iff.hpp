@@ -26,6 +26,12 @@ class Iff : public Binary {
                 "unable to visit Iff with provided visitor");
         }
     }
+
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override {
+        return std::make_unique<Iff>(std::move(lexpr_->clone()),
+                                     std::move(rexpr_->clone()));
+    }
 };
 }  // namespace forek::formula::core::operation::pl
 #endif

@@ -26,6 +26,12 @@ class Or : public Binary {
                 "unable to visit Or with provided visitor");
         }
     }
+
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override {
+        return std::make_unique<Or>(std::move(lexpr_->clone()),
+                                    std::move(rexpr_->clone()));
+    }
 };
 }  // namespace forek::formula::core::operation::pl
 #endif

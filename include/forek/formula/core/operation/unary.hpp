@@ -17,6 +17,9 @@ class Unary : public Operation {
 
     auto accept(visitor::Visitor& visitor) const -> void override = 0;
 
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override = 0;
+
     [[nodiscard]] inline auto expr() const -> const Node& {
         return *expr_.get();
     }

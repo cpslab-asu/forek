@@ -21,6 +21,11 @@ class True : public Operand {
                 "unable to visit True with provided visitor");
         }
     }
+
+    [[nodiscard]] inline auto clone() const
+        -> std::unique_ptr<core::Node> override {
+        return std::make_unique<True>();
+    }
 };
 }  // namespace forek::formula::core::operand::pl
 
