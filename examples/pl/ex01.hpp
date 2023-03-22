@@ -24,53 +24,68 @@ using forek::formula::core::operand::pl::True;
 
 using forek::formula::visitor::pl::Visitor;
 
+auto map_proposition(const Proposition& p) -> bool {
+    if (p.name().compare("p") == 0) return true;
+    if (p.name().compare("q") == 0) return true;
+    return false;
+}
+
 class PropositionalLogicSemantics : public Visitor {
    public:
-    auto visit(const Not& ctx) -> void override {
-        std::cout << "visited pl::Not\n";
+    bool res = false;
 
+   public:
+    auto visit(const Not& ctx) -> void override {
         ctx.expr().accept(*this);
+        res = !res;
     }
 
     auto visit(const And& ctx) -> void override {
-        std::cout << "visited pl::And\n";
-
         ctx.lexpr().accept(*this);
+        auto lhs = res;
+
         ctx.rexpr().accept(*this);
+        auto rhs = res;
+
+        res = lhs && rhs;
     };
 
     auto visit(const Or& ctx) -> void override {
-        std::cout << "visited pl::Or\n";
-
         ctx.lexpr().accept(*this);
+        auto lhs = res;
+
         ctx.rexpr().accept(*this);
+        auto rhs = res;
+
+        res = lhs || rhs;
     }
 
     auto visit(const Implies& ctx) -> void override {
-        std::cout << "visited pl::Implies\n";
-
         ctx.lexpr().accept(*this);
+        auto lhs = res;
+
         ctx.rexpr().accept(*this);
+        auto rhs = res;
+
+        res = (!lhs) || rhs;
     }
 
     auto visit(const Iff& ctx) -> void override {
-        std::cout << "visited pl::Iff\n";
-
         ctx.lexpr().accept(*this);
+        auto lhs = res;
+
         ctx.rexpr().accept(*this);
+        auto rhs = res;
+
+        res = (!(lhs) || rhs) && (!(rhs) || lhs);
     };
 
     auto visit(const Proposition& ctx) -> void override {
-        std::cout << "visited pl::Proposition: " << ctx.name() << "\n";
+        res = map_proposition(ctx);
     }
 
-    auto visit(const True& ctx) -> void override {
-        std::cout << "visited pl::True\n";
-    }
-
-    auto visit(const False& ctx) -> void override {
-        std::cout << "visited pl::False\n";
-    }
+    auto visit(const True& ctx) -> void override { res = true; }
+    auto visit(const False& ctx) -> void override { res = false; }
 };
 
 }  // namespace forek::examples::pl::ex01
