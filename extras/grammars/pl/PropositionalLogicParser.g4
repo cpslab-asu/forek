@@ -4,8 +4,8 @@ start : formula EOF ;
 
 formula : LeftParenthesis formula RightParenthesis  #parentheses
 
-    | True                                          #plConstantTrue
-    | False                                         #plConstantFalse
+    | True                                          #plTrue
+    | False                                         #plFalse
 
     | NegationOperator formula                      #plNegation
     | formula ConjunctionOperator formula           #plConjunction

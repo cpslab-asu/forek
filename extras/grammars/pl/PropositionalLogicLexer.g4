@@ -12,14 +12,14 @@ NegationOperator : ExclamationMark
 /// The binary connective, Conjunction.
 ///
 /// Examples: `&`, `and`.
-ConjunctionOperator : Ampersand
+ConjunctionOperator : '&&'
     | 'and'
     ;
 
 /// The binary connective, Disjunction.
 ///
 /// Examples: `|`, `or`.
-DisjunctionOperator : Bar
+DisjunctionOperator : '||'
     | 'or'
     ;
 
@@ -39,10 +39,10 @@ IffOperator : '<->'
 
 /// The nullary connective, True.
 ///
-/// Examples: `True`.
-True : 'True' ;
+/// Examples: `true`.
+True : 'true' ;
 
 /// The nullary connective, False.
 ///
-/// Examples: `False`.
-False : 'False' ;
+/// Examples: `false`.
+False : 'false' ;
