@@ -48,3 +48,7 @@ add_custom_target(${LEXER_GRAMMAR}
 )
 
 add_subdirectory(pl)
+add_subdirectory(ltl)
+add_subdirectory(mtl)
+add_subdirectory(stl)
+add_subdirectory(tptl)
