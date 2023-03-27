@@ -36,7 +36,6 @@ class Visitor : public VisitorInterface {
     virtual auto visit(const core::operand::pl::False& ctx) -> void = 0;
     virtual auto visit(const core::operand::pl::Proposition& ctx) -> void = 0;
 };
-
 }  // namespace visitor::pl
 }  // namespace forek::formula
 

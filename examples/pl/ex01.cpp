@@ -1,5 +1,6 @@
 #include "ex01.hpp"
 
+#include <exception>
 #include <iostream>
 #include <memory>
 
@@ -11,11 +12,16 @@ using forek::specification::pl::PropositionalLogic;
 
 auto main() -> int {
     auto spec = PropositionalLogic("p or (q and r)");
-    auto formula = spec.parse();
+    auto interpretor = PropositionalLogicSemantics();
 
-    auto visitor = PropositionalLogicSemantics();
-    formula.evaluate(visitor);
+    try {
+        auto formula = spec.parse();
+        formula.evaluate(interpretor);
 
-    std::cout << "Valuation: " << visitor.res << "\n";
+        std::cout << "Result: " << interpretor.res << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << "\n";
+    }
+
     return 0;
 }

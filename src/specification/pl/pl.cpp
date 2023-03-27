@@ -1,12 +1,16 @@
 #include <any>
+#include <iostream>
+#include <memory>
 
 #include <forek/formula/core/node.hpp>
 #include <forek/formula/formula.hpp>
 #include <forek/specification/pl/pl.hpp>
 
 #include "ANTLRInputStream.h"
+#include "BailErrorStrategy.h"
 #include "CommonTokenStream.h"
 #include "builder.hpp"
+#include "error/handler.hpp"
 #include "gen/PropositionalLogicLexer.h"
 #include "gen/PropositionalLogicParser.h"
 #include "gen/PropositionalLogicParserBaseVisitor.h"
@@ -38,13 +42,28 @@ auto PropositionalLogic::parse() const -> formula::Formula {
     // this, the start rule is invoked. This call returns the context rule
     // to use in the visitor and walk.
     auto parser = gen::PropositionalLogicParser(&tokens);
+
+    // Remove the default set of error listeners.
+    //
+    // The current behavior when an error is encountered should be to fail
+    // completely as a formula that is not well-formed results in undefined
+    // behavior during evaluation and should not be considered reliable.
+    parser.removeErrorListeners();
+
+    // The custom default error reporting/recovery strategy is used that throws
+    // specification-specific errors upon lexical- or parse-based errors.
+    auto const handler =
+        std::make_shared<error::PropositionalLogicErrorHandler>();
+    parser.setErrorHandler(handler);
+
+    // Begin parsing from the `start` grammar rule.
     gen::PropositionalLogicParser::StartContext* root = parser.start();
 
     // Visit the parse tree.
     //
     // This last step traverses the parse tree to build the intermediate
-    // representation using a custom visitor derived from the ANTLR-generated
-    // visitor interface.
+    // representation using a custom visitor derived from the
+    // ANTLR-generated visitor interface.
     auto builder = builder::PropositionalLogicBuilder();
     auto formula = builder.visitStart(root);
 

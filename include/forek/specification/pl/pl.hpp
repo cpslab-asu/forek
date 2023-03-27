@@ -1,6 +1,7 @@
 #ifndef FOREK_SPECIFICATION_PL_PL_HPP
 #define FOREK_SPECIFICATION_PL_PL_HPP
 
+#include <stdexcept>
 #include <string>
 
 #include <forek/formula/formula.hpp>
@@ -18,6 +19,12 @@ class PropositionalLogic : public Specification {
 
     /// Parse a PL formulae into a Formula.
     [[nodiscard]] auto parse() const -> formula::Formula override;
+};
+
+class PropositionalLogicParseError : public std::runtime_error {
+   public:
+    explicit PropositionalLogicParseError(const std::string& msg)
+        : std::runtime_error(msg) {}
 };
 }  // namespace forek::specification::pl
 
