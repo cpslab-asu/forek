@@ -109,15 +109,13 @@ class PropositionalLogicBuilder : public gen::PropositionalLogicParserVisitor {
         return Formula(std::move(expr));
     }
 
-    auto visitPlConstantTrue(
-        gen::PropositionalLogicParser::PlConstantTrueContext* ctx)
+    auto visitPlTrue(gen::PropositionalLogicParser::PlTrueContext* ctx)
         -> std::any override {
         auto expr = std::make_unique<True>();
         return Formula(std::move(expr));
     }
 
-    auto visitPlConstantFalse(
-        gen::PropositionalLogicParser::PlConstantFalseContext* ctx)
+    auto visitPlFalse(gen::PropositionalLogicParser::PlFalseContext* ctx)
         -> std::any override {
         auto expr = std::make_unique<False>();
         return Formula(std::move(expr));

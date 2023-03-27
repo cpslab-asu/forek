@@ -47,10 +47,11 @@ void propositionallogicparserParserInitialize() {
       "start", "formula", "proposition"
     },
     std::vector<std::string>{
-      "", "", "", "", "", "", "'True'", "'False'", "'@'", "'&'", "'''", 
+      "", "", "", "", "", "", "'true'", "'false'", "'@'", "'&'", "'''", 
       "'*'", "'|'", "'^'", "':'", "','", "'$'", "'.'", "'='", "'!'", "'`'", 
       "'#'", "'-'", "'%'", "'+'", "'\\u003F'", "'\"'", "';'", "'~'", "'_'", 
-      "'/'", "'\\'", "'{'", "'}'", "'['", "']'", "'<'", "'>'", "'('", "')'"
+      "'/'", "'\\'", "'{'", "'}'", "'['", "']'", "'<'", "'>'", "'('", "')'", 
+      "", "", "'inf'"
     },
     std::vector<std::string>{
       "", "NegationOperator", "ConjunctionOperator", "DisjunctionOperator", 
@@ -60,13 +61,13 @@ void propositionallogicparserParserInitialize() {
       "PercentSign", "Plus", "QuestionMark", "QuotationMark", "Semicolon", 
       "Tilde", "Underscore", "Slash", "BackSlash", "LeftBrace", "RightBrace", 
       "LeftBracket", "RightBracket", "LeftChevron", "RightChevron", "LeftParenthesis", 
-      "RightParenthesis", "BlockComment", "LineComment", "Scalar", "Integer", 
-      "DecimalInteger", "BinaryInteger", "OctalInteger", "HexInteger", "Floating", 
-      "PointFloat", "ExponentFloat", "Identifier", "Whitespace"
+      "RightParenthesis", "BlockComment", "LineComment", "Infinity", "Scalar", 
+      "Integer", "DecimalInteger", "BinaryInteger", "OctalInteger", "HexInteger", 
+      "Floating", "PointFloat", "ExponentFloat", "Identifier", "Whitespace"
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,52,41,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
+  	4,1,53,41,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,3,1,20,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,5,1,34,8,1,10,1,12,1,37,9,1,1,2,1,2,1,2,0,1,2,3,0,2,4,0,0,45,0,
   	6,1,0,0,0,2,19,1,0,0,0,4,38,1,0,0,0,6,7,3,2,1,0,7,8,5,0,0,1,8,1,1,0,0,
@@ -77,7 +78,7 @@ void propositionallogicparserParserInitialize() {
   	4,0,0,25,26,5,3,0,0,26,34,3,2,1,5,27,28,10,3,0,0,28,29,5,4,0,0,29,34,
   	3,2,1,4,30,31,10,2,0,0,31,32,5,5,0,0,32,34,3,2,1,3,33,21,1,0,0,0,33,24,
   	1,0,0,0,33,27,1,0,0,0,33,30,1,0,0,0,34,37,1,0,0,0,35,33,1,0,0,0,35,36,
-  	1,0,0,0,36,3,1,0,0,0,37,35,1,0,0,0,38,39,5,51,0,0,39,5,1,0,0,0,3,19,33,
+  	1,0,0,0,36,3,1,0,0,0,37,35,1,0,0,0,38,39,5,52,0,0,39,5,1,0,0,0,3,19,33,
   	35
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
@@ -262,6 +263,21 @@ std::any PropositionalLogicParser::PlIffContext::accept(tree::ParseTreeVisitor *
   else
     return visitor->visitChildren(this);
 }
+//----------------- PlTrueContext ------------------------------------------------------------------
+
+tree::TerminalNode* PropositionalLogicParser::PlTrueContext::True() {
+  return getToken(PropositionalLogicParser::True, 0);
+}
+
+PropositionalLogicParser::PlTrueContext::PlTrueContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any PropositionalLogicParser::PlTrueContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
+    return parserVisitor->visitPlTrue(this);
+  else
+    return visitor->visitChildren(this);
+}
 //----------------- PlAtomContext ------------------------------------------------------------------
 
 PropositionalLogicParser::PropositionContext* PropositionalLogicParser::PlAtomContext::proposition() {
@@ -323,21 +339,6 @@ std::any PropositionalLogicParser::PlImplicationContext::accept(tree::ParseTreeV
   else
     return visitor->visitChildren(this);
 }
-//----------------- PlConstantTrueContext ------------------------------------------------------------------
-
-tree::TerminalNode* PropositionalLogicParser::PlConstantTrueContext::True() {
-  return getToken(PropositionalLogicParser::True, 0);
-}
-
-PropositionalLogicParser::PlConstantTrueContext::PlConstantTrueContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any PropositionalLogicParser::PlConstantTrueContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlConstantTrue(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- PlConjunctionContext ------------------------------------------------------------------
 
 std::vector<PropositionalLogicParser::FormulaContext *> PropositionalLogicParser::PlConjunctionContext::formula() {
@@ -361,18 +362,18 @@ std::any PropositionalLogicParser::PlConjunctionContext::accept(tree::ParseTreeV
   else
     return visitor->visitChildren(this);
 }
-//----------------- PlConstantFalseContext ------------------------------------------------------------------
+//----------------- PlFalseContext ------------------------------------------------------------------
 
-tree::TerminalNode* PropositionalLogicParser::PlConstantFalseContext::False() {
+tree::TerminalNode* PropositionalLogicParser::PlFalseContext::False() {
   return getToken(PropositionalLogicParser::False, 0);
 }
 
-PropositionalLogicParser::PlConstantFalseContext::PlConstantFalseContext(FormulaContext *ctx) { copyFrom(ctx); }
+PropositionalLogicParser::PlFalseContext::PlFalseContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
-std::any PropositionalLogicParser::PlConstantFalseContext::accept(tree::ParseTreeVisitor *visitor) {
+std::any PropositionalLogicParser::PlFalseContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlConstantFalse(this);
+    return parserVisitor->visitPlFalse(this);
   else
     return visitor->visitChildren(this);
 }
@@ -420,7 +421,7 @@ PropositionalLogicParser::FormulaContext* PropositionalLogicParser::formula(int 
       }
 
       case PropositionalLogicParser::True: {
-        _localctx = _tracker.createInstance<PlConstantTrueContext>(_localctx);
+        _localctx = _tracker.createInstance<PlTrueContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
         setState(14);
@@ -429,7 +430,7 @@ PropositionalLogicParser::FormulaContext* PropositionalLogicParser::formula(int 
       }
 
       case PropositionalLogicParser::False: {
-        _localctx = _tracker.createInstance<PlConstantFalseContext>(_localctx);
+        _localctx = _tracker.createInstance<PlFalseContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
         setState(15);

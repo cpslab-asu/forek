@@ -21,10 +21,10 @@ public:
     QuestionMark = 25, QuotationMark = 26, Semicolon = 27, Tilde = 28, Underscore = 29, 
     Slash = 30, BackSlash = 31, LeftBrace = 32, RightBrace = 33, LeftBracket = 34, 
     RightBracket = 35, LeftChevron = 36, RightChevron = 37, LeftParenthesis = 38, 
-    RightParenthesis = 39, BlockComment = 40, LineComment = 41, Scalar = 42, 
-    Integer = 43, DecimalInteger = 44, BinaryInteger = 45, OctalInteger = 46, 
-    HexInteger = 47, Floating = 48, PointFloat = 49, ExponentFloat = 50, 
-    Identifier = 51, Whitespace = 52
+    RightParenthesis = 39, BlockComment = 40, LineComment = 41, Infinity = 42, 
+    Scalar = 43, Integer = 44, DecimalInteger = 45, BinaryInteger = 46, 
+    OctalInteger = 47, HexInteger = 48, Floating = 49, PointFloat = 50, 
+    ExponentFloat = 51, Identifier = 52, Whitespace = 53
   };
 
   enum {
@@ -111,6 +111,15 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
+  class  PlTrueContext : public FormulaContext {
+  public:
+    PlTrueContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *True();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
   class  PlAtomContext : public FormulaContext {
   public:
     PlAtomContext(FormulaContext *ctx);
@@ -142,15 +151,6 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlConstantTrueContext : public FormulaContext {
-  public:
-    PlConstantTrueContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *True();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
   class  PlConjunctionContext : public FormulaContext {
   public:
     PlConjunctionContext(FormulaContext *ctx);
@@ -162,9 +162,9 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlConstantFalseContext : public FormulaContext {
+  class  PlFalseContext : public FormulaContext {
   public:
-    PlConstantFalseContext(FormulaContext *ctx);
+    PlFalseContext(FormulaContext *ctx);
 
     antlr4::tree::TerminalNode *False();
 

@@ -28,17 +28,17 @@ public:
 
     virtual std::any visitPlIff(PropositionalLogicParser::PlIffContext *context) = 0;
 
+    virtual std::any visitPlTrue(PropositionalLogicParser::PlTrueContext *context) = 0;
+
     virtual std::any visitPlAtom(PropositionalLogicParser::PlAtomContext *context) = 0;
 
     virtual std::any visitPlDisjunction(PropositionalLogicParser::PlDisjunctionContext *context) = 0;
 
     virtual std::any visitPlImplication(PropositionalLogicParser::PlImplicationContext *context) = 0;
 
-    virtual std::any visitPlConstantTrue(PropositionalLogicParser::PlConstantTrueContext *context) = 0;
-
     virtual std::any visitPlConjunction(PropositionalLogicParser::PlConjunctionContext *context) = 0;
 
-    virtual std::any visitPlConstantFalse(PropositionalLogicParser::PlConstantFalseContext *context) = 0;
+    virtual std::any visitPlFalse(PropositionalLogicParser::PlFalseContext *context) = 0;
 
     virtual std::any visitProposition(PropositionalLogicParser::PropositionContext *context) = 0;
 

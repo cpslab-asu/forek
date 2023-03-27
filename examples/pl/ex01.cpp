@@ -11,7 +11,7 @@ using forek::examples::pl::ex01::PropositionalLogicSemantics;
 using forek::specification::pl::PropositionalLogic;
 
 auto main() -> int {
-    auto spec = PropositionalLogic("p or (q and r)");
+    auto spec = PropositionalLogic("p or (q && r) && (m -> n)");
     auto interpretor = PropositionalLogicSemantics();
 
     try {
