@@ -89,6 +89,13 @@ RightParenthesis : ')' ;
 BlockComment : '/*' .*? '*/' -> skip ;
 LineComment : '//' .*? '\r'? '\n' -> skip ;
 
+// Infinity Token
+//
+// This is a symbolic representation of the infinity value.
+//
+// Examples: `inf`.
+Infinity : 'inf' ;
+
 // Scalars Tokens
 //
 // This includes a complex set of scalar-based tokens including integers,
