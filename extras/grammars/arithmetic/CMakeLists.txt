@@ -1,5 +1,5 @@
-set(LEXER_GRAMMAR TimedPropositionalTemporalLogicLexer)
-set(PARSER_GRAMMAR TimedPropositionalTemporalLogicParser)
+set(LEXER_GRAMMAR ArithmeticLexer)
+set(PARSER_GRAMMAR ArithmeticParser)
 
 # Copy grammar file to build tree.
 #
@@ -14,9 +14,7 @@ add_custom_command(
   # This set of dependencies should reflect the imports of this grammar file.
   # In setting this, it ensures that any dependencies this grammar file has are
   # present before running this command (i.e., copying).
-  DEPENDS
-  ArithmeticLexerGrammarFile
-  PastTimeLinearTemporalLogicLexerGrammarFile
+  DEPENDS CommonLexerGrammarFile
 )
 
 # Add target to link with command.
@@ -39,7 +37,7 @@ antlr_target(${LEXER_GRAMMAR}
   "${CMAKE_BINARY_DIR}/antlr/grammars/${LEXER_GRAMMAR}.g4"
   LEXER
   PACKAGE "gen"
-  OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/tptl/
+  OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/arithmetic/
 )
 
 # Create the target that depends on the ANTLR results.
@@ -60,13 +58,6 @@ add_custom_command(
   OUTPUT "${CMAKE_BINARY_DIR}/antlr/grammars/${PARSER_GRAMMAR}.g4"
   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/${PARSER_GRAMMAR}.g4" "${CMAKE_BINARY_DIR}/antlr/grammars/"
   MAIN_DEPENDENCY "${PARSER_GRAMMAR}.g4"
-
-  # This set of dependencies should reflect the imports of this grammar file.
-  # In setting this, it ensures that any dependencies this grammar file has are
-  # present before running this command (i.e., copying).
-  DEPENDS
-  ArithmeticParserGrammarFile
-  PastTimeLinearTemporalLogicParserGrammarFile
 )
 
 # Add target to link with command.
@@ -90,7 +81,7 @@ antlr_target(${PARSER_GRAMMAR}
   PARSER
   VISITOR
   PACKAGE "gen"
-  OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/tptl/
+  OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/antlr/arithmetic/
   DEPENDS_ANTLR ${LEXER_GRAMMAR}
   COMPILE_FLAGS -DtokenVocab=${LEXER_GRAMMAR}
 )

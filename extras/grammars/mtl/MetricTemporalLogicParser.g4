@@ -4,7 +4,7 @@ import PastTimeLinearTemporalLogicParser;
 
 start : formula EOF ;
 
-formula : LeftParenthesis formula RightParenthesis  #parentheses
+formula : LeftParenthesis formula RightParenthesis  #mtlParentheses
 
     | True                                          #plTrue
     | False                                         #plFalse

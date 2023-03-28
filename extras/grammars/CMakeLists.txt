@@ -47,6 +47,8 @@ add_custom_target(${LEXER_GRAMMAR}
   DEPENDS "${ANTLR_${LEXER_GRAMMAR}_OUTPUTS}"
 )
 
+add_subdirectory(arithmetic)
+
 add_subdirectory(pl)
 add_subdirectory(ltl)
 add_subdirectory(mtl)

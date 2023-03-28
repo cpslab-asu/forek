@@ -1,10 +1,10 @@
 parser grammar TimedPropositionalTemporalLogicParser;
 
-import PastTimeLinearTemporalLogicParser;
+import ArithmeticParser, PastTimeLinearTemporalLogicParser;
 
 start : formula EOF ;
 
-formula : LeftParenthesis formula RightParenthesis  #parentheses
+formula : LeftParenthesis formula RightParenthesis  #tptlParentheses
 
     | True                                          #plTrue
     | False                                         #plFalse
@@ -37,14 +37,3 @@ relation : LessThan                                 #tptlLessThan
     | EqualTo                                       #tptlEqualTo
     | NotEqualTo                                    #tptlNotEqualTo
     ;
-
-expression : Identifier                             #tptlVariable
-    | (Minus)? Scalar                               #tptlConstant
-
-    | expression Plus expression                    #tptlPlus
-    | expression Minus expression                   #tptlMinus
-    | expression Times expression                   #tptlTimes
-    | expression Divide expression                  #tptlDivide
-    ;
-
-proposition : Identifier ;

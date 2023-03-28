@@ -4,7 +4,7 @@ import MetricTemporalLogicParser;
 
 start : formula EOF ;
 
-formula : LeftParenthesis formula RightParenthesis  #parentheses
+formula : LeftParenthesis formula RightParenthesis  #stlParentheses
 
     | True                                          #plTrue
     | False                                         #plFalse

@@ -2,7 +2,7 @@ parser grammar PropositionalLogicParser;
 
 start : formula EOF ;
 
-formula : LeftParenthesis formula RightParenthesis  #parentheses
+formula : LeftParenthesis formula RightParenthesis  #plParentheses
 
     | True                                          #plTrue
     | False                                         #plFalse

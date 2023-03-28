@@ -1,6 +1,6 @@
 lexer grammar TimedPropositionalTemporalLogicLexer;
 
-import PastTimeLinearTemporalLogicLexer;
+import ArithmeticLexer, PastTimeLinearTemporalLogicLexer;
 
 /// The quantifier, FreezeTime.
 FreezeTime : At
@@ -36,13 +36,3 @@ EqualTo : '==' ;
 ///
 /// Examples: `!=`
 NotEqualTo : '!=' ;
-
-/// The arithmetic operator, Divide.
-///
-/// Examples: `\`
-Divide : Slash ;
-
-/// The arithmetic operator, Times.
-///
-/// Examples: `*`
-Times : Asterick ;

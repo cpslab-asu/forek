@@ -4,7 +4,7 @@ import PropositionalLogicParser;
 
 start : formula EOF ;
 
-formula : LeftParenthesis formula RightParenthesis  #parentheses
+formula : LeftParenthesis formula RightParenthesis  #ltlParentheses
 
     | True                                          #plTrue
     | False                                         #plFalse
