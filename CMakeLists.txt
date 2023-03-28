@@ -19,9 +19,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_library(${PROJECT_NAME})
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS forek)
 
+# Currently, all the headers must be publicly available as public `forek`
+# headers rely on private implementation headers that rely on external headers.
+#
+# Until a solution is found, users interfacing with this library should
+# exclusively include the library with the format <forek/...> to avoid accessing
+# unintended headers.
 target_include_directories(forek
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-  PRIVATE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external/antlr4/runtime/Cpp/runtime/src/>
+  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/specification>
+  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external/antlr4/runtime/Cpp/runtime/src/>
 )
 
 target_link_libraries(forek antlr4_static)
