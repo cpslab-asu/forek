@@ -30,7 +30,7 @@ target_link_libraries(forek antlr4_static)
 add_subdirectory(src)
 
 add_subdirectory(external)
-add_subdirectory(extras)
+add_subdirectory(extras EXCLUDE_FROM_ALL)
 
 # Examples
 add_subdirectory(examples EXCLUDE_FROM_ALL)
