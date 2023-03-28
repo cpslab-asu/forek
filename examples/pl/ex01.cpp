@@ -2,26 +2,38 @@
 
 #include <exception>
 #include <iostream>
-#include <memory>
+#include <string>
 
-#include <forek/formula/formula.hpp>
-#include <forek/specification/pl/pl.hpp>
+#include <forek/forek.hpp>
 
-using forek::examples::pl::ex01::PropositionalLogicSemantics;
+using examples::ex01::PropositionalLogicInterpretation;
 using forek::specification::pl::PropositionalLogic;
 
 auto main() -> int {
-    auto spec = PropositionalLogic("p or (q && r) && (m -> n)");
-    auto interpretor = PropositionalLogicSemantics();
+    std::string line;
 
-    try {
-        auto formula = spec.parse();
-        formula.evaluate(interpretor);
+    std::cout
+        << "Propositional Logic (PL) REPL\n\nPlease type any valid PL formula "
+           "to evaluate. The\nproposition variables `p`, `q`, and `s` are True "
+           "whereas `r` is False.\n\nEnter Ctrl+D to exit at any moment.\n\n";
 
-        std::cout << "Result: " << interpretor.res << "\n";
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << "\n";
+    std::cout << ">> ";
+    while (std::getline(std::cin, line)) {
+        auto req = PropositionalLogic<bool>(line);
+
+        try {
+            auto ir = req.parse();
+            auto interpreter = PropositionalLogicInterpretation<bool>();
+
+            ir.evaluate(interpreter);
+            std::cout << ir.expr()->data() << "\n";
+        } catch (const std::exception& e) {
+            std::cerr << "PropositionalLogic: Syntax error\n";
+        }
+
+        std::cout << ">> ";
     }
 
+    std::cout << "\n";
     return 0;
 }
