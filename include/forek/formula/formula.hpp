@@ -7,23 +7,26 @@
 #include <forek/formula/visitor/visitor.hpp>
 
 namespace forek::formula {
+template <typename T>
 class Formula {
    private:
-    std::unique_ptr<core::Node> expr_;
+    std::unique_ptr<core::Node<T>> expr_;
 
    public:
     Formula() = delete;
-    explicit Formula(std::unique_ptr<core::Node> expr)
+    explicit Formula(std::unique_ptr<core::Node<T>> expr)
         : expr_(std::move(expr)) {}
 
     Formula(const Formula& other) : expr_(std::move(other.expr_->clone())){};
     Formula(Formula&& other) : expr_(std::move(other.expr_)) {}
 
-    inline auto expr() -> std::unique_ptr<core::Node> {
+    inline auto expr() -> std::unique_ptr<core::Node<T>> {
         return std::move(expr_);
     }
 
-    auto evaluate(visitor::Visitor& visitor) -> void { expr_->accept(visitor); }
+    auto evaluate(visitor::Visitor<T>& visitor) -> void {
+        expr_->accept(visitor);
+    }
 };
 }  // namespace forek::formula
 

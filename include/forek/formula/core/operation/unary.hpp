@@ -7,20 +7,21 @@
 #include <forek/formula/visitor/visitor.hpp>
 
 namespace forek::formula::core::operation {
-class Unary : public Operation {
+template <typename T>
+class Unary : public Operation<T> {
    protected:
-    std::unique_ptr<Node> expr_;
+    std::unique_ptr<Node<T>> expr_;
 
    public:
     Unary() = delete;
-    explicit Unary(std::unique_ptr<Node> expr) : expr_(std::move(expr)) {}
+    explicit Unary(std::unique_ptr<Node<T>> expr) : expr_(std::move(expr)) {}
 
-    auto accept(visitor::Visitor& visitor) const -> void override = 0;
+    auto accept(visitor::Visitor<T>& visitor) -> void override = 0;
 
     [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node> override = 0;
+        -> std::unique_ptr<core::Node<T>> override = 0;
 
-    [[nodiscard]] inline auto expr() const -> const Node& {
+    [[nodiscard]] inline auto expr() const -> const Node<T>& {
         return *expr_.get();
     }
 };

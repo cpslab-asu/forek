@@ -1,31 +1,16 @@
 #ifndef FOREK_SPECIFICATION_PL_PL_HPP
 #define FOREK_SPECIFICATION_PL_PL_HPP
 
-#include <stdexcept>
-#include <string>
+// clang-format off
+#include "impl.hpp"
 
-#include <forek/formula/formula.hpp>
-#include <forek/specification/specification.hpp>
+// This is a private header. Therefore, the private headers must be made
+// "publicly available" in order to access this information.
+//
+// The template implementation is separated into the public headers as it
+// depends on external libraries that should not be directly supported in the
+// set of public headers.
+#include "pl/impl.tpp.hpp"
 
-namespace forek::specification::pl {
-class PropositionalLogic : public Specification {
-   private:
-    std::string formula_;
-
-   public:
-    PropositionalLogic() = delete;
-    explicit PropositionalLogic(std::string formula)
-        : formula_(std::move(formula)) {}
-
-    /// Parse a PL formulae into a Formula.
-    [[nodiscard]] auto parse() const -> formula::Formula override;
-};
-
-class PropositionalLogicParseError : public std::runtime_error {
-   public:
-    explicit PropositionalLogicParseError(const std::string& msg)
-        : std::runtime_error(msg) {}
-};
-}  // namespace forek::specification::pl
-
+// clang-format on
 #endif

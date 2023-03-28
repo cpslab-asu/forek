@@ -7,26 +7,27 @@
 #include <forek/formula/visitor/visitor.hpp>
 
 namespace forek::formula::core::operation {
-class Binary : public Operation {
+template <typename T>
+class Binary : public Operation<T> {
    protected:
-    std::unique_ptr<Node> lexpr_;
-    std::unique_ptr<Node> rexpr_;
+    std::unique_ptr<Node<T>> lexpr_;
+    std::unique_ptr<Node<T>> rexpr_;
 
    public:
     Binary() = delete;
-    Binary(std::unique_ptr<Node> lexpr, std::unique_ptr<Node> rexpr)
+    Binary(std::unique_ptr<Node<T>> lexpr, std::unique_ptr<Node<T>> rexpr)
         : lexpr_(std::move(lexpr)), rexpr_(std::move(rexpr)) {}
 
-    auto accept(visitor::Visitor& visitor) const -> void override = 0;
+    auto accept(visitor::Visitor<T>& visitor) -> void override = 0;
 
     [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node> override = 0;
+        -> std::unique_ptr<core::Node<T>> override = 0;
 
-    [[nodiscard]] inline auto lexpr() const -> const Node& {
+    [[nodiscard]] inline auto lexpr() const -> const Node<T>& {
         return *lexpr_.get();
     }
 
-    [[nodiscard]] inline auto rexpr() const -> const Node& {
+    [[nodiscard]] inline auto rexpr() const -> const Node<T>& {
         return *rexpr_.get();
     }
 };

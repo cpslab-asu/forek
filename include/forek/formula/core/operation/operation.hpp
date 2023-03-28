@@ -5,12 +5,13 @@
 #include <forek/formula/visitor/visitor.hpp>
 
 namespace forek::formula::core::operation {
-class Operation : public Node {
+template <typename T>
+class Operation : public Node<T> {
    public:
-    auto accept(visitor::Visitor& visitor) const -> void override = 0;
+    auto accept(visitor::Visitor<T>& visitor) -> void override = 0;
 
     [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node> override = 0;
+        -> std::unique_ptr<core::Node<T>> override = 0;
 };
 }  // namespace forek::formula::core::operation
 

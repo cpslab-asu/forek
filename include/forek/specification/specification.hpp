@@ -4,10 +4,11 @@
 #include <forek/formula/formula.hpp>
 
 namespace forek::specification {
+template <typename T>
 class Specification {
    public:
     /// Parse a specification.
-    [[nodiscard]] virtual auto parse() const -> formula::Formula = 0;
+    [[nodiscard]] virtual auto parse() const -> formula::Formula<T> = 0;
 };
 }  // namespace forek::specification
 

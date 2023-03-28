@@ -9,15 +9,20 @@
 #include <forek/formula/visitor/visitor.hpp>
 
 namespace forek::formula::core::operation::pl {
-class Implies : public Binary {
+template <typename T>
+class Implies : public Binary<T> {
    public:
     Implies() = delete;
-    Implies(std::unique_ptr<Node> lexpr, std::unique_ptr<Node> rexpr)
-        : Binary(std::move(lexpr), std::move(rexpr)) {}
+    Implies(std::unique_ptr<Node<T>> lexpr, std::unique_ptr<Node<T>> rexpr)
+        : Binary<T>(std::move(lexpr), std::move(rexpr)) {}
 
-    auto accept(visitor::Visitor& visitor) const -> void override {
+    auto accept(visitor::Visitor<T>& visitor) -> void override {
         try {
-            dynamic_cast<visitor::pl::Visitor&>(visitor).visit(*this);
+            this->lexpr_->accept(visitor);
+            this->rexpr_->accept(visitor);
+
+            this->data_ =
+                dynamic_cast<visitor::pl::Visitor<T>&>(visitor).visit(*this);
         } catch (const std::bad_cast&) {
             // A user error is thrown if a visitor (of a lower acceptance) is
             // attempted to be used (i.e., it is undefined behavior to downcast
@@ -28,9 +33,9 @@ class Implies : public Binary {
     }
 
     [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node> override {
-        return std::make_unique<Implies>(std::move(lexpr_->clone()),
-                                         std::move(rexpr_->clone()));
+        -> std::unique_ptr<core::Node<T>> override {
+        return std::make_unique<Implies>(std::move(this->lexpr_->clone()),
+                                         std::move(this->rexpr_->clone()));
     }
 };
 }  // namespace forek::formula::core::operation::pl

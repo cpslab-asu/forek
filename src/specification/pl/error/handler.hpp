@@ -4,7 +4,7 @@
 #include <exception>
 #include <stdexcept>
 
-#include <forek/specification/pl/pl.hpp>
+#include <forek/specification/pl/impl.hpp>
 
 #include "BailErrorStrategy.h"
 #include "Parser.h"

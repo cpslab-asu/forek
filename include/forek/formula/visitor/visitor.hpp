@@ -5,6 +5,7 @@
 #include <stdexcept>
 
 namespace forek::formula::visitor {
+template <typename T>
 class Visitor {
    public:
     virtual ~Visitor() = default;

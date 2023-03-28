@@ -8,11 +8,13 @@
 #include <forek/formula/visitor/visitor.hpp>
 
 namespace forek::formula::core::operand::pl {
-class False : public Operand {
+template <typename T>
+class False : public Operand<T> {
    public:
-    auto accept(visitor::Visitor& visitor) const -> void override {
+    auto accept(visitor::Visitor<T>& visitor) -> void override {
         try {
-            dynamic_cast<visitor::pl::Visitor&>(visitor).visit(*this);
+            this->data_ =
+                dynamic_cast<visitor::pl::Visitor<T>&>(visitor).visit(*this);
         } catch (const std::bad_cast&) {
             // A user error is thrown if a visitor (of a lower acceptance) is
             // attempted to be used (i.e., it is undefined behavior to downcast
@@ -23,7 +25,7 @@ class False : public Operand {
     }
 
     [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node> override {
+        -> std::unique_ptr<core::Node<T>> override {
         return std::make_unique<False>();
     }
 };

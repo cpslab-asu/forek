@@ -6,35 +6,47 @@
 namespace forek::formula {
 namespace core {
 namespace operand::pl {
-// forward declarations
+template <typename T>
 class True;
+
+template <typename T>
 class False;
+
+template <typename T>
 class Proposition;
 }  // namespace operand::pl
 
 namespace operation::pl {
+template <typename T>
 class Not;
+
+template <typename T>
 class And;
+
+template <typename T>
 class Or;
+
+template <typename T>
 class Implies;
+
+template <typename T>
 class Iff;
 }  // namespace operation::pl
 }  // namespace core
 
 namespace visitor::pl {
-using VisitorInterface = forek::formula::visitor::Visitor;
-
-class Visitor : public VisitorInterface {
+template <typename T>
+class Visitor : public forek::formula::visitor::Visitor<T> {
    public:
-    virtual auto visit(const core::operation::pl::Not& ctx) -> void = 0;
-    virtual auto visit(const core::operation::pl::And& ctx) -> void = 0;
-    virtual auto visit(const core::operation::pl::Or& ctx) -> void = 0;
-    virtual auto visit(const core::operation::pl::Implies& ctx) -> void = 0;
-    virtual auto visit(const core::operation::pl::Iff& ctx) -> void = 0;
+    virtual auto visit(const core::operand::pl::True<T>& ctx) -> T = 0;
+    virtual auto visit(const core::operand::pl::False<T>& ctx) -> T = 0;
+    virtual auto visit(const core::operand::pl::Proposition<T>& ctx) -> T = 0;
 
-    virtual auto visit(const core::operand::pl::True& ctx) -> void = 0;
-    virtual auto visit(const core::operand::pl::False& ctx) -> void = 0;
-    virtual auto visit(const core::operand::pl::Proposition& ctx) -> void = 0;
+    virtual auto visit(const core::operation::pl::Not<T>& ctx) -> T = 0;
+    virtual auto visit(const core::operation::pl::And<T>& ctx) -> T = 0;
+    virtual auto visit(const core::operation::pl::Or<T>& ctx) -> T = 0;
+    virtual auto visit(const core::operation::pl::Implies<T>& ctx) -> T = 0;
+    virtual auto visit(const core::operation::pl::Iff<T>& ctx) -> T = 0;
 };
 }  // namespace visitor::pl
 }  // namespace forek::formula
