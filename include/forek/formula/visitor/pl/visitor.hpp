@@ -3,8 +3,6 @@
 
 #include <forek/formula/visitor/visitor.hpp>
 
-using VisitorInterface = forek::formula::visitor::Visitor;
-
 namespace forek::formula {
 namespace core {
 namespace operand::pl {
@@ -24,6 +22,8 @@ class Iff;
 }  // namespace core
 
 namespace visitor::pl {
+using VisitorInterface = forek::formula::visitor::Visitor;
+
 class Visitor : public VisitorInterface {
    public:
     virtual auto visit(const core::operation::pl::Not& ctx) -> void = 0;
