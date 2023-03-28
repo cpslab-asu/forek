@@ -36,7 +36,9 @@ class Proposition : public Operand {
         return std::make_unique<Proposition>(name_);
     }
 
-    [[nodiscard]] auto name() const -> const std::string& { return name_; }
+    [[nodiscard]] inline auto name() const -> const std::string& {
+        return name_;
+    }
 };
 }  // namespace forek::formula::core::operand::pl
 
