@@ -4,4 +4,5 @@ target_sources(forek PRIVATE
   unary.cpp
 )
 
+add_subdirectory(arithmetic)
 add_subdirectory(pl)
