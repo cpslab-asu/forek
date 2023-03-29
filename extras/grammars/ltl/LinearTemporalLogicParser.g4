@@ -23,5 +23,3 @@ formula : LeftParenthesis formula RightParenthesis  #ltlParentheses
 
     | proposition                                   #plAtom
     ;
-
-proposition : Identifier ;
