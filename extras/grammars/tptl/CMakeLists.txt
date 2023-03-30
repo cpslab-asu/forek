@@ -16,7 +16,7 @@ add_custom_command(
   # present before running this command (i.e., copying).
   DEPENDS
   ArithmeticLexerGrammarFile
-  PastTimeLinearTemporalLogicLexerGrammarFile
+  LinearTemporalLogicLexerGrammarFile
 )
 
 # Add target to link with command.
@@ -66,7 +66,7 @@ add_custom_command(
   # present before running this command (i.e., copying).
   DEPENDS
   ArithmeticParserGrammarFile
-  PastTimeLinearTemporalLogicParserGrammarFile
+  LinearTemporalLogicParserGrammarFile
 )
 
 # Add target to link with command.

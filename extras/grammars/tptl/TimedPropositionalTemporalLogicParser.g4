@@ -1,6 +1,6 @@
 parser grammar TimedPropositionalTemporalLogicParser;
 
-import ArithmeticParser, PastTimeLinearTemporalLogicParser;
+import LinearTemporalLogicParser, ArithmeticParser;
 
 start : formula EOF ;
 
@@ -27,12 +27,12 @@ formula : LeftParenthesis formula RightParenthesis  #tptlParentheses
     | proposition                                   #plAtom
     ;
 
-timeConstraint : expression relation expression ;
+timeConstraint : expression relationalOperator expression ;
 
-relation : LessThan                                 #tptlLessThan
-    | GreaterThan                                   #tptlGreaterThan
-    | LessThanOrEqualTo                             #tptlLessThanOrEqualTo
+relationalOperator : LessThanOrEqualTo              #tptlLessThanOrEqualTo
+    | LessThan                                      #tptlLessThan
     | GreaterThanOrEqualTo                          #tptlGreaterThanOrEqualTo
+    | GreaterThan                                   #tptlGreaterThan
 
     | EqualTo                                       #tptlEqualTo
     | NotEqualTo                                    #tptlNotEqualTo

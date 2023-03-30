@@ -1,21 +1,13 @@
 lexer grammar TimedPropositionalTemporalLogicLexer;
 
-import ArithmeticLexer, PastTimeLinearTemporalLogicLexer;
+import LinearTemporalLogicLexer, ArithmeticLexer;
 
 /// The quantifier, FreezeTime.
+///
+/// Examples: `@`, `at`
 FreezeTime : At
     | 'at'
     ;
-
-/// The relational operator, Less Than.
-///
-/// Examples: `<`
-LessThan : LeftChevron ;
-
-/// The relational operator, Greater Than.
-///
-/// Examples: `>`
-GreaterThan : RightChevron ;
 
 /// The relational operator, Less Than Or Equal To.
 ///
@@ -26,6 +18,16 @@ LessThanOrEqualTo : '<=' ;
 ///
 /// Examples: `>=`
 GreaterThanOrEqualTo : '>=' ;
+
+/// The relational operator, Less Than.
+///
+/// Examples: `<`
+LessThan : LeftChevron ;
+
+/// The relational operator, Greater Than.
+///
+/// Examples: `>`
+GreaterThan : RightChevron ;
 
 /// The relational operator, Equal To.
 ///
