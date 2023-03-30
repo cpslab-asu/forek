@@ -5,7 +5,7 @@ import LinearTemporalLogicLexer, ArithmeticLexer;
 /// The quantifier, FreezeTime.
 ///
 /// Examples: `@`, `at`
-FreezeTime : At
+FreezeTime : AT
     | 'at'
     ;
 
@@ -22,12 +22,12 @@ GreaterThanOrEqualTo : '>=' ;
 /// The relational operator, Less Than.
 ///
 /// Examples: `<`
-LessThan : LeftChevron ;
+LessThan : LEFTCHEVRON ;
 
 /// The relational operator, Greater Than.
 ///
 /// Examples: `>`
-GreaterThan : RightChevron ;
+GreaterThan : RIGHTCHEVRON ;
 
 /// The relational operator, Equal To.
 ///

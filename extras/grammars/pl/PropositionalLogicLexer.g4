@@ -5,7 +5,7 @@ import CommonLexer;
 /// The unary connective, Negation.
 ///
 /// Examples: `!`, `not`.
-NegationOperator : ExclamationMark
+NegationOperator : EXCLAMATIONMARK
     | 'not'
     ;
 

@@ -5,19 +5,19 @@ import CommonLexer;
 /// The binary operation, Addition.
 ///
 /// Examples: `+`
-AdditionOperator : Plus ;
+AdditionOperator : PLUS ;
 
 /// The binary operation, Subtraction.
 ///
 /// Examples: `-`.
-SubtractionOperator : Minus ;
+SubtractionOperator : MINUS ;
 
 /// The binary operation, Multiplication.
 ///
 /// Examples: `*`.
-MultiplicationOperator : Asterick ;
+MultiplicationOperator : ASTERICK ;
 
 /// The binary operation, Division.
 ///
 /// Examples: `/`.
-DivisionOperator : Slash ;
+DivisionOperator : SLASH ;

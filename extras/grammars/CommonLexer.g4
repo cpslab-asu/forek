@@ -39,30 +39,30 @@ lexer grammar CommonLexer;
 //
 // In most cases, these definitions constitute single key-press capable
 // captures that are not inherently tied to any particular domain.
-At : '@' ;
-Ampersand : '&' ;
-Apostrophe : '\'';
-Asterick : '*' ;
-Bar : '|' ;
-Caret : '^' ;
-Colon : ':' ;
-Comma : ',' ;
-DollarSign : '$' ;
-Dot : '.' ;
-Equal : '=' ;
-ExclamationMark : '!' ;
-GraveAccent : '`' ;
-Hash : '#' ;
-Minus : '-' ;
-PercentSign : '%' ;
-Plus : '+' ;
-QuestionMark : '?' ;
-QuotationMark : '"' ;
-Semicolon : ';' ;
-Tilde : '~' ;
-Underscore : '_' ;
-Slash : '/' ;
-BackSlash : '\\' ;
+fragment AT : '@' ;
+fragment AMPERSAND : '&' ;
+fragment APOSTROPHE : '\'';
+fragment ASTERICK : '*' ;
+fragment BAR : '|' ;
+fragment CARET : '^' ;
+fragment COLON : ':' ;
+fragment COMMA : ',' ;
+fragment DOLLARSIGN : '$' ;
+fragment DOT : '.' ;
+fragment EQUAL : '=' ;
+fragment EXCLAMATIONMARK : '!' ;
+fragment GRAVEACCENT : '`' ;
+fragment HASH : '#' ;
+fragment MINUS : '-' ;
+fragment PERCENTSIGN : '%' ;
+fragment PLUS : '+' ;
+fragment QUESTIONMARK : '?' ;
+fragment QUOTATIONMARK : '"' ;
+fragment SEMICOLON : ';' ;
+fragment TILDE : '~' ;
+fragment UNDERSCORE : '_' ;
+fragment SLASH : '/' ;
+fragment BACKSLASH : '\\' ;
 
 // Braces, Brackets, Chevrons, and Parentheses Tokens
 //
@@ -74,8 +74,8 @@ RightBrace : '}' ;
 LeftBracket : '[' ;
 RightBracket : ']' ;
 
-LeftChevron : '<' ;
-RightChevron : '>' ;
+fragment LEFTCHEVRON : '<' ;
+fragment RIGHTCHEVRON : '>' ;
 
 LeftParenthesis : '(' ;
 RightParenthesis : ')' ;
