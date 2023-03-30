@@ -17,6 +17,8 @@ class Eventually : public Unary<T> {
 
     auto accept(visitor::Visitor<T>& visitor) -> void override {
         try {
+            dynamic_cast<visitor::ltl::Visitor<T>&>(visitor).setup(*this);
+
             this->expr_->accept(visitor);
             this->data_ = dynamic_cast<visitor::ltl::Visitor<T>&>(visitor).visit(*this);
         } catch (const std::bad_cast&) {

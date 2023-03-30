@@ -38,15 +38,23 @@ namespace visitor::pl {
 template <typename T>
 class Visitor : public forek::formula::visitor::Visitor<T> {
    public:
-    virtual auto visit(const core::operand::pl::True<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operand::pl::False<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operand::pl::Proposition<T>& ctx) -> T = 0;
+    virtual auto setup(core::operand::pl::True<T>& ctx) -> void {}
+    virtual auto setup(core::operand::pl::False<T>& ctx) -> void {}
+    virtual auto setup(core::operand::pl::Proposition<T>& ctx) -> void {}
+    virtual auto setup(core::operation::pl::Not<T>& ctx) -> void {}
+    virtual auto setup(core::operation::pl::And<T>& ctx) -> void {}
+    virtual auto setup(core::operation::pl::Or<T>& ctx) -> void {}
+    virtual auto setup(core::operation::pl::Implies<T>& ctx) -> void {}
+    virtual auto setup(core::operation::pl::Iff<T>& ctx) -> void {}
 
-    virtual auto visit(const core::operation::pl::Not<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::pl::And<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::pl::Or<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::pl::Implies<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::pl::Iff<T>& ctx) -> T = 0;
+    virtual auto visit(core::operand::pl::True<T>& ctx) -> T = 0;
+    virtual auto visit(core::operand::pl::False<T>& ctx) -> T = 0;
+    virtual auto visit(core::operand::pl::Proposition<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::pl::Not<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::pl::And<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::pl::Or<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::pl::Implies<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::pl::Iff<T>& ctx) -> T = 0;
 };
 }  // namespace visitor::pl
 }  // namespace forek::formula

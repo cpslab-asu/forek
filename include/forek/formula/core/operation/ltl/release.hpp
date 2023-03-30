@@ -18,6 +18,8 @@ class Release : public Binary<T> {
 
     auto accept(visitor::Visitor<T>& visitor) -> void override {
         try {
+            dynamic_cast<visitor::ltl::Visitor<T>&>(visitor).setup(*this);
+
             this->lexpr_->accept(visitor);
             this->rexpr_->accept(visitor);
 

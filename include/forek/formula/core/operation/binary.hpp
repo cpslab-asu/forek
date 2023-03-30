@@ -20,16 +20,11 @@ class Binary : public Operation<T> {
 
     auto accept(visitor::Visitor<T>& visitor) -> void override = 0;
 
-    [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node<T>> override = 0;
-
-    [[nodiscard]] inline auto lexpr() const -> const Node<T>& {
-        return *lexpr_.get();
-    }
-
-    [[nodiscard]] inline auto rexpr() const -> const Node<T>& {
-        return *rexpr_.get();
-    }
+    [[nodiscard]] inline auto clone() const -> std::unique_ptr<core::Node<T>> override = 0;
+    [[nodiscard]] inline auto lexpr() const -> const Node<T>& { return *lexpr_.get(); }
+    [[nodiscard]] inline auto rexpr() const -> const Node<T>& { return *rexpr_.get(); }
+    [[nodiscard]] inline auto lexpr() -> Node<T>& { return *lexpr_.get(); }
+    [[nodiscard]] inline auto rexpr() -> Node<T>& { return *rexpr_.get(); }
 };
 }  // namespace forek::formula::core::operation
 

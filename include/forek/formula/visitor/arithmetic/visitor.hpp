@@ -1,6 +1,8 @@
 #ifndef FOREK_FORMULA_VISITOR_ARITHMETIC_VISITOR_HPP
 #define FOREK_FORMULA_VISITOR_ARITHMETIC_VISITOR_HPP
 
+#include <map>
+
 #include <forek/formula/visitor/visitor.hpp>
 
 namespace forek::formula {
@@ -33,16 +35,31 @@ class Times;
 
 namespace visitor::arithmetic {
 template <typename T>
-class Visitor : public forek::formula::visitor::Visitor<T> {
-   public:
-    virtual auto visit(const core::operand::arithmetic::Integer<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operand::arithmetic::Real<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operand::arithmetic::Variable<T>& ctx) -> T = 0;
+using AssignmentTable = std::map<std::string, T>;
 
-    virtual auto visit(const core::operation::arithmetic::Divide<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::arithmetic::Minus<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::arithmetic::Plus<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::arithmetic::Times<T>& ctx) -> T = 0;
+template <typename T>
+class Visitor : public forek::formula::visitor::Visitor<T> {
+   protected:
+    AssignmentTable<T> assignments_;
+
+   public:
+    virtual auto setup(core::operand::arithmetic::Integer<T>& ctx) -> void {}
+    virtual auto setup(core::operand::arithmetic::Real<T>& ctx) -> void {}
+    virtual auto setup(core::operand::arithmetic::Variable<T>& ctx) -> void {}
+    virtual auto setup(core::operation::arithmetic::Divide<T>& ctx) -> void {}
+    virtual auto setup(core::operation::arithmetic::Minus<T>& ctx) -> void {}
+    virtual auto setup(core::operation::arithmetic::Plus<T>& ctx) -> void {}
+    virtual auto setup(core::operation::arithmetic::Times<T>& ctx) -> void {}
+
+    virtual auto visit(core::operand::arithmetic::Integer<T>& ctx) -> T = 0;
+    virtual auto visit(core::operand::arithmetic::Real<T>& ctx) -> T = 0;
+    virtual auto visit(core::operand::arithmetic::Variable<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::arithmetic::Divide<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::arithmetic::Minus<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::arithmetic::Plus<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::arithmetic::Times<T>& ctx) -> T = 0;
+
+    [[nodiscard]] inline auto assignments() -> AssignmentTable<T>& { return assignments_; }
 };
 }  // namespace visitor::arithmetic
 }  // namespace forek::formula

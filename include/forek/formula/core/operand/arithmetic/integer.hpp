@@ -19,6 +19,7 @@ class Integer : public Operand<T> {
 
     auto accept(visitor::Visitor<T>& visitor) -> void override {
         try {
+            dynamic_cast<visitor::arithmetic::Visitor<T>&>(visitor).setup(*this);
             this->data_ = dynamic_cast<visitor::arithmetic::Visitor<T>&>(visitor).visit(*this);
         } catch (const std::bad_cast&) {
             // A user error is thrown if a visitor (of a lower acceptance) is

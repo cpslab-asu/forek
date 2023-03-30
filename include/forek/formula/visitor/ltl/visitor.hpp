@@ -25,11 +25,17 @@ namespace visitor::ltl {
 template <typename T>
 class Visitor : public forek::formula::visitor::pl::Visitor<T> {
    public:
-    virtual auto visit(const core::operation::ltl::Always<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::ltl::Eventually<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::ltl::Next<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::ltl::Release<T>& ctx) -> T = 0;
-    virtual auto visit(const core::operation::ltl::Until<T>& ctx) -> T = 0;
+    virtual auto setup(core::operation::ltl::Always<T>& ctx) -> void {}
+    virtual auto setup(core::operation::ltl::Eventually<T>& ctx) -> void {}
+    virtual auto setup(core::operation::ltl::Next<T>& ctx) -> void {}
+    virtual auto setup(core::operation::ltl::Release<T>& ctx) -> void {}
+    virtual auto setup(core::operation::ltl::Until<T>& ctx) -> void {}
+
+    virtual auto visit(core::operation::ltl::Always<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::ltl::Eventually<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::ltl::Next<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::ltl::Release<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::ltl::Until<T>& ctx) -> T = 0;
 };
 }  // namespace visitor::ltl
 }  // namespace forek::formula
