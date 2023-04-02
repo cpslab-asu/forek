@@ -21,3 +21,8 @@ MultiplicationOperator : ASTERICK ;
 ///
 /// Examples: `/`.
 DivisionOperator : SLASH ;
+
+/// The binary operation, Modulus.
+///
+/// Examples: `%`.
+ModuloOperator : PERCENTSIGN ;

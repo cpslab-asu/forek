@@ -1,25 +1,25 @@
 parser grammar SignalTemporalLogicParser;
 
-import MetricTemporalLogicParser;
+import MetricTemporalLogicParser, ArithmeticParser;
 
 start : formula EOF ;
 
-formula : LeftParenthesis formula RightParenthesis  #stlParentheses
+formula : LeftParenthesis formula RightParenthesis  #parentheses
 
     | True                                          #plTrue
     | False                                         #plFalse
 
-    | EventuallyOperator (interval)? formula        #mtlEventually
-    | AlwaysOperator (interval)? formula            #mtlAlways
-    | NextOperator (interval)? formula              #mtlNext
-    | formula UntilOperator (interval)? formula     #mtlUntil
-    | formula ReleaseOperator (interval)? formula   #mtlRelease
+    | EventuallyOperator (interval)? formula        #ltlEventually
+    | AlwaysOperator (interval)? formula            #ltlAlways
+    | NextOperator (interval)? formula              #ltlNext
+    | formula UntilOperator (interval)? formula     #ltlUntil
+    | formula ReleaseOperator (interval)? formula   #ltlRelease
 
-    | OnceOperator (interval)? formula              #ptmtlOnce
-    | HistoricallyOperator (interval)? formula      #ptmtlHistorically
-    | PreviousOperator (interval)? formula          #ptmtlPrevious
-    | formula SinceOperator (interval)? formula     #ptmtlSince
-    | formula TriggerOperator (interval)? formula   #ptmtlTrigger
+    | OnceOperator (interval)? formula              #ptltlOnce
+    | HistoricallyOperator (interval)? formula      #ptltlHistorically
+    | PreviousOperator (interval)? formula          #ptltlPrevious
+    | formula SinceOperator (interval)? formula     #ptltlSince
+    | formula TriggerOperator (interval)? formula   #ptltlTrigger
 
     | NegationOperator formula                      #plNegation
     | formula ConjunctionOperator formula           #plConjunction
@@ -27,36 +27,22 @@ formula : LeftParenthesis formula RightParenthesis  #stlParentheses
     | formula ImplicationOperator formula           #plImplication
     | formula IffOperator formula                   #plIff
 
-    | proposition                                   #plAtom
     | predicate                                     #stlPredicate
+    | proposition                                   #plProposition
     ;
-
-/// An interval.
-///
-/// Examples: `(1.0, 2.0)`, `[1, 10)`, `[100.2, 20)`
-interval : (LeftParenthesis | LeftBracket) (Scalar | Infinity) Comma (Scalar | Infinity) (RightParenthesis | RightBracket) ;
 
 /// An arithmetic expression.
 ///
-/// Examples: `1 + 2 < 1`, `x + 2 >= 1`, `x == y`, `p != q`
-predicate : expression relation expression ;
+/// Examples: `1 + 2 < 1`, `x + 2 >= 1`, `x == y`, `p != q`.
+predicate : expression relationalOperator expression ;
 
-relation : LessThan                                 #stlLessThan
-    | GreaterThan                                   #stlGreaterThan
-    | LessThanOrEqualTo                             #stlLessThanOrEqualTo
-    | GreaterThanOrEqualTo                          #stlGreaterThanOrEqualTo
-
-    | EqualTo                                       #stlEqualTo
-    | NotEqualTo                                    #stlNotEqualTo
+/// The set of relational operators.
+///
+/// Examples: `<=`, `>=`, `<`, `>`, `==`, `!=`.
+relationalOperator : LessThanOrEqualTo
+    | GreaterThanOrEqualTo
+    | LeftChevron
+    | RightChevron
+    | EqualTo
+    | NotEqualTo
     ;
-
-expression : Identifier                             #stlVariable
-    | (Minus)? Scalar                               #stlConstant
-
-    | expression Plus expression                    #stlPlus
-    | expression Minus expression                   #stlMinus
-    | expression Times expression                   #stlTimes
-    | expression Divide expression                  #stlDivide
-    ;
-
-proposition : Identifier ;

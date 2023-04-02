@@ -4,7 +4,7 @@ import PropositionalLogicParser;
 
 start : formula EOF ;
 
-formula : LeftParenthesis formula RightParenthesis  #ltlParentheses
+formula : LeftParenthesis formula RightParenthesis  #parentheses
 
     | True                                          #plTrue
     | False                                         #plFalse
@@ -21,5 +21,5 @@ formula : LeftParenthesis formula RightParenthesis  #ltlParentheses
     | formula ImplicationOperator formula           #plImplication
     | formula IffOperator formula                   #plIff
 
-    | proposition                                   #plAtom
+    | proposition                                   #plProposition
     ;

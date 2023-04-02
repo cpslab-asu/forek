@@ -1,43 +1,23 @@
 lexer grammar SignalTemporalLogicLexer;
 
-import MetricTemporalLogicLexer;
-
-/// The relational operator, Less Than.
-///
-/// Examples: `<`
-LessThan : LeftChevron ;
-
-/// The relational operator, Greater Than.
-///
-/// Examples: `>`
-GreaterThan : RightChevron ;
+import MetricTemporalLogicLexer, ArithmeticLexer;
 
 /// The relational operator, Less Than Or Equal To.
 ///
-/// Examples: `<=`
+/// Examples: `<=`.
 LessThanOrEqualTo : '<=' ;
 
 /// The relational operator, Greater Than Or Equal To.
 ///
-/// Examples: `>=`
+/// Examples: `<=`.
 GreaterThanOrEqualTo : '>=' ;
 
 /// The relational operator, Equal To.
 ///
-/// Examples: `==`
+/// Examples: `==`.
 EqualTo : '==' ;
 
-/// The relational operator, Inequal.
+/// The relational operator, Not Equal To.
 ///
-/// Examples: `!=`
+/// Examples: `!=`.
 NotEqualTo : '!=' ;
-
-/// The arithmetic operator, Divide.
-///
-/// Examples: `\`
-Divide : Slash ;
-
-/// The arithmetic operator, Times.
-///
-/// Examples: `*`
-Times : Asterick ;

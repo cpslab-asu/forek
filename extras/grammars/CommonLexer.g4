@@ -46,7 +46,7 @@ fragment ASTERICK : '*' ;
 fragment BAR : '|' ;
 fragment CARET : '^' ;
 fragment COLON : ':' ;
-fragment COMMA : ',' ;
+Comma : ',' ;
 fragment DOLLARSIGN : '$' ;
 fragment DOT : '.' ;
 fragment EQUAL : '=' ;
@@ -74,8 +74,8 @@ RightBrace : '}' ;
 LeftBracket : '[' ;
 RightBracket : ']' ;
 
-fragment LEFTCHEVRON : '<' ;
-fragment RIGHTCHEVRON : '>' ;
+LeftChevron : '<' ;
+RightChevron : '>' ;
 
 LeftParenthesis : '(' ;
 RightParenthesis : ')' ;
