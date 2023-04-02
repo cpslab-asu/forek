@@ -40,18 +40,7 @@ auto main() -> int {
             auto interpreter = TimedPropositionalTemporalLogicInterpretation<double>(solver, model);
 
             ir.evaluate(interpreter);
-
-            int row = 0;
-            for (auto x : interpreter.evals) {
-                std::cout << row << ": ";
-                for (auto y : x) {
-                    std::cout << y << " ";
-                }
-
-                ++row;
-                std::cout << "\n";
-            }
-            // std::cout << ir.expr().get()->data() << "\n";
+            std::cout << ir.expr().get()->data() << "\n";
         } catch (const std::exception& e) {
             std::cerr << e.what() << "\n";
         }

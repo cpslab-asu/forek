@@ -56,7 +56,6 @@ using Model = std::vector<std::vector<std::string>>;
 template <typename T>
 class TimedPropositionalTemporalLogicInterpretation : public Visitor<T> {
    public:
-    std::vector<std::vector<bool>> evals;
     Model<T>& model;
 
    public:
@@ -64,93 +63,21 @@ class TimedPropositionalTemporalLogicInterpretation : public Visitor<T> {
         forek::formula::visitor::arithmetic::Visitor<T>& solver, Model<T>& model)
         : Visitor<T>(solver), model(model) {}
 
-    auto visit(Proposition<T>& ctx) -> T override {
-        evals.emplace_back();
-
-        int index = 0;
-        for (auto x : model) {
-            if (std::find(x.begin(), x.end(), ctx.name()) != x.end()) {
-                evals.back().push_back(true);
-            } else {
-                evals.back().push_back(false);
-            }
-
-            ++index;
-        }
-    }
-
+    auto visit(Proposition<T>& ctx) -> T override { return true; }
     auto visit(True<T>& ctx) -> T override { return true; }
     auto visit(False<T>& ctx) -> T override { return false; }
-
-    auto visit(Not<T>& ctx) -> T override {
-        auto last = evals.back();
-        evals.emplace_back();
-
-        for (auto x : last) {
-            evals.back().push_back(!x);
-        }
-    }
-
-    auto visit(And<T>& ctx) -> T override {
-        auto lhs = (evals.end()[-1]);
-        auto rhs = (evals.end()[-2]);
-
-        assert(lhs.size() == rhs.size());
-
-        evals.emplace_back();
-        for (int i = 0; i < lhs.size(); ++i) {
-            evals.back().push_back(lhs[i] && rhs[i]);
-        }
-    };
-
-    auto visit(Or<T>& ctx) -> T override {
-        auto lhs = (evals.end()[-1]);
-        auto rhs = (evals.end()[-2]);
-
-        assert(lhs.size() == rhs.size());
-
-        evals.emplace_back();
-        for (int i = 0; i < lhs.size(); ++i) {
-            evals.back().push_back(lhs[i] || rhs[i]);
-        }
-    }
-
-    auto visit(Implies<T>& ctx) -> T override {
-        auto lhs = (evals.end()[-1]);
-        auto rhs = (evals.end()[-2]);
-
-        assert(lhs.size() == rhs.size());
-
-        evals.emplace_back();
-        for (int i = 0; i < lhs.size(); ++i) {
-            evals.back().push_back((!lhs[i]) || rhs[i]);
-        }
-    }
-
-    auto visit(Iff<T>& ctx) -> T override {
-        auto lhs = (evals.end()[-1]);
-        auto rhs = (evals.end()[-2]);
-
-        assert(lhs.size() == rhs.size());
-
-        evals.emplace_back();
-        for (int i = 0; i < lhs.size(); ++i) {
-            evals.back().push_back((!(lhs[i]) || rhs[i]) && (!(rhs[i]) || lhs[i]));
-        }
-    };
-
+    auto visit(Not<T>& ctx) -> T override { return true; }
+    auto visit(And<T>& ctx) -> T override { return true; };
+    auto visit(Or<T>& ctx) -> T override { return true; }
+    auto visit(Implies<T>& ctx) -> T override { return true; }
+    auto visit(Iff<T>& ctx) -> T override { return true; };
     auto visit(Always<T>& ctx) -> T override { return true; }
     auto visit(Eventually<T>& ctx) -> T override { return true; }
     auto visit(Next<T>& ctx) -> T override { return true; }
     auto visit(Release<T>& ctx) -> T override { return true; }
     auto visit(Until<T>& ctx) -> T override { return true; }
-
-    auto setup(FreezeTime<T>& ctx) -> void override {
-        this->solver().assignments()[ctx.variable()] = 5;
-    }
-
-    auto visit(FreezeTime<T>& ctx) -> T override { return ctx.expr().data(); }
-    auto visit(TimeConstraint<T>& ctx) -> T override { return ctx.resolve(); };
+    auto visit(FreezeTime<T>& ctx) -> T override { return true; }
+    auto visit(TimeConstraint<T>& ctx) -> T override { return true; };
 };
 
 }  // namespace examples::ex01
