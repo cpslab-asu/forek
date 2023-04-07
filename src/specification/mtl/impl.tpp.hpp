@@ -5,17 +5,17 @@
 
 #include <forek/formula/core/node.hpp>
 #include <forek/formula/formula.hpp>
-#include <forek/specification/ltl/impl.hpp>
+#include <forek/specification/mtl/impl.hpp>
 
 #include "ANTLRInputStream.h"
 #include "CommonTokenStream.h"
 #include "builder.hpp"
 #include "error/handler.hpp"
-#include "gen/LinearTemporalLogicLexer.h"
-#include "gen/LinearTemporalLogicParser.h"
+#include "gen/MetricTemporalLogicLexer.h"
+#include "gen/MetricTemporalLogicParser.h"
 
-namespace forek::specification::ltl {
-/// Build a formula::Formula from the LTL formula. This procedure is responsible
+namespace forek::specification::mtl {
+/// Build a formula::Formula from the MTL formula. This procedure is responsible
 /// for several steps: (1) input streaming, (2) lexical analysis, (3) token
 /// streaming, (4) parsing, and (5) IR construction.
 ///
@@ -25,7 +25,7 @@ namespace forek::specification::ltl {
 /// generated files from ANTLR and the ANTLR-related API must not be visible to
 /// library users.
 template <typename T>
-auto LinearTemporalLogic<T>::parse() const -> formula::Formula<T> {
+auto MetricTemporalLogic<T>::parse() const -> formula::Formula<T> {
     // Convert formula to valid ANTLR-accepted input format.
     auto input = antlr4::ANTLRInputStream(this->formula_);
 
@@ -33,7 +33,7 @@ auto LinearTemporalLogic<T>::parse() const -> formula::Formula<T> {
     //
     // This includes creating a custom lexer and generating the set of tokens
     // from the target lexer.
-    auto lexer = gen::LinearTemporalLogicLexer(&input);
+    auto lexer = gen::MetricTemporalLogicLexer(&input);
     auto tokens = antlr4::CommonTokenStream(&lexer);
 
     // Parse the stream of tokens.
@@ -41,7 +41,7 @@ auto LinearTemporalLogic<T>::parse() const -> formula::Formula<T> {
     // The stream of tokens is passed to initialize the custom parser. From
     // this, the start rule is invoked. This call returns the context rule
     // to use in the visitor and walk.
-    auto parser = gen::LinearTemporalLogicParser(&tokens);
+    auto parser = gen::MetricTemporalLogicParser(&tokens);
 
     // Remove the default set of error listeners.
     //
@@ -52,20 +52,20 @@ auto LinearTemporalLogic<T>::parse() const -> formula::Formula<T> {
 
     // The custom default error reporting/recovery strategy is used that throws
     // specification-specific errors upon lexical- or parse-based errors.
-    auto const handler = std::make_shared<error::LinearTemporalLogicErrorHandler>();
+    auto const handler = std::make_shared<error::MetricTemporalLogicErrorHandler>();
     parser.setErrorHandler(handler);
 
     // Begin parsing from the `start` grammar rule.
-    gen::LinearTemporalLogicParser::StartContext* root = parser.start();
+    gen::MetricTemporalLogicParser::StartContext* root = parser.start();
 
     // Visit the parse tree.
     //
     // This last step traverses the parse tree to build the intermediate
     // representation using a custom visitor derived from the
     // ANTLR-generated visitor interface.
-    auto builder = builder::LinearTemporalLogicBuilder<T>();
+    auto builder = builder::MetricTemporalLogicBuilder<T>();
     auto formula = builder.visitStart(root);
 
     return std::any_cast<formula::Formula<T>>(formula);
 }
-}  // namespace forek::specification::ltl
+}  // namespace forek::specification::mtl

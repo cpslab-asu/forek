@@ -1,6 +1,6 @@
 target_sources(forek PRIVATE
-  LinearTemporalLogicLexer.cpp
-  LinearTemporalLogicParserBaseVisitor.cpp
-  LinearTemporalLogicParser.cpp
-  LinearTemporalLogicParserVisitor.cpp
+  MetricTemporalLogicLexer.cpp
+  MetricTemporalLogicParserBaseVisitor.cpp
+  MetricTemporalLogicParser.cpp
+  MetricTemporalLogicParserVisitor.cpp
 )

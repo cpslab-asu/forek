@@ -3,6 +3,7 @@
 
 #include <forek/formula/formula.hpp>
 #include <forek/specification/ltl/ltl.hpp>
+#include <forek/specification/mtl/mtl.hpp>
 #include <forek/specification/pl/pl.hpp>
 #include <forek/specification/tptl/tptl.hpp>
 

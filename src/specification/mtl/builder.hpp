@@ -1,5 +1,5 @@
-#ifndef FOREK_SPECIFICATION_LTL_BUILDER_HPP
-#define FOREK_SPECIFICATION_LTL_BUILDER_HPP
+#ifndef FOREK_SPECIFICATION_MTL_BUILDER_HPP
+#define FOREK_SPECIFICATION_MTL_BUILDER_HPP
 
 #include <any>
 #include <memory>
@@ -21,8 +21,8 @@
 #include <forek/formula/core/operation/pl/or.hpp>
 #include <forek/formula/formula.hpp>
 
-#include "gen/LinearTemporalLogicParser.h"
-#include "gen/LinearTemporalLogicParserVisitor.h"
+#include "gen/MetricTemporalLogicParser.h"
+#include "gen/MetricTemporalLogicParserVisitor.h"
 
 namespace builder {
 using forek::formula::Formula;
@@ -43,13 +43,13 @@ using forek::formula::core::operation::ltl::Release;
 using forek::formula::core::operation::ltl::Until;
 
 template <typename T>
-class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor {
+class MetricTemporalLogicBuilder : public gen::MetricTemporalLogicParserVisitor {
    public:
-    auto visitStart(gen::LinearTemporalLogicParser::StartContext* ctx) -> std::any override {
+    auto visitStart(gen::MetricTemporalLogicParser::StartContext* ctx) -> std::any override {
         return visit(ctx->formula());
     }
 
-    auto visitPlNegation(gen::LinearTemporalLogicParser::PlNegationContext* ctx)
+    auto visitPlNegation(gen::MetricTemporalLogicParser::PlNegationContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr = std::make_unique<Not<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
@@ -57,12 +57,12 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlParentheses(gen::LinearTemporalLogicParser::LtlParenthesesContext* ctx)
+    auto visitParentheses(gen::MetricTemporalLogicParser::ParenthesesContext* ctx)
         -> std::any override {
         return visit(ctx->formula());
     }
 
-    auto visitPlIff(gen::LinearTemporalLogicParser::PlIffContext* ctx) -> std::any override {
+    auto visitPlIff(gen::MetricTemporalLogicParser::PlIffContext* ctx) -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
 
@@ -72,11 +72,12 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlAtom(gen::LinearTemporalLogicParser::PlAtomContext* ctx) -> std::any override {
+    auto visitPlProposition(gen::MetricTemporalLogicParser::PlPropositionContext* ctx)
+        -> std::any override {
         return visit(ctx->proposition());
     }
 
-    auto visitPlDisjunction(gen::LinearTemporalLogicParser::PlDisjunctionContext* ctx)
+    auto visitPlDisjunction(gen::MetricTemporalLogicParser::PlDisjunctionContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -87,7 +88,7 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlImplication(gen::LinearTemporalLogicParser::PlImplicationContext* ctx)
+    auto visitPlImplication(gen::MetricTemporalLogicParser::PlImplicationContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -99,7 +100,7 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlConjunction(gen::LinearTemporalLogicParser::PlConjunctionContext* ctx)
+    auto visitPlConjunction(gen::MetricTemporalLogicParser::PlConjunctionContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -110,17 +111,17 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlTrue(gen::LinearTemporalLogicParser::PlTrueContext* ctx) -> std::any override {
+    auto visitPlTrue(gen::MetricTemporalLogicParser::PlTrueContext* ctx) -> std::any override {
         auto expr = std::make_unique<True<T>>();
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlFalse(gen::LinearTemporalLogicParser::PlFalseContext* ctx) -> std::any override {
+    auto visitPlFalse(gen::MetricTemporalLogicParser::PlFalseContext* ctx) -> std::any override {
         auto expr = std::make_unique<False<T>>();
         return Formula<T>(std::move(expr));
     }
 
-    auto visitProposition(gen::LinearTemporalLogicParser::PropositionContext* ctx)
+    auto visitProposition(gen::MetricTemporalLogicParser::PropositionContext* ctx)
         -> std::any override {
         auto name = ctx->Identifier()->getText();
 
@@ -128,7 +129,7 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlAlways(gen::LinearTemporalLogicParser::LtlAlwaysContext* ctx)
+    auto visitLtlAlways(gen::MetricTemporalLogicParser::LtlAlwaysContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr =
@@ -137,7 +138,7 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlEventually(gen::LinearTemporalLogicParser::LtlEventuallyContext* ctx)
+    auto visitLtlEventually(gen::MetricTemporalLogicParser::LtlEventuallyContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr =
@@ -146,14 +147,14 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlNext(gen::LinearTemporalLogicParser::LtlNextContext* ctx) -> std::any override {
+    auto visitLtlNext(gen::MetricTemporalLogicParser::LtlNextContext* ctx) -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr = std::make_unique<Next<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlRelease(gen::LinearTemporalLogicParser::LtlReleaseContext* ctx)
+    auto visitLtlRelease(gen::MetricTemporalLogicParser::LtlReleaseContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -165,7 +166,7 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlUntil(gen::LinearTemporalLogicParser::LtlUntilContext* ctx) -> std::any override {
+    auto visitLtlUntil(gen::MetricTemporalLogicParser::LtlUntilContext* ctx) -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
 

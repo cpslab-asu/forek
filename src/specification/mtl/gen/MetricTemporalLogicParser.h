@@ -1,5 +1,5 @@
 
-// Generated from /home/andersonjwan/Projects/forek/build/antlr/grammars/LinearTemporalLogicParser.g4 by ANTLR 4.11.1
+// Generated from /home/andersonjwan/Projects/forek/build/antlr/grammars/MetricTemporalLogicParser.g4 by ANTLR 4.11.1
 
 #pragma once
 
@@ -10,34 +10,30 @@
 namespace gen {
 
 
-class  LinearTemporalLogicParser : public antlr4::Parser {
+class  MetricTemporalLogicParser : public antlr4::Parser {
 public:
   enum {
-    EventuallyOperator = 1, AlwaysOperator = 2, NextOperator = 3, UntilOperator = 4, 
-    ReleaseOperator = 5, NegationOperator = 6, ConjunctionOperator = 7, 
-    DisjunctionOperator = 8, ImplicationOperator = 9, IffOperator = 10, 
-    True = 11, False = 12, At = 13, Ampersand = 14, Apostrophe = 15, Asterick = 16, 
-    Bar = 17, Caret = 18, Colon = 19, Comma = 20, DollarSign = 21, Dot = 22, 
-    Equal = 23, ExclamationMark = 24, GraveAccent = 25, Hash = 26, Minus = 27, 
-    PercentSign = 28, Plus = 29, QuestionMark = 30, QuotationMark = 31, 
-    Semicolon = 32, Tilde = 33, Underscore = 34, Slash = 35, BackSlash = 36, 
-    LeftBrace = 37, RightBrace = 38, LeftBracket = 39, RightBracket = 40, 
-    LeftChevron = 41, RightChevron = 42, LeftParenthesis = 43, RightParenthesis = 44, 
-    BlockComment = 45, LineComment = 46, Infinity = 47, Scalar = 48, Integer = 49, 
-    DecimalInteger = 50, BinaryInteger = 51, OctalInteger = 52, HexInteger = 53, 
-    Floating = 54, PointFloat = 55, ExponentFloat = 56, Identifier = 57, 
-    Whitespace = 58
+    OnceOperator = 1, HistoricallyOperator = 2, PreviousOperator = 3, SinceOperator = 4, 
+    TriggerOperator = 5, EventuallyOperator = 6, AlwaysOperator = 7, NextOperator = 8, 
+    UntilOperator = 9, ReleaseOperator = 10, NegationOperator = 11, ConjunctionOperator = 12, 
+    DisjunctionOperator = 13, ImplicationOperator = 14, IffOperator = 15, 
+    True = 16, False = 17, Comma = 18, LeftBrace = 19, RightBrace = 20, 
+    LeftBracket = 21, RightBracket = 22, LeftChevron = 23, RightChevron = 24, 
+    LeftParenthesis = 25, RightParenthesis = 26, BlockComment = 27, LineComment = 28, 
+    Infinity = 29, Scalar = 30, Integer = 31, DecimalInteger = 32, BinaryInteger = 33, 
+    OctalInteger = 34, HexInteger = 35, Floating = 36, PointFloat = 37, 
+    ExponentFloat = 38, Identifier = 39, Whitespace = 40
   };
 
   enum {
-    RuleStart = 0, RuleFormula = 1, RuleProposition = 2
+    RuleStart = 0, RuleFormula = 1, RuleInterval = 2, RuleProposition = 3
   };
 
-  explicit LinearTemporalLogicParser(antlr4::TokenStream *input);
+  explicit MetricTemporalLogicParser(antlr4::TokenStream *input);
 
-  LinearTemporalLogicParser(antlr4::TokenStream *input, const antlr4::atn::ParserATNSimulatorOptions &options);
+  MetricTemporalLogicParser(antlr4::TokenStream *input, const antlr4::atn::ParserATNSimulatorOptions &options);
 
-  ~LinearTemporalLogicParser() override;
+  ~MetricTemporalLogicParser() override;
 
   std::string getGrammarFileName() const override;
 
@@ -52,6 +48,7 @@ public:
 
   class StartContext;
   class FormulaContext;
+  class IntervalContext;
   class PropositionContext; 
 
   class  StartContext : public antlr4::ParserRuleContext {
@@ -91,11 +88,24 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlAtomContext : public FormulaContext {
+  class  ParenthesesContext : public FormulaContext {
   public:
-    PlAtomContext(FormulaContext *ctx);
+    ParenthesesContext(FormulaContext *ctx);
 
-    PropositionContext *proposition();
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    FormulaContext *formula();
+    antlr4::tree::TerminalNode *RightParenthesis();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlOnceContext : public FormulaContext {
+  public:
+    PtltlOnceContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *OnceOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -107,6 +117,7 @@ public:
     std::vector<FormulaContext *> formula();
     FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *UntilOperator();
+    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -142,23 +153,24 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
+  class  PtltlHistoricallyContext : public FormulaContext {
+  public:
+    PtltlHistoricallyContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *HistoricallyOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
   class  LtlAlwaysContext : public FormulaContext {
   public:
     LtlAlwaysContext(FormulaContext *ctx);
 
     antlr4::tree::TerminalNode *AlwaysOperator();
     FormulaContext *formula();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  LtlParenthesesContext : public FormulaContext {
-  public:
-    LtlParenthesesContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *LeftParenthesis();
-    FormulaContext *formula();
-    antlr4::tree::TerminalNode *RightParenthesis();
+    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -194,6 +206,15 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
+  class  PlPropositionContext : public FormulaContext {
+  public:
+    PlPropositionContext(FormulaContext *ctx);
+
+    PropositionContext *proposition();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
   class  LtlReleaseContext : public FormulaContext {
   public:
     LtlReleaseContext(FormulaContext *ctx);
@@ -201,6 +222,42 @@ public:
     std::vector<FormulaContext *> formula();
     FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *ReleaseOperator();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlPreviousContext : public FormulaContext {
+  public:
+    PtltlPreviousContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *PreviousOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlSinceContext : public FormulaContext {
+  public:
+    PtltlSinceContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *SinceOperator();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlTriggerContext : public FormulaContext {
+  public:
+    PtltlTriggerContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *TriggerOperator();
+    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -211,6 +268,7 @@ public:
 
     antlr4::tree::TerminalNode *EventuallyOperator();
     FormulaContext *formula();
+    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -221,12 +279,34 @@ public:
 
     antlr4::tree::TerminalNode *NextOperator();
     FormulaContext *formula();
+    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
   FormulaContext* formula();
   FormulaContext* formula(int precedence);
+  class  IntervalContext : public antlr4::ParserRuleContext {
+  public:
+    IntervalContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Comma();
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    antlr4::tree::TerminalNode *LeftBracket();
+    std::vector<antlr4::tree::TerminalNode *> Scalar();
+    antlr4::tree::TerminalNode* Scalar(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> Infinity();
+    antlr4::tree::TerminalNode* Infinity(size_t i);
+    antlr4::tree::TerminalNode *RightParenthesis();
+    antlr4::tree::TerminalNode *RightBracket();
+
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  IntervalContext* interval();
+
   class  PropositionContext : public antlr4::ParserRuleContext {
   public:
     PropositionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
