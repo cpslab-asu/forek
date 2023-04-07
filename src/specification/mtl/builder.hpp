@@ -258,10 +258,10 @@ class MetricTemporalLogicBuilder : public gen::MetricTemporalLogicParserVisitor 
         }
 
         double upper;
-        if (ctx->Infinity(0)) {
+        if (ctx->Infinity(1)) {
             upper = std::numeric_limits<double>::infinity();
         } else {
-            upper = std::stod(ctx->Scalar(0)->getText());
+            upper = std::stod(ctx->Scalar(1)->getText());
         }
 
         if (ctx->LeftParenthesis()) {
