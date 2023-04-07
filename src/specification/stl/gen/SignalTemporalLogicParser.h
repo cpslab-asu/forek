@@ -1,0 +1,511 @@
+
+// Generated from /home/andersonjwan/Projects/forek/build/antlr/grammars/SignalTemporalLogicParser.g4 by ANTLR 4.11.1
+
+#pragma once
+
+
+#include "antlr4-runtime.h"
+
+
+namespace gen {
+
+
+class  SignalTemporalLogicParser : public antlr4::Parser {
+public:
+  enum {
+    LessThanOrEqualTo = 1, GreaterThanOrEqualTo = 2, EqualTo = 3, NotEqualTo = 4, 
+    OnceOperator = 5, HistoricallyOperator = 6, PreviousOperator = 7, SinceOperator = 8, 
+    TriggerOperator = 9, EventuallyOperator = 10, AlwaysOperator = 11, NextOperator = 12, 
+    UntilOperator = 13, ReleaseOperator = 14, NegationOperator = 15, ConjunctionOperator = 16, 
+    DisjunctionOperator = 17, ImplicationOperator = 18, IffOperator = 19, 
+    True = 20, False = 21, Comma = 22, LeftBrace = 23, RightBrace = 24, 
+    LeftBracket = 25, RightBracket = 26, LeftChevron = 27, RightChevron = 28, 
+    LeftParenthesis = 29, RightParenthesis = 30, BlockComment = 31, LineComment = 32, 
+    Infinity = 33, Scalar = 34, Integer = 35, DecimalInteger = 36, BinaryInteger = 37, 
+    OctalInteger = 38, HexInteger = 39, Floating = 40, PointFloat = 41, 
+    ExponentFloat = 42, Identifier = 43, Whitespace = 44, AdditionOperator = 45, 
+    SubtractionOperator = 46, MultiplicationOperator = 47, DivisionOperator = 48, 
+    ModuloOperator = 49
+  };
+
+  enum {
+    RuleStart = 0, RuleFormula = 1, RulePredicate = 2, RuleRelationalOperator = 3, 
+    RuleInterval = 4, RuleProposition = 5, RuleExpression = 6, RuleTerm = 7
+  };
+
+  explicit SignalTemporalLogicParser(antlr4::TokenStream *input);
+
+  SignalTemporalLogicParser(antlr4::TokenStream *input, const antlr4::atn::ParserATNSimulatorOptions &options);
+
+  ~SignalTemporalLogicParser() override;
+
+  std::string getGrammarFileName() const override;
+
+  const antlr4::atn::ATN& getATN() const override;
+
+  const std::vector<std::string>& getRuleNames() const override;
+
+  const antlr4::dfa::Vocabulary& getVocabulary() const override;
+
+  antlr4::atn::SerializedATNView getSerializedATN() const override;
+
+
+  class StartContext;
+  class FormulaContext;
+  class PredicateContext;
+  class RelationalOperatorContext;
+  class IntervalContext;
+  class PropositionContext;
+  class ExpressionContext;
+  class TermContext; 
+
+  class  StartContext : public antlr4::ParserRuleContext {
+  public:
+    StartContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    FormulaContext *formula();
+    antlr4::tree::TerminalNode *EOF();
+
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  StartContext* start();
+
+  class  FormulaContext : public antlr4::ParserRuleContext {
+  public:
+    FormulaContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+   
+    FormulaContext() = default;
+    void copyFrom(FormulaContext *context);
+    using antlr4::ParserRuleContext::copyFrom;
+
+    virtual size_t getRuleIndex() const override;
+
+   
+  };
+
+  class  PlNegationContext : public FormulaContext {
+  public:
+    PlNegationContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *NegationOperator();
+    FormulaContext *formula();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ParenthesesContext : public FormulaContext {
+  public:
+    ParenthesesContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    FormulaContext *formula();
+    antlr4::tree::TerminalNode *RightParenthesis();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlOnceContext : public FormulaContext {
+  public:
+    PtltlOnceContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *OnceOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  LtlUntilContext : public FormulaContext {
+  public:
+    LtlUntilContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *UntilOperator();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlImplicationContext : public FormulaContext {
+  public:
+    PlImplicationContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *ImplicationOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlConjunctionContext : public FormulaContext {
+  public:
+    PlConjunctionContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *ConjunctionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlFalseContext : public FormulaContext {
+  public:
+    PlFalseContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *False();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlHistoricallyContext : public FormulaContext {
+  public:
+    PtltlHistoricallyContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *HistoricallyOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  StlPredicateContext : public FormulaContext {
+  public:
+    StlPredicateContext(FormulaContext *ctx);
+
+    PredicateContext *predicate();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  LtlAlwaysContext : public FormulaContext {
+  public:
+    LtlAlwaysContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *AlwaysOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlIffContext : public FormulaContext {
+  public:
+    PlIffContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *IffOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlTrueContext : public FormulaContext {
+  public:
+    PlTrueContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *True();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlDisjunctionContext : public FormulaContext {
+  public:
+    PlDisjunctionContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *DisjunctionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlPropositionContext : public FormulaContext {
+  public:
+    PlPropositionContext(FormulaContext *ctx);
+
+    PropositionContext *proposition();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  LtlReleaseContext : public FormulaContext {
+  public:
+    LtlReleaseContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *ReleaseOperator();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlPreviousContext : public FormulaContext {
+  public:
+    PtltlPreviousContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *PreviousOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlSinceContext : public FormulaContext {
+  public:
+    PtltlSinceContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *SinceOperator();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlTriggerContext : public FormulaContext {
+  public:
+    PtltlTriggerContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *TriggerOperator();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  LtlEventuallyContext : public FormulaContext {
+  public:
+    LtlEventuallyContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *EventuallyOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  LtlNextContext : public FormulaContext {
+  public:
+    LtlNextContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *NextOperator();
+    FormulaContext *formula();
+    IntervalContext *interval();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  FormulaContext* formula();
+  FormulaContext* formula(int precedence);
+  class  PredicateContext : public antlr4::ParserRuleContext {
+  public:
+    PredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    RelationalOperatorContext *relationalOperator();
+
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PredicateContext* predicate();
+
+  class  RelationalOperatorContext : public antlr4::ParserRuleContext {
+  public:
+    RelationalOperatorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *LessThanOrEqualTo();
+    antlr4::tree::TerminalNode *GreaterThanOrEqualTo();
+    antlr4::tree::TerminalNode *LeftChevron();
+    antlr4::tree::TerminalNode *RightChevron();
+    antlr4::tree::TerminalNode *EqualTo();
+    antlr4::tree::TerminalNode *NotEqualTo();
+
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  RelationalOperatorContext* relationalOperator();
+
+  class  IntervalContext : public antlr4::ParserRuleContext {
+  public:
+    IntervalContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Comma();
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    antlr4::tree::TerminalNode *LeftBracket();
+    std::vector<antlr4::tree::TerminalNode *> Scalar();
+    antlr4::tree::TerminalNode* Scalar(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> Infinity();
+    antlr4::tree::TerminalNode* Infinity(size_t i);
+    antlr4::tree::TerminalNode *RightParenthesis();
+    antlr4::tree::TerminalNode *RightBracket();
+
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  IntervalContext* interval();
+
+  class  PropositionContext : public antlr4::ParserRuleContext {
+  public:
+    PropositionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Identifier();
+
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PropositionContext* proposition();
+
+  class  ExpressionContext : public antlr4::ParserRuleContext {
+  public:
+    ExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+   
+    ExpressionContext() = default;
+    void copyFrom(ExpressionContext *context);
+    using antlr4::ParserRuleContext::copyFrom;
+
+    virtual size_t getRuleIndex() const override;
+
+   
+  };
+
+  class  ArithmeticMinusContext : public ExpressionContext {
+  public:
+    ArithmeticMinusContext(ExpressionContext *ctx);
+
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    antlr4::tree::TerminalNode *SubtractionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticTimesContext : public ExpressionContext {
+  public:
+    ArithmeticTimesContext(ExpressionContext *ctx);
+
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    antlr4::tree::TerminalNode *MultiplicationOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticParenthesesContext : public ExpressionContext {
+  public:
+    ArithmeticParenthesesContext(ExpressionContext *ctx);
+
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    ExpressionContext *expression();
+    antlr4::tree::TerminalNode *RightParenthesis();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticDivideContext : public ExpressionContext {
+  public:
+    ArithmeticDivideContext(ExpressionContext *ctx);
+
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    antlr4::tree::TerminalNode *DivisionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticTermContext : public ExpressionContext {
+  public:
+    ArithmeticTermContext(ExpressionContext *ctx);
+
+    TermContext *term();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticPlusContext : public ExpressionContext {
+  public:
+    ArithmeticPlusContext(ExpressionContext *ctx);
+
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    antlr4::tree::TerminalNode *AdditionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticModuloContext : public ExpressionContext {
+  public:
+    ArithmeticModuloContext(ExpressionContext *ctx);
+
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    antlr4::tree::TerminalNode *ModuloOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  ExpressionContext* expression();
+  ExpressionContext* expression(int precedence);
+  class  TermContext : public antlr4::ParserRuleContext {
+  public:
+    TermContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+   
+    TermContext() = default;
+    void copyFrom(TermContext *context);
+    using antlr4::ParserRuleContext::copyFrom;
+
+    virtual size_t getRuleIndex() const override;
+
+   
+  };
+
+  class  ArithmeticConstantContext : public TermContext {
+  public:
+    ArithmeticConstantContext(TermContext *ctx);
+
+    antlr4::tree::TerminalNode *Scalar();
+    antlr4::tree::TerminalNode *SubtractionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticVariableContext : public TermContext {
+  public:
+    ArithmeticVariableContext(TermContext *ctx);
+
+    antlr4::tree::TerminalNode *Identifier();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  TermContext* term();
+
+
+  bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;
+
+  bool formulaSempred(FormulaContext *_localctx, size_t predicateIndex);
+  bool expressionSempred(ExpressionContext *_localctx, size_t predicateIndex);
+
+  // By default the static state used to implement the parser is lazily initialized during the first
+  // call to the constructor. You can call this function if you wish to initialize the static state
+  // ahead of time.
+  static void initialize();
+
+private:
+};
+
+}  // namespace gen
