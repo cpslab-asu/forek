@@ -1,6 +1,6 @@
 parser grammar MetricTemporalLogicParser;
 
-import PastTimeLinearTemporalLogicParser;
+import LinearTemporalLogicParser;
 
 start : formula EOF ;
 
@@ -14,12 +14,6 @@ formula : LeftParenthesis formula RightParenthesis  #parentheses
     | NextOperator (interval)? formula              #ltlNext
     | formula UntilOperator (interval)? formula     #ltlUntil
     | formula ReleaseOperator (interval)? formula   #ltlRelease
-
-    | OnceOperator (interval)? formula              #ptltlOnce
-    | HistoricallyOperator (interval)? formula      #ptltlHistorically
-    | PreviousOperator (interval)? formula          #ptltlPrevious
-    | formula SinceOperator (interval)? formula     #ptltlSince
-    | formula TriggerOperator (interval)? formula   #ptltlTrigger
 
     | NegationOperator formula                      #plNegation
     | formula ConjunctionOperator formula           #plConjunction

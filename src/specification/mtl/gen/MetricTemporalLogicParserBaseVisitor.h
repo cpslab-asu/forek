@@ -29,10 +29,6 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitPtltlOnce(MetricTemporalLogicParser::PtltlOnceContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual std::any visitLtlUntil(MetricTemporalLogicParser::LtlUntilContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -46,10 +42,6 @@ public:
   }
 
   virtual std::any visitPlFalse(MetricTemporalLogicParser::PlFalseContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlHistorically(MetricTemporalLogicParser::PtltlHistoricallyContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -74,18 +66,6 @@ public:
   }
 
   virtual std::any visitLtlRelease(MetricTemporalLogicParser::LtlReleaseContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlPrevious(MetricTemporalLogicParser::PtltlPreviousContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlSince(MetricTemporalLogicParser::PtltlSinceContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlTrigger(MetricTemporalLogicParser::PtltlTriggerContext *ctx) override {
     return visitChildren(ctx);
   }
 

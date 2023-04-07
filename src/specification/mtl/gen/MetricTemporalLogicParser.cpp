@@ -64,40 +64,31 @@ void metrictemporallogicparserParserInitialize() {
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,40,103,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,1,1,1,3,1,21,8,1,1,1,1,1,1,1,3,1,26,8,1,1,1,1,1,1,1,3,
-  	1,31,8,1,1,1,1,1,1,1,3,1,36,8,1,1,1,1,1,1,1,3,1,41,8,1,1,1,1,1,1,1,3,
-  	1,46,8,1,1,1,1,1,1,1,1,1,3,1,52,8,1,1,1,1,1,1,1,3,1,57,8,1,1,1,1,1,1,
-  	1,1,1,3,1,63,8,1,1,1,1,1,1,1,1,1,3,1,69,8,1,1,1,1,1,1,1,1,1,3,1,75,8,
-  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,90,8,1,10,1,
-  	12,1,93,9,1,1,2,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,0,1,2,4,0,2,4,6,0,3,2,
-  	0,21,21,25,25,1,0,29,30,2,0,22,22,26,26,126,0,8,1,0,0,0,2,51,1,0,0,0,
-  	4,94,1,0,0,0,6,100,1,0,0,0,8,9,3,2,1,0,9,10,5,0,0,1,10,1,1,0,0,0,11,12,
-  	6,1,-1,0,12,13,5,25,0,0,13,14,3,2,1,0,14,15,5,26,0,0,15,52,1,0,0,0,16,
-  	52,5,16,0,0,17,52,5,17,0,0,18,20,5,6,0,0,19,21,3,4,2,0,20,19,1,0,0,0,
-  	20,21,1,0,0,0,21,22,1,0,0,0,22,52,3,2,1,16,23,25,5,7,0,0,24,26,3,4,2,
-  	0,25,24,1,0,0,0,25,26,1,0,0,0,26,27,1,0,0,0,27,52,3,2,1,15,28,30,5,8,
-  	0,0,29,31,3,4,2,0,30,29,1,0,0,0,30,31,1,0,0,0,31,32,1,0,0,0,32,52,3,2,
-  	1,14,33,35,5,1,0,0,34,36,3,4,2,0,35,34,1,0,0,0,35,36,1,0,0,0,36,37,1,
-  	0,0,0,37,52,3,2,1,11,38,40,5,2,0,0,39,41,3,4,2,0,40,39,1,0,0,0,40,41,
-  	1,0,0,0,41,42,1,0,0,0,42,52,3,2,1,10,43,45,5,3,0,0,44,46,3,4,2,0,45,44,
-  	1,0,0,0,45,46,1,0,0,0,46,47,1,0,0,0,47,52,3,2,1,9,48,49,5,11,0,0,49,52,
-  	3,2,1,6,50,52,3,6,3,0,51,11,1,0,0,0,51,16,1,0,0,0,51,17,1,0,0,0,51,18,
-  	1,0,0,0,51,23,1,0,0,0,51,28,1,0,0,0,51,33,1,0,0,0,51,38,1,0,0,0,51,43,
-  	1,0,0,0,51,48,1,0,0,0,51,50,1,0,0,0,52,91,1,0,0,0,53,54,10,13,0,0,54,
-  	56,5,9,0,0,55,57,3,4,2,0,56,55,1,0,0,0,56,57,1,0,0,0,57,58,1,0,0,0,58,
-  	90,3,2,1,14,59,60,10,12,0,0,60,62,5,10,0,0,61,63,3,4,2,0,62,61,1,0,0,
-  	0,62,63,1,0,0,0,63,64,1,0,0,0,64,90,3,2,1,13,65,66,10,8,0,0,66,68,5,4,
-  	0,0,67,69,3,4,2,0,68,67,1,0,0,0,68,69,1,0,0,0,69,70,1,0,0,0,70,90,3,2,
-  	1,9,71,72,10,7,0,0,72,74,5,5,0,0,73,75,3,4,2,0,74,73,1,0,0,0,74,75,1,
-  	0,0,0,75,76,1,0,0,0,76,90,3,2,1,8,77,78,10,5,0,0,78,79,5,12,0,0,79,90,
-  	3,2,1,6,80,81,10,4,0,0,81,82,5,13,0,0,82,90,3,2,1,5,83,84,10,3,0,0,84,
-  	85,5,14,0,0,85,90,3,2,1,4,86,87,10,2,0,0,87,88,5,15,0,0,88,90,3,2,1,3,
-  	89,53,1,0,0,0,89,59,1,0,0,0,89,65,1,0,0,0,89,71,1,0,0,0,89,77,1,0,0,0,
-  	89,80,1,0,0,0,89,83,1,0,0,0,89,86,1,0,0,0,90,93,1,0,0,0,91,89,1,0,0,0,
-  	91,92,1,0,0,0,92,3,1,0,0,0,93,91,1,0,0,0,94,95,7,0,0,0,95,96,7,1,0,0,
-  	96,97,5,18,0,0,97,98,7,1,0,0,98,99,7,2,0,0,99,5,1,0,0,0,100,101,5,39,
-  	0,0,101,7,1,0,0,0,13,20,25,30,35,40,45,51,56,62,68,74,89,91
+  	4,1,40,76,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,1,1,1,1,1,1,1,
+  	1,1,1,1,1,1,1,1,1,1,3,1,21,8,1,1,1,1,1,1,1,3,1,26,8,1,1,1,1,1,1,1,3,1,
+  	31,8,1,1,1,1,1,1,1,1,1,3,1,37,8,1,1,1,1,1,1,1,3,1,42,8,1,1,1,1,1,1,1,
+  	1,1,3,1,48,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,
+  	1,63,8,1,10,1,12,1,66,9,1,1,2,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,0,1,2,4,
+  	0,2,4,6,0,3,2,0,21,21,25,25,1,0,29,30,2,0,22,22,26,26,89,0,8,1,0,0,0,
+  	2,36,1,0,0,0,4,67,1,0,0,0,6,73,1,0,0,0,8,9,3,2,1,0,9,10,5,0,0,1,10,1,
+  	1,0,0,0,11,12,6,1,-1,0,12,13,5,25,0,0,13,14,3,2,1,0,14,15,5,26,0,0,15,
+  	37,1,0,0,0,16,37,5,16,0,0,17,37,5,17,0,0,18,20,5,6,0,0,19,21,3,4,2,0,
+  	20,19,1,0,0,0,20,21,1,0,0,0,21,22,1,0,0,0,22,37,3,2,1,11,23,25,5,7,0,
+  	0,24,26,3,4,2,0,25,24,1,0,0,0,25,26,1,0,0,0,26,27,1,0,0,0,27,37,3,2,1,
+  	10,28,30,5,8,0,0,29,31,3,4,2,0,30,29,1,0,0,0,30,31,1,0,0,0,31,32,1,0,
+  	0,0,32,37,3,2,1,9,33,34,5,11,0,0,34,37,3,2,1,6,35,37,3,6,3,0,36,11,1,
+  	0,0,0,36,16,1,0,0,0,36,17,1,0,0,0,36,18,1,0,0,0,36,23,1,0,0,0,36,28,1,
+  	0,0,0,36,33,1,0,0,0,36,35,1,0,0,0,37,64,1,0,0,0,38,39,10,8,0,0,39,41,
+  	5,9,0,0,40,42,3,4,2,0,41,40,1,0,0,0,41,42,1,0,0,0,42,43,1,0,0,0,43,63,
+  	3,2,1,9,44,45,10,7,0,0,45,47,5,10,0,0,46,48,3,4,2,0,47,46,1,0,0,0,47,
+  	48,1,0,0,0,48,49,1,0,0,0,49,63,3,2,1,8,50,51,10,5,0,0,51,52,5,12,0,0,
+  	52,63,3,2,1,6,53,54,10,4,0,0,54,55,5,13,0,0,55,63,3,2,1,5,56,57,10,3,
+  	0,0,57,58,5,14,0,0,58,63,3,2,1,4,59,60,10,2,0,0,60,61,5,15,0,0,61,63,
+  	3,2,1,3,62,38,1,0,0,0,62,44,1,0,0,0,62,50,1,0,0,0,62,53,1,0,0,0,62,56,
+  	1,0,0,0,62,59,1,0,0,0,63,66,1,0,0,0,64,62,1,0,0,0,64,65,1,0,0,0,65,3,
+  	1,0,0,0,66,64,1,0,0,0,67,68,7,0,0,0,68,69,7,1,0,0,69,70,5,18,0,0,70,71,
+  	7,1,0,0,71,72,7,2,0,0,72,5,1,0,0,0,73,74,5,39,0,0,74,7,1,0,0,0,8,20,25,
+  	30,36,41,47,62,64
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -258,29 +249,6 @@ std::any MetricTemporalLogicParser::ParenthesesContext::accept(tree::ParseTreeVi
   else
     return visitor->visitChildren(this);
 }
-//----------------- PtltlOnceContext ------------------------------------------------------------------
-
-tree::TerminalNode* MetricTemporalLogicParser::PtltlOnceContext::OnceOperator() {
-  return getToken(MetricTemporalLogicParser::OnceOperator, 0);
-}
-
-MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::PtltlOnceContext::formula() {
-  return getRuleContext<MetricTemporalLogicParser::FormulaContext>(0);
-}
-
-MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::PtltlOnceContext::interval() {
-  return getRuleContext<MetricTemporalLogicParser::IntervalContext>(0);
-}
-
-MetricTemporalLogicParser::PtltlOnceContext::PtltlOnceContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any MetricTemporalLogicParser::PtltlOnceContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<MetricTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlOnce(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- LtlUntilContext ------------------------------------------------------------------
 
 std::vector<MetricTemporalLogicParser::FormulaContext *> MetricTemporalLogicParser::LtlUntilContext::formula() {
@@ -366,29 +334,6 @@ MetricTemporalLogicParser::PlFalseContext::PlFalseContext(FormulaContext *ctx) {
 std::any MetricTemporalLogicParser::PlFalseContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<MetricTemporalLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlFalse(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlHistoricallyContext ------------------------------------------------------------------
-
-tree::TerminalNode* MetricTemporalLogicParser::PtltlHistoricallyContext::HistoricallyOperator() {
-  return getToken(MetricTemporalLogicParser::HistoricallyOperator, 0);
-}
-
-MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::PtltlHistoricallyContext::formula() {
-  return getRuleContext<MetricTemporalLogicParser::FormulaContext>(0);
-}
-
-MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::PtltlHistoricallyContext::interval() {
-  return getRuleContext<MetricTemporalLogicParser::IntervalContext>(0);
-}
-
-MetricTemporalLogicParser::PtltlHistoricallyContext::PtltlHistoricallyContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any MetricTemporalLogicParser::PtltlHistoricallyContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<MetricTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlHistorically(this);
   else
     return visitor->visitChildren(this);
 }
@@ -518,83 +463,6 @@ std::any MetricTemporalLogicParser::LtlReleaseContext::accept(tree::ParseTreeVis
   else
     return visitor->visitChildren(this);
 }
-//----------------- PtltlPreviousContext ------------------------------------------------------------------
-
-tree::TerminalNode* MetricTemporalLogicParser::PtltlPreviousContext::PreviousOperator() {
-  return getToken(MetricTemporalLogicParser::PreviousOperator, 0);
-}
-
-MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::PtltlPreviousContext::formula() {
-  return getRuleContext<MetricTemporalLogicParser::FormulaContext>(0);
-}
-
-MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::PtltlPreviousContext::interval() {
-  return getRuleContext<MetricTemporalLogicParser::IntervalContext>(0);
-}
-
-MetricTemporalLogicParser::PtltlPreviousContext::PtltlPreviousContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any MetricTemporalLogicParser::PtltlPreviousContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<MetricTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlPrevious(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlSinceContext ------------------------------------------------------------------
-
-std::vector<MetricTemporalLogicParser::FormulaContext *> MetricTemporalLogicParser::PtltlSinceContext::formula() {
-  return getRuleContexts<MetricTemporalLogicParser::FormulaContext>();
-}
-
-MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::PtltlSinceContext::formula(size_t i) {
-  return getRuleContext<MetricTemporalLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* MetricTemporalLogicParser::PtltlSinceContext::SinceOperator() {
-  return getToken(MetricTemporalLogicParser::SinceOperator, 0);
-}
-
-MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::PtltlSinceContext::interval() {
-  return getRuleContext<MetricTemporalLogicParser::IntervalContext>(0);
-}
-
-MetricTemporalLogicParser::PtltlSinceContext::PtltlSinceContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any MetricTemporalLogicParser::PtltlSinceContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<MetricTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlSince(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlTriggerContext ------------------------------------------------------------------
-
-std::vector<MetricTemporalLogicParser::FormulaContext *> MetricTemporalLogicParser::PtltlTriggerContext::formula() {
-  return getRuleContexts<MetricTemporalLogicParser::FormulaContext>();
-}
-
-MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::PtltlTriggerContext::formula(size_t i) {
-  return getRuleContext<MetricTemporalLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* MetricTemporalLogicParser::PtltlTriggerContext::TriggerOperator() {
-  return getToken(MetricTemporalLogicParser::TriggerOperator, 0);
-}
-
-MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::PtltlTriggerContext::interval() {
-  return getRuleContext<MetricTemporalLogicParser::IntervalContext>(0);
-}
-
-MetricTemporalLogicParser::PtltlTriggerContext::PtltlTriggerContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any MetricTemporalLogicParser::PtltlTriggerContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<MetricTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlTrigger(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- LtlEventuallyContext ------------------------------------------------------------------
 
 tree::TerminalNode* MetricTemporalLogicParser::LtlEventuallyContext::EventuallyOperator() {
@@ -667,7 +535,7 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(51);
+    setState(36);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case MetricTemporalLogicParser::LeftParenthesis: {
@@ -722,7 +590,7 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
           break;
         }
         setState(22);
-        formula(16);
+        formula(11);
         break;
       }
 
@@ -746,7 +614,7 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
           break;
         }
         setState(27);
-        formula(15);
+        formula(10);
         break;
       }
 
@@ -770,78 +638,6 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
           break;
         }
         setState(32);
-        formula(14);
-        break;
-      }
-
-      case MetricTemporalLogicParser::OnceOperator: {
-        _localctx = _tracker.createInstance<PtltlOnceContext>(_localctx);
-        _ctx = _localctx;
-        previousContext = _localctx;
-        setState(33);
-        match(MetricTemporalLogicParser::OnceOperator);
-        setState(35);
-        _errHandler->sync(this);
-
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 3, _ctx)) {
-        case 1: {
-          setState(34);
-          interval();
-          break;
-        }
-
-        default:
-          break;
-        }
-        setState(37);
-        formula(11);
-        break;
-      }
-
-      case MetricTemporalLogicParser::HistoricallyOperator: {
-        _localctx = _tracker.createInstance<PtltlHistoricallyContext>(_localctx);
-        _ctx = _localctx;
-        previousContext = _localctx;
-        setState(38);
-        match(MetricTemporalLogicParser::HistoricallyOperator);
-        setState(40);
-        _errHandler->sync(this);
-
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
-        case 1: {
-          setState(39);
-          interval();
-          break;
-        }
-
-        default:
-          break;
-        }
-        setState(42);
-        formula(10);
-        break;
-      }
-
-      case MetricTemporalLogicParser::PreviousOperator: {
-        _localctx = _tracker.createInstance<PtltlPreviousContext>(_localctx);
-        _ctx = _localctx;
-        previousContext = _localctx;
-        setState(43);
-        match(MetricTemporalLogicParser::PreviousOperator);
-        setState(45);
-        _errHandler->sync(this);
-
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 5, _ctx)) {
-        case 1: {
-          setState(44);
-          interval();
-          break;
-        }
-
-        default:
-          break;
-        }
-        setState(47);
         formula(9);
         break;
       }
@@ -850,9 +646,9 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
         _localctx = _tracker.createInstance<PlNegationContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(48);
+        setState(33);
         match(MetricTemporalLogicParser::NegationOperator);
-        setState(49);
+        setState(34);
         formula(6);
         break;
       }
@@ -861,7 +657,7 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
         _localctx = _tracker.createInstance<PlPropositionContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(50);
+        setState(35);
         proposition();
         break;
       }
@@ -870,32 +666,32 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(91);
+    setState(64);
     _errHandler->sync(this);
-    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 12, _ctx);
+    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
       if (alt == 1) {
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(89);
+        setState(62);
         _errHandler->sync(this);
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 11, _ctx)) {
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 6, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<LtlUntilContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(53);
+          setState(38);
 
-          if (!(precpred(_ctx, 13))) throw FailedPredicateException(this, "precpred(_ctx, 13)");
-          setState(54);
+          if (!(precpred(_ctx, 8))) throw FailedPredicateException(this, "precpred(_ctx, 8)");
+          setState(39);
           match(MetricTemporalLogicParser::UntilOperator);
-          setState(56);
+          setState(41);
           _errHandler->sync(this);
 
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx)) {
+          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
           case 1: {
-            setState(55);
+            setState(40);
             interval();
             break;
           }
@@ -903,8 +699,8 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
           default:
             break;
           }
-          setState(58);
-          formula(14);
+          setState(43);
+          formula(9);
           break;
         }
 
@@ -912,71 +708,17 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
           auto newContext = _tracker.createInstance<LtlReleaseContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(59);
-
-          if (!(precpred(_ctx, 12))) throw FailedPredicateException(this, "precpred(_ctx, 12)");
-          setState(60);
-          match(MetricTemporalLogicParser::ReleaseOperator);
-          setState(62);
-          _errHandler->sync(this);
-
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 8, _ctx)) {
-          case 1: {
-            setState(61);
-            interval();
-            break;
-          }
-
-          default:
-            break;
-          }
-          setState(64);
-          formula(13);
-          break;
-        }
-
-        case 3: {
-          auto newContext = _tracker.createInstance<PtltlSinceContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(65);
-
-          if (!(precpred(_ctx, 8))) throw FailedPredicateException(this, "precpred(_ctx, 8)");
-          setState(66);
-          match(MetricTemporalLogicParser::SinceOperator);
-          setState(68);
-          _errHandler->sync(this);
-
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 9, _ctx)) {
-          case 1: {
-            setState(67);
-            interval();
-            break;
-          }
-
-          default:
-            break;
-          }
-          setState(70);
-          formula(9);
-          break;
-        }
-
-        case 4: {
-          auto newContext = _tracker.createInstance<PtltlTriggerContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(71);
+          setState(44);
 
           if (!(precpred(_ctx, 7))) throw FailedPredicateException(this, "precpred(_ctx, 7)");
-          setState(72);
-          match(MetricTemporalLogicParser::TriggerOperator);
-          setState(74);
+          setState(45);
+          match(MetricTemporalLogicParser::ReleaseOperator);
+          setState(47);
           _errHandler->sync(this);
 
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx)) {
+          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 5, _ctx)) {
           case 1: {
-            setState(73);
+            setState(46);
             interval();
             break;
           }
@@ -984,63 +726,63 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
           default:
             break;
           }
-          setState(76);
+          setState(49);
           formula(8);
           break;
         }
 
-        case 5: {
+        case 3: {
           auto newContext = _tracker.createInstance<PlConjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(77);
+          setState(50);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(78);
+          setState(51);
           match(MetricTemporalLogicParser::ConjunctionOperator);
-          setState(79);
+          setState(52);
           formula(6);
           break;
         }
 
-        case 6: {
+        case 4: {
           auto newContext = _tracker.createInstance<PlDisjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(80);
+          setState(53);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(81);
+          setState(54);
           match(MetricTemporalLogicParser::DisjunctionOperator);
-          setState(82);
+          setState(55);
           formula(5);
           break;
         }
 
-        case 7: {
+        case 5: {
           auto newContext = _tracker.createInstance<PlImplicationContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(83);
+          setState(56);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(84);
+          setState(57);
           match(MetricTemporalLogicParser::ImplicationOperator);
-          setState(85);
+          setState(58);
           formula(4);
           break;
         }
 
-        case 8: {
+        case 6: {
           auto newContext = _tracker.createInstance<PlIffContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(86);
+          setState(59);
 
           if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-          setState(87);
+          setState(60);
           match(MetricTemporalLogicParser::IffOperator);
-          setState(88);
+          setState(61);
           formula(3);
           break;
         }
@@ -1049,9 +791,9 @@ MetricTemporalLogicParser::FormulaContext* MetricTemporalLogicParser::formula(in
           break;
         } 
       }
-      setState(93);
+      setState(66);
       _errHandler->sync(this);
-      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 12, _ctx);
+      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     }
   }
   catch (RecognitionException &e) {
@@ -1131,7 +873,7 @@ MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::interval(
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(94);
+    setState(67);
     _la = _input->LA(1);
     if (!(_la == MetricTemporalLogicParser::LeftBracket
 
@@ -1142,7 +884,7 @@ MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::interval(
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(95);
+    setState(68);
     _la = _input->LA(1);
     if (!(_la == MetricTemporalLogicParser::Infinity
 
@@ -1153,9 +895,9 @@ MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::interval(
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(96);
+    setState(69);
     match(MetricTemporalLogicParser::Comma);
-    setState(97);
+    setState(70);
     _la = _input->LA(1);
     if (!(_la == MetricTemporalLogicParser::Infinity
 
@@ -1166,7 +908,7 @@ MetricTemporalLogicParser::IntervalContext* MetricTemporalLogicParser::interval(
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(98);
+    setState(71);
     _la = _input->LA(1);
     if (!(_la == MetricTemporalLogicParser::RightBracket
 
@@ -1224,7 +966,7 @@ MetricTemporalLogicParser::PropositionContext* MetricTemporalLogicParser::propos
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(100);
+    setState(73);
     match(MetricTemporalLogicParser::Identifier);
    
   }
@@ -1249,14 +991,12 @@ bool MetricTemporalLogicParser::sempred(RuleContext *context, size_t ruleIndex, 
 
 bool MetricTemporalLogicParser::formulaSempred(FormulaContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 0: return precpred(_ctx, 13);
-    case 1: return precpred(_ctx, 12);
-    case 2: return precpred(_ctx, 8);
-    case 3: return precpred(_ctx, 7);
-    case 4: return precpred(_ctx, 5);
-    case 5: return precpred(_ctx, 4);
-    case 6: return precpred(_ctx, 3);
-    case 7: return precpred(_ctx, 2);
+    case 0: return precpred(_ctx, 8);
+    case 1: return precpred(_ctx, 7);
+    case 2: return precpred(_ctx, 5);
+    case 3: return precpred(_ctx, 4);
+    case 4: return precpred(_ctx, 3);
+    case 5: return precpred(_ctx, 2);
 
   default:
     break;

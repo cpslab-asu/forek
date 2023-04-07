@@ -14,7 +14,7 @@ add_custom_command(
   # This set of dependencies should reflect the imports of this grammar file.
   # In setting this, it ensures that any dependencies this grammar file has are
   # present before running this command (i.e., copying).
-  DEPENDS PastTimeLinearTemporalLogicLexerGrammarFile
+  DEPENDS LinearTemporalLogicLexerGrammarFile
 )
 
 # Add target to link with command.
@@ -62,7 +62,7 @@ add_custom_command(
   # This set of dependencies should reflect the imports of this grammar file.
   # In setting this, it ensures that any dependencies this grammar file has are
   # present before running this command (i.e., copying).
-  DEPENDS PastTimeLinearTemporalLogicParserGrammarFile
+  DEPENDS LinearTemporalLogicParserGrammarFile
 )
 
 # Add target to link with command.

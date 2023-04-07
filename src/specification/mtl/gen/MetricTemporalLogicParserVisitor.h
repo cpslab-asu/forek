@@ -26,8 +26,6 @@ public:
 
     virtual std::any visitParentheses(MetricTemporalLogicParser::ParenthesesContext *context) = 0;
 
-    virtual std::any visitPtltlOnce(MetricTemporalLogicParser::PtltlOnceContext *context) = 0;
-
     virtual std::any visitLtlUntil(MetricTemporalLogicParser::LtlUntilContext *context) = 0;
 
     virtual std::any visitPlImplication(MetricTemporalLogicParser::PlImplicationContext *context) = 0;
@@ -35,8 +33,6 @@ public:
     virtual std::any visitPlConjunction(MetricTemporalLogicParser::PlConjunctionContext *context) = 0;
 
     virtual std::any visitPlFalse(MetricTemporalLogicParser::PlFalseContext *context) = 0;
-
-    virtual std::any visitPtltlHistorically(MetricTemporalLogicParser::PtltlHistoricallyContext *context) = 0;
 
     virtual std::any visitLtlAlways(MetricTemporalLogicParser::LtlAlwaysContext *context) = 0;
 
@@ -49,12 +45,6 @@ public:
     virtual std::any visitPlProposition(MetricTemporalLogicParser::PlPropositionContext *context) = 0;
 
     virtual std::any visitLtlRelease(MetricTemporalLogicParser::LtlReleaseContext *context) = 0;
-
-    virtual std::any visitPtltlPrevious(MetricTemporalLogicParser::PtltlPreviousContext *context) = 0;
-
-    virtual std::any visitPtltlSince(MetricTemporalLogicParser::PtltlSinceContext *context) = 0;
-
-    virtual std::any visitPtltlTrigger(MetricTemporalLogicParser::PtltlTriggerContext *context) = 0;
 
     virtual std::any visitLtlEventually(MetricTemporalLogicParser::LtlEventuallyContext *context) = 0;
 

@@ -99,17 +99,6 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PtltlOnceContext : public FormulaContext {
-  public:
-    PtltlOnceContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *OnceOperator();
-    FormulaContext *formula();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
   class  LtlUntilContext : public FormulaContext {
   public:
     LtlUntilContext(FormulaContext *ctx);
@@ -149,17 +138,6 @@ public:
     PlFalseContext(FormulaContext *ctx);
 
     antlr4::tree::TerminalNode *False();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlHistoricallyContext : public FormulaContext {
-  public:
-    PtltlHistoricallyContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *HistoricallyOperator();
-    FormulaContext *formula();
-    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -222,41 +200,6 @@ public:
     std::vector<FormulaContext *> formula();
     FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *ReleaseOperator();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlPreviousContext : public FormulaContext {
-  public:
-    PtltlPreviousContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *PreviousOperator();
-    FormulaContext *formula();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlSinceContext : public FormulaContext {
-  public:
-    PtltlSinceContext(FormulaContext *ctx);
-
-    std::vector<FormulaContext *> formula();
-    FormulaContext* formula(size_t i);
-    antlr4::tree::TerminalNode *SinceOperator();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlTriggerContext : public FormulaContext {
-  public:
-    PtltlTriggerContext(FormulaContext *ctx);
-
-    std::vector<FormulaContext *> formula();
-    FormulaContext* formula(size_t i);
-    antlr4::tree::TerminalNode *TriggerOperator();
     IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
