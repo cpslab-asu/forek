@@ -1,6 +1,6 @@
 target_sources(forek PRIVATE
   builder.cpp
-  tptl.cpp
+  stpl.cpp
 )
 
 add_subdirectory(gen)

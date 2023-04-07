@@ -5,17 +5,17 @@
 
 #include <forek/formula/core/node.hpp>
 #include <forek/formula/formula.hpp>
-#include <forek/specification/tptl/impl.hpp>
+#include <forek/specification/stpl/impl.hpp>
 
 #include "ANTLRInputStream.h"
 #include "CommonTokenStream.h"
 #include "builder.hpp"
 #include "error/handler.hpp"
-#include "gen/TimedPropositionalTemporalLogicLexer.h"
-#include "gen/TimedPropositionalTemporalLogicParser.h"
+#include "gen/SpatioTemporalPerceptionLogicLexer.h"
+#include "gen/SpatioTemporalPerceptionLogicParser.h"
 
-namespace forek::specification::tptl {
-/// Build a formula::Formula from the TPTL formula. This procedure is responsible
+namespace forek::specification::stpl {
+/// Build a formula::Formula from the STPL formula. This procedure is responsible
 /// for several steps: (1) input streaming, (2) lexical analysis, (3) token
 /// streaming, (4) parsing, and (5) IR construction.
 ///
@@ -25,7 +25,7 @@ namespace forek::specification::tptl {
 /// generated files from ANTLR and the ANTLR-related API must not be visible to
 /// library users.
 template <typename T>
-auto TimedPropositionalTemporalLogic<T>::parse() const -> formula::Formula<T> {
+auto SpatioTemporalPerceptionLogic<T>::parse() const -> formula::Formula<T> {
     // Convert formula to valid ANTLR-accepted input format.
     auto input = antlr4::ANTLRInputStream(this->formula_);
 
@@ -33,7 +33,7 @@ auto TimedPropositionalTemporalLogic<T>::parse() const -> formula::Formula<T> {
     //
     // This includes creating a custom lexer and generating the set of tokens
     // from the target lexer.
-    auto lexer = gen::TimedPropositionalTemporalLogicLexer(&input);
+    auto lexer = gen::SpatioTemporalPerceptionLogicLexer(&input);
     auto tokens = antlr4::CommonTokenStream(&lexer);
 
     // Parse the stream of tokens.
@@ -41,7 +41,7 @@ auto TimedPropositionalTemporalLogic<T>::parse() const -> formula::Formula<T> {
     // The stream of tokens is passed to initialize the custom parser. From
     // this, the start rule is invoked. This call returns the context rule
     // to use in the visitor and walk.
-    auto parser = gen::TimedPropositionalTemporalLogicParser(&tokens);
+    auto parser = gen::SpatioTemporalPerceptionLogicParser(&tokens);
 
     // Remove the default set of error listeners.
     //
@@ -52,20 +52,20 @@ auto TimedPropositionalTemporalLogic<T>::parse() const -> formula::Formula<T> {
 
     // The custom default error reporting/recovery strategy is used that throws
     // specification-specific errors upon lexical- or parse-based errors.
-    auto const handler = std::make_shared<error::TimedPropositionalTemporalLogicErrorHandler>();
+    auto const handler = std::make_shared<error::SpatioTemporalPerceptionLogicErrorHandler>();
     parser.setErrorHandler(handler);
 
     // Begin parsing from the `start` grammar rule.
-    gen::TimedPropositionalTemporalLogicParser::StartContext* root = parser.start();
+    gen::SpatioTemporalPerceptionLogicParser::StartContext* root = parser.start();
 
     // Visit the parse tree.
     //
     // This last step traverses the parse tree to build the intermediate
     // representation using a custom visitor derived from the
     // ANTLR-generated visitor interface.
-    auto builder = builder::TimedPropositionalTemporalLogicBuilder<T>();
+    auto builder = builder::SpatioTemporalPerceptionLogicBuilder<T>();
     auto formula = builder.visitStart(root);
 
     return std::any_cast<formula::Formula<T>>(formula);
 }
-}  // namespace forek::specification::tptl
+}  // namespace forek::specification::stpl

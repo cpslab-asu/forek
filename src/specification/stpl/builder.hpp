@@ -1,5 +1,5 @@
-#ifndef FOREK_SPECIFICATION_TPTL_BUILDER_HPP
-#define FOREK_SPECIFICATION_TPTL_BUILDER_HPP
+#ifndef FOREK_SPECIFICATION_STPL_BUILDER_HPP
+#define FOREK_SPECIFICATION_STPL_BUILDER_HPP
 
 #include <any>
 #include <memory>
@@ -30,8 +30,8 @@
 #include <forek/formula/core/operation/tptl/freeze.hpp>
 #include <forek/formula/formula.hpp>
 
-#include "gen/TimedPropositionalTemporalLogicParser.h"
-#include "gen/TimedPropositionalTemporalLogicParserVisitor.h"
+#include "gen/SpatioTemporalPerceptionLogicParser.h"
+#include "gen/SpatioTemporalPerceptionLogicParserVisitor.h"
 
 namespace builder {
 using forek::formula::Formula;
@@ -63,15 +63,15 @@ using forek::formula::core::operation::tptl::FreezeTime;
 using forek::formula::core::operation::tptl::TimeConstraint;
 
 template <typename T>
-class TimedPropositionalTemporalLogicBuilder
-    : public gen::TimedPropositionalTemporalLogicParserVisitor {
+class SpatioTemporalPerceptionLogicBuilder
+    : public gen::SpatioTemporalPerceptionLogicParserVisitor {
    public:
-    auto visitStart(gen::TimedPropositionalTemporalLogicParser::StartContext* ctx)
+    auto visitStart(gen::SpatioTemporalPerceptionLogicParser::StartContext* ctx)
         -> std::any override {
         return visit(ctx->formula());
     }
 
-    auto visitPlNegation(gen::TimedPropositionalTemporalLogicParser::PlNegationContext* ctx)
+    auto visitPlNegation(gen::SpatioTemporalPerceptionLogicParser::PlNegationContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr = std::make_unique<Not<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
@@ -79,13 +79,12 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitTptlParentheses(
-        gen::TimedPropositionalTemporalLogicParser::TptlParenthesesContext* ctx)
+    auto visitParentheses(gen::SpatioTemporalPerceptionLogicParser::ParenthesesContext* ctx)
         -> std::any override {
         return visit(ctx->formula());
     }
 
-    auto visitPlIff(gen::TimedPropositionalTemporalLogicParser::PlIffContext* ctx)
+    auto visitPlIff(gen::SpatioTemporalPerceptionLogicParser::PlIffContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -96,12 +95,12 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlAtom(gen::TimedPropositionalTemporalLogicParser::PlAtomContext* ctx)
+    auto visitPlProposition(gen::SpatioTemporalPerceptionLogicParser::PlPropositionContext* ctx)
         -> std::any override {
         return visit(ctx->proposition());
     }
 
-    auto visitPlDisjunction(gen::TimedPropositionalTemporalLogicParser::PlDisjunctionContext* ctx)
+    auto visitPlDisjunction(gen::SpatioTemporalPerceptionLogicParser::PlDisjunctionContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -112,7 +111,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlImplication(gen::TimedPropositionalTemporalLogicParser::PlImplicationContext* ctx)
+    auto visitPlImplication(gen::SpatioTemporalPerceptionLogicParser::PlImplicationContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -124,7 +123,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlConjunction(gen::TimedPropositionalTemporalLogicParser::PlConjunctionContext* ctx)
+    auto visitPlConjunction(gen::SpatioTemporalPerceptionLogicParser::PlConjunctionContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -135,19 +134,19 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlTrue(gen::TimedPropositionalTemporalLogicParser::PlTrueContext* ctx)
+    auto visitPlTrue(gen::SpatioTemporalPerceptionLogicParser::PlTrueContext* ctx)
         -> std::any override {
         auto expr = std::make_unique<True<T>>();
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlFalse(gen::TimedPropositionalTemporalLogicParser::PlFalseContext* ctx)
+    auto visitPlFalse(gen::SpatioTemporalPerceptionLogicParser::PlFalseContext* ctx)
         -> std::any override {
         auto expr = std::make_unique<False<T>>();
         return Formula<T>(std::move(expr));
     }
 
-    auto visitProposition(gen::TimedPropositionalTemporalLogicParser::PropositionContext* ctx)
+    auto visitProposition(gen::SpatioTemporalPerceptionLogicParser::PropositionContext* ctx)
         -> std::any override {
         auto name = ctx->Identifier()->getText();
 
@@ -155,7 +154,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlAlways(gen::TimedPropositionalTemporalLogicParser::LtlAlwaysContext* ctx)
+    auto visitLtlAlways(gen::SpatioTemporalPerceptionLogicParser::LtlAlwaysContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr =
@@ -164,7 +163,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlEventually(gen::TimedPropositionalTemporalLogicParser::LtlEventuallyContext* ctx)
+    auto visitLtlEventually(gen::SpatioTemporalPerceptionLogicParser::LtlEventuallyContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr =
@@ -173,7 +172,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlNext(gen::TimedPropositionalTemporalLogicParser::LtlNextContext* ctx)
+    auto visitLtlNext(gen::SpatioTemporalPerceptionLogicParser::LtlNextContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
         auto expr = std::make_unique<Next<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
@@ -181,7 +180,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlRelease(gen::TimedPropositionalTemporalLogicParser::LtlReleaseContext* ctx)
+    auto visitLtlRelease(gen::SpatioTemporalPerceptionLogicParser::LtlReleaseContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -193,7 +192,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlUntil(gen::TimedPropositionalTemporalLogicParser::LtlUntilContext* ctx)
+    auto visitLtlUntil(gen::SpatioTemporalPerceptionLogicParser::LtlUntilContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
@@ -205,7 +204,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitTptlFreezeTime(gen::TimedPropositionalTemporalLogicParser::TptlFreezeTimeContext* ctx)
+    auto visitTptlFreezeTime(gen::SpatioTemporalPerceptionLogicParser::TptlFreezeTimeContext* ctx)
         -> std::any override {
         auto variable = ctx->Identifier()->getText();
         auto formula = visit(ctx->formula());
@@ -217,12 +216,12 @@ class TimedPropositionalTemporalLogicBuilder
     }
 
     auto visitTptlTimeConstraint(
-        gen::TimedPropositionalTemporalLogicParser::TptlTimeConstraintContext* ctx)
+        gen::SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext* ctx)
         -> std::any override {
         return visit(ctx->timeConstraint());
     }
 
-    auto visitTimeConstraint(gen::TimedPropositionalTemporalLogicParser::TimeConstraintContext* ctx)
+    auto visitTimeConstraint(gen::SpatioTemporalPerceptionLogicParser::TimeConstraintContext* ctx)
         -> std::any override {
         auto relop = visit(ctx->relationalOperator());
 
@@ -237,41 +236,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitTptlLessThan(gen::TimedPropositionalTemporalLogicParser::TptlLessThanContext* ctx)
-        -> std::any override {
-        return ctx->LessThan()->getText();
-    }
-
-    auto visitTptlGreaterThan(
-        gen::TimedPropositionalTemporalLogicParser::TptlGreaterThanContext* ctx)
-        -> std::any override {
-        return ctx->GreaterThan()->getText();
-    }
-
-    auto visitTptlLessThanOrEqualTo(
-        gen::TimedPropositionalTemporalLogicParser::TptlLessThanOrEqualToContext* ctx)
-        -> std::any override {
-        return ctx->LessThanOrEqualTo()->getText();
-    }
-
-    auto visitTptlGreaterThanOrEqualTo(
-        gen::TimedPropositionalTemporalLogicParser::TptlGreaterThanOrEqualToContext* ctx)
-        -> std::any override {
-        return ctx->GreaterThanOrEqualTo()->getText();
-    }
-
-    auto visitTptlEqualTo(gen::TimedPropositionalTemporalLogicParser::TptlEqualToContext* ctx)
-        -> std::any override {
-        return ctx->EqualTo()->getText();
-    }
-
-    auto visitTptlNotEqualTo(gen::TimedPropositionalTemporalLogicParser::TptlNotEqualToContext* ctx)
-        -> std::any override {
-        return ctx->NotEqualTo()->getText();
-    }
-
-    auto visitArithmeticMinus(
-        gen::TimedPropositionalTemporalLogicParser::ArithmeticMinusContext* ctx)
+    auto visitArithmeticMinus(gen::SpatioTemporalPerceptionLogicParser::ArithmeticMinusContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->expression(0));
         auto rformula = visit(ctx->expression(1));
@@ -283,8 +248,7 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitArithmeticTimes(
-        gen::TimedPropositionalTemporalLogicParser::ArithmeticTimesContext* ctx)
+    auto visitArithmeticTimes(gen::SpatioTemporalPerceptionLogicParser::ArithmeticTimesContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->expression(0));
         auto rformula = visit(ctx->expression(1));
@@ -297,13 +261,13 @@ class TimedPropositionalTemporalLogicBuilder
     }
 
     auto visitArithmeticParentheses(
-        gen::TimedPropositionalTemporalLogicParser::ArithmeticParenthesesContext* ctx)
+        gen::SpatioTemporalPerceptionLogicParser::ArithmeticParenthesesContext* ctx)
         -> std::any override {
         return visit(ctx->expression());
     }
 
     auto visitArithmeticDivide(
-        gen::TimedPropositionalTemporalLogicParser::ArithmeticDivideContext* ctx)
+        gen::SpatioTemporalPerceptionLogicParser::ArithmeticDivideContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->expression(0));
         auto rformula = visit(ctx->expression(1));
@@ -315,12 +279,12 @@ class TimedPropositionalTemporalLogicBuilder
         return Formula<T>(std::move(expr));
     }
 
-    auto visitArithmeticTerm(gen::TimedPropositionalTemporalLogicParser::ArithmeticTermContext* ctx)
+    auto visitArithmeticTerm(gen::SpatioTemporalPerceptionLogicParser::ArithmeticTermContext* ctx)
         -> std::any override {
         return visit(ctx->term());
     }
 
-    auto visitArithmeticPlus(gen::TimedPropositionalTemporalLogicParser::ArithmeticPlusContext* ctx)
+    auto visitArithmeticPlus(gen::SpatioTemporalPerceptionLogicParser::ArithmeticPlusContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->expression(0));
         auto rformula = visit(ctx->expression(1));
@@ -333,7 +297,7 @@ class TimedPropositionalTemporalLogicBuilder
     }
 
     auto visitArithmeticVariable(
-        gen::TimedPropositionalTemporalLogicParser::ArithmeticVariableContext* ctx)
+        gen::SpatioTemporalPerceptionLogicParser::ArithmeticVariableContext* ctx)
         -> std::any override {
         auto name = ctx->Identifier()->getText();
 
@@ -342,7 +306,7 @@ class TimedPropositionalTemporalLogicBuilder
     }
 
     auto visitArithmeticConstant(
-        gen::TimedPropositionalTemporalLogicParser::ArithmeticConstantContext* ctx)
+        gen::SpatioTemporalPerceptionLogicParser::ArithmeticConstantContext* ctx)
         -> std::any override {
         double value = std::stod(ctx->Scalar()->getText());
 
