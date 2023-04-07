@@ -41,3 +41,4 @@ add_subdirectory(extras EXCLUDE_FROM_ALL)
 
 # Examples
 add_subdirectory(examples EXCLUDE_FROM_ALL)
+add_subdirectory(experiments EXCLUDE_FROM_ALL)

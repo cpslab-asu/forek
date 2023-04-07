@@ -1,0 +1,1 @@
+always (eventually (p until q)) implies always (eventually (p until q)) and always (eventually (p until q)) release always (eventually (p until q)) or q

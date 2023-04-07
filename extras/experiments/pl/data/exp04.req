@@ -1,0 +1,4 @@
+not (p) && (not q) &
+not (p) && (not q) &
+not (p) && (not q) or
+not (p) && (not q) &&
