@@ -3,5 +3,6 @@ add_subdirectory(ltl)
 add_subdirectory(mtl)
 add_subdirectory(stl)
 add_subdirectory(tptl)
+add_subdirectory(tqtl)
 
 add_subdirectory(experiments EXCLUDE_FROM_ALL)

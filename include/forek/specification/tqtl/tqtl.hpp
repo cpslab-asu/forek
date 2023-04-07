@@ -1,5 +1,5 @@
-#ifndef FOREK_SPECIFICATION_TPTL_TPTL_HPP
-#define FOREK_SPECIFICATION_TPTL_TPTL_HPP
+#ifndef FOREK_SPECIFICATION_TQTL_TQTL_HPP
+#define FOREK_SPECIFICATION_TQTL_TQTL_HPP
 
 // clang-format off
 #include "impl.hpp"
@@ -10,7 +10,7 @@
 // The template implementation is separated into the public headers as it
 // depends on external libraries that should not be directly supported in the
 // set of public headers.
-#include "tptl/impl.tpp.hpp"
+#include "tqtl/impl.tpp.hpp"
 
 // clang-format on
 #endif

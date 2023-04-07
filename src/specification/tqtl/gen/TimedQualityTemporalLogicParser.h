@@ -1,5 +1,5 @@
 
-// Generated from /home/andersonjwan/Projects/forek/build/antlr/grammars/TimedPropositionalTemporalLogicParser.g4 by ANTLR 4.11.1
+// Generated from /home/andersonjwan/Projects/forek/build/antlr/grammars/TimedQualityTemporalLogicParser.g4 by ANTLR 4.11.1
 
 #pragma once
 
@@ -10,32 +10,36 @@
 namespace gen {
 
 
-class  TimedPropositionalTemporalLogicParser : public antlr4::Parser {
+class  TimedQualityTemporalLogicParser : public antlr4::Parser {
 public:
   enum {
-    FreezeTime = 1, LessThanOrEqualTo = 2, GreaterThanOrEqualTo = 3, LessThan = 4, 
-    GreaterThan = 5, EqualTo = 6, NotEqualTo = 7, EventuallyOperator = 8, 
-    AlwaysOperator = 9, NextOperator = 10, UntilOperator = 11, ReleaseOperator = 12, 
-    NegationOperator = 13, ConjunctionOperator = 14, DisjunctionOperator = 15, 
-    ImplicationOperator = 16, IffOperator = 17, True = 18, False = 19, LeftBrace = 20, 
-    RightBrace = 21, LeftBracket = 22, RightBracket = 23, LeftParenthesis = 24, 
-    RightParenthesis = 25, BlockComment = 26, LineComment = 27, Infinity = 28, 
-    Scalar = 29, Integer = 30, DecimalInteger = 31, BinaryInteger = 32, 
-    OctalInteger = 33, HexInteger = 34, Floating = 35, PointFloat = 36, 
-    ExponentFloat = 37, Identifier = 38, Whitespace = 39, AdditionOperator = 40, 
-    SubtractionOperator = 41, MultiplicationOperator = 42, DivisionOperator = 43
+    ExistsQuantifier = 1, ForallQuantifier = 2, FreezeTime = 3, LessThanOrEqualTo = 4, 
+    GreaterThanOrEqualTo = 5, EqualTo = 6, NotEqualTo = 7, OnceOperator = 8, 
+    HistoricallyOperator = 9, PreviousOperator = 10, SinceOperator = 11, 
+    TriggerOperator = 12, EventuallyOperator = 13, AlwaysOperator = 14, 
+    NextOperator = 15, UntilOperator = 16, ReleaseOperator = 17, NegationOperator = 18, 
+    ConjunctionOperator = 19, DisjunctionOperator = 20, ImplicationOperator = 21, 
+    IffOperator = 22, True = 23, False = 24, Comma = 25, LeftBrace = 26, 
+    RightBrace = 27, LeftBracket = 28, RightBracket = 29, LeftChevron = 30, 
+    RightChevron = 31, LeftParenthesis = 32, RightParenthesis = 33, BlockComment = 34, 
+    LineComment = 35, Infinity = 36, Scalar = 37, Integer = 38, DecimalInteger = 39, 
+    BinaryInteger = 40, OctalInteger = 41, HexInteger = 42, Floating = 43, 
+    PointFloat = 44, ExponentFloat = 45, Identifier = 46, Whitespace = 47, 
+    AdditionOperator = 48, SubtractionOperator = 49, MultiplicationOperator = 50, 
+    DivisionOperator = 51, ModuloOperator = 52
   };
 
   enum {
-    RuleStart = 0, RuleFormula = 1, RuleTimeConstraint = 2, RuleRelationalOperator = 3, 
-    RuleProposition = 4, RuleExpression = 5, RuleTerm = 6
+    RuleStart = 0, RuleFormula = 1, RuleObjectQualifier = 2, RuleArgumentList = 3, 
+    RuleTimeConstraint = 4, RuleRelationalOperator = 5, RuleProposition = 6, 
+    RuleExpression = 7, RuleTerm = 8
   };
 
-  explicit TimedPropositionalTemporalLogicParser(antlr4::TokenStream *input);
+  explicit TimedQualityTemporalLogicParser(antlr4::TokenStream *input);
 
-  TimedPropositionalTemporalLogicParser(antlr4::TokenStream *input, const antlr4::atn::ParserATNSimulatorOptions &options);
+  TimedQualityTemporalLogicParser(antlr4::TokenStream *input, const antlr4::atn::ParserATNSimulatorOptions &options);
 
-  ~TimedPropositionalTemporalLogicParser() override;
+  ~TimedQualityTemporalLogicParser() override;
 
   std::string getGrammarFileName() const override;
 
@@ -50,6 +54,8 @@ public:
 
   class StartContext;
   class FormulaContext;
+  class ObjectQualifierContext;
+  class ArgumentListContext;
   class TimeConstraintContext;
   class RelationalOperatorContext;
   class PropositionContext;
@@ -93,11 +99,33 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlAtomContext : public FormulaContext {
+  class  ParenthesesContext : public FormulaContext {
   public:
-    PlAtomContext(FormulaContext *ctx);
+    ParenthesesContext(FormulaContext *ctx);
 
-    PropositionContext *proposition();
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    FormulaContext *formula();
+    antlr4::tree::TerminalNode *RightParenthesis();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  TqtlObjectQualifierContext : public FormulaContext {
+  public:
+    TqtlObjectQualifierContext(FormulaContext *ctx);
+
+    ObjectQualifierContext *objectQualifier();
+    FormulaContext *formula();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlOnceContext : public FormulaContext {
+  public:
+    PtltlOnceContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *OnceOperator();
+    FormulaContext *formula();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -144,13 +172,12 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  TptlParenthesesContext : public FormulaContext {
+  class  PtltlHistoricallyContext : public FormulaContext {
   public:
-    TptlParenthesesContext(FormulaContext *ctx);
+    PtltlHistoricallyContext(FormulaContext *ctx);
 
-    antlr4::tree::TerminalNode *LeftParenthesis();
+    antlr4::tree::TerminalNode *HistoricallyOperator();
     FormulaContext *formula();
-    antlr4::tree::TerminalNode *RightParenthesis();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -216,6 +243,15 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
+  class  PlPropositionContext : public FormulaContext {
+  public:
+    PlPropositionContext(FormulaContext *ctx);
+
+    PropositionContext *proposition();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
   class  LtlReleaseContext : public FormulaContext {
   public:
     LtlReleaseContext(FormulaContext *ctx);
@@ -223,6 +259,38 @@ public:
     std::vector<FormulaContext *> formula();
     FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *ReleaseOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlPreviousContext : public FormulaContext {
+  public:
+    PtltlPreviousContext(FormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *PreviousOperator();
+    FormulaContext *formula();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlSinceContext : public FormulaContext {
+  public:
+    PtltlSinceContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *SinceOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PtltlTriggerContext : public FormulaContext {
+  public:
+    PtltlTriggerContext(FormulaContext *ctx);
+
+    std::vector<FormulaContext *> formula();
+    FormulaContext* formula(size_t i);
+    antlr4::tree::TerminalNode *TriggerOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -249,6 +317,64 @@ public:
 
   FormulaContext* formula();
   FormulaContext* formula(int precedence);
+  class  ObjectQualifierContext : public antlr4::ParserRuleContext {
+  public:
+    ObjectQualifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+   
+    ObjectQualifierContext() = default;
+    void copyFrom(ObjectQualifierContext *context);
+    using antlr4::ParserRuleContext::copyFrom;
+
+    virtual size_t getRuleIndex() const override;
+
+   
+  };
+
+  class  TqtlExistsQualifierContext : public ObjectQualifierContext {
+  public:
+    TqtlExistsQualifierContext(ObjectQualifierContext *ctx);
+
+    antlr4::tree::TerminalNode *ExistsQuantifier();
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    ArgumentListContext *argumentList();
+    antlr4::tree::TerminalNode *RightParenthesis();
+    antlr4::tree::TerminalNode *FreezeTime();
+    antlr4::tree::TerminalNode *Identifier();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  TqtlForallQualifierContext : public ObjectQualifierContext {
+  public:
+    TqtlForallQualifierContext(ObjectQualifierContext *ctx);
+
+    antlr4::tree::TerminalNode *ForallQuantifier();
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    ArgumentListContext *argumentList();
+    antlr4::tree::TerminalNode *RightParenthesis();
+    antlr4::tree::TerminalNode *FreezeTime();
+    antlr4::tree::TerminalNode *Identifier();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  ObjectQualifierContext* objectQualifier();
+
+  class  ArgumentListContext : public antlr4::ParserRuleContext {
+  public:
+    ArgumentListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Identifier();
+    antlr4::tree::TerminalNode *Comma();
+    ArgumentListContext *argumentList();
+
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  ArgumentListContext* argumentList();
+
   class  TimeConstraintContext : public antlr4::ParserRuleContext {
   public:
     TimeConstraintContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -267,68 +393,17 @@ public:
   class  RelationalOperatorContext : public antlr4::ParserRuleContext {
   public:
     RelationalOperatorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    RelationalOperatorContext() = default;
-    void copyFrom(RelationalOperatorContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
     virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  TptlNotEqualToContext : public RelationalOperatorContext {
-  public:
-    TptlNotEqualToContext(RelationalOperatorContext *ctx);
-
+    antlr4::tree::TerminalNode *LessThanOrEqualTo();
+    antlr4::tree::TerminalNode *GreaterThanOrEqualTo();
+    antlr4::tree::TerminalNode *LeftChevron();
+    antlr4::tree::TerminalNode *RightChevron();
+    antlr4::tree::TerminalNode *EqualTo();
     antlr4::tree::TerminalNode *NotEqualTo();
 
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  TptlLessThanOrEqualToContext : public RelationalOperatorContext {
-  public:
-    TptlLessThanOrEqualToContext(RelationalOperatorContext *ctx);
-
-    antlr4::tree::TerminalNode *LessThanOrEqualTo();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  TptlGreaterThanOrEqualToContext : public RelationalOperatorContext {
-  public:
-    TptlGreaterThanOrEqualToContext(RelationalOperatorContext *ctx);
-
-    antlr4::tree::TerminalNode *GreaterThanOrEqualTo();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  TptlGreaterThanContext : public RelationalOperatorContext {
-  public:
-    TptlGreaterThanContext(RelationalOperatorContext *ctx);
-
-    antlr4::tree::TerminalNode *GreaterThan();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  TptlLessThanContext : public RelationalOperatorContext {
-  public:
-    TptlLessThanContext(RelationalOperatorContext *ctx);
-
-    antlr4::tree::TerminalNode *LessThan();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  TptlEqualToContext : public RelationalOperatorContext {
-  public:
-    TptlEqualToContext(RelationalOperatorContext *ctx);
-
-    antlr4::tree::TerminalNode *EqualTo();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
   };
 
   RelationalOperatorContext* relationalOperator();
@@ -419,6 +494,17 @@ public:
     std::vector<ExpressionContext *> expression();
     ExpressionContext* expression(size_t i);
     antlr4::tree::TerminalNode *AdditionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  ArithmeticModuloContext : public ExpressionContext {
+  public:
+    ArithmeticModuloContext(ExpressionContext *ctx);
+
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    antlr4::tree::TerminalNode *ModuloOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };

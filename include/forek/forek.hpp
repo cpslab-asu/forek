@@ -7,5 +7,6 @@
 #include <forek/specification/pl/pl.hpp>
 #include <forek/specification/stl/stl.hpp>
 #include <forek/specification/tptl/tptl.hpp>
+#include <forek/specification/tqtl/tqtl.hpp>
 
 #endif
