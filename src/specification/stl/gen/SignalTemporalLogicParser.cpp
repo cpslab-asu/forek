@@ -49,75 +49,64 @@ void signaltemporallogicparserParserInitialize() {
     },
     std::vector<std::string>{
       "", "'<='", "'>='", "'=='", "'!='", "", "", "", "", "", "", "", "", 
-      "", "", "", "", "", "", "", "'true'", "'false'", "','", "'{'", "'}'", 
-      "'['", "']'", "'<'", "'>'", "'('", "')'", "", "", "'inf'"
+      "", "", "'true'", "'false'", "','", "'{'", "'}'", "'['", "']'", "'<'", 
+      "'>'", "'('", "')'", "", "", "'inf'"
     },
     std::vector<std::string>{
       "", "LessThanOrEqualTo", "GreaterThanOrEqualTo", "EqualTo", "NotEqualTo", 
-      "OnceOperator", "HistoricallyOperator", "PreviousOperator", "SinceOperator", 
-      "TriggerOperator", "EventuallyOperator", "AlwaysOperator", "NextOperator", 
-      "UntilOperator", "ReleaseOperator", "NegationOperator", "ConjunctionOperator", 
-      "DisjunctionOperator", "ImplicationOperator", "IffOperator", "True", 
-      "False", "Comma", "LeftBrace", "RightBrace", "LeftBracket", "RightBracket", 
-      "LeftChevron", "RightChevron", "LeftParenthesis", "RightParenthesis", 
-      "BlockComment", "LineComment", "Infinity", "Scalar", "Integer", "DecimalInteger", 
-      "BinaryInteger", "OctalInteger", "HexInteger", "Floating", "PointFloat", 
-      "ExponentFloat", "Identifier", "Whitespace", "AdditionOperator", "SubtractionOperator", 
-      "MultiplicationOperator", "DivisionOperator", "ModuloOperator"
+      "EventuallyOperator", "AlwaysOperator", "NextOperator", "UntilOperator", 
+      "ReleaseOperator", "NegationOperator", "ConjunctionOperator", "DisjunctionOperator", 
+      "ImplicationOperator", "IffOperator", "True", "False", "Comma", "LeftBrace", 
+      "RightBrace", "LeftBracket", "RightBracket", "LeftChevron", "RightChevron", 
+      "LeftParenthesis", "RightParenthesis", "BlockComment", "LineComment", 
+      "Infinity", "Scalar", "Integer", "DecimalInteger", "BinaryInteger", 
+      "OctalInteger", "HexInteger", "Floating", "PointFloat", "ExponentFloat", 
+      "Identifier", "Whitespace", "AdditionOperator", "SubtractionOperator", 
+      "MultiplicationOperator", "DivisionOperator", "ModulusOperator"
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,49,153,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+  	4,1,44,126,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
   	7,7,7,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,29,8,1,1,1,
-  	1,1,1,1,3,1,34,8,1,1,1,1,1,1,1,3,1,39,8,1,1,1,1,1,1,1,3,1,44,8,1,1,1,
-  	1,1,1,1,3,1,49,8,1,1,1,1,1,1,1,3,1,54,8,1,1,1,1,1,1,1,1,1,1,1,3,1,61,
-  	8,1,1,1,1,1,1,1,3,1,66,8,1,1,1,1,1,1,1,1,1,3,1,72,8,1,1,1,1,1,1,1,1,1,
-  	3,1,78,8,1,1,1,1,1,1,1,1,1,3,1,84,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,1,1,5,1,99,8,1,10,1,12,1,102,9,1,1,2,1,2,1,2,1,2,1,3,
-  	1,3,1,4,1,4,1,4,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,6,3,6,124,8,
-  	6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,5,6,141,
-  	8,6,10,6,12,6,144,9,6,1,7,1,7,3,7,148,8,7,1,7,3,7,151,8,7,1,7,0,2,2,12,
-  	8,0,2,4,6,8,10,12,14,0,4,2,0,1,4,27,28,2,0,25,25,29,29,1,0,33,34,2,0,
-  	26,26,30,30,181,0,16,1,0,0,0,2,60,1,0,0,0,4,103,1,0,0,0,6,107,1,0,0,0,
-  	8,109,1,0,0,0,10,115,1,0,0,0,12,123,1,0,0,0,14,150,1,0,0,0,16,17,3,2,
-  	1,0,17,18,5,0,0,1,18,1,1,0,0,0,19,20,6,1,-1,0,20,21,5,29,0,0,21,22,3,
-  	2,1,0,22,23,5,30,0,0,23,61,1,0,0,0,24,61,5,20,0,0,25,61,5,21,0,0,26,28,
-  	5,10,0,0,27,29,3,8,4,0,28,27,1,0,0,0,28,29,1,0,0,0,29,30,1,0,0,0,30,61,
-  	3,2,1,17,31,33,5,11,0,0,32,34,3,8,4,0,33,32,1,0,0,0,33,34,1,0,0,0,34,
-  	35,1,0,0,0,35,61,3,2,1,16,36,38,5,12,0,0,37,39,3,8,4,0,38,37,1,0,0,0,
-  	38,39,1,0,0,0,39,40,1,0,0,0,40,61,3,2,1,15,41,43,5,5,0,0,42,44,3,8,4,
-  	0,43,42,1,0,0,0,43,44,1,0,0,0,44,45,1,0,0,0,45,61,3,2,1,12,46,48,5,6,
-  	0,0,47,49,3,8,4,0,48,47,1,0,0,0,48,49,1,0,0,0,49,50,1,0,0,0,50,61,3,2,
-  	1,11,51,53,5,7,0,0,52,54,3,8,4,0,53,52,1,0,0,0,53,54,1,0,0,0,54,55,1,
-  	0,0,0,55,61,3,2,1,10,56,57,5,15,0,0,57,61,3,2,1,7,58,61,3,4,2,0,59,61,
-  	3,10,5,0,60,19,1,0,0,0,60,24,1,0,0,0,60,25,1,0,0,0,60,26,1,0,0,0,60,31,
-  	1,0,0,0,60,36,1,0,0,0,60,41,1,0,0,0,60,46,1,0,0,0,60,51,1,0,0,0,60,56,
-  	1,0,0,0,60,58,1,0,0,0,60,59,1,0,0,0,61,100,1,0,0,0,62,63,10,14,0,0,63,
-  	65,5,13,0,0,64,66,3,8,4,0,65,64,1,0,0,0,65,66,1,0,0,0,66,67,1,0,0,0,67,
-  	99,3,2,1,15,68,69,10,13,0,0,69,71,5,14,0,0,70,72,3,8,4,0,71,70,1,0,0,
-  	0,71,72,1,0,0,0,72,73,1,0,0,0,73,99,3,2,1,14,74,75,10,9,0,0,75,77,5,8,
-  	0,0,76,78,3,8,4,0,77,76,1,0,0,0,77,78,1,0,0,0,78,79,1,0,0,0,79,99,3,2,
-  	1,10,80,81,10,8,0,0,81,83,5,9,0,0,82,84,3,8,4,0,83,82,1,0,0,0,83,84,1,
-  	0,0,0,84,85,1,0,0,0,85,99,3,2,1,9,86,87,10,6,0,0,87,88,5,16,0,0,88,99,
-  	3,2,1,7,89,90,10,5,0,0,90,91,5,17,0,0,91,99,3,2,1,6,92,93,10,4,0,0,93,
-  	94,5,18,0,0,94,99,3,2,1,5,95,96,10,3,0,0,96,97,5,19,0,0,97,99,3,2,1,4,
-  	98,62,1,0,0,0,98,68,1,0,0,0,98,74,1,0,0,0,98,80,1,0,0,0,98,86,1,0,0,0,
-  	98,89,1,0,0,0,98,92,1,0,0,0,98,95,1,0,0,0,99,102,1,0,0,0,100,98,1,0,0,
-  	0,100,101,1,0,0,0,101,3,1,0,0,0,102,100,1,0,0,0,103,104,3,12,6,0,104,
-  	105,3,6,3,0,105,106,3,12,6,0,106,5,1,0,0,0,107,108,7,0,0,0,108,7,1,0,
-  	0,0,109,110,7,1,0,0,110,111,7,2,0,0,111,112,5,22,0,0,112,113,7,2,0,0,
-  	113,114,7,3,0,0,114,9,1,0,0,0,115,116,5,43,0,0,116,11,1,0,0,0,117,118,
-  	6,6,-1,0,118,119,5,29,0,0,119,120,3,12,6,0,120,121,5,30,0,0,121,124,1,
-  	0,0,0,122,124,3,14,7,0,123,117,1,0,0,0,123,122,1,0,0,0,124,142,1,0,0,
-  	0,125,126,10,5,0,0,126,127,5,47,0,0,127,141,3,12,6,6,128,129,10,4,0,0,
-  	129,130,5,48,0,0,130,141,3,12,6,5,131,132,10,3,0,0,132,133,5,49,0,0,133,
-  	141,3,12,6,4,134,135,10,2,0,0,135,136,5,45,0,0,136,141,3,12,6,3,137,138,
-  	10,1,0,0,138,139,5,46,0,0,139,141,3,12,6,2,140,125,1,0,0,0,140,128,1,
-  	0,0,0,140,131,1,0,0,0,140,134,1,0,0,0,140,137,1,0,0,0,141,144,1,0,0,0,
-  	142,140,1,0,0,0,142,143,1,0,0,0,143,13,1,0,0,0,144,142,1,0,0,0,145,151,
-  	5,43,0,0,146,148,5,46,0,0,147,146,1,0,0,0,147,148,1,0,0,0,148,149,1,0,
-  	0,0,149,151,5,34,0,0,150,145,1,0,0,0,150,147,1,0,0,0,151,15,1,0,0,0,18,
-  	28,33,38,43,48,53,60,65,71,77,83,98,100,123,140,142,147,150
+  	1,1,1,1,3,1,34,8,1,1,1,1,1,1,1,3,1,39,8,1,1,1,1,1,1,1,1,1,1,1,3,1,46,
+  	8,1,1,1,1,1,1,1,3,1,51,8,1,1,1,1,1,1,1,1,1,3,1,57,8,1,1,1,1,1,1,1,1,1,
+  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,72,8,1,10,1,12,1,75,9,1,1,2,1,
+  	2,1,2,1,2,1,3,1,3,1,4,1,4,1,4,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,6,1,6,1,6,
+  	1,6,3,6,97,8,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,
+  	6,1,6,5,6,114,8,6,10,6,12,6,117,9,6,1,7,1,7,3,7,121,8,7,1,7,3,7,124,8,
+  	7,1,7,0,2,2,12,8,0,2,4,6,8,10,12,14,0,4,2,0,1,4,22,23,2,0,20,20,24,24,
+  	1,0,28,29,2,0,21,21,25,25,144,0,16,1,0,0,0,2,45,1,0,0,0,4,76,1,0,0,0,
+  	6,80,1,0,0,0,8,82,1,0,0,0,10,88,1,0,0,0,12,96,1,0,0,0,14,123,1,0,0,0,
+  	16,17,3,2,1,0,17,18,5,0,0,1,18,1,1,0,0,0,19,20,6,1,-1,0,20,21,5,24,0,
+  	0,21,22,3,2,1,0,22,23,5,25,0,0,23,46,1,0,0,0,24,46,5,15,0,0,25,46,5,16,
+  	0,0,26,28,5,5,0,0,27,29,3,8,4,0,28,27,1,0,0,0,28,29,1,0,0,0,29,30,1,0,
+  	0,0,30,46,3,2,1,12,31,33,5,6,0,0,32,34,3,8,4,0,33,32,1,0,0,0,33,34,1,
+  	0,0,0,34,35,1,0,0,0,35,46,3,2,1,11,36,38,5,7,0,0,37,39,3,8,4,0,38,37,
+  	1,0,0,0,38,39,1,0,0,0,39,40,1,0,0,0,40,46,3,2,1,10,41,42,5,10,0,0,42,
+  	46,3,2,1,7,43,46,3,4,2,0,44,46,3,10,5,0,45,19,1,0,0,0,45,24,1,0,0,0,45,
+  	25,1,0,0,0,45,26,1,0,0,0,45,31,1,0,0,0,45,36,1,0,0,0,45,41,1,0,0,0,45,
+  	43,1,0,0,0,45,44,1,0,0,0,46,73,1,0,0,0,47,48,10,9,0,0,48,50,5,8,0,0,49,
+  	51,3,8,4,0,50,49,1,0,0,0,50,51,1,0,0,0,51,52,1,0,0,0,52,72,3,2,1,10,53,
+  	54,10,8,0,0,54,56,5,9,0,0,55,57,3,8,4,0,56,55,1,0,0,0,56,57,1,0,0,0,57,
+  	58,1,0,0,0,58,72,3,2,1,9,59,60,10,6,0,0,60,61,5,11,0,0,61,72,3,2,1,7,
+  	62,63,10,5,0,0,63,64,5,12,0,0,64,72,3,2,1,6,65,66,10,4,0,0,66,67,5,13,
+  	0,0,67,72,3,2,1,5,68,69,10,3,0,0,69,70,5,14,0,0,70,72,3,2,1,4,71,47,1,
+  	0,0,0,71,53,1,0,0,0,71,59,1,0,0,0,71,62,1,0,0,0,71,65,1,0,0,0,71,68,1,
+  	0,0,0,72,75,1,0,0,0,73,71,1,0,0,0,73,74,1,0,0,0,74,3,1,0,0,0,75,73,1,
+  	0,0,0,76,77,3,12,6,0,77,78,3,6,3,0,78,79,3,12,6,0,79,5,1,0,0,0,80,81,
+  	7,0,0,0,81,7,1,0,0,0,82,83,7,1,0,0,83,84,7,2,0,0,84,85,5,17,0,0,85,86,
+  	7,2,0,0,86,87,7,3,0,0,87,9,1,0,0,0,88,89,5,38,0,0,89,11,1,0,0,0,90,91,
+  	6,6,-1,0,91,92,5,24,0,0,92,93,3,12,6,0,93,94,5,25,0,0,94,97,1,0,0,0,95,
+  	97,3,14,7,0,96,90,1,0,0,0,96,95,1,0,0,0,97,115,1,0,0,0,98,99,10,5,0,0,
+  	99,100,5,42,0,0,100,114,3,12,6,6,101,102,10,4,0,0,102,103,5,43,0,0,103,
+  	114,3,12,6,5,104,105,10,3,0,0,105,106,5,44,0,0,106,114,3,12,6,4,107,108,
+  	10,2,0,0,108,109,5,40,0,0,109,114,3,12,6,3,110,111,10,1,0,0,111,112,5,
+  	41,0,0,112,114,3,12,6,2,113,98,1,0,0,0,113,101,1,0,0,0,113,104,1,0,0,
+  	0,113,107,1,0,0,0,113,110,1,0,0,0,114,117,1,0,0,0,115,113,1,0,0,0,115,
+  	116,1,0,0,0,116,13,1,0,0,0,117,115,1,0,0,0,118,124,5,38,0,0,119,121,5,
+  	41,0,0,120,119,1,0,0,0,120,121,1,0,0,0,121,122,1,0,0,0,122,124,5,29,0,
+  	0,123,118,1,0,0,0,123,120,1,0,0,0,124,15,1,0,0,0,13,28,33,38,45,50,56,
+  	71,73,96,113,115,120,123
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -278,29 +267,6 @@ std::any SignalTemporalLogicParser::ParenthesesContext::accept(tree::ParseTreeVi
   else
     return visitor->visitChildren(this);
 }
-//----------------- PtltlOnceContext ------------------------------------------------------------------
-
-tree::TerminalNode* SignalTemporalLogicParser::PtltlOnceContext::OnceOperator() {
-  return getToken(SignalTemporalLogicParser::OnceOperator, 0);
-}
-
-SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::PtltlOnceContext::formula() {
-  return getRuleContext<SignalTemporalLogicParser::FormulaContext>(0);
-}
-
-SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::PtltlOnceContext::interval() {
-  return getRuleContext<SignalTemporalLogicParser::IntervalContext>(0);
-}
-
-SignalTemporalLogicParser::PtltlOnceContext::PtltlOnceContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SignalTemporalLogicParser::PtltlOnceContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlOnce(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- LtlUntilContext ------------------------------------------------------------------
 
 std::vector<SignalTemporalLogicParser::FormulaContext *> SignalTemporalLogicParser::LtlUntilContext::formula() {
@@ -386,29 +352,6 @@ SignalTemporalLogicParser::PlFalseContext::PlFalseContext(FormulaContext *ctx) {
 std::any SignalTemporalLogicParser::PlFalseContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlFalse(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlHistoricallyContext ------------------------------------------------------------------
-
-tree::TerminalNode* SignalTemporalLogicParser::PtltlHistoricallyContext::HistoricallyOperator() {
-  return getToken(SignalTemporalLogicParser::HistoricallyOperator, 0);
-}
-
-SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::PtltlHistoricallyContext::formula() {
-  return getRuleContext<SignalTemporalLogicParser::FormulaContext>(0);
-}
-
-SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::PtltlHistoricallyContext::interval() {
-  return getRuleContext<SignalTemporalLogicParser::IntervalContext>(0);
-}
-
-SignalTemporalLogicParser::PtltlHistoricallyContext::PtltlHistoricallyContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SignalTemporalLogicParser::PtltlHistoricallyContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlHistorically(this);
   else
     return visitor->visitChildren(this);
 }
@@ -553,83 +496,6 @@ std::any SignalTemporalLogicParser::LtlReleaseContext::accept(tree::ParseTreeVis
   else
     return visitor->visitChildren(this);
 }
-//----------------- PtltlPreviousContext ------------------------------------------------------------------
-
-tree::TerminalNode* SignalTemporalLogicParser::PtltlPreviousContext::PreviousOperator() {
-  return getToken(SignalTemporalLogicParser::PreviousOperator, 0);
-}
-
-SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::PtltlPreviousContext::formula() {
-  return getRuleContext<SignalTemporalLogicParser::FormulaContext>(0);
-}
-
-SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::PtltlPreviousContext::interval() {
-  return getRuleContext<SignalTemporalLogicParser::IntervalContext>(0);
-}
-
-SignalTemporalLogicParser::PtltlPreviousContext::PtltlPreviousContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SignalTemporalLogicParser::PtltlPreviousContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlPrevious(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlSinceContext ------------------------------------------------------------------
-
-std::vector<SignalTemporalLogicParser::FormulaContext *> SignalTemporalLogicParser::PtltlSinceContext::formula() {
-  return getRuleContexts<SignalTemporalLogicParser::FormulaContext>();
-}
-
-SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::PtltlSinceContext::formula(size_t i) {
-  return getRuleContext<SignalTemporalLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* SignalTemporalLogicParser::PtltlSinceContext::SinceOperator() {
-  return getToken(SignalTemporalLogicParser::SinceOperator, 0);
-}
-
-SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::PtltlSinceContext::interval() {
-  return getRuleContext<SignalTemporalLogicParser::IntervalContext>(0);
-}
-
-SignalTemporalLogicParser::PtltlSinceContext::PtltlSinceContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SignalTemporalLogicParser::PtltlSinceContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlSince(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlTriggerContext ------------------------------------------------------------------
-
-std::vector<SignalTemporalLogicParser::FormulaContext *> SignalTemporalLogicParser::PtltlTriggerContext::formula() {
-  return getRuleContexts<SignalTemporalLogicParser::FormulaContext>();
-}
-
-SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::PtltlTriggerContext::formula(size_t i) {
-  return getRuleContext<SignalTemporalLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* SignalTemporalLogicParser::PtltlTriggerContext::TriggerOperator() {
-  return getToken(SignalTemporalLogicParser::TriggerOperator, 0);
-}
-
-SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::PtltlTriggerContext::interval() {
-  return getRuleContext<SignalTemporalLogicParser::IntervalContext>(0);
-}
-
-SignalTemporalLogicParser::PtltlTriggerContext::PtltlTriggerContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SignalTemporalLogicParser::PtltlTriggerContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlTrigger(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- LtlEventuallyContext ------------------------------------------------------------------
 
 tree::TerminalNode* SignalTemporalLogicParser::LtlEventuallyContext::EventuallyOperator() {
@@ -702,9 +568,9 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(60);
+    setState(45);
     _errHandler->sync(this);
-    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 6, _ctx)) {
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 3, _ctx)) {
     case 1: {
       _localctx = _tracker.createInstance<ParenthesesContext>(_localctx);
       _ctx = _localctx;
@@ -757,7 +623,7 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
         break;
       }
       setState(30);
-      formula(17);
+      formula(12);
       break;
     }
 
@@ -781,7 +647,7 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
         break;
       }
       setState(35);
-      formula(16);
+      formula(11);
       break;
     }
 
@@ -805,107 +671,35 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
         break;
       }
       setState(40);
-      formula(15);
-      break;
-    }
-
-    case 7: {
-      _localctx = _tracker.createInstance<PtltlOnceContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(41);
-      match(SignalTemporalLogicParser::OnceOperator);
-      setState(43);
-      _errHandler->sync(this);
-
-      switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 3, _ctx)) {
-      case 1: {
-        setState(42);
-        interval();
-        break;
-      }
-
-      default:
-        break;
-      }
-      setState(45);
-      formula(12);
-      break;
-    }
-
-    case 8: {
-      _localctx = _tracker.createInstance<PtltlHistoricallyContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(46);
-      match(SignalTemporalLogicParser::HistoricallyOperator);
-      setState(48);
-      _errHandler->sync(this);
-
-      switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
-      case 1: {
-        setState(47);
-        interval();
-        break;
-      }
-
-      default:
-        break;
-      }
-      setState(50);
-      formula(11);
-      break;
-    }
-
-    case 9: {
-      _localctx = _tracker.createInstance<PtltlPreviousContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(51);
-      match(SignalTemporalLogicParser::PreviousOperator);
-      setState(53);
-      _errHandler->sync(this);
-
-      switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 5, _ctx)) {
-      case 1: {
-        setState(52);
-        interval();
-        break;
-      }
-
-      default:
-        break;
-      }
-      setState(55);
       formula(10);
       break;
     }
 
-    case 10: {
+    case 7: {
       _localctx = _tracker.createInstance<PlNegationContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(56);
+      setState(41);
       match(SignalTemporalLogicParser::NegationOperator);
-      setState(57);
+      setState(42);
       formula(7);
       break;
     }
 
-    case 11: {
+    case 8: {
       _localctx = _tracker.createInstance<StlPredicateContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(58);
+      setState(43);
       predicate();
       break;
     }
 
-    case 12: {
+    case 9: {
       _localctx = _tracker.createInstance<PlPropositionContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(59);
+      setState(44);
       proposition();
       break;
     }
@@ -914,32 +708,32 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
       break;
     }
     _ctx->stop = _input->LT(-1);
-    setState(100);
+    setState(73);
     _errHandler->sync(this);
-    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 12, _ctx);
+    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
       if (alt == 1) {
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(98);
+        setState(71);
         _errHandler->sync(this);
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 11, _ctx)) {
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 6, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<LtlUntilContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(62);
+          setState(47);
 
-          if (!(precpred(_ctx, 14))) throw FailedPredicateException(this, "precpred(_ctx, 14)");
-          setState(63);
+          if (!(precpred(_ctx, 9))) throw FailedPredicateException(this, "precpred(_ctx, 9)");
+          setState(48);
           match(SignalTemporalLogicParser::UntilOperator);
-          setState(65);
+          setState(50);
           _errHandler->sync(this);
 
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx)) {
+          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
           case 1: {
-            setState(64);
+            setState(49);
             interval();
             break;
           }
@@ -947,8 +741,8 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
           default:
             break;
           }
-          setState(67);
-          formula(15);
+          setState(52);
+          formula(10);
           break;
         }
 
@@ -956,71 +750,17 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
           auto newContext = _tracker.createInstance<LtlReleaseContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(68);
-
-          if (!(precpred(_ctx, 13))) throw FailedPredicateException(this, "precpred(_ctx, 13)");
-          setState(69);
-          match(SignalTemporalLogicParser::ReleaseOperator);
-          setState(71);
-          _errHandler->sync(this);
-
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 8, _ctx)) {
-          case 1: {
-            setState(70);
-            interval();
-            break;
-          }
-
-          default:
-            break;
-          }
-          setState(73);
-          formula(14);
-          break;
-        }
-
-        case 3: {
-          auto newContext = _tracker.createInstance<PtltlSinceContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(74);
-
-          if (!(precpred(_ctx, 9))) throw FailedPredicateException(this, "precpred(_ctx, 9)");
-          setState(75);
-          match(SignalTemporalLogicParser::SinceOperator);
-          setState(77);
-          _errHandler->sync(this);
-
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 9, _ctx)) {
-          case 1: {
-            setState(76);
-            interval();
-            break;
-          }
-
-          default:
-            break;
-          }
-          setState(79);
-          formula(10);
-          break;
-        }
-
-        case 4: {
-          auto newContext = _tracker.createInstance<PtltlTriggerContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(80);
+          setState(53);
 
           if (!(precpred(_ctx, 8))) throw FailedPredicateException(this, "precpred(_ctx, 8)");
-          setState(81);
-          match(SignalTemporalLogicParser::TriggerOperator);
-          setState(83);
+          setState(54);
+          match(SignalTemporalLogicParser::ReleaseOperator);
+          setState(56);
           _errHandler->sync(this);
 
-          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx)) {
+          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 5, _ctx)) {
           case 1: {
-            setState(82);
+            setState(55);
             interval();
             break;
           }
@@ -1028,63 +768,63 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
           default:
             break;
           }
-          setState(85);
+          setState(58);
           formula(9);
           break;
         }
 
-        case 5: {
+        case 3: {
           auto newContext = _tracker.createInstance<PlConjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(86);
+          setState(59);
 
           if (!(precpred(_ctx, 6))) throw FailedPredicateException(this, "precpred(_ctx, 6)");
-          setState(87);
+          setState(60);
           match(SignalTemporalLogicParser::ConjunctionOperator);
-          setState(88);
+          setState(61);
           formula(7);
           break;
         }
 
-        case 6: {
+        case 4: {
           auto newContext = _tracker.createInstance<PlDisjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(89);
+          setState(62);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(90);
+          setState(63);
           match(SignalTemporalLogicParser::DisjunctionOperator);
-          setState(91);
+          setState(64);
           formula(6);
           break;
         }
 
-        case 7: {
+        case 5: {
           auto newContext = _tracker.createInstance<PlImplicationContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(92);
+          setState(65);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(93);
+          setState(66);
           match(SignalTemporalLogicParser::ImplicationOperator);
-          setState(94);
+          setState(67);
           formula(5);
           break;
         }
 
-        case 8: {
+        case 6: {
           auto newContext = _tracker.createInstance<PlIffContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(95);
+          setState(68);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(96);
+          setState(69);
           match(SignalTemporalLogicParser::IffOperator);
-          setState(97);
+          setState(70);
           formula(4);
           break;
         }
@@ -1093,9 +833,9 @@ SignalTemporalLogicParser::FormulaContext* SignalTemporalLogicParser::formula(in
           break;
         } 
       }
-      setState(102);
+      setState(75);
       _errHandler->sync(this);
-      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 12, _ctx);
+      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     }
   }
   catch (RecognitionException &e) {
@@ -1150,11 +890,11 @@ SignalTemporalLogicParser::PredicateContext* SignalTemporalLogicParser::predicat
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(103);
+    setState(76);
     expression(0);
-    setState(104);
+    setState(77);
     relationalOperator();
-    setState(105);
+    setState(78);
     expression(0);
    
   }
@@ -1224,10 +964,10 @@ SignalTemporalLogicParser::RelationalOperatorContext* SignalTemporalLogicParser:
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(107);
+    setState(80);
     _la = _input->LA(1);
     if (!(((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & 402653214) != 0)) {
+      ((1ULL << _la) & 12582942) != 0)) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -1314,7 +1054,7 @@ SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::interval(
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(109);
+    setState(82);
     _la = _input->LA(1);
     if (!(_la == SignalTemporalLogicParser::LeftBracket
 
@@ -1325,7 +1065,7 @@ SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::interval(
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(110);
+    setState(83);
     _la = _input->LA(1);
     if (!(_la == SignalTemporalLogicParser::Infinity
 
@@ -1336,9 +1076,9 @@ SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::interval(
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(111);
+    setState(84);
     match(SignalTemporalLogicParser::Comma);
-    setState(112);
+    setState(85);
     _la = _input->LA(1);
     if (!(_la == SignalTemporalLogicParser::Infinity
 
@@ -1349,7 +1089,7 @@ SignalTemporalLogicParser::IntervalContext* SignalTemporalLogicParser::interval(
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(113);
+    setState(86);
     _la = _input->LA(1);
     if (!(_la == SignalTemporalLogicParser::RightBracket
 
@@ -1407,7 +1147,7 @@ SignalTemporalLogicParser::PropositionContext* SignalTemporalLogicParser::propos
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(115);
+    setState(88);
     match(SignalTemporalLogicParser::Identifier);
    
   }
@@ -1527,6 +1267,29 @@ std::any SignalTemporalLogicParser::ArithmeticDivideContext::accept(tree::ParseT
   else
     return visitor->visitChildren(this);
 }
+//----------------- ArithmeticModulusContext ------------------------------------------------------------------
+
+std::vector<SignalTemporalLogicParser::ExpressionContext *> SignalTemporalLogicParser::ArithmeticModulusContext::expression() {
+  return getRuleContexts<SignalTemporalLogicParser::ExpressionContext>();
+}
+
+SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::ArithmeticModulusContext::expression(size_t i) {
+  return getRuleContext<SignalTemporalLogicParser::ExpressionContext>(i);
+}
+
+tree::TerminalNode* SignalTemporalLogicParser::ArithmeticModulusContext::ModulusOperator() {
+  return getToken(SignalTemporalLogicParser::ModulusOperator, 0);
+}
+
+SignalTemporalLogicParser::ArithmeticModulusContext::ArithmeticModulusContext(ExpressionContext *ctx) { copyFrom(ctx); }
+
+
+std::any SignalTemporalLogicParser::ArithmeticModulusContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
+    return parserVisitor->visitArithmeticModulus(this);
+  else
+    return visitor->visitChildren(this);
+}
 //----------------- ArithmeticTermContext ------------------------------------------------------------------
 
 SignalTemporalLogicParser::TermContext* SignalTemporalLogicParser::ArithmeticTermContext::term() {
@@ -1565,29 +1328,6 @@ std::any SignalTemporalLogicParser::ArithmeticPlusContext::accept(tree::ParseTre
   else
     return visitor->visitChildren(this);
 }
-//----------------- ArithmeticModuloContext ------------------------------------------------------------------
-
-std::vector<SignalTemporalLogicParser::ExpressionContext *> SignalTemporalLogicParser::ArithmeticModuloContext::expression() {
-  return getRuleContexts<SignalTemporalLogicParser::ExpressionContext>();
-}
-
-SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::ArithmeticModuloContext::expression(size_t i) {
-  return getRuleContext<SignalTemporalLogicParser::ExpressionContext>(i);
-}
-
-tree::TerminalNode* SignalTemporalLogicParser::ArithmeticModuloContext::ModuloOperator() {
-  return getToken(SignalTemporalLogicParser::ModuloOperator, 0);
-}
-
-SignalTemporalLogicParser::ArithmeticModuloContext::ArithmeticModuloContext(ExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SignalTemporalLogicParser::ArithmeticModuloContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SignalTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitArithmeticModulo(this);
-  else
-    return visitor->visitChildren(this);
-}
 
 SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::expression() {
    return expression(0);
@@ -1614,7 +1354,7 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(123);
+    setState(96);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SignalTemporalLogicParser::LeftParenthesis: {
@@ -1622,11 +1362,11 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
         _ctx = _localctx;
         previousContext = _localctx;
 
-        setState(118);
+        setState(91);
         match(SignalTemporalLogicParser::LeftParenthesis);
-        setState(119);
+        setState(92);
         expression(0);
-        setState(120);
+        setState(93);
         match(SignalTemporalLogicParser::RightParenthesis);
         break;
       }
@@ -1637,7 +1377,7 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
         _localctx = _tracker.createInstance<ArithmeticTermContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(122);
+        setState(95);
         term();
         break;
       }
@@ -1646,27 +1386,27 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(142);
+    setState(115);
     _errHandler->sync(this);
-    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 15, _ctx);
+    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
       if (alt == 1) {
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(140);
+        setState(113);
         _errHandler->sync(this);
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx)) {
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 9, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<ArithmeticTimesContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(125);
+          setState(98);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(126);
+          setState(99);
           match(SignalTemporalLogicParser::MultiplicationOperator);
-          setState(127);
+          setState(100);
           expression(6);
           break;
         }
@@ -1675,26 +1415,26 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           auto newContext = _tracker.createInstance<ArithmeticDivideContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(128);
+          setState(101);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(129);
+          setState(102);
           match(SignalTemporalLogicParser::DivisionOperator);
-          setState(130);
+          setState(103);
           expression(5);
           break;
         }
 
         case 3: {
-          auto newContext = _tracker.createInstance<ArithmeticModuloContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<ArithmeticModulusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(131);
+          setState(104);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(132);
-          match(SignalTemporalLogicParser::ModuloOperator);
-          setState(133);
+          setState(105);
+          match(SignalTemporalLogicParser::ModulusOperator);
+          setState(106);
           expression(4);
           break;
         }
@@ -1703,12 +1443,12 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           auto newContext = _tracker.createInstance<ArithmeticPlusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(134);
+          setState(107);
 
           if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-          setState(135);
+          setState(108);
           match(SignalTemporalLogicParser::AdditionOperator);
-          setState(136);
+          setState(109);
           expression(3);
           break;
         }
@@ -1717,12 +1457,12 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           auto newContext = _tracker.createInstance<ArithmeticMinusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(137);
+          setState(110);
 
           if (!(precpred(_ctx, 1))) throw FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(138);
+          setState(111);
           match(SignalTemporalLogicParser::SubtractionOperator);
-          setState(139);
+          setState(112);
           expression(2);
           break;
         }
@@ -1731,9 +1471,9 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           break;
         } 
       }
-      setState(144);
+      setState(117);
       _errHandler->sync(this);
-      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 15, _ctx);
+      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
     }
   }
   catch (RecognitionException &e) {
@@ -1806,13 +1546,13 @@ SignalTemporalLogicParser::TermContext* SignalTemporalLogicParser::term() {
     exitRule();
   });
   try {
-    setState(150);
+    setState(123);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SignalTemporalLogicParser::Identifier: {
         _localctx = _tracker.createInstance<SignalTemporalLogicParser::ArithmeticVariableContext>(_localctx);
         enterOuterAlt(_localctx, 1);
-        setState(145);
+        setState(118);
         match(SignalTemporalLogicParser::Identifier);
         break;
       }
@@ -1821,15 +1561,15 @@ SignalTemporalLogicParser::TermContext* SignalTemporalLogicParser::term() {
       case SignalTemporalLogicParser::SubtractionOperator: {
         _localctx = _tracker.createInstance<SignalTemporalLogicParser::ArithmeticConstantContext>(_localctx);
         enterOuterAlt(_localctx, 2);
-        setState(147);
+        setState(120);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == SignalTemporalLogicParser::SubtractionOperator) {
-          setState(146);
+          setState(119);
           match(SignalTemporalLogicParser::SubtractionOperator);
         }
-        setState(149);
+        setState(122);
         match(SignalTemporalLogicParser::Scalar);
         break;
       }
@@ -1861,14 +1601,12 @@ bool SignalTemporalLogicParser::sempred(RuleContext *context, size_t ruleIndex, 
 
 bool SignalTemporalLogicParser::formulaSempred(FormulaContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 0: return precpred(_ctx, 14);
-    case 1: return precpred(_ctx, 13);
-    case 2: return precpred(_ctx, 9);
-    case 3: return precpred(_ctx, 8);
-    case 4: return precpred(_ctx, 6);
-    case 5: return precpred(_ctx, 5);
-    case 6: return precpred(_ctx, 4);
-    case 7: return precpred(_ctx, 3);
+    case 0: return precpred(_ctx, 9);
+    case 1: return precpred(_ctx, 8);
+    case 2: return precpred(_ctx, 6);
+    case 3: return precpred(_ctx, 5);
+    case 4: return precpred(_ctx, 4);
+    case 5: return precpred(_ctx, 3);
 
   default:
     break;
@@ -1878,11 +1616,11 @@ bool SignalTemporalLogicParser::formulaSempred(FormulaContext *_localctx, size_t
 
 bool SignalTemporalLogicParser::expressionSempred(ExpressionContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 8: return precpred(_ctx, 5);
-    case 9: return precpred(_ctx, 4);
-    case 10: return precpred(_ctx, 3);
-    case 11: return precpred(_ctx, 2);
-    case 12: return precpred(_ctx, 1);
+    case 6: return precpred(_ctx, 5);
+    case 7: return precpred(_ctx, 4);
+    case 8: return precpred(_ctx, 3);
+    case 9: return precpred(_ctx, 2);
+    case 10: return precpred(_ctx, 1);
 
   default:
     break;

@@ -26,6 +26,9 @@ template <typename T>
 class Minus;
 
 template <typename T>
+class Modulus;
+
+template <typename T>
 class Plus;
 
 template <typename T>
@@ -47,6 +50,7 @@ class Visitor : public forek::formula::visitor::Visitor<T> {
     virtual auto setup(core::operand::arithmetic::Real<T>& ctx) -> void {}
     virtual auto setup(core::operand::arithmetic::Variable<T>& ctx) -> void {}
     virtual auto setup(core::operation::arithmetic::Divide<T>& ctx) -> void {}
+    virtual auto setup(core::operation::arithmetic::Modulus<T>& ctx) -> void {}
     virtual auto setup(core::operation::arithmetic::Minus<T>& ctx) -> void {}
     virtual auto setup(core::operation::arithmetic::Plus<T>& ctx) -> void {}
     virtual auto setup(core::operation::arithmetic::Times<T>& ctx) -> void {}
@@ -55,6 +59,7 @@ class Visitor : public forek::formula::visitor::Visitor<T> {
     virtual auto visit(core::operand::arithmetic::Real<T>& ctx) -> T = 0;
     virtual auto visit(core::operand::arithmetic::Variable<T>& ctx) -> T = 0;
     virtual auto visit(core::operation::arithmetic::Divide<T>& ctx) -> T = 0;
+    virtual auto visit(core::operation::arithmetic::Modulus<T>& ctx) -> T = 0;
     virtual auto visit(core::operation::arithmetic::Minus<T>& ctx) -> T = 0;
     virtual auto visit(core::operation::arithmetic::Plus<T>& ctx) -> T = 0;
     virtual auto visit(core::operation::arithmetic::Times<T>& ctx) -> T = 0;

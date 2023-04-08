@@ -9,6 +9,7 @@
 #include <forek/formula/core/operand/arithmetic/variable.hpp>
 #include <forek/formula/core/operation/arithmetic/divide.hpp>
 #include <forek/formula/core/operation/arithmetic/minus.hpp>
+#include <forek/formula/core/operation/arithmetic/modulus.hpp>
 #include <forek/formula/core/operation/arithmetic/plus.hpp>
 #include <forek/formula/core/operation/arithmetic/times.hpp>
 #include <forek/formula/visitor/arithmetic/visitor.hpp>
@@ -46,6 +47,10 @@ class DefaultVisitor : public forek::formula::visitor::arithmetic::Visitor<T> {
         } else {
             return ctx.lexpr().data() / ctx.rexpr().data();
         }
+    }
+
+    auto visit(core::operation::arithmetic::Modulus<T>& ctx) -> T {
+        return ctx.lexpr().data() % ctx.rexpr().data();
     }
 
     auto visit(core::operation::arithmetic::Minus<T>& ctx) -> T {

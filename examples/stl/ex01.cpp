@@ -14,7 +14,7 @@ auto main() -> int {
     std::string line;
     Model model = {{"p"}, {"p", "q"}, {"r"}, {"s"}, {"p"}};
 
-    std::cout << "Signal Temporal Logic (STL) REPL\n\nPlease type any valid PL formula "
+    std::cout << "Signal Temporal Logic (STL) REPL\n\nPlease type any valid STL formula "
                  "to evaluate. The\nproposition variables `p` is true if model "
                  "whereas `r` is False.\n\nThe input model is: {{\"p\"}, {\"p\", \"q\"}, {\"r\"}, "
                  "{\"s\"}, {\"p\"}}\n\nEnter Ctrl+D to exit at any moment.\n\n";

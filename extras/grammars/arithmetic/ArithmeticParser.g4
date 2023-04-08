@@ -8,7 +8,7 @@ expression : LeftParenthesis expression RightParenthesis  #arithmeticParentheses
 
     | expression MultiplicationOperator expression        #arithmeticTimes
     | expression DivisionOperator expression              #arithmeticDivide
-    | expression ModuloOperator expression                #arithmeticModulo
+    | expression ModulusOperator expression               #arithmeticModulus
     | expression AdditionOperator expression              #arithmeticPlus
     | expression SubtractionOperator expression           #arithmeticMinus
 

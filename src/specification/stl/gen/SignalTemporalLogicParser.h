@@ -14,18 +14,17 @@ class  SignalTemporalLogicParser : public antlr4::Parser {
 public:
   enum {
     LessThanOrEqualTo = 1, GreaterThanOrEqualTo = 2, EqualTo = 3, NotEqualTo = 4, 
-    OnceOperator = 5, HistoricallyOperator = 6, PreviousOperator = 7, SinceOperator = 8, 
-    TriggerOperator = 9, EventuallyOperator = 10, AlwaysOperator = 11, NextOperator = 12, 
-    UntilOperator = 13, ReleaseOperator = 14, NegationOperator = 15, ConjunctionOperator = 16, 
-    DisjunctionOperator = 17, ImplicationOperator = 18, IffOperator = 19, 
-    True = 20, False = 21, Comma = 22, LeftBrace = 23, RightBrace = 24, 
-    LeftBracket = 25, RightBracket = 26, LeftChevron = 27, RightChevron = 28, 
-    LeftParenthesis = 29, RightParenthesis = 30, BlockComment = 31, LineComment = 32, 
-    Infinity = 33, Scalar = 34, Integer = 35, DecimalInteger = 36, BinaryInteger = 37, 
-    OctalInteger = 38, HexInteger = 39, Floating = 40, PointFloat = 41, 
-    ExponentFloat = 42, Identifier = 43, Whitespace = 44, AdditionOperator = 45, 
-    SubtractionOperator = 46, MultiplicationOperator = 47, DivisionOperator = 48, 
-    ModuloOperator = 49
+    EventuallyOperator = 5, AlwaysOperator = 6, NextOperator = 7, UntilOperator = 8, 
+    ReleaseOperator = 9, NegationOperator = 10, ConjunctionOperator = 11, 
+    DisjunctionOperator = 12, ImplicationOperator = 13, IffOperator = 14, 
+    True = 15, False = 16, Comma = 17, LeftBrace = 18, RightBrace = 19, 
+    LeftBracket = 20, RightBracket = 21, LeftChevron = 22, RightChevron = 23, 
+    LeftParenthesis = 24, RightParenthesis = 25, BlockComment = 26, LineComment = 27, 
+    Infinity = 28, Scalar = 29, Integer = 30, DecimalInteger = 31, BinaryInteger = 32, 
+    OctalInteger = 33, HexInteger = 34, Floating = 35, PointFloat = 36, 
+    ExponentFloat = 37, Identifier = 38, Whitespace = 39, AdditionOperator = 40, 
+    SubtractionOperator = 41, MultiplicationOperator = 42, DivisionOperator = 43, 
+    ModulusOperator = 44
   };
 
   enum {
@@ -107,17 +106,6 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PtltlOnceContext : public FormulaContext {
-  public:
-    PtltlOnceContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *OnceOperator();
-    FormulaContext *formula();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
   class  LtlUntilContext : public FormulaContext {
   public:
     LtlUntilContext(FormulaContext *ctx);
@@ -157,17 +145,6 @@ public:
     PlFalseContext(FormulaContext *ctx);
 
     antlr4::tree::TerminalNode *False();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlHistoricallyContext : public FormulaContext {
-  public:
-    PtltlHistoricallyContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *HistoricallyOperator();
-    FormulaContext *formula();
-    IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -239,41 +216,6 @@ public:
     std::vector<FormulaContext *> formula();
     FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *ReleaseOperator();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlPreviousContext : public FormulaContext {
-  public:
-    PtltlPreviousContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *PreviousOperator();
-    FormulaContext *formula();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlSinceContext : public FormulaContext {
-  public:
-    PtltlSinceContext(FormulaContext *ctx);
-
-    std::vector<FormulaContext *> formula();
-    FormulaContext* formula(size_t i);
-    antlr4::tree::TerminalNode *SinceOperator();
-    IntervalContext *interval();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  PtltlTriggerContext : public FormulaContext {
-  public:
-    PtltlTriggerContext(FormulaContext *ctx);
-
-    std::vector<FormulaContext *> formula();
-    FormulaContext* formula(size_t i);
-    antlr4::tree::TerminalNode *TriggerOperator();
     IntervalContext *interval();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -427,6 +369,17 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
+  class  ArithmeticModulusContext : public ExpressionContext {
+  public:
+    ArithmeticModulusContext(ExpressionContext *ctx);
+
+    std::vector<ExpressionContext *> expression();
+    ExpressionContext* expression(size_t i);
+    antlr4::tree::TerminalNode *ModulusOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
   class  ArithmeticTermContext : public ExpressionContext {
   public:
     ArithmeticTermContext(ExpressionContext *ctx);
@@ -443,17 +396,6 @@ public:
     std::vector<ExpressionContext *> expression();
     ExpressionContext* expression(size_t i);
     antlr4::tree::TerminalNode *AdditionOperator();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
-  class  ArithmeticModuloContext : public ExpressionContext {
-  public:
-    ArithmeticModuloContext(ExpressionContext *ctx);
-
-    std::vector<ExpressionContext *> expression();
-    ExpressionContext* expression(size_t i);
-    antlr4::tree::TerminalNode *ModuloOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };

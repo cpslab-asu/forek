@@ -1,7 +1,7 @@
 #ifndef FOREK_FORMULA_VISITOR_TPTL_VISITOR_HPP
 #define FOREK_FORMULA_VISITOR_TPTL_VISITOR_HPP
 
-#include "forek/formula/visitor/arithmetic/visitor.hpp"
+#include <forek/formula/visitor/arithmetic/visitor.hpp>
 #include <forek/formula/visitor/ltl/visitor.hpp>
 
 namespace forek::formula {

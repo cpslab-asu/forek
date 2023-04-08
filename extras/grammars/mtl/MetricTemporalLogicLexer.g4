@@ -1,3 +1,3 @@
 lexer grammar MetricTemporalLogicLexer;
 
-import PastTimeLinearTemporalLogicLexer;
+import LinearTemporalLogicLexer;

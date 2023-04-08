@@ -26,8 +26,6 @@ public:
 
     virtual std::any visitParentheses(SignalTemporalLogicParser::ParenthesesContext *context) = 0;
 
-    virtual std::any visitPtltlOnce(SignalTemporalLogicParser::PtltlOnceContext *context) = 0;
-
     virtual std::any visitLtlUntil(SignalTemporalLogicParser::LtlUntilContext *context) = 0;
 
     virtual std::any visitPlImplication(SignalTemporalLogicParser::PlImplicationContext *context) = 0;
@@ -35,8 +33,6 @@ public:
     virtual std::any visitPlConjunction(SignalTemporalLogicParser::PlConjunctionContext *context) = 0;
 
     virtual std::any visitPlFalse(SignalTemporalLogicParser::PlFalseContext *context) = 0;
-
-    virtual std::any visitPtltlHistorically(SignalTemporalLogicParser::PtltlHistoricallyContext *context) = 0;
 
     virtual std::any visitStlPredicate(SignalTemporalLogicParser::StlPredicateContext *context) = 0;
 
@@ -51,12 +47,6 @@ public:
     virtual std::any visitPlProposition(SignalTemporalLogicParser::PlPropositionContext *context) = 0;
 
     virtual std::any visitLtlRelease(SignalTemporalLogicParser::LtlReleaseContext *context) = 0;
-
-    virtual std::any visitPtltlPrevious(SignalTemporalLogicParser::PtltlPreviousContext *context) = 0;
-
-    virtual std::any visitPtltlSince(SignalTemporalLogicParser::PtltlSinceContext *context) = 0;
-
-    virtual std::any visitPtltlTrigger(SignalTemporalLogicParser::PtltlTriggerContext *context) = 0;
 
     virtual std::any visitLtlEventually(SignalTemporalLogicParser::LtlEventuallyContext *context) = 0;
 
@@ -78,11 +68,11 @@ public:
 
     virtual std::any visitArithmeticDivide(SignalTemporalLogicParser::ArithmeticDivideContext *context) = 0;
 
+    virtual std::any visitArithmeticModulus(SignalTemporalLogicParser::ArithmeticModulusContext *context) = 0;
+
     virtual std::any visitArithmeticTerm(SignalTemporalLogicParser::ArithmeticTermContext *context) = 0;
 
     virtual std::any visitArithmeticPlus(SignalTemporalLogicParser::ArithmeticPlusContext *context) = 0;
-
-    virtual std::any visitArithmeticModulo(SignalTemporalLogicParser::ArithmeticModuloContext *context) = 0;
 
     virtual std::any visitArithmeticVariable(SignalTemporalLogicParser::ArithmeticVariableContext *context) = 0;
 
