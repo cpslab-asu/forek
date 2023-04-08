@@ -49,13 +49,12 @@ void timedqualitytemporallogicparserParserInitialize() {
     },
     std::vector<std::string>{
       "", "", "", "", "'<='", "'>='", "'=='", "'!='", "", "", "", "", "", 
-      "", "", "", "", "", "", "", "", "", "", "'true'", "'false'", "','", 
-      "'{'", "'}'", "'['", "']'", "'<'", "'>'", "'('", "')'", "", "", "'inf'"
+      "", "", "", "", "", "'true'", "'false'", "','", "'{'", "'}'", "'['", 
+      "']'", "'<'", "'>'", "'('", "')'", "", "", "'inf'"
     },
     std::vector<std::string>{
       "", "ExistsQuantifier", "ForallQuantifier", "FreezeTime", "LessThanOrEqualTo", 
-      "GreaterThanOrEqualTo", "EqualTo", "NotEqualTo", "OnceOperator", "HistoricallyOperator", 
-      "PreviousOperator", "SinceOperator", "TriggerOperator", "EventuallyOperator", 
+      "GreaterThanOrEqualTo", "EqualTo", "NotEqualTo", "EventuallyOperator", 
       "AlwaysOperator", "NextOperator", "UntilOperator", "ReleaseOperator", 
       "NegationOperator", "ConjunctionOperator", "DisjunctionOperator", 
       "ImplicationOperator", "IffOperator", "True", "False", "Comma", "LeftBrace", 
@@ -64,57 +63,52 @@ void timedqualitytemporallogicparserParserInitialize() {
       "Infinity", "Scalar", "Integer", "DecimalInteger", "BinaryInteger", 
       "OctalInteger", "HexInteger", "Floating", "PointFloat", "ExponentFloat", 
       "Identifier", "Whitespace", "AdditionOperator", "SubtractionOperator", 
-      "MultiplicationOperator", "DivisionOperator", "ModuloOperator"
+      "MultiplicationOperator", "DivisionOperator", "ModulusOperator"
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,52,147,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+  	4,1,47,135,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
   	7,7,7,2,8,7,8,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,3,1,51,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,77,8,1,10,1,12,1,80,9,1,1,
-  	2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,96,8,2,1,3,
-  	1,3,1,3,1,3,3,3,102,8,3,1,4,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,7,1,7,1,7,1,
-  	7,1,7,1,7,3,7,118,8,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,
-  	1,7,1,7,1,7,5,7,135,8,7,10,7,12,7,138,9,7,1,8,1,8,3,8,142,8,8,1,8,3,8,
-  	145,8,8,1,8,0,2,2,14,9,0,2,4,6,8,10,12,14,16,0,1,2,0,4,7,30,31,168,0,
-  	18,1,0,0,0,2,50,1,0,0,0,4,95,1,0,0,0,6,101,1,0,0,0,8,103,1,0,0,0,10,107,
-  	1,0,0,0,12,109,1,0,0,0,14,117,1,0,0,0,16,144,1,0,0,0,18,19,3,2,1,0,19,
-  	20,5,0,0,1,20,1,1,0,0,0,21,22,6,1,-1,0,22,23,5,32,0,0,23,24,3,2,1,0,24,
-  	25,5,33,0,0,25,51,1,0,0,0,26,51,5,23,0,0,27,51,5,24,0,0,28,29,5,13,0,
-  	0,29,51,3,2,1,19,30,31,5,14,0,0,31,51,3,2,1,18,32,33,5,15,0,0,33,51,3,
-  	2,1,17,34,35,5,8,0,0,35,51,3,2,1,14,36,37,5,9,0,0,37,51,3,2,1,13,38,39,
-  	5,10,0,0,39,51,3,2,1,12,40,41,3,4,2,0,41,42,3,2,1,9,42,51,1,0,0,0,43,
-  	44,5,3,0,0,44,45,5,46,0,0,45,51,3,2,1,8,46,47,5,18,0,0,47,51,3,2,1,7,
-  	48,51,3,8,4,0,49,51,3,12,6,0,50,21,1,0,0,0,50,26,1,0,0,0,50,27,1,0,0,
-  	0,50,28,1,0,0,0,50,30,1,0,0,0,50,32,1,0,0,0,50,34,1,0,0,0,50,36,1,0,0,
-  	0,50,38,1,0,0,0,50,40,1,0,0,0,50,43,1,0,0,0,50,46,1,0,0,0,50,48,1,0,0,
-  	0,50,49,1,0,0,0,51,78,1,0,0,0,52,53,10,16,0,0,53,54,5,16,0,0,54,77,3,
-  	2,1,17,55,56,10,15,0,0,56,57,5,17,0,0,57,77,3,2,1,16,58,59,10,11,0,0,
-  	59,60,5,11,0,0,60,77,3,2,1,12,61,62,10,10,0,0,62,63,5,12,0,0,63,77,3,
-  	2,1,11,64,65,10,6,0,0,65,66,5,19,0,0,66,77,3,2,1,7,67,68,10,5,0,0,68,
-  	69,5,20,0,0,69,77,3,2,1,6,70,71,10,4,0,0,71,72,5,21,0,0,72,77,3,2,1,5,
-  	73,74,10,3,0,0,74,75,5,22,0,0,75,77,3,2,1,4,76,52,1,0,0,0,76,55,1,0,0,
-  	0,76,58,1,0,0,0,76,61,1,0,0,0,76,64,1,0,0,0,76,67,1,0,0,0,76,70,1,0,0,
-  	0,76,73,1,0,0,0,77,80,1,0,0,0,78,76,1,0,0,0,78,79,1,0,0,0,79,3,1,0,0,
-  	0,80,78,1,0,0,0,81,82,5,1,0,0,82,83,5,32,0,0,83,84,3,6,3,0,84,85,5,33,
-  	0,0,85,86,5,3,0,0,86,87,5,46,0,0,87,96,1,0,0,0,88,89,5,2,0,0,89,90,5,
-  	32,0,0,90,91,3,6,3,0,91,92,5,33,0,0,92,93,5,3,0,0,93,94,5,46,0,0,94,96,
-  	1,0,0,0,95,81,1,0,0,0,95,88,1,0,0,0,96,5,1,0,0,0,97,98,5,46,0,0,98,99,
-  	5,25,0,0,99,102,3,6,3,0,100,102,5,46,0,0,101,97,1,0,0,0,101,100,1,0,0,
-  	0,102,7,1,0,0,0,103,104,3,14,7,0,104,105,3,10,5,0,105,106,3,14,7,0,106,
-  	9,1,0,0,0,107,108,7,0,0,0,108,11,1,0,0,0,109,110,5,46,0,0,110,13,1,0,
-  	0,0,111,112,6,7,-1,0,112,113,5,32,0,0,113,114,3,14,7,0,114,115,5,33,0,
-  	0,115,118,1,0,0,0,116,118,3,16,8,0,117,111,1,0,0,0,117,116,1,0,0,0,118,
-  	136,1,0,0,0,119,120,10,5,0,0,120,121,5,50,0,0,121,135,3,14,7,6,122,123,
-  	10,4,0,0,123,124,5,51,0,0,124,135,3,14,7,5,125,126,10,3,0,0,126,127,5,
-  	52,0,0,127,135,3,14,7,4,128,129,10,2,0,0,129,130,5,48,0,0,130,135,3,14,
-  	7,3,131,132,10,1,0,0,132,133,5,49,0,0,133,135,3,14,7,2,134,119,1,0,0,
-  	0,134,122,1,0,0,0,134,125,1,0,0,0,134,128,1,0,0,0,134,131,1,0,0,0,135,
-  	138,1,0,0,0,136,134,1,0,0,0,136,137,1,0,0,0,137,15,1,0,0,0,138,136,1,
-  	0,0,0,139,145,5,46,0,0,140,142,5,49,0,0,141,140,1,0,0,0,141,142,1,0,0,
-  	0,142,143,1,0,0,0,143,145,5,37,0,0,144,139,1,0,0,0,144,141,1,0,0,0,145,
-  	17,1,0,0,0,10,50,76,78,95,101,117,134,136,141,144
+  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,45,8,1,1,1,1,1,1,
+  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,65,
+  	8,1,10,1,12,1,68,9,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,
+  	1,2,1,2,3,2,84,8,2,1,3,1,3,1,3,1,3,3,3,90,8,3,1,4,1,4,1,4,1,4,1,5,1,5,
+  	1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,3,7,106,8,7,1,7,1,7,1,7,1,7,1,7,1,7,1,
+  	7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,5,7,123,8,7,10,7,12,7,126,9,7,1,8,1,
+  	8,3,8,130,8,8,1,8,3,8,133,8,8,1,8,0,2,2,14,9,0,2,4,6,8,10,12,14,16,0,
+  	1,2,0,4,7,25,26,151,0,18,1,0,0,0,2,44,1,0,0,0,4,83,1,0,0,0,6,89,1,0,0,
+  	0,8,91,1,0,0,0,10,95,1,0,0,0,12,97,1,0,0,0,14,105,1,0,0,0,16,132,1,0,
+  	0,0,18,19,3,2,1,0,19,20,5,0,0,1,20,1,1,0,0,0,21,22,6,1,-1,0,22,23,5,27,
+  	0,0,23,24,3,2,1,0,24,25,5,28,0,0,25,45,1,0,0,0,26,45,5,18,0,0,27,45,5,
+  	19,0,0,28,29,5,8,0,0,29,45,3,2,1,14,30,31,5,9,0,0,31,45,3,2,1,13,32,33,
+  	5,10,0,0,33,45,3,2,1,12,34,35,3,4,2,0,35,36,3,2,1,9,36,45,1,0,0,0,37,
+  	38,5,3,0,0,38,39,5,41,0,0,39,45,3,2,1,8,40,41,5,13,0,0,41,45,3,2,1,7,
+  	42,45,3,8,4,0,43,45,3,12,6,0,44,21,1,0,0,0,44,26,1,0,0,0,44,27,1,0,0,
+  	0,44,28,1,0,0,0,44,30,1,0,0,0,44,32,1,0,0,0,44,34,1,0,0,0,44,37,1,0,0,
+  	0,44,40,1,0,0,0,44,42,1,0,0,0,44,43,1,0,0,0,45,66,1,0,0,0,46,47,10,11,
+  	0,0,47,48,5,11,0,0,48,65,3,2,1,12,49,50,10,10,0,0,50,51,5,12,0,0,51,65,
+  	3,2,1,11,52,53,10,6,0,0,53,54,5,14,0,0,54,65,3,2,1,7,55,56,10,5,0,0,56,
+  	57,5,15,0,0,57,65,3,2,1,6,58,59,10,4,0,0,59,60,5,16,0,0,60,65,3,2,1,5,
+  	61,62,10,3,0,0,62,63,5,17,0,0,63,65,3,2,1,4,64,46,1,0,0,0,64,49,1,0,0,
+  	0,64,52,1,0,0,0,64,55,1,0,0,0,64,58,1,0,0,0,64,61,1,0,0,0,65,68,1,0,0,
+  	0,66,64,1,0,0,0,66,67,1,0,0,0,67,3,1,0,0,0,68,66,1,0,0,0,69,70,5,1,0,
+  	0,70,71,5,27,0,0,71,72,3,6,3,0,72,73,5,28,0,0,73,74,5,3,0,0,74,75,5,41,
+  	0,0,75,84,1,0,0,0,76,77,5,2,0,0,77,78,5,27,0,0,78,79,3,6,3,0,79,80,5,
+  	28,0,0,80,81,5,3,0,0,81,82,5,41,0,0,82,84,1,0,0,0,83,69,1,0,0,0,83,76,
+  	1,0,0,0,84,5,1,0,0,0,85,86,5,41,0,0,86,87,5,20,0,0,87,90,3,6,3,0,88,90,
+  	5,41,0,0,89,85,1,0,0,0,89,88,1,0,0,0,90,7,1,0,0,0,91,92,3,14,7,0,92,93,
+  	3,10,5,0,93,94,3,14,7,0,94,9,1,0,0,0,95,96,7,0,0,0,96,11,1,0,0,0,97,98,
+  	5,41,0,0,98,13,1,0,0,0,99,100,6,7,-1,0,100,101,5,27,0,0,101,102,3,14,
+  	7,0,102,103,5,28,0,0,103,106,1,0,0,0,104,106,3,16,8,0,105,99,1,0,0,0,
+  	105,104,1,0,0,0,106,124,1,0,0,0,107,108,10,5,0,0,108,109,5,45,0,0,109,
+  	123,3,14,7,6,110,111,10,4,0,0,111,112,5,46,0,0,112,123,3,14,7,5,113,114,
+  	10,3,0,0,114,115,5,47,0,0,115,123,3,14,7,4,116,117,10,2,0,0,117,118,5,
+  	43,0,0,118,123,3,14,7,3,119,120,10,1,0,0,120,121,5,44,0,0,121,123,3,14,
+  	7,2,122,107,1,0,0,0,122,110,1,0,0,0,122,113,1,0,0,0,122,116,1,0,0,0,122,
+  	119,1,0,0,0,123,126,1,0,0,0,124,122,1,0,0,0,124,125,1,0,0,0,125,15,1,
+  	0,0,0,126,124,1,0,0,0,127,133,5,41,0,0,128,130,5,44,0,0,129,128,1,0,0,
+  	0,129,130,1,0,0,0,130,131,1,0,0,0,131,133,5,32,0,0,132,127,1,0,0,0,132,
+  	129,1,0,0,0,133,17,1,0,0,0,10,44,64,66,83,89,105,122,124,129,132
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -294,25 +288,6 @@ std::any TimedQualityTemporalLogicParser::TqtlObjectQualifierContext::accept(tre
   else
     return visitor->visitChildren(this);
 }
-//----------------- PtltlOnceContext ------------------------------------------------------------------
-
-tree::TerminalNode* TimedQualityTemporalLogicParser::PtltlOnceContext::OnceOperator() {
-  return getToken(TimedQualityTemporalLogicParser::OnceOperator, 0);
-}
-
-TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser::PtltlOnceContext::formula() {
-  return getRuleContext<TimedQualityTemporalLogicParser::FormulaContext>(0);
-}
-
-TimedQualityTemporalLogicParser::PtltlOnceContext::PtltlOnceContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any TimedQualityTemporalLogicParser::PtltlOnceContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlOnce(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- LtlUntilContext ------------------------------------------------------------------
 
 std::vector<TimedQualityTemporalLogicParser::FormulaContext *> TimedQualityTemporalLogicParser::LtlUntilContext::formula() {
@@ -394,25 +369,6 @@ TimedQualityTemporalLogicParser::PlFalseContext::PlFalseContext(FormulaContext *
 std::any TimedQualityTemporalLogicParser::PlFalseContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlFalse(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlHistoricallyContext ------------------------------------------------------------------
-
-tree::TerminalNode* TimedQualityTemporalLogicParser::PtltlHistoricallyContext::HistoricallyOperator() {
-  return getToken(TimedQualityTemporalLogicParser::HistoricallyOperator, 0);
-}
-
-TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser::PtltlHistoricallyContext::formula() {
-  return getRuleContext<TimedQualityTemporalLogicParser::FormulaContext>(0);
-}
-
-TimedQualityTemporalLogicParser::PtltlHistoricallyContext::PtltlHistoricallyContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any TimedQualityTemporalLogicParser::PtltlHistoricallyContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlHistorically(this);
   else
     return visitor->visitChildren(this);
 }
@@ -572,71 +528,6 @@ std::any TimedQualityTemporalLogicParser::LtlReleaseContext::accept(tree::ParseT
   else
     return visitor->visitChildren(this);
 }
-//----------------- PtltlPreviousContext ------------------------------------------------------------------
-
-tree::TerminalNode* TimedQualityTemporalLogicParser::PtltlPreviousContext::PreviousOperator() {
-  return getToken(TimedQualityTemporalLogicParser::PreviousOperator, 0);
-}
-
-TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser::PtltlPreviousContext::formula() {
-  return getRuleContext<TimedQualityTemporalLogicParser::FormulaContext>(0);
-}
-
-TimedQualityTemporalLogicParser::PtltlPreviousContext::PtltlPreviousContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any TimedQualityTemporalLogicParser::PtltlPreviousContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlPrevious(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlSinceContext ------------------------------------------------------------------
-
-std::vector<TimedQualityTemporalLogicParser::FormulaContext *> TimedQualityTemporalLogicParser::PtltlSinceContext::formula() {
-  return getRuleContexts<TimedQualityTemporalLogicParser::FormulaContext>();
-}
-
-TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser::PtltlSinceContext::formula(size_t i) {
-  return getRuleContext<TimedQualityTemporalLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* TimedQualityTemporalLogicParser::PtltlSinceContext::SinceOperator() {
-  return getToken(TimedQualityTemporalLogicParser::SinceOperator, 0);
-}
-
-TimedQualityTemporalLogicParser::PtltlSinceContext::PtltlSinceContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any TimedQualityTemporalLogicParser::PtltlSinceContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlSince(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlTriggerContext ------------------------------------------------------------------
-
-std::vector<TimedQualityTemporalLogicParser::FormulaContext *> TimedQualityTemporalLogicParser::PtltlTriggerContext::formula() {
-  return getRuleContexts<TimedQualityTemporalLogicParser::FormulaContext>();
-}
-
-TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser::PtltlTriggerContext::formula(size_t i) {
-  return getRuleContext<TimedQualityTemporalLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* TimedQualityTemporalLogicParser::PtltlTriggerContext::TriggerOperator() {
-  return getToken(TimedQualityTemporalLogicParser::TriggerOperator, 0);
-}
-
-TimedQualityTemporalLogicParser::PtltlTriggerContext::PtltlTriggerContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any TimedQualityTemporalLogicParser::PtltlTriggerContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlTrigger(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- LtlEventuallyContext ------------------------------------------------------------------
 
 tree::TerminalNode* TimedQualityTemporalLogicParser::LtlEventuallyContext::EventuallyOperator() {
@@ -701,7 +592,7 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(50);
+    setState(44);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 0, _ctx)) {
     case 1: {
@@ -743,7 +634,7 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
       setState(28);
       match(TimedQualityTemporalLogicParser::EventuallyOperator);
       setState(29);
-      formula(19);
+      formula(14);
       break;
     }
 
@@ -754,7 +645,7 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
       setState(30);
       match(TimedQualityTemporalLogicParser::AlwaysOperator);
       setState(31);
-      formula(18);
+      formula(13);
       break;
     }
 
@@ -765,92 +656,59 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
       setState(32);
       match(TimedQualityTemporalLogicParser::NextOperator);
       setState(33);
-      formula(17);
-      break;
-    }
-
-    case 7: {
-      _localctx = _tracker.createInstance<PtltlOnceContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(34);
-      match(TimedQualityTemporalLogicParser::OnceOperator);
-      setState(35);
-      formula(14);
-      break;
-    }
-
-    case 8: {
-      _localctx = _tracker.createInstance<PtltlHistoricallyContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(36);
-      match(TimedQualityTemporalLogicParser::HistoricallyOperator);
-      setState(37);
-      formula(13);
-      break;
-    }
-
-    case 9: {
-      _localctx = _tracker.createInstance<PtltlPreviousContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(38);
-      match(TimedQualityTemporalLogicParser::PreviousOperator);
-      setState(39);
       formula(12);
       break;
     }
 
-    case 10: {
+    case 7: {
       _localctx = _tracker.createInstance<TqtlObjectQualifierContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(40);
+      setState(34);
       objectQualifier();
-      setState(41);
+      setState(35);
       formula(9);
       break;
     }
 
-    case 11: {
+    case 8: {
       _localctx = _tracker.createInstance<TptlFreezeTimeContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(43);
+      setState(37);
       match(TimedQualityTemporalLogicParser::FreezeTime);
-      setState(44);
+      setState(38);
       match(TimedQualityTemporalLogicParser::Identifier);
-      setState(45);
+      setState(39);
       formula(8);
       break;
     }
 
-    case 12: {
+    case 9: {
       _localctx = _tracker.createInstance<PlNegationContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(46);
+      setState(40);
       match(TimedQualityTemporalLogicParser::NegationOperator);
-      setState(47);
+      setState(41);
       formula(7);
       break;
     }
 
-    case 13: {
+    case 10: {
       _localctx = _tracker.createInstance<TptlTimeConstraintContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(48);
+      setState(42);
       timeConstraint();
       break;
     }
 
-    case 14: {
+    case 11: {
       _localctx = _tracker.createInstance<PlPropositionContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(49);
+      setState(43);
       proposition();
       break;
     }
@@ -859,7 +717,7 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
       break;
     }
     _ctx->stop = _input->LT(-1);
-    setState(78);
+    setState(66);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 2, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -867,20 +725,20 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(76);
+        setState(64);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 1, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<LtlUntilContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(52);
+          setState(46);
 
-          if (!(precpred(_ctx, 16))) throw FailedPredicateException(this, "precpred(_ctx, 16)");
-          setState(53);
+          if (!(precpred(_ctx, 11))) throw FailedPredicateException(this, "precpred(_ctx, 11)");
+          setState(47);
           match(TimedQualityTemporalLogicParser::UntilOperator);
-          setState(54);
-          formula(17);
+          setState(48);
+          formula(12);
           break;
         }
 
@@ -888,96 +746,68 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
           auto newContext = _tracker.createInstance<LtlReleaseContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(55);
-
-          if (!(precpred(_ctx, 15))) throw FailedPredicateException(this, "precpred(_ctx, 15)");
-          setState(56);
-          match(TimedQualityTemporalLogicParser::ReleaseOperator);
-          setState(57);
-          formula(16);
-          break;
-        }
-
-        case 3: {
-          auto newContext = _tracker.createInstance<PtltlSinceContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(58);
-
-          if (!(precpred(_ctx, 11))) throw FailedPredicateException(this, "precpred(_ctx, 11)");
-          setState(59);
-          match(TimedQualityTemporalLogicParser::SinceOperator);
-          setState(60);
-          formula(12);
-          break;
-        }
-
-        case 4: {
-          auto newContext = _tracker.createInstance<PtltlTriggerContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(61);
+          setState(49);
 
           if (!(precpred(_ctx, 10))) throw FailedPredicateException(this, "precpred(_ctx, 10)");
-          setState(62);
-          match(TimedQualityTemporalLogicParser::TriggerOperator);
-          setState(63);
+          setState(50);
+          match(TimedQualityTemporalLogicParser::ReleaseOperator);
+          setState(51);
           formula(11);
           break;
         }
 
-        case 5: {
+        case 3: {
           auto newContext = _tracker.createInstance<PlConjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(64);
+          setState(52);
 
           if (!(precpred(_ctx, 6))) throw FailedPredicateException(this, "precpred(_ctx, 6)");
-          setState(65);
+          setState(53);
           match(TimedQualityTemporalLogicParser::ConjunctionOperator);
-          setState(66);
+          setState(54);
           formula(7);
           break;
         }
 
-        case 6: {
+        case 4: {
           auto newContext = _tracker.createInstance<PlDisjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(67);
+          setState(55);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(68);
+          setState(56);
           match(TimedQualityTemporalLogicParser::DisjunctionOperator);
-          setState(69);
+          setState(57);
           formula(6);
           break;
         }
 
-        case 7: {
+        case 5: {
           auto newContext = _tracker.createInstance<PlImplicationContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(70);
+          setState(58);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(71);
+          setState(59);
           match(TimedQualityTemporalLogicParser::ImplicationOperator);
-          setState(72);
+          setState(60);
           formula(5);
           break;
         }
 
-        case 8: {
+        case 6: {
           auto newContext = _tracker.createInstance<PlIffContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(73);
+          setState(61);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(74);
+          setState(62);
           match(TimedQualityTemporalLogicParser::IffOperator);
-          setState(75);
+          setState(63);
           formula(4);
           break;
         }
@@ -986,7 +816,7 @@ TimedQualityTemporalLogicParser::FormulaContext* TimedQualityTemporalLogicParser
           break;
         } 
       }
-      setState(80);
+      setState(68);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 2, _ctx);
     }
@@ -1096,23 +926,23 @@ TimedQualityTemporalLogicParser::ObjectQualifierContext* TimedQualityTemporalLog
     exitRule();
   });
   try {
-    setState(95);
+    setState(83);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case TimedQualityTemporalLogicParser::ExistsQuantifier: {
         _localctx = _tracker.createInstance<TimedQualityTemporalLogicParser::TqtlExistsQualifierContext>(_localctx);
         enterOuterAlt(_localctx, 1);
-        setState(81);
+        setState(69);
         match(TimedQualityTemporalLogicParser::ExistsQuantifier);
-        setState(82);
+        setState(70);
         match(TimedQualityTemporalLogicParser::LeftParenthesis);
-        setState(83);
+        setState(71);
         argumentList();
-        setState(84);
+        setState(72);
         match(TimedQualityTemporalLogicParser::RightParenthesis);
-        setState(85);
+        setState(73);
         match(TimedQualityTemporalLogicParser::FreezeTime);
-        setState(86);
+        setState(74);
         match(TimedQualityTemporalLogicParser::Identifier);
         break;
       }
@@ -1120,17 +950,17 @@ TimedQualityTemporalLogicParser::ObjectQualifierContext* TimedQualityTemporalLog
       case TimedQualityTemporalLogicParser::ForallQuantifier: {
         _localctx = _tracker.createInstance<TimedQualityTemporalLogicParser::TqtlForallQualifierContext>(_localctx);
         enterOuterAlt(_localctx, 2);
-        setState(88);
+        setState(76);
         match(TimedQualityTemporalLogicParser::ForallQuantifier);
-        setState(89);
+        setState(77);
         match(TimedQualityTemporalLogicParser::LeftParenthesis);
-        setState(90);
+        setState(78);
         argumentList();
-        setState(91);
+        setState(79);
         match(TimedQualityTemporalLogicParser::RightParenthesis);
-        setState(92);
+        setState(80);
         match(TimedQualityTemporalLogicParser::FreezeTime);
-        setState(93);
+        setState(81);
         match(TimedQualityTemporalLogicParser::Identifier);
         break;
       }
@@ -1192,23 +1022,23 @@ TimedQualityTemporalLogicParser::ArgumentListContext* TimedQualityTemporalLogicP
     exitRule();
   });
   try {
-    setState(101);
+    setState(89);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(97);
+      setState(85);
       match(TimedQualityTemporalLogicParser::Identifier);
-      setState(98);
+      setState(86);
       match(TimedQualityTemporalLogicParser::Comma);
-      setState(99);
+      setState(87);
       argumentList();
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(100);
+      setState(88);
       match(TimedQualityTemporalLogicParser::Identifier);
       break;
     }
@@ -1271,11 +1101,11 @@ TimedQualityTemporalLogicParser::TimeConstraintContext* TimedQualityTemporalLogi
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(103);
+    setState(91);
     expression(0);
-    setState(104);
+    setState(92);
     relationalOperator();
-    setState(105);
+    setState(93);
     expression(0);
    
   }
@@ -1345,10 +1175,10 @@ TimedQualityTemporalLogicParser::RelationalOperatorContext* TimedQualityTemporal
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(107);
+    setState(95);
     _la = _input->LA(1);
     if (!(((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & 3221225712) != 0)) {
+      ((1ULL << _la) & 100663536) != 0)) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -1402,7 +1232,7 @@ TimedQualityTemporalLogicParser::PropositionContext* TimedQualityTemporalLogicPa
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(109);
+    setState(97);
     match(TimedQualityTemporalLogicParser::Identifier);
    
   }
@@ -1522,6 +1352,29 @@ std::any TimedQualityTemporalLogicParser::ArithmeticDivideContext::accept(tree::
   else
     return visitor->visitChildren(this);
 }
+//----------------- ArithmeticModulusContext ------------------------------------------------------------------
+
+std::vector<TimedQualityTemporalLogicParser::ExpressionContext *> TimedQualityTemporalLogicParser::ArithmeticModulusContext::expression() {
+  return getRuleContexts<TimedQualityTemporalLogicParser::ExpressionContext>();
+}
+
+TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicParser::ArithmeticModulusContext::expression(size_t i) {
+  return getRuleContext<TimedQualityTemporalLogicParser::ExpressionContext>(i);
+}
+
+tree::TerminalNode* TimedQualityTemporalLogicParser::ArithmeticModulusContext::ModulusOperator() {
+  return getToken(TimedQualityTemporalLogicParser::ModulusOperator, 0);
+}
+
+TimedQualityTemporalLogicParser::ArithmeticModulusContext::ArithmeticModulusContext(ExpressionContext *ctx) { copyFrom(ctx); }
+
+
+std::any TimedQualityTemporalLogicParser::ArithmeticModulusContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
+    return parserVisitor->visitArithmeticModulus(this);
+  else
+    return visitor->visitChildren(this);
+}
 //----------------- ArithmeticTermContext ------------------------------------------------------------------
 
 TimedQualityTemporalLogicParser::TermContext* TimedQualityTemporalLogicParser::ArithmeticTermContext::term() {
@@ -1560,29 +1413,6 @@ std::any TimedQualityTemporalLogicParser::ArithmeticPlusContext::accept(tree::Pa
   else
     return visitor->visitChildren(this);
 }
-//----------------- ArithmeticModuloContext ------------------------------------------------------------------
-
-std::vector<TimedQualityTemporalLogicParser::ExpressionContext *> TimedQualityTemporalLogicParser::ArithmeticModuloContext::expression() {
-  return getRuleContexts<TimedQualityTemporalLogicParser::ExpressionContext>();
-}
-
-TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicParser::ArithmeticModuloContext::expression(size_t i) {
-  return getRuleContext<TimedQualityTemporalLogicParser::ExpressionContext>(i);
-}
-
-tree::TerminalNode* TimedQualityTemporalLogicParser::ArithmeticModuloContext::ModuloOperator() {
-  return getToken(TimedQualityTemporalLogicParser::ModuloOperator, 0);
-}
-
-TimedQualityTemporalLogicParser::ArithmeticModuloContext::ArithmeticModuloContext(ExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any TimedQualityTemporalLogicParser::ArithmeticModuloContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<TimedQualityTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitArithmeticModulo(this);
-  else
-    return visitor->visitChildren(this);
-}
 
 TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicParser::expression() {
    return expression(0);
@@ -1609,7 +1439,7 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(117);
+    setState(105);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case TimedQualityTemporalLogicParser::LeftParenthesis: {
@@ -1617,11 +1447,11 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
         _ctx = _localctx;
         previousContext = _localctx;
 
-        setState(112);
+        setState(100);
         match(TimedQualityTemporalLogicParser::LeftParenthesis);
-        setState(113);
+        setState(101);
         expression(0);
-        setState(114);
+        setState(102);
         match(TimedQualityTemporalLogicParser::RightParenthesis);
         break;
       }
@@ -1632,7 +1462,7 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
         _localctx = _tracker.createInstance<ArithmeticTermContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(116);
+        setState(104);
         term();
         break;
       }
@@ -1641,7 +1471,7 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(136);
+    setState(124);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -1649,19 +1479,19 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(134);
+        setState(122);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 6, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<ArithmeticTimesContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(119);
+          setState(107);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(120);
+          setState(108);
           match(TimedQualityTemporalLogicParser::MultiplicationOperator);
-          setState(121);
+          setState(109);
           expression(6);
           break;
         }
@@ -1670,26 +1500,26 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
           auto newContext = _tracker.createInstance<ArithmeticDivideContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(122);
+          setState(110);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(123);
+          setState(111);
           match(TimedQualityTemporalLogicParser::DivisionOperator);
-          setState(124);
+          setState(112);
           expression(5);
           break;
         }
 
         case 3: {
-          auto newContext = _tracker.createInstance<ArithmeticModuloContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<ArithmeticModulusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(125);
+          setState(113);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(126);
-          match(TimedQualityTemporalLogicParser::ModuloOperator);
-          setState(127);
+          setState(114);
+          match(TimedQualityTemporalLogicParser::ModulusOperator);
+          setState(115);
           expression(4);
           break;
         }
@@ -1698,12 +1528,12 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
           auto newContext = _tracker.createInstance<ArithmeticPlusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(128);
+          setState(116);
 
           if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-          setState(129);
+          setState(117);
           match(TimedQualityTemporalLogicParser::AdditionOperator);
-          setState(130);
+          setState(118);
           expression(3);
           break;
         }
@@ -1712,12 +1542,12 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
           auto newContext = _tracker.createInstance<ArithmeticMinusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(131);
+          setState(119);
 
           if (!(precpred(_ctx, 1))) throw FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(132);
+          setState(120);
           match(TimedQualityTemporalLogicParser::SubtractionOperator);
-          setState(133);
+          setState(121);
           expression(2);
           break;
         }
@@ -1726,7 +1556,7 @@ TimedQualityTemporalLogicParser::ExpressionContext* TimedQualityTemporalLogicPar
           break;
         } 
       }
-      setState(138);
+      setState(126);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     }
@@ -1801,13 +1631,13 @@ TimedQualityTemporalLogicParser::TermContext* TimedQualityTemporalLogicParser::t
     exitRule();
   });
   try {
-    setState(144);
+    setState(132);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case TimedQualityTemporalLogicParser::Identifier: {
         _localctx = _tracker.createInstance<TimedQualityTemporalLogicParser::ArithmeticVariableContext>(_localctx);
         enterOuterAlt(_localctx, 1);
-        setState(139);
+        setState(127);
         match(TimedQualityTemporalLogicParser::Identifier);
         break;
       }
@@ -1816,15 +1646,15 @@ TimedQualityTemporalLogicParser::TermContext* TimedQualityTemporalLogicParser::t
       case TimedQualityTemporalLogicParser::SubtractionOperator: {
         _localctx = _tracker.createInstance<TimedQualityTemporalLogicParser::ArithmeticConstantContext>(_localctx);
         enterOuterAlt(_localctx, 2);
-        setState(141);
+        setState(129);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == TimedQualityTemporalLogicParser::SubtractionOperator) {
-          setState(140);
+          setState(128);
           match(TimedQualityTemporalLogicParser::SubtractionOperator);
         }
-        setState(143);
+        setState(131);
         match(TimedQualityTemporalLogicParser::Scalar);
         break;
       }
@@ -1856,14 +1686,12 @@ bool TimedQualityTemporalLogicParser::sempred(RuleContext *context, size_t ruleI
 
 bool TimedQualityTemporalLogicParser::formulaSempred(FormulaContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 0: return precpred(_ctx, 16);
-    case 1: return precpred(_ctx, 15);
-    case 2: return precpred(_ctx, 11);
-    case 3: return precpred(_ctx, 10);
-    case 4: return precpred(_ctx, 6);
-    case 5: return precpred(_ctx, 5);
-    case 6: return precpred(_ctx, 4);
-    case 7: return precpred(_ctx, 3);
+    case 0: return precpred(_ctx, 11);
+    case 1: return precpred(_ctx, 10);
+    case 2: return precpred(_ctx, 6);
+    case 3: return precpred(_ctx, 5);
+    case 4: return precpred(_ctx, 4);
+    case 5: return precpred(_ctx, 3);
 
   default:
     break;
@@ -1873,11 +1701,11 @@ bool TimedQualityTemporalLogicParser::formulaSempred(FormulaContext *_localctx, 
 
 bool TimedQualityTemporalLogicParser::expressionSempred(ExpressionContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 8: return precpred(_ctx, 5);
-    case 9: return precpred(_ctx, 4);
-    case 10: return precpred(_ctx, 3);
-    case 11: return precpred(_ctx, 2);
-    case 12: return precpred(_ctx, 1);
+    case 6: return precpred(_ctx, 5);
+    case 7: return precpred(_ctx, 4);
+    case 8: return precpred(_ctx, 3);
+    case 9: return precpred(_ctx, 2);
+    case 10: return precpred(_ctx, 1);
 
   default:
     break;

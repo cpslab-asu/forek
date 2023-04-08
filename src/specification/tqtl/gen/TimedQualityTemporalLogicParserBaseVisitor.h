@@ -33,10 +33,6 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitPtltlOnce(TimedQualityTemporalLogicParser::PtltlOnceContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual std::any visitLtlUntil(TimedQualityTemporalLogicParser::LtlUntilContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -50,10 +46,6 @@ public:
   }
 
   virtual std::any visitPlFalse(TimedQualityTemporalLogicParser::PlFalseContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlHistorically(TimedQualityTemporalLogicParser::PtltlHistoricallyContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -86,18 +78,6 @@ public:
   }
 
   virtual std::any visitLtlRelease(TimedQualityTemporalLogicParser::LtlReleaseContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlPrevious(TimedQualityTemporalLogicParser::PtltlPreviousContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlSince(TimedQualityTemporalLogicParser::PtltlSinceContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlTrigger(TimedQualityTemporalLogicParser::PtltlTriggerContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -149,15 +129,15 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitArithmeticModulus(TimedQualityTemporalLogicParser::ArithmeticModulusContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitArithmeticTerm(TimedQualityTemporalLogicParser::ArithmeticTermContext *ctx) override {
     return visitChildren(ctx);
   }
 
   virtual std::any visitArithmeticPlus(TimedQualityTemporalLogicParser::ArithmeticPlusContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticModulo(TimedQualityTemporalLogicParser::ArithmeticModuloContext *ctx) override {
     return visitChildren(ctx);
   }
 

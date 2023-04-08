@@ -14,19 +14,17 @@ class  TimedQualityTemporalLogicLexer : public antlr4::Lexer {
 public:
   enum {
     ExistsQuantifier = 1, ForallQuantifier = 2, FreezeTime = 3, LessThanOrEqualTo = 4, 
-    GreaterThanOrEqualTo = 5, EqualTo = 6, NotEqualTo = 7, OnceOperator = 8, 
-    HistoricallyOperator = 9, PreviousOperator = 10, SinceOperator = 11, 
-    TriggerOperator = 12, EventuallyOperator = 13, AlwaysOperator = 14, 
-    NextOperator = 15, UntilOperator = 16, ReleaseOperator = 17, NegationOperator = 18, 
-    ConjunctionOperator = 19, DisjunctionOperator = 20, ImplicationOperator = 21, 
-    IffOperator = 22, True = 23, False = 24, Comma = 25, LeftBrace = 26, 
-    RightBrace = 27, LeftBracket = 28, RightBracket = 29, LeftChevron = 30, 
-    RightChevron = 31, LeftParenthesis = 32, RightParenthesis = 33, BlockComment = 34, 
-    LineComment = 35, Infinity = 36, Scalar = 37, Integer = 38, DecimalInteger = 39, 
-    BinaryInteger = 40, OctalInteger = 41, HexInteger = 42, Floating = 43, 
-    PointFloat = 44, ExponentFloat = 45, Identifier = 46, Whitespace = 47, 
-    AdditionOperator = 48, SubtractionOperator = 49, MultiplicationOperator = 50, 
-    DivisionOperator = 51, ModuloOperator = 52
+    GreaterThanOrEqualTo = 5, EqualTo = 6, NotEqualTo = 7, EventuallyOperator = 8, 
+    AlwaysOperator = 9, NextOperator = 10, UntilOperator = 11, ReleaseOperator = 12, 
+    NegationOperator = 13, ConjunctionOperator = 14, DisjunctionOperator = 15, 
+    ImplicationOperator = 16, IffOperator = 17, True = 18, False = 19, Comma = 20, 
+    LeftBrace = 21, RightBrace = 22, LeftBracket = 23, RightBracket = 24, 
+    LeftChevron = 25, RightChevron = 26, LeftParenthesis = 27, RightParenthesis = 28, 
+    BlockComment = 29, LineComment = 30, Infinity = 31, Scalar = 32, Integer = 33, 
+    DecimalInteger = 34, BinaryInteger = 35, OctalInteger = 36, HexInteger = 37, 
+    Floating = 38, PointFloat = 39, ExponentFloat = 40, Identifier = 41, 
+    Whitespace = 42, AdditionOperator = 43, SubtractionOperator = 44, MultiplicationOperator = 45, 
+    DivisionOperator = 46, ModulusOperator = 47
   };
 
   explicit TimedQualityTemporalLogicLexer(antlr4::CharStream *input);

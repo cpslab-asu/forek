@@ -2,9 +2,11 @@
 #define FOREK_SPECIFICATION_TQTL_BUILDER_HPP
 
 #include <any>
+#include <iterator>
 #include <memory>
 #include <string>
 #include <utility>
+#include <vector>
 
 #include <forek/formula/core/operand/arithmetic/real.hpp>
 #include <forek/formula/core/operand/arithmetic/variable.hpp>
@@ -14,6 +16,7 @@
 #include <forek/formula/core/operand/pl/true.hpp>
 #include <forek/formula/core/operation/arithmetic/divide.hpp>
 #include <forek/formula/core/operation/arithmetic/minus.hpp>
+#include <forek/formula/core/operation/arithmetic/modulus.hpp>
 #include <forek/formula/core/operation/arithmetic/plus.hpp>
 #include <forek/formula/core/operation/arithmetic/times.hpp>
 #include <forek/formula/core/operation/ltl/always.hpp>
@@ -28,6 +31,7 @@
 #include <forek/formula/core/operation/pl/or.hpp>
 #include <forek/formula/core/operation/tptl/constraint.hpp>
 #include <forek/formula/core/operation/tptl/freeze.hpp>
+#include <forek/formula/core/operation/tqtl/qualifier.hpp>
 #include <forek/formula/formula.hpp>
 
 #include "gen/TimedQualityTemporalLogicParser.h"
@@ -40,6 +44,7 @@ using forek::formula::core::operand::arithmetic::Real;
 using forek::formula::core::operand::arithmetic::Variable;
 using forek::formula::core::operation::arithmetic::Divide;
 using forek::formula::core::operation::arithmetic::Minus;
+using forek::formula::core::operation::arithmetic::Modulus;
 using forek::formula::core::operation::arithmetic::Plus;
 using forek::formula::core::operation::arithmetic::Times;
 
@@ -61,6 +66,9 @@ using forek::formula::core::operation::ltl::Until;
 
 using forek::formula::core::operation::tptl::FreezeTime;
 using forek::formula::core::operation::tptl::TimeConstraint;
+
+using forek::formula::core::operation::tqtl::ExistsQualifier;
+using forek::formula::core::operation::tqtl::ForallQualifier;
 
 template <typename T>
 class TimedQualityTemporalLogicBuilder : public gen::TimedQualityTemporalLogicParserVisitor {
@@ -274,6 +282,18 @@ class TimedQualityTemporalLogicBuilder : public gen::TimedQualityTemporalLogicPa
         return Formula<T>(std::move(expr));
     }
 
+    auto visitArithmeticModulus(gen::TimedQualityTemporalLogicParser::ArithmeticModulusContext* ctx)
+        -> std::any override {
+        auto lformula = visit(ctx->expression(0));
+        auto rformula = visit(ctx->expression(1));
+
+        auto expr =
+            std::make_unique<Modulus<T>>(std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                                         std::move(std::any_cast<Formula<T>>(rformula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
+
     auto visitArithmeticTerm(gen::TimedQualityTemporalLogicParser::ArithmeticTermContext* ctx)
         -> std::any override {
         return visit(ctx->term());
@@ -305,6 +325,75 @@ class TimedQualityTemporalLogicBuilder : public gen::TimedQualityTemporalLogicPa
 
         auto expr = std::make_unique<Real<T>>(value);
         return Formula<T>(std::move(expr));
+    }
+
+    auto visitRelationalOperator(
+        gen::TimedQualityTemporalLogicParser::RelationalOperatorContext* ctx) -> std::any override {
+        return ctx->getText();
+    }
+
+    auto visitTqtlObjectQualifier(
+        gen::TimedQualityTemporalLogicParser::TqtlObjectQualifierContext* ctx)
+        -> std::any override {
+        auto formula = visit(ctx->formula());
+
+        // In order to create a Qualifier node, the formula must be known before the node is
+        // created. Therefore, visiting the main elements of a qualifier are performed first
+        // followed by the formula to created the appropriate qualifier without having to pass
+        // information between contexts.
+        //
+        // This includes visiting the type of qualifier, the arguments lists, and the frozen
+        // variable contexts.
+        auto kind = ctx->objectQualifier()->children.at(0)->getText();
+        auto variables = visit(ctx->objectQualifier()->children.at(2));
+        auto frozen = ctx->objectQualifier()->children.at(5)->getText();
+
+        if (kind.compare("E") == 0 || kind.compare("exists") == 0) {
+            auto expr = std::make_unique<ExistsQualifier<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()),
+                std::move(std::any_cast<std::vector<std::string>>(variables)),
+                std::move(std::any_cast<std::string>(frozen)));
+
+            return Formula<T>(std::move(expr));
+        } else {
+            auto expr = std::make_unique<ForallQualifier<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()),
+                std::move(std::any_cast<std::vector<std::string>>(variables)),
+                std::move(std::any_cast<std::string>(frozen)));
+
+            return Formula<T>(std::move(expr));
+        }
+    }
+
+    auto visitTqtlExistsQualifier(
+        gen::TimedQualityTemporalLogicParser::TqtlExistsQualifierContext* ctx)
+        -> std::any override {
+        // This context is never explicitly visited. However, to suppress the warning, a visit to
+        // the children is used but never called here.
+        return visitChildren(ctx);
+    }
+
+    auto visitTqtlForallQualifier(
+        gen::TimedQualityTemporalLogicParser::TqtlForallQualifierContext* ctx)
+        -> std::any override {
+        // This context is never explicitly visited. However, to suppress the warning, a visit to
+        // the children is used but never called here.
+        return visitChildren(ctx);
+    }
+
+    auto visitArgumentList(gen::TimedQualityTemporalLogicParser::ArgumentListContext* ctx)
+        -> std::any override {
+        std::vector<std::string> variables;
+        variables.push_back(ctx->Identifier()->getText());
+
+        if (ctx->argumentList()) {
+	  auto others = std::any_cast<std::vector<std::string>>(visit(ctx->argumentList()));
+
+	  variables.reserve(variables.size() + others.size());
+	  variables.insert(variables.end(), std::make_move_iterator(others.begin()), std::make_move_iterator(others.end()));
+        }
+
+        return variables;
     }
 };
 }  // namespace builder

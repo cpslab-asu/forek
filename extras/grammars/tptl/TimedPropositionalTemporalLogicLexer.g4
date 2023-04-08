@@ -1,6 +1,6 @@
 lexer grammar TimedPropositionalTemporalLogicLexer;
 
-import PastTimeLinearTemporalLogicLexer, ArithmeticLexer;
+import LinearTemporalLogicLexer, ArithmeticLexer;
 
 /// The freeze quantifier, FreezeTime.
 ///

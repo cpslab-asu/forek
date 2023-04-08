@@ -15,12 +15,6 @@ formula : LeftParenthesis formula RightParenthesis  #parentheses
     | formula UntilOperator formula                 #ltlUntil
     | formula ReleaseOperator formula               #ltlRelease
 
-    | OnceOperator formula                          #ptltlOnce
-    | HistoricallyOperator formula                  #ptltlHistorically
-    | PreviousOperator formula                      #ptltlPrevious
-    | formula SinceOperator formula                 #ptltlSince
-    | formula TriggerOperator formula               #ptltlTrigger
-
     | objectQualifier formula                       #tqtlObjectQualifier
     | FreezeTime Identifier formula                 #tptlFreezeTime
 

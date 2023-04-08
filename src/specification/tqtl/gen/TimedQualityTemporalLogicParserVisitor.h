@@ -28,8 +28,6 @@ public:
 
     virtual std::any visitTqtlObjectQualifier(TimedQualityTemporalLogicParser::TqtlObjectQualifierContext *context) = 0;
 
-    virtual std::any visitPtltlOnce(TimedQualityTemporalLogicParser::PtltlOnceContext *context) = 0;
-
     virtual std::any visitLtlUntil(TimedQualityTemporalLogicParser::LtlUntilContext *context) = 0;
 
     virtual std::any visitPlImplication(TimedQualityTemporalLogicParser::PlImplicationContext *context) = 0;
@@ -37,8 +35,6 @@ public:
     virtual std::any visitPlConjunction(TimedQualityTemporalLogicParser::PlConjunctionContext *context) = 0;
 
     virtual std::any visitPlFalse(TimedQualityTemporalLogicParser::PlFalseContext *context) = 0;
-
-    virtual std::any visitPtltlHistorically(TimedQualityTemporalLogicParser::PtltlHistoricallyContext *context) = 0;
 
     virtual std::any visitLtlAlways(TimedQualityTemporalLogicParser::LtlAlwaysContext *context) = 0;
 
@@ -55,12 +51,6 @@ public:
     virtual std::any visitPlProposition(TimedQualityTemporalLogicParser::PlPropositionContext *context) = 0;
 
     virtual std::any visitLtlRelease(TimedQualityTemporalLogicParser::LtlReleaseContext *context) = 0;
-
-    virtual std::any visitPtltlPrevious(TimedQualityTemporalLogicParser::PtltlPreviousContext *context) = 0;
-
-    virtual std::any visitPtltlSince(TimedQualityTemporalLogicParser::PtltlSinceContext *context) = 0;
-
-    virtual std::any visitPtltlTrigger(TimedQualityTemporalLogicParser::PtltlTriggerContext *context) = 0;
 
     virtual std::any visitLtlEventually(TimedQualityTemporalLogicParser::LtlEventuallyContext *context) = 0;
 
@@ -86,11 +76,11 @@ public:
 
     virtual std::any visitArithmeticDivide(TimedQualityTemporalLogicParser::ArithmeticDivideContext *context) = 0;
 
+    virtual std::any visitArithmeticModulus(TimedQualityTemporalLogicParser::ArithmeticModulusContext *context) = 0;
+
     virtual std::any visitArithmeticTerm(TimedQualityTemporalLogicParser::ArithmeticTermContext *context) = 0;
 
     virtual std::any visitArithmeticPlus(TimedQualityTemporalLogicParser::ArithmeticPlusContext *context) = 0;
-
-    virtual std::any visitArithmeticModulo(TimedQualityTemporalLogicParser::ArithmeticModuloContext *context) = 0;
 
     virtual std::any visitArithmeticVariable(TimedQualityTemporalLogicParser::ArithmeticVariableContext *context) = 0;
 
