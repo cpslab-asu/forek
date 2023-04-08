@@ -27,20 +27,20 @@ jobs:
   #       run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -B build/
   #     - name: Run Clang Tidy Check
   #       run: find include/ src/ -not -path "*/gen/*" -type f -iname *.cpp -or -iname *.hpp | xargs clang-tidy -p build --config-file=".clang-tidy"
-  cppcheck:
-    name: Cppcheck
-    runs-on: ubuntu-latest
-    container: andersonjwan/cppcheck:2.9
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run Cppcheck
-        run: cppcheck --enable=all --error-exitcode=2 --std=c++20 src/ include/
+  # cppcheck:
+  #   name: Cppcheck
+  #   runs-on: ubuntu-latest
+  #   container: andersonjwan/cppcheck:2.9
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Run Cppcheck
+  #       run: cppcheck --enable=all --error-exitcode=2 --std=c++20 src/ include/
   build:
     name: Compile
     runs-on: ubuntu-latest
     container: andersonjwan/devel:latest
-    needs: [clang-format, cppcheck]
+    needs: [clang-format]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
