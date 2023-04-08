@@ -28,7 +28,7 @@ add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS forek)
 target_include_directories(forek
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/specification>
-  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external/antlr4/runtime/Cpp/runtime/src/>
+  SYSTEM $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external/antlr4/runtime/Cpp/runtime/src/>
 )
 
 target_link_libraries(forek antlr4_static)
