@@ -14,8 +14,7 @@ namespace error {
 using forek::specification::pl::PropositionalLogicParseError;
 
 class PropositionalLogicErrorHandler : public antlr4::BailErrorStrategy {
-    auto recover(antlr4::Parser *recognizer, std::exception_ptr eptr)
-        -> void override {
+    auto recover(antlr4::Parser *recognizer, std::exception_ptr eptr) -> void override {
         try {
             if (eptr) {
                 std::rethrow_exception(eptr);

@@ -12,8 +12,7 @@ class Operand : public Node<T> {
    public:
     auto accept(visitor::Visitor<T>& visitor) -> void override = 0;
 
-    [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node<T>> override = 0;
+    [[nodiscard]] inline auto clone() const -> std::unique_ptr<core::Node<T>> override = 0;
 };
 }  // namespace forek::formula::core::operand
 

@@ -15,8 +15,7 @@ class Node {
     virtual ~Node() = default;
     virtual auto accept(visitor::Visitor<T>& visitor) -> void = 0;
 
-    [[nodiscard]] virtual inline auto clone() const
-        -> std::unique_ptr<Node> = 0;
+    [[nodiscard]] virtual inline auto clone() const -> std::unique_ptr<Node> = 0;
 
     [[nodiscard]] virtual inline auto data() const -> const T& { return data_; }
     virtual inline auto data(T data) -> void { data_ = data; }

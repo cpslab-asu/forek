@@ -34,96 +34,82 @@ using forek::formula::core::operation::pl::Or;
 template <typename T>
 class PropositionalLogicBuilder : public gen::PropositionalLogicParserVisitor {
    public:
-    auto visitStart(gen::PropositionalLogicParser::StartContext* ctx)
-        -> std::any override {
+    auto visitStart(gen::PropositionalLogicParser::StartContext* ctx) -> std::any override {
         return visit(ctx->formula());
     }
 
     auto visitPlNegation(gen::PropositionalLogicParser::PlNegationContext* ctx)
         -> std::any override {
         auto formula = visit(ctx->formula());
-        auto expr = std::make_unique<Not<T>>(
-            std::move(std::any_cast<Formula<T>>(formula).expr()));
+        auto expr = std::make_unique<Not<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitParentheses(
-        gen::PropositionalLogicParser::ParenthesesContext* ctx)
+    auto visitParentheses(gen::PropositionalLogicParser::ParenthesesContext* ctx)
         -> std::any override {
         return visit(ctx->formula());
     }
 
-    auto visitPlIff(gen::PropositionalLogicParser::PlIffContext* ctx)
-        -> std::any override {
+    auto visitPlIff(gen::PropositionalLogicParser::PlIffContext* ctx) -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
 
-        auto expr = std::make_unique<Iff<T>>(
-            std::move(std::any_cast<Formula<T>>(lformula).expr()),
-            std::move(std::any_cast<Formula<T>>(rformula).expr()));
+        auto expr = std::make_unique<Iff<T>>(std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                                             std::move(std::any_cast<Formula<T>>(rformula).expr()));
 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlAtom(gen::PropositionalLogicParser::PlAtomContext* ctx)
-        -> std::any override {
+    auto visitPlAtom(gen::PropositionalLogicParser::PlAtomContext* ctx) -> std::any override {
         return visit(ctx->proposition());
     }
 
-    auto visitPlDisjunction(
-        gen::PropositionalLogicParser::PlDisjunctionContext* ctx)
+    auto visitPlDisjunction(gen::PropositionalLogicParser::PlDisjunctionContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
 
-        auto expr = std::make_unique<Or<T>>(
-            std::move(std::any_cast<Formula<T>>(lformula).expr()),
-            std::move(std::any_cast<Formula<T>>(rformula).expr()));
+        auto expr = std::make_unique<Or<T>>(std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                                            std::move(std::any_cast<Formula<T>>(rformula).expr()));
 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlImplication(
-        gen::PropositionalLogicParser::PlImplicationContext* ctx)
+    auto visitPlImplication(gen::PropositionalLogicParser::PlImplicationContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
 
-        auto expr = std::make_unique<Implies<T>>(
-            std::move(std::any_cast<Formula<T>>(lformula).expr()),
-            std::move(std::any_cast<Formula<T>>(rformula).expr()));
+        auto expr =
+            std::make_unique<Implies<T>>(std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                                         std::move(std::any_cast<Formula<T>>(rformula).expr()));
 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlConjunction(
-        gen::PropositionalLogicParser::PlConjunctionContext* ctx)
+    auto visitPlConjunction(gen::PropositionalLogicParser::PlConjunctionContext* ctx)
         -> std::any override {
         auto lformula = visit(ctx->formula(0));
         auto rformula = visit(ctx->formula(1));
 
-        auto expr = std::make_unique<And<T>>(
-            std::move(std::any_cast<Formula<T>>(lformula).expr()),
-            std::move(std::any_cast<Formula<T>>(rformula).expr()));
+        auto expr = std::make_unique<And<T>>(std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                                             std::move(std::any_cast<Formula<T>>(rformula).expr()));
 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlTrue(gen::PropositionalLogicParser::PlTrueContext* ctx)
-        -> std::any override {
+    auto visitPlTrue(gen::PropositionalLogicParser::PlTrueContext* ctx) -> std::any override {
         auto expr = std::make_unique<True<T>>();
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlFalse(gen::PropositionalLogicParser::PlFalseContext* ctx)
-        -> std::any override {
+    auto visitPlFalse(gen::PropositionalLogicParser::PlFalseContext* ctx) -> std::any override {
         auto expr = std::make_unique<False<T>>();
         return Formula<T>(std::move(expr));
     }
 
-    auto visitProposition(
-        gen::PropositionalLogicParser::PropositionContext* ctx)
+    auto visitProposition(gen::PropositionalLogicParser::PropositionContext* ctx)
         -> std::any override {
         auto name = ctx->Identifier()->getText();
 

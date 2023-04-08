@@ -21,19 +21,16 @@ class Iff : public Binary<T> {
             this->lexpr_->accept(visitor);
             this->rexpr_->accept(visitor);
 
-            this->data_ =
-                dynamic_cast<visitor::pl::Visitor<T>&>(visitor).visit(*this);
+            this->data_ = dynamic_cast<visitor::pl::Visitor<T>&>(visitor).visit(*this);
         } catch (const std::bad_cast&) {
             // A user error is thrown if a visitor (of a lower acceptance) is
             // attempted to be used (i.e., it is undefined behavior to downcast
             // an object that is not truly its casted type).
-            throw visitor::VisitorException(
-                "unable to visit Iff with provided visitor");
+            throw visitor::VisitorException("unable to visit Iff with provided visitor");
         }
     }
 
-    [[nodiscard]] inline auto clone() const
-        -> std::unique_ptr<core::Node<T>> override {
+    [[nodiscard]] inline auto clone() const -> std::unique_ptr<core::Node<T>> override {
         return std::make_unique<Iff>(std::move(this->lexpr_->clone()),
                                      std::move(this->rexpr_->clone()));
     }

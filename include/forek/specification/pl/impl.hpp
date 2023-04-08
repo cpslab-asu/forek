@@ -15,8 +15,7 @@ class PropositionalLogic : public Specification<T> {
 
    public:
     PropositionalLogic() = delete;
-    explicit PropositionalLogic(std::string formula)
-        : formula_(std::move(formula)) {}
+    explicit PropositionalLogic(std::string formula) : formula_(std::move(formula)) {}
 
     /// Parse a PL formulae into a Formula.
     [[nodiscard]] auto parse() const -> formula::Formula<T> override;
@@ -24,8 +23,7 @@ class PropositionalLogic : public Specification<T> {
 
 class PropositionalLogicParseError : public std::runtime_error {
    public:
-    explicit PropositionalLogicParseError(const std::string& msg)
-        : std::runtime_error(msg) {}
+    explicit PropositionalLogicParseError(const std::string& msg) : std::runtime_error(msg) {}
 };
 }  // namespace forek::specification::pl
 

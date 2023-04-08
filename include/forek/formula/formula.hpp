@@ -14,19 +14,14 @@ class Formula {
 
    public:
     Formula() = delete;
-    explicit Formula(std::unique_ptr<core::Node<T>> expr)
-        : expr_(std::move(expr)) {}
+    explicit Formula(std::unique_ptr<core::Node<T>> expr) : expr_(std::move(expr)) {}
 
     Formula(const Formula& other) : expr_(std::move(other.expr_->clone())){};
     Formula(Formula&& other) : expr_(std::move(other.expr_)) {}
 
-    inline auto expr() -> std::unique_ptr<core::Node<T>> {
-        return std::move(expr_);
-    }
+    inline auto expr() -> std::unique_ptr<core::Node<T>> { return std::move(expr_); }
 
-    auto evaluate(visitor::Visitor<T>& visitor) -> void {
-        expr_->accept(visitor);
-    }
+    auto evaluate(visitor::Visitor<T>& visitor) -> void { expr_->accept(visitor); }
 };
 }  // namespace forek::formula
 

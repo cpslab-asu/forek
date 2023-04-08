@@ -387,10 +387,11 @@ class TimedQualityTemporalLogicBuilder : public gen::TimedQualityTemporalLogicPa
         variables.push_back(ctx->Identifier()->getText());
 
         if (ctx->argumentList()) {
-	  auto others = std::any_cast<std::vector<std::string>>(visit(ctx->argumentList()));
+            auto others = std::any_cast<std::vector<std::string>>(visit(ctx->argumentList()));
 
-	  variables.reserve(variables.size() + others.size());
-	  variables.insert(variables.end(), std::make_move_iterator(others.begin()), std::make_move_iterator(others.end()));
+            variables.reserve(variables.size() + others.size());
+            variables.insert(variables.end(), std::make_move_iterator(others.begin()),
+                             std::make_move_iterator(others.end()));
         }
 
         return variables;

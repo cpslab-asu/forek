@@ -54,8 +54,7 @@ auto PropositionalLogic<T>::parse() const -> formula::Formula<T> {
 
     // The custom default error reporting/recovery strategy is used that throws
     // specification-specific errors upon lexical- or parse-based errors.
-    auto const handler =
-        std::make_shared<error::PropositionalLogicErrorHandler>();
+    auto const handler = std::make_shared<error::PropositionalLogicErrorHandler>();
     parser.setErrorHandler(handler);
 
     // Begin parsing from the `start` grammar rule.

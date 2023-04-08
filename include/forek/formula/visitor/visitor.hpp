@@ -13,8 +13,7 @@ class Visitor {
 
 class VisitorException : public std::runtime_error {
    public:
-    explicit VisitorException(const std::string& msg)
-        : std::runtime_error(msg) {}
+    explicit VisitorException(const std::string& msg) : std::runtime_error(msg) {}
 };
 }  // namespace forek::formula::visitor
 
