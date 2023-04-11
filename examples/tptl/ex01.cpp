@@ -5,8 +5,6 @@
 #include <string>
 #include <vector>
 
-#include "forek/specification/tptl/impl.hpp"
-#include "forek/specification/tptl/tptl.hpp"
 #include <forek/forek.hpp>
 #include <forek/formula/visitor/arithmetic/default.hpp>
 

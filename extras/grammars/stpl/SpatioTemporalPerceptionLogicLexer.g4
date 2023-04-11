@@ -33,4 +33,9 @@ ClosureOperator : 'C'
 /// Function for spatial term access.
 ///
 /// Examples: `BB`.
-BoundingBoxFunction : 'BB' ;
+BoundingBoxFunction : 'BBOX' ;
+
+/// Function for area access.
+///
+/// Examples: `AREA`.
+AreaFunction : 'AREA' ;

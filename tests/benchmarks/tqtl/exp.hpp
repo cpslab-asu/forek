@@ -4,8 +4,9 @@
 #include <forek/formula/core/operation/ltl/ltl.hpp>
 #include <forek/formula/core/operation/pl/pl.hpp>
 #include <forek/formula/core/operation/tptl/tptl.hpp>
+#include <forek/formula/core/operation/tqtl/tqtl.hpp>
 #include <forek/formula/visitor/arithmetic/visitor.hpp>
-#include <forek/formula/visitor/tptl/visitor.hpp>
+#include <forek/formula/visitor/tqtl/visitor.hpp>
 
 using namespace forek::formula;
 
@@ -60,13 +61,13 @@ class SolverCounter : public Solver<T> {
 };
 
 template <typename T>
-class TimedPropositionalTemporalLogicCounter : public forek::formula::visitor::tptl::Visitor<T> {
+class TimedQualityTemporalLogicCounter : public forek::formula::visitor::tqtl::Visitor<T> {
    public:
     int memory = 0;
 
    public:
-    explicit TimedPropositionalTemporalLogicCounter(Solver<T>& solver)
-        : forek::formula::visitor::tptl::Visitor<T>(solver) {}
+    explicit TimedQualityTemporalLogicCounter(Solver<T>& solver)
+        : forek::formula::visitor::tqtl::Visitor<T>(solver) {}
 
     auto visit(core::operand::pl::True<T>& ctx) -> T {
         memory += sizeof(ctx);
@@ -143,5 +144,15 @@ class TimedPropositionalTemporalLogicCounter : public forek::formula::visitor::t
         dynamic_cast<SolverCounter<T>&>(this->solver()).memory = 0;
 
         return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::tqtl::ExistsQualifier<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::tqtl::ForallQualifier<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
     }
 };

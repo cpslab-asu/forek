@@ -15,12 +15,6 @@ formula : LeftParenthesis formula RightParenthesis  #parentheses
     | formula UntilOperator formula                 #ltlUntil
     | formula ReleaseOperator formula               #ltlRelease
 
-    | OnceOperator formula                          #ptltlOnce
-    | HistoricallyOperator formula                  #ptltlHistorically
-    | PreviousOperator formula                      #ptltlPrevious
-    | formula SinceOperator formula                 #ptltlSince
-    | formula TriggerOperator formula               #ptltlTrigger
-
     | objectQualifier formula                       #tqtlObjectQualifier
 
     | FreezeTime Identifier formula                 #tptlFreezeTime
@@ -42,19 +36,19 @@ formula : LeftParenthesis formula RightParenthesis  #parentheses
 
 /// A spatial (S4) formula.
 ///
-/// Examples: `...`
+/// Examples: `BBOX(obj1)`, `BBOX(obj1) && BBOX(obj2)`.
 spatialFormula : EventuallyOperator (interval)? spatialFormula   #stplSpatialEventually
     | AlwaysOperator (interval)? spatialFormula                  #stplSpatialAlways
     | NextOperator (interval)? spatialFormula                    #stplSpatialNext
     | spatialFormula UntilOperator (interval)? spatialFormula    #stplSpatialUntil
     | spatialFormula ReleaseOperator (interval)? spatialFormula  #stplSpatialRelease
 
-    | NegationOperator spatialFormula                            #stplSpatialNegation
-    | spatialFormula ConjunctionOperator spatialFormula          #stplSpatialConjunction
-    | spatialFormula DisjunctionOperator spatialFormula          #stplSpatialDisjunction
+    | NegationOperator spatialFormula                            #stplComplement
+    | spatialFormula ConjunctionOperator spatialFormula          #stplIntersection
+    | spatialFormula DisjunctionOperator spatialFormula          #stplUnion
 
-    | InteriorOperator spatialFormula                            #stplSpatialInterior
-    | ClosureOperator spatialFormula                             #stplSpatialClosure
+    | InteriorOperator spatialFormula                            #stplInterior
+    | ClosureOperator spatialFormula                             #stplClosure
 
     | spatialTerm                                                #stplSpatialTerm
     ;
@@ -67,22 +61,32 @@ spatialTerm : BoundingBoxFunction LeftParenthesis Identifier RightParenthesis ;
 /// Function comparisons.
 ///
 /// Examples: `PROB(x) >= (PROB(x) - 0.5)`.
-fnComparison : fnExpression relationalOperator fnExpression ;
+fnComparison : expression relationalOperator expression ;
 
-fnExpression : LeftParenthesis fnExpression RightParenthesis #stplFnExpressionParentheses
+/// An arithmetic-based expression with inline functionc call support.
+///
+/// Examples: `PROB(x) % 2.0`, `AREA(y) * 2.0 + AREA(x)`, `LAT(x)`
+expression : LeftParenthesis expression RightParenthesis  #arithmeticParentheses
 
-    | fnInvocation                                           #stplFnExpressionFnInvocation
-    | term                                                   #stplFnExpressionTerm
+    | functionCall                                        #stplFunctionCall
+    | (SubtractionOperator)? term                         #arithmeticTerm
 
-    | fnExpression MultiplicationOperator fnExpression       #stplFnExpressionTimes
-    | fnExpression DivisionOperator fnExpression             #stplFnExpressionDivision
-    | fnExpression ModuloOperator fnExpression               #stplFnExpressionModulo
-    | fnExpression AdditionOperator fnExpression             #stplFnExpressionPlus
-    | fnExpression SubtractionOperator fnExpression          #stplFnExpressionMinus
+    | expression MultiplicationOperator expression        #arithmeticTimes
+    | expression DivisionOperator expression              #arithmeticDivide
+    | expression ModulusOperator expression               #arithmeticModulus
+    | expression AdditionOperator expression              #arithmeticPlus
+    | expression SubtractionOperator expression           #arithmeticMinus
+
     ;
-
 
 /// An invocated function (i.e., function call).
 ///
+/// Note: A special function call is created here that takes as an argument a
+/// recursive definition of an S4 formula whereas all other functions simply take
+/// a list of arguments. To use the existing expression-based syntax, this
+/// function is placed here to reduce the need to define relational operations
+/// and arithmetic operators, accordingly.
+///
 /// Examples: `PROB(x)`, `DIST(x, BM, y, TM)`, `CLASS(x)`.
-fnInvocation : Identifier LeftParenthesis argumentList RightParenthesis ;
+functionCall : AreaFunction LeftParenthesis spatialFormula RightParenthesis
+    | Identifier LeftParenthesis argumentList RightParenthesis ;

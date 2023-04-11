@@ -62,7 +62,7 @@ if __name__ == r"__main__":
     ax.set_ylabel('Memory Size (bytes)')
     ax.set_zlabel('Parse Time (ms)');
     
-    with open("../tptl/benchmarks.csv") as infile:
+    with open("../tqtl/benchmarks.csv") as infile:
         reader = csv.DictReader(infile)
 
         benches = {}
@@ -84,7 +84,7 @@ if __name__ == r"__main__":
 
         print(benches.items())
         
-        for bench in sorted(benches.items())[:-1]:
+        for bench in sorted(benches.items()):
             p = datapoint(bench[1])
             print(f"{bench[0]}: {p}")
 

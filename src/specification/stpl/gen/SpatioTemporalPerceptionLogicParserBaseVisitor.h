@@ -25,6 +25,18 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitParentheses(SpatioTemporalPerceptionLogicParser::ParenthesesContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitTqtlObjectQualifier(SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitLtlUntil(SpatioTemporalPerceptionLogicParser::LtlUntilContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitPlImplication(SpatioTemporalPerceptionLogicParser::PlImplicationContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -45,59 +57,15 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitTptlTimeConstraint(SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitPlIff(SpatioTemporalPerceptionLogicParser::PlIffContext *ctx) override {
     return visitChildren(ctx);
   }
 
   virtual std::any visitPlTrue(SpatioTemporalPerceptionLogicParser::PlTrueContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPlProposition(SpatioTemporalPerceptionLogicParser::PlPropositionContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlPrevious(SpatioTemporalPerceptionLogicParser::PtltlPreviousContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitStplFunctionComparison(SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlTrigger(SpatioTemporalPerceptionLogicParser::PtltlTriggerContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitLtlNext(SpatioTemporalPerceptionLogicParser::LtlNextContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitStplSpatialForall(SpatioTemporalPerceptionLogicParser::StplSpatialForallContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitParentheses(SpatioTemporalPerceptionLogicParser::ParenthesesContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitTqtlObjectQualifier(SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlOnce(SpatioTemporalPerceptionLogicParser::PtltlOnceContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitLtlUntil(SpatioTemporalPerceptionLogicParser::LtlUntilContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitPtltlHistorically(SpatioTemporalPerceptionLogicParser::PtltlHistoricallyContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitTptlTimeConstraint(SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -109,11 +77,15 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitPlProposition(SpatioTemporalPerceptionLogicParser::PlPropositionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitLtlRelease(SpatioTemporalPerceptionLogicParser::LtlReleaseContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitPtltlSince(SpatioTemporalPerceptionLogicParser::PtltlSinceContext *ctx) override {
+  virtual std::any visitStplFunctionComparison(SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -121,7 +93,15 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplSpatialConjunction(SpatioTemporalPerceptionLogicParser::StplSpatialConjunctionContext *ctx) override {
+  virtual std::any visitLtlNext(SpatioTemporalPerceptionLogicParser::LtlNextContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitStplSpatialForall(SpatioTemporalPerceptionLogicParser::StplSpatialForallContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitStplComplement(SpatioTemporalPerceptionLogicParser::StplComplementContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -137,7 +117,7 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplSpatialDisjunction(SpatioTemporalPerceptionLogicParser::StplSpatialDisjunctionContext *ctx) override {
+  virtual std::any visitStplInterior(SpatioTemporalPerceptionLogicParser::StplInteriorContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -153,15 +133,15 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplSpatialNegation(SpatioTemporalPerceptionLogicParser::StplSpatialNegationContext *ctx) override {
+  virtual std::any visitStplClosure(SpatioTemporalPerceptionLogicParser::StplClosureContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplSpatialInterior(SpatioTemporalPerceptionLogicParser::StplSpatialInteriorContext *ctx) override {
+  virtual std::any visitStplIntersection(SpatioTemporalPerceptionLogicParser::StplIntersectionContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplSpatialClosure(SpatioTemporalPerceptionLogicParser::StplSpatialClosureContext *ctx) override {
+  virtual std::any visitStplUnion(SpatioTemporalPerceptionLogicParser::StplUnionContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -173,39 +153,39 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionFnInvocation(SpatioTemporalPerceptionLogicParser::StplFnExpressionFnInvocationContext *ctx) override {
+  virtual std::any visitArithmeticMinus(SpatioTemporalPerceptionLogicParser::ArithmeticMinusContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionMinus(SpatioTemporalPerceptionLogicParser::StplFnExpressionMinusContext *ctx) override {
+  virtual std::any visitArithmeticTimes(SpatioTemporalPerceptionLogicParser::ArithmeticTimesContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionModulo(SpatioTemporalPerceptionLogicParser::StplFnExpressionModuloContext *ctx) override {
+  virtual std::any visitArithmeticParentheses(SpatioTemporalPerceptionLogicParser::ArithmeticParenthesesContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionParentheses(SpatioTemporalPerceptionLogicParser::StplFnExpressionParenthesesContext *ctx) override {
+  virtual std::any visitArithmeticDivide(SpatioTemporalPerceptionLogicParser::ArithmeticDivideContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionTerm(SpatioTemporalPerceptionLogicParser::StplFnExpressionTermContext *ctx) override {
+  virtual std::any visitArithmeticModulus(SpatioTemporalPerceptionLogicParser::ArithmeticModulusContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionDivision(SpatioTemporalPerceptionLogicParser::StplFnExpressionDivisionContext *ctx) override {
+  virtual std::any visitArithmeticTerm(SpatioTemporalPerceptionLogicParser::ArithmeticTermContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionTimes(SpatioTemporalPerceptionLogicParser::StplFnExpressionTimesContext *ctx) override {
+  virtual std::any visitArithmeticPlus(SpatioTemporalPerceptionLogicParser::ArithmeticPlusContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitStplFnExpressionPlus(SpatioTemporalPerceptionLogicParser::StplFnExpressionPlusContext *ctx) override {
+  virtual std::any visitStplFunctionCall(SpatioTemporalPerceptionLogicParser::StplFunctionCallContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitFnInvocation(SpatioTemporalPerceptionLogicParser::FnInvocationContext *ctx) override {
+  virtual std::any visitFunctionCall(SpatioTemporalPerceptionLogicParser::FunctionCallContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -230,34 +210,6 @@ public:
   }
 
   virtual std::any visitProposition(SpatioTemporalPerceptionLogicParser::PropositionContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticMinus(SpatioTemporalPerceptionLogicParser::ArithmeticMinusContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticTimes(SpatioTemporalPerceptionLogicParser::ArithmeticTimesContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticParentheses(SpatioTemporalPerceptionLogicParser::ArithmeticParenthesesContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticDivide(SpatioTemporalPerceptionLogicParser::ArithmeticDivideContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticTerm(SpatioTemporalPerceptionLogicParser::ArithmeticTermContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticPlus(SpatioTemporalPerceptionLogicParser::ArithmeticPlusContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitArithmeticModulo(SpatioTemporalPerceptionLogicParser::ArithmeticModuloContext *ctx) override {
     return visitChildren(ctx);
   }
 

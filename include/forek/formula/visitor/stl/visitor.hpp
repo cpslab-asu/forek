@@ -17,6 +17,8 @@ class Visitor : public forek::formula::visitor::ltl::Visitor<T> {
     visitor::arithmetic::Visitor<T>& solver_;
 
    public:
+    explicit Visitor(visitor::arithmetic::Visitor<T>& solver) : solver_(solver) {}
+
     virtual auto setup(core::operation::stl::Predicate<T>& ctx) -> void {}
     virtual auto visit(core::operation::stl::Predicate<T>& ctx) -> T = 0;
 

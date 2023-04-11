@@ -14,20 +14,19 @@ class  SpatioTemporalPerceptionLogicLexer : public antlr4::Lexer {
 public:
   enum {
     SpatialExists = 1, SpatialForall = 2, InteriorOperator = 3, ClosureOperator = 4, 
-    BoundingBoxFunction = 5, ExistsQuantifier = 6, ForallQuantifier = 7, 
-    FreezeTime = 8, LessThanOrEqualTo = 9, GreaterThanOrEqualTo = 10, EqualTo = 11, 
-    NotEqualTo = 12, OnceOperator = 13, HistoricallyOperator = 14, PreviousOperator = 15, 
-    SinceOperator = 16, TriggerOperator = 17, EventuallyOperator = 18, AlwaysOperator = 19, 
-    NextOperator = 20, UntilOperator = 21, ReleaseOperator = 22, NegationOperator = 23, 
-    ConjunctionOperator = 24, DisjunctionOperator = 25, ImplicationOperator = 26, 
-    IffOperator = 27, True = 28, False = 29, Comma = 30, LeftBrace = 31, 
-    RightBrace = 32, LeftBracket = 33, RightBracket = 34, LeftChevron = 35, 
-    RightChevron = 36, LeftParenthesis = 37, RightParenthesis = 38, BlockComment = 39, 
-    LineComment = 40, Infinity = 41, Scalar = 42, Integer = 43, DecimalInteger = 44, 
-    BinaryInteger = 45, OctalInteger = 46, HexInteger = 47, Floating = 48, 
-    PointFloat = 49, ExponentFloat = 50, Identifier = 51, Whitespace = 52, 
-    AdditionOperator = 53, SubtractionOperator = 54, MultiplicationOperator = 55, 
-    DivisionOperator = 56, ModuloOperator = 57
+    BoundingBoxFunction = 5, AreaFunction = 6, ExistsQuantifier = 7, ForallQuantifier = 8, 
+    FreezeTime = 9, LessThanOrEqualTo = 10, GreaterThanOrEqualTo = 11, EqualTo = 12, 
+    NotEqualTo = 13, EventuallyOperator = 14, AlwaysOperator = 15, NextOperator = 16, 
+    UntilOperator = 17, ReleaseOperator = 18, NegationOperator = 19, ConjunctionOperator = 20, 
+    DisjunctionOperator = 21, ImplicationOperator = 22, IffOperator = 23, 
+    True = 24, False = 25, Comma = 26, LeftBrace = 27, RightBrace = 28, 
+    LeftBracket = 29, RightBracket = 30, LeftChevron = 31, RightChevron = 32, 
+    LeftParenthesis = 33, RightParenthesis = 34, BlockComment = 35, LineComment = 36, 
+    Infinity = 37, Scalar = 38, Integer = 39, DecimalInteger = 40, BinaryInteger = 41, 
+    OctalInteger = 42, HexInteger = 43, Floating = 44, PointFloat = 45, 
+    ExponentFloat = 46, Identifier = 47, Whitespace = 48, AdditionOperator = 49, 
+    SubtractionOperator = 50, MultiplicationOperator = 51, DivisionOperator = 52, 
+    ModulusOperator = 53
   };
 
   explicit SpatioTemporalPerceptionLogicLexer(antlr4::CharStream *input);

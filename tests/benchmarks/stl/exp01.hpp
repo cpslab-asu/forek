@@ -1,11 +1,13 @@
+#include "forek/formula/core/operation/stl/predicate.hpp"
 #include <forek/formula/core/operand/arithmetic/arithmetic.hpp>
 #include <forek/formula/core/operand/pl/pl.hpp>
 #include <forek/formula/core/operation/arithmetic/arithmetic.hpp>
 #include <forek/formula/core/operation/ltl/ltl.hpp>
+#include <forek/formula/core/operation/mtl/mtl.hpp>
 #include <forek/formula/core/operation/pl/pl.hpp>
-#include <forek/formula/core/operation/tptl/tptl.hpp>
+#include <forek/formula/core/operation/stl/stl.hpp>
 #include <forek/formula/visitor/arithmetic/visitor.hpp>
-#include <forek/formula/visitor/tptl/visitor.hpp>
+#include <forek/formula/visitor/stl/visitor.hpp>
 
 using namespace forek::formula;
 
@@ -60,13 +62,13 @@ class SolverCounter : public Solver<T> {
 };
 
 template <typename T>
-class TimedPropositionalTemporalLogicCounter : public forek::formula::visitor::tptl::Visitor<T> {
+class SignalTemporalLogicCounter : public forek::formula::visitor::stl::Visitor<T> {
    public:
     int memory = 0;
 
    public:
-    explicit TimedPropositionalTemporalLogicCounter(Solver<T>& solver)
-        : forek::formula::visitor::tptl::Visitor<T>(solver) {}
+    explicit SignalTemporalLogicCounter(Solver<T>& solver)
+        : forek::formula::visitor::stl::Visitor<T>(solver) {}
 
     auto visit(core::operand::pl::True<T>& ctx) -> T {
         memory += sizeof(ctx);
@@ -133,12 +135,32 @@ class TimedPropositionalTemporalLogicCounter : public forek::formula::visitor::t
         return ctx.lexpr().data() + ctx.rexpr().data() + 1;
     }
 
-    auto visit(core::operation::tptl::FreezeTime<T>& ctx) -> T {
+    auto visit(core::operation::mtl::AlwaysBounded<T>& ctx) -> T {
         memory += sizeof(ctx);
         return ctx.expr().data() + 1;
     }
 
-    auto visit(core::operation::tptl::TimeConstraint<T>& ctx) -> T {
+    auto visit(core::operation::mtl::EventuallyBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::mtl::NextBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::mtl::ReleaseBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::mtl::UntilBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::stl::Predicate<T>& ctx) -> T {
         memory += (sizeof(ctx) + dynamic_cast<SolverCounter<T>&>(this->solver()).memory);
         dynamic_cast<SolverCounter<T>&>(this->solver()).memory = 0;
 

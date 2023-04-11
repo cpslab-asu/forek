@@ -1,0 +1,1 @@
+always[0,10] eventually(0,1e10] (x <= 10.01)

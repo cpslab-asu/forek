@@ -45,22 +45,20 @@ void spatiotemporalperceptionlogicparserParserInitialize() {
   auto staticData = std::make_unique<SpatioTemporalPerceptionLogicParserStaticData>(
     std::vector<std::string>{
       "start", "formula", "spatialFormula", "spatialTerm", "fnComparison", 
-      "fnExpression", "fnInvocation", "objectQualifier", "argumentList", 
-      "timeConstraint", "relationalOperator", "proposition", "expression", 
-      "term", "interval"
+      "expression", "functionCall", "objectQualifier", "argumentList", "timeConstraint", 
+      "relationalOperator", "proposition", "term", "interval"
     },
     std::vector<std::string>{
-      "", "", "", "", "", "'BB'", "", "", "", "'<='", "'>='", "'=='", "'!='", 
-      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "'true'", 
+      "", "", "", "", "", "'BBOX'", "'AREA'", "", "", "", "'<='", "'>='", 
+      "'=='", "'!='", "", "", "", "", "", "", "", "", "", "", "'true'", 
       "'false'", "','", "'{'", "'}'", "'['", "']'", "'<'", "'>'", "'('", 
       "')'", "", "", "'inf'"
     },
     std::vector<std::string>{
       "", "SpatialExists", "SpatialForall", "InteriorOperator", "ClosureOperator", 
-      "BoundingBoxFunction", "ExistsQuantifier", "ForallQuantifier", "FreezeTime", 
-      "LessThanOrEqualTo", "GreaterThanOrEqualTo", "EqualTo", "NotEqualTo", 
-      "OnceOperator", "HistoricallyOperator", "PreviousOperator", "SinceOperator", 
-      "TriggerOperator", "EventuallyOperator", "AlwaysOperator", "NextOperator", 
+      "BoundingBoxFunction", "AreaFunction", "ExistsQuantifier", "ForallQuantifier", 
+      "FreezeTime", "LessThanOrEqualTo", "GreaterThanOrEqualTo", "EqualTo", 
+      "NotEqualTo", "EventuallyOperator", "AlwaysOperator", "NextOperator", 
       "UntilOperator", "ReleaseOperator", "NegationOperator", "ConjunctionOperator", 
       "DisjunctionOperator", "ImplicationOperator", "IffOperator", "True", 
       "False", "Comma", "LeftBrace", "RightBrace", "LeftBracket", "RightBracket", 
@@ -68,98 +66,85 @@ void spatiotemporalperceptionlogicparserParserInitialize() {
       "BlockComment", "LineComment", "Infinity", "Scalar", "Integer", "DecimalInteger", 
       "BinaryInteger", "OctalInteger", "HexInteger", "Floating", "PointFloat", 
       "ExponentFloat", "Identifier", "Whitespace", "AdditionOperator", "SubtractionOperator", 
-      "MultiplicationOperator", "DivisionOperator", "ModuloOperator"
+      "MultiplicationOperator", "DivisionOperator", "ModulusOperator"
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,57,261,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
-  	7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,
-  	14,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,3,1,68,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,94,8,1,10,1,12,
-  	1,97,9,1,1,2,1,2,1,2,3,2,102,8,2,1,2,1,2,1,2,3,2,107,8,2,1,2,1,2,1,2,
-  	3,2,112,8,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,122,8,2,1,2,1,2,1,2,3,
-  	2,127,8,2,1,2,1,2,1,2,1,2,3,2,133,8,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,5,2,
-  	142,8,2,10,2,12,2,145,9,2,1,3,1,3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,1,5,1,5,
-  	1,5,1,5,1,5,1,5,1,5,3,5,163,8,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,
-  	5,1,5,1,5,1,5,1,5,1,5,5,5,180,8,5,10,5,12,5,183,9,5,1,6,1,6,1,6,1,6,1,
-  	6,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,204,8,7,
-  	1,8,1,8,1,8,1,8,3,8,210,8,8,1,9,1,9,1,9,1,9,1,10,1,10,1,11,1,11,1,12,
-  	1,12,1,12,1,12,1,12,1,12,3,12,226,8,12,1,12,1,12,1,12,1,12,1,12,1,12,
-  	1,12,1,12,1,12,1,12,1,12,1,12,1,12,1,12,1,12,5,12,243,8,12,10,12,12,12,
-  	246,9,12,1,13,1,13,3,13,250,8,13,1,13,3,13,253,8,13,1,14,1,14,1,14,1,
-  	14,1,14,1,14,1,14,0,4,2,4,10,24,15,0,2,4,6,8,10,12,14,16,18,20,22,24,
-  	26,28,0,4,2,0,9,12,35,36,2,0,33,33,37,37,1,0,41,42,2,0,34,34,38,38,301,
-  	0,30,1,0,0,0,2,67,1,0,0,0,4,121,1,0,0,0,6,146,1,0,0,0,8,151,1,0,0,0,10,
-  	162,1,0,0,0,12,184,1,0,0,0,14,203,1,0,0,0,16,209,1,0,0,0,18,211,1,0,0,
-  	0,20,215,1,0,0,0,22,217,1,0,0,0,24,225,1,0,0,0,26,252,1,0,0,0,28,254,
-  	1,0,0,0,30,31,3,2,1,0,31,32,5,0,0,1,32,1,1,0,0,0,33,34,6,1,-1,0,34,35,
-  	5,37,0,0,35,36,3,2,1,0,36,37,5,38,0,0,37,68,1,0,0,0,38,68,5,28,0,0,39,
-  	68,5,29,0,0,40,41,5,18,0,0,41,68,3,2,1,22,42,43,5,19,0,0,43,68,3,2,1,
-  	21,44,45,5,20,0,0,45,68,3,2,1,20,46,47,5,13,0,0,47,68,3,2,1,17,48,49,
-  	5,14,0,0,49,68,3,2,1,16,50,51,5,15,0,0,51,68,3,2,1,15,52,53,3,14,7,0,
-  	53,54,3,2,1,12,54,68,1,0,0,0,55,56,5,8,0,0,56,57,5,51,0,0,57,68,3,2,1,
-  	11,58,59,5,1,0,0,59,68,3,4,2,0,60,61,5,2,0,0,61,68,3,4,2,0,62,63,5,23,
-  	0,0,63,68,3,2,1,8,64,68,3,8,4,0,65,68,3,18,9,0,66,68,3,22,11,0,67,33,
-  	1,0,0,0,67,38,1,0,0,0,67,39,1,0,0,0,67,40,1,0,0,0,67,42,1,0,0,0,67,44,
-  	1,0,0,0,67,46,1,0,0,0,67,48,1,0,0,0,67,50,1,0,0,0,67,52,1,0,0,0,67,55,
-  	1,0,0,0,67,58,1,0,0,0,67,60,1,0,0,0,67,62,1,0,0,0,67,64,1,0,0,0,67,65,
-  	1,0,0,0,67,66,1,0,0,0,68,95,1,0,0,0,69,70,10,19,0,0,70,71,5,21,0,0,71,
-  	94,3,2,1,20,72,73,10,18,0,0,73,74,5,22,0,0,74,94,3,2,1,19,75,76,10,14,
-  	0,0,76,77,5,16,0,0,77,94,3,2,1,15,78,79,10,13,0,0,79,80,5,17,0,0,80,94,
-  	3,2,1,14,81,82,10,7,0,0,82,83,5,24,0,0,83,94,3,2,1,8,84,85,10,6,0,0,85,
-  	86,5,25,0,0,86,94,3,2,1,7,87,88,10,5,0,0,88,89,5,26,0,0,89,94,3,2,1,6,
-  	90,91,10,4,0,0,91,92,5,27,0,0,92,94,3,2,1,5,93,69,1,0,0,0,93,72,1,0,0,
-  	0,93,75,1,0,0,0,93,78,1,0,0,0,93,81,1,0,0,0,93,84,1,0,0,0,93,87,1,0,0,
-  	0,93,90,1,0,0,0,94,97,1,0,0,0,95,93,1,0,0,0,95,96,1,0,0,0,96,3,1,0,0,
-  	0,97,95,1,0,0,0,98,99,6,2,-1,0,99,101,5,18,0,0,100,102,3,28,14,0,101,
-  	100,1,0,0,0,101,102,1,0,0,0,102,103,1,0,0,0,103,122,3,4,2,11,104,106,
-  	5,19,0,0,105,107,3,28,14,0,106,105,1,0,0,0,106,107,1,0,0,0,107,108,1,
-  	0,0,0,108,122,3,4,2,10,109,111,5,20,0,0,110,112,3,28,14,0,111,110,1,0,
-  	0,0,111,112,1,0,0,0,112,113,1,0,0,0,113,122,3,4,2,9,114,115,5,23,0,0,
-  	115,122,3,4,2,6,116,117,5,3,0,0,117,122,3,4,2,3,118,119,5,4,0,0,119,122,
-  	3,4,2,2,120,122,3,6,3,0,121,98,1,0,0,0,121,104,1,0,0,0,121,109,1,0,0,
-  	0,121,114,1,0,0,0,121,116,1,0,0,0,121,118,1,0,0,0,121,120,1,0,0,0,122,
-  	143,1,0,0,0,123,124,10,8,0,0,124,126,5,21,0,0,125,127,3,28,14,0,126,125,
-  	1,0,0,0,126,127,1,0,0,0,127,128,1,0,0,0,128,142,3,4,2,9,129,130,10,7,
-  	0,0,130,132,5,22,0,0,131,133,3,28,14,0,132,131,1,0,0,0,132,133,1,0,0,
-  	0,133,134,1,0,0,0,134,142,3,4,2,8,135,136,10,5,0,0,136,137,5,24,0,0,137,
-  	142,3,4,2,6,138,139,10,4,0,0,139,140,5,25,0,0,140,142,3,4,2,5,141,123,
-  	1,0,0,0,141,129,1,0,0,0,141,135,1,0,0,0,141,138,1,0,0,0,142,145,1,0,0,
-  	0,143,141,1,0,0,0,143,144,1,0,0,0,144,5,1,0,0,0,145,143,1,0,0,0,146,147,
-  	5,5,0,0,147,148,5,37,0,0,148,149,5,51,0,0,149,150,5,38,0,0,150,7,1,0,
-  	0,0,151,152,3,10,5,0,152,153,3,20,10,0,153,154,3,10,5,0,154,9,1,0,0,0,
-  	155,156,6,5,-1,0,156,157,5,37,0,0,157,158,3,10,5,0,158,159,5,38,0,0,159,
-  	163,1,0,0,0,160,163,3,12,6,0,161,163,3,26,13,0,162,155,1,0,0,0,162,160,
-  	1,0,0,0,162,161,1,0,0,0,163,181,1,0,0,0,164,165,10,5,0,0,165,166,5,55,
-  	0,0,166,180,3,10,5,6,167,168,10,4,0,0,168,169,5,56,0,0,169,180,3,10,5,
-  	5,170,171,10,3,0,0,171,172,5,57,0,0,172,180,3,10,5,4,173,174,10,2,0,0,
-  	174,175,5,53,0,0,175,180,3,10,5,3,176,177,10,1,0,0,177,178,5,54,0,0,178,
-  	180,3,10,5,2,179,164,1,0,0,0,179,167,1,0,0,0,179,170,1,0,0,0,179,173,
-  	1,0,0,0,179,176,1,0,0,0,180,183,1,0,0,0,181,179,1,0,0,0,181,182,1,0,0,
-  	0,182,11,1,0,0,0,183,181,1,0,0,0,184,185,5,51,0,0,185,186,5,37,0,0,186,
-  	187,3,16,8,0,187,188,5,38,0,0,188,13,1,0,0,0,189,190,5,6,0,0,190,191,
-  	5,37,0,0,191,192,3,16,8,0,192,193,5,38,0,0,193,194,5,8,0,0,194,195,5,
-  	51,0,0,195,204,1,0,0,0,196,197,5,7,0,0,197,198,5,37,0,0,198,199,3,16,
-  	8,0,199,200,5,38,0,0,200,201,5,8,0,0,201,202,5,51,0,0,202,204,1,0,0,0,
-  	203,189,1,0,0,0,203,196,1,0,0,0,204,15,1,0,0,0,205,206,5,51,0,0,206,207,
-  	5,30,0,0,207,210,3,16,8,0,208,210,5,51,0,0,209,205,1,0,0,0,209,208,1,
-  	0,0,0,210,17,1,0,0,0,211,212,3,24,12,0,212,213,3,20,10,0,213,214,3,24,
-  	12,0,214,19,1,0,0,0,215,216,7,0,0,0,216,21,1,0,0,0,217,218,5,51,0,0,218,
-  	23,1,0,0,0,219,220,6,12,-1,0,220,221,5,37,0,0,221,222,3,24,12,0,222,223,
-  	5,38,0,0,223,226,1,0,0,0,224,226,3,26,13,0,225,219,1,0,0,0,225,224,1,
-  	0,0,0,226,244,1,0,0,0,227,228,10,5,0,0,228,229,5,55,0,0,229,243,3,24,
-  	12,6,230,231,10,4,0,0,231,232,5,56,0,0,232,243,3,24,12,5,233,234,10,3,
-  	0,0,234,235,5,57,0,0,235,243,3,24,12,4,236,237,10,2,0,0,237,238,5,53,
-  	0,0,238,243,3,24,12,3,239,240,10,1,0,0,240,241,5,54,0,0,241,243,3,24,
-  	12,2,242,227,1,0,0,0,242,230,1,0,0,0,242,233,1,0,0,0,242,236,1,0,0,0,
-  	242,239,1,0,0,0,243,246,1,0,0,0,244,242,1,0,0,0,244,245,1,0,0,0,245,25,
-  	1,0,0,0,246,244,1,0,0,0,247,253,5,51,0,0,248,250,5,54,0,0,249,248,1,0,
-  	0,0,249,250,1,0,0,0,250,251,1,0,0,0,251,253,5,42,0,0,252,247,1,0,0,0,
-  	252,249,1,0,0,0,253,27,1,0,0,0,254,255,7,1,0,0,255,256,7,2,0,0,256,257,
-  	5,30,0,0,257,258,7,2,0,0,258,259,7,3,0,0,259,29,1,0,0,0,21,67,93,95,101,
-  	106,111,121,126,132,141,143,162,179,181,203,209,225,242,244,249,252
+  	4,1,53,226,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+  	7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,1,0,1,0,
+  	1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,60,8,1,1,1,1,1,1,1,
+  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,80,8,
+  	1,10,1,12,1,83,9,1,1,2,1,2,1,2,3,2,88,8,2,1,2,1,2,1,2,3,2,93,8,2,1,2,
+  	1,2,1,2,3,2,98,8,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,108,8,2,1,2,1,
+  	2,1,2,3,2,113,8,2,1,2,1,2,1,2,1,2,3,2,119,8,2,1,2,1,2,1,2,1,2,1,2,1,2,
+  	1,2,5,2,128,8,2,10,2,12,2,131,9,2,1,3,1,3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,
+  	1,5,1,5,1,5,1,5,1,5,1,5,1,5,3,5,149,8,5,1,5,3,5,152,8,5,1,5,1,5,1,5,1,
+  	5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,5,5,169,8,5,10,5,12,5,172,
+  	9,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,3,6,184,8,6,1,7,1,7,1,7,1,
+  	7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,200,8,7,1,8,1,8,1,8,1,8,
+  	3,8,206,8,8,1,9,1,9,1,9,1,9,1,10,1,10,1,11,1,11,1,12,1,12,3,12,218,8,
+  	12,1,13,1,13,1,13,1,13,1,13,1,13,1,13,0,3,2,4,10,14,0,2,4,6,8,10,12,14,
+  	16,18,20,22,24,26,0,4,2,0,10,13,31,32,2,0,29,29,33,33,1,0,37,38,2,0,30,
+  	30,34,34,257,0,28,1,0,0,0,2,59,1,0,0,0,4,107,1,0,0,0,6,132,1,0,0,0,8,
+  	137,1,0,0,0,10,151,1,0,0,0,12,183,1,0,0,0,14,199,1,0,0,0,16,205,1,0,0,
+  	0,18,207,1,0,0,0,20,211,1,0,0,0,22,213,1,0,0,0,24,217,1,0,0,0,26,219,
+  	1,0,0,0,28,29,3,2,1,0,29,30,5,0,0,1,30,1,1,0,0,0,31,32,6,1,-1,0,32,33,
+  	5,33,0,0,33,34,3,2,1,0,34,35,5,34,0,0,35,60,1,0,0,0,36,60,5,24,0,0,37,
+  	60,5,25,0,0,38,39,5,14,0,0,39,60,3,2,1,17,40,41,5,15,0,0,41,60,3,2,1,
+  	16,42,43,5,16,0,0,43,60,3,2,1,15,44,45,3,14,7,0,45,46,3,2,1,12,46,60,
+  	1,0,0,0,47,48,5,9,0,0,48,49,5,47,0,0,49,60,3,2,1,11,50,51,5,1,0,0,51,
+  	60,3,4,2,0,52,53,5,2,0,0,53,60,3,4,2,0,54,55,5,19,0,0,55,60,3,2,1,8,56,
+  	60,3,8,4,0,57,60,3,18,9,0,58,60,3,22,11,0,59,31,1,0,0,0,59,36,1,0,0,0,
+  	59,37,1,0,0,0,59,38,1,0,0,0,59,40,1,0,0,0,59,42,1,0,0,0,59,44,1,0,0,0,
+  	59,47,1,0,0,0,59,50,1,0,0,0,59,52,1,0,0,0,59,54,1,0,0,0,59,56,1,0,0,0,
+  	59,57,1,0,0,0,59,58,1,0,0,0,60,81,1,0,0,0,61,62,10,14,0,0,62,63,5,17,
+  	0,0,63,80,3,2,1,15,64,65,10,13,0,0,65,66,5,18,0,0,66,80,3,2,1,14,67,68,
+  	10,7,0,0,68,69,5,20,0,0,69,80,3,2,1,8,70,71,10,6,0,0,71,72,5,21,0,0,72,
+  	80,3,2,1,7,73,74,10,5,0,0,74,75,5,22,0,0,75,80,3,2,1,6,76,77,10,4,0,0,
+  	77,78,5,23,0,0,78,80,3,2,1,5,79,61,1,0,0,0,79,64,1,0,0,0,79,67,1,0,0,
+  	0,79,70,1,0,0,0,79,73,1,0,0,0,79,76,1,0,0,0,80,83,1,0,0,0,81,79,1,0,0,
+  	0,81,82,1,0,0,0,82,3,1,0,0,0,83,81,1,0,0,0,84,85,6,2,-1,0,85,87,5,14,
+  	0,0,86,88,3,26,13,0,87,86,1,0,0,0,87,88,1,0,0,0,88,89,1,0,0,0,89,108,
+  	3,4,2,11,90,92,5,15,0,0,91,93,3,26,13,0,92,91,1,0,0,0,92,93,1,0,0,0,93,
+  	94,1,0,0,0,94,108,3,4,2,10,95,97,5,16,0,0,96,98,3,26,13,0,97,96,1,0,0,
+  	0,97,98,1,0,0,0,98,99,1,0,0,0,99,108,3,4,2,9,100,101,5,19,0,0,101,108,
+  	3,4,2,6,102,103,5,3,0,0,103,108,3,4,2,3,104,105,5,4,0,0,105,108,3,4,2,
+  	2,106,108,3,6,3,0,107,84,1,0,0,0,107,90,1,0,0,0,107,95,1,0,0,0,107,100,
+  	1,0,0,0,107,102,1,0,0,0,107,104,1,0,0,0,107,106,1,0,0,0,108,129,1,0,0,
+  	0,109,110,10,8,0,0,110,112,5,17,0,0,111,113,3,26,13,0,112,111,1,0,0,0,
+  	112,113,1,0,0,0,113,114,1,0,0,0,114,128,3,4,2,9,115,116,10,7,0,0,116,
+  	118,5,18,0,0,117,119,3,26,13,0,118,117,1,0,0,0,118,119,1,0,0,0,119,120,
+  	1,0,0,0,120,128,3,4,2,8,121,122,10,5,0,0,122,123,5,20,0,0,123,128,3,4,
+  	2,6,124,125,10,4,0,0,125,126,5,21,0,0,126,128,3,4,2,5,127,109,1,0,0,0,
+  	127,115,1,0,0,0,127,121,1,0,0,0,127,124,1,0,0,0,128,131,1,0,0,0,129,127,
+  	1,0,0,0,129,130,1,0,0,0,130,5,1,0,0,0,131,129,1,0,0,0,132,133,5,5,0,0,
+  	133,134,5,33,0,0,134,135,5,47,0,0,135,136,5,34,0,0,136,7,1,0,0,0,137,
+  	138,3,10,5,0,138,139,3,20,10,0,139,140,3,10,5,0,140,9,1,0,0,0,141,142,
+  	6,5,-1,0,142,143,5,33,0,0,143,144,3,10,5,0,144,145,5,34,0,0,145,152,1,
+  	0,0,0,146,152,3,12,6,0,147,149,5,50,0,0,148,147,1,0,0,0,148,149,1,0,0,
+  	0,149,150,1,0,0,0,150,152,3,24,12,0,151,141,1,0,0,0,151,146,1,0,0,0,151,
+  	148,1,0,0,0,152,170,1,0,0,0,153,154,10,5,0,0,154,155,5,51,0,0,155,169,
+  	3,10,5,6,156,157,10,4,0,0,157,158,5,52,0,0,158,169,3,10,5,5,159,160,10,
+  	3,0,0,160,161,5,53,0,0,161,169,3,10,5,4,162,163,10,2,0,0,163,164,5,49,
+  	0,0,164,169,3,10,5,3,165,166,10,1,0,0,166,167,5,50,0,0,167,169,3,10,5,
+  	2,168,153,1,0,0,0,168,156,1,0,0,0,168,159,1,0,0,0,168,162,1,0,0,0,168,
+  	165,1,0,0,0,169,172,1,0,0,0,170,168,1,0,0,0,170,171,1,0,0,0,171,11,1,
+  	0,0,0,172,170,1,0,0,0,173,174,5,6,0,0,174,175,5,33,0,0,175,176,3,4,2,
+  	0,176,177,5,34,0,0,177,184,1,0,0,0,178,179,5,47,0,0,179,180,5,33,0,0,
+  	180,181,3,16,8,0,181,182,5,34,0,0,182,184,1,0,0,0,183,173,1,0,0,0,183,
+  	178,1,0,0,0,184,13,1,0,0,0,185,186,5,7,0,0,186,187,5,33,0,0,187,188,3,
+  	16,8,0,188,189,5,34,0,0,189,190,5,9,0,0,190,191,5,47,0,0,191,200,1,0,
+  	0,0,192,193,5,8,0,0,193,194,5,33,0,0,194,195,3,16,8,0,195,196,5,34,0,
+  	0,196,197,5,9,0,0,197,198,5,47,0,0,198,200,1,0,0,0,199,185,1,0,0,0,199,
+  	192,1,0,0,0,200,15,1,0,0,0,201,202,5,47,0,0,202,203,5,26,0,0,203,206,
+  	3,16,8,0,204,206,5,47,0,0,205,201,1,0,0,0,205,204,1,0,0,0,206,17,1,0,
+  	0,0,207,208,3,10,5,0,208,209,3,20,10,0,209,210,3,10,5,0,210,19,1,0,0,
+  	0,211,212,7,0,0,0,212,21,1,0,0,0,213,214,5,47,0,0,214,23,1,0,0,0,215,
+  	218,5,47,0,0,216,218,5,38,0,0,217,215,1,0,0,0,217,216,1,0,0,0,218,25,
+  	1,0,0,0,219,220,7,1,0,0,220,221,7,2,0,0,221,222,5,26,0,0,222,223,7,2,
+  	0,0,223,224,7,3,0,0,224,27,1,0,0,0,19,59,79,81,87,92,97,107,112,118,127,
+  	129,148,151,168,170,183,199,205,217
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -248,9 +233,9 @@ SpatioTemporalPerceptionLogicParser::StartContext* SpatioTemporalPerceptionLogic
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(30);
+    setState(28);
     formula(0);
-    setState(31);
+    setState(29);
     match(SpatioTemporalPerceptionLogicParser::EOF);
    
   }
@@ -294,6 +279,71 @@ SpatioTemporalPerceptionLogicParser::PlNegationContext::PlNegationContext(Formul
 std::any SpatioTemporalPerceptionLogicParser::PlNegationContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlNegation(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- ParenthesesContext ------------------------------------------------------------------
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ParenthesesContext::LeftParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::ParenthesesContext::formula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ParenthesesContext::RightParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::ParenthesesContext::ParenthesesContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::ParenthesesContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitParentheses(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- TqtlObjectQualifierContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::ObjectQualifierContext* SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::objectQualifier() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ObjectQualifierContext>(0);
+}
+
+SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::formula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
+}
+
+SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::TqtlObjectQualifierContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitTqtlObjectQualifier(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- LtlUntilContext ------------------------------------------------------------------
+
+std::vector<SpatioTemporalPerceptionLogicParser::FormulaContext *> SpatioTemporalPerceptionLogicParser::LtlUntilContext::formula() {
+  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FormulaContext>();
+}
+
+SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::LtlUntilContext::formula(size_t i) {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(i);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::LtlUntilContext::UntilOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::UntilOperator, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::LtlUntilContext::LtlUntilContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::LtlUntilContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitLtlUntil(this);
   else
     return visitor->visitChildren(this);
 }
@@ -396,6 +446,21 @@ std::any SpatioTemporalPerceptionLogicParser::LtlAlwaysContext::accept(tree::Par
   else
     return visitor->visitChildren(this);
 }
+//----------------- TptlTimeConstraintContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::TimeConstraintContext* SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext::timeConstraint() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::TimeConstraintContext>(0);
+}
+
+SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext::TptlTimeConstraintContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitTptlTimeConstraint(this);
+  else
+    return visitor->visitChildren(this);
+}
 //----------------- PlIffContext ------------------------------------------------------------------
 
 std::vector<SpatioTemporalPerceptionLogicParser::FormulaContext *> SpatioTemporalPerceptionLogicParser::PlIffContext::formula() {
@@ -431,234 +496,6 @@ SpatioTemporalPerceptionLogicParser::PlTrueContext::PlTrueContext(FormulaContext
 std::any SpatioTemporalPerceptionLogicParser::PlTrueContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlTrue(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PlPropositionContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::PropositionContext* SpatioTemporalPerceptionLogicParser::PlPropositionContext::proposition() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::PropositionContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::PlPropositionContext::PlPropositionContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::PlPropositionContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlProposition(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlPreviousContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::PtltlPreviousContext::PreviousOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::PreviousOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::PtltlPreviousContext::formula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::PtltlPreviousContext::PtltlPreviousContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::PtltlPreviousContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlPrevious(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFunctionComparisonContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::FnComparisonContext* SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext::fnComparison() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnComparisonContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext::StplFunctionComparisonContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFunctionComparison(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlTriggerContext ------------------------------------------------------------------
-
-std::vector<SpatioTemporalPerceptionLogicParser::FormulaContext *> SpatioTemporalPerceptionLogicParser::PtltlTriggerContext::formula() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FormulaContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::PtltlTriggerContext::formula(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::PtltlTriggerContext::TriggerOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::TriggerOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::PtltlTriggerContext::PtltlTriggerContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::PtltlTriggerContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlTrigger(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- LtlNextContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::LtlNextContext::NextOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::NextOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::LtlNextContext::formula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::LtlNextContext::LtlNextContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::LtlNextContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitLtlNext(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplSpatialForallContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::SpatialForall() {
-  return getToken(SpatioTemporalPerceptionLogicParser::SpatialForall, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::spatialFormula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::StplSpatialForallContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplSpatialForall(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- ParenthesesContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ParenthesesContext::LeftParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::ParenthesesContext::formula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ParenthesesContext::RightParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::ParenthesesContext::ParenthesesContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::ParenthesesContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitParentheses(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- TqtlObjectQualifierContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::ObjectQualifierContext* SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::objectQualifier() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::ObjectQualifierContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::formula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::TqtlObjectQualifierContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::TqtlObjectQualifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitTqtlObjectQualifier(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlOnceContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::PtltlOnceContext::OnceOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::OnceOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::PtltlOnceContext::formula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::PtltlOnceContext::PtltlOnceContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::PtltlOnceContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlOnce(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- LtlUntilContext ------------------------------------------------------------------
-
-std::vector<SpatioTemporalPerceptionLogicParser::FormulaContext *> SpatioTemporalPerceptionLogicParser::LtlUntilContext::formula() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FormulaContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::LtlUntilContext::formula(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::LtlUntilContext::UntilOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::UntilOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::LtlUntilContext::LtlUntilContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::LtlUntilContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitLtlUntil(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- PtltlHistoricallyContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::PtltlHistoricallyContext::HistoricallyOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::HistoricallyOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::PtltlHistoricallyContext::formula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::PtltlHistoricallyContext::PtltlHistoricallyContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::PtltlHistoricallyContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlHistorically(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- TptlTimeConstraintContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::TimeConstraintContext* SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext::timeConstraint() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::TimeConstraintContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext::TptlTimeConstraintContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::TptlTimeConstraintContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitTptlTimeConstraint(this);
   else
     return visitor->visitChildren(this);
 }
@@ -708,6 +545,21 @@ std::any SpatioTemporalPerceptionLogicParser::TptlFreezeTimeContext::accept(tree
   else
     return visitor->visitChildren(this);
 }
+//----------------- PlPropositionContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::PropositionContext* SpatioTemporalPerceptionLogicParser::PlPropositionContext::proposition() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::PropositionContext>(0);
+}
+
+SpatioTemporalPerceptionLogicParser::PlPropositionContext::PlPropositionContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::PlPropositionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitPlProposition(this);
+  else
+    return visitor->visitChildren(this);
+}
 //----------------- LtlReleaseContext ------------------------------------------------------------------
 
 std::vector<SpatioTemporalPerceptionLogicParser::FormulaContext *> SpatioTemporalPerceptionLogicParser::LtlReleaseContext::formula() {
@@ -731,26 +583,18 @@ std::any SpatioTemporalPerceptionLogicParser::LtlReleaseContext::accept(tree::Pa
   else
     return visitor->visitChildren(this);
 }
-//----------------- PtltlSinceContext ------------------------------------------------------------------
+//----------------- StplFunctionComparisonContext ------------------------------------------------------------------
 
-std::vector<SpatioTemporalPerceptionLogicParser::FormulaContext *> SpatioTemporalPerceptionLogicParser::PtltlSinceContext::formula() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FormulaContext>();
+SpatioTemporalPerceptionLogicParser::FnComparisonContext* SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext::fnComparison() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnComparisonContext>(0);
 }
 
-SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::PtltlSinceContext::formula(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::PtltlSinceContext::SinceOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::SinceOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::PtltlSinceContext::PtltlSinceContext(FormulaContext *ctx) { copyFrom(ctx); }
+SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext::StplFunctionComparisonContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
-std::any SpatioTemporalPerceptionLogicParser::PtltlSinceContext::accept(tree::ParseTreeVisitor *visitor) {
+std::any SpatioTemporalPerceptionLogicParser::StplFunctionComparisonContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPtltlSince(this);
+    return parserVisitor->visitStplFunctionComparison(this);
   else
     return visitor->visitChildren(this);
 }
@@ -770,6 +614,44 @@ SpatioTemporalPerceptionLogicParser::LtlEventuallyContext::LtlEventuallyContext(
 std::any SpatioTemporalPerceptionLogicParser::LtlEventuallyContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
     return parserVisitor->visitLtlEventually(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- LtlNextContext ------------------------------------------------------------------
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::LtlNextContext::NextOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::NextOperator, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLogicParser::LtlNextContext::formula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::FormulaContext>(0);
+}
+
+SpatioTemporalPerceptionLogicParser::LtlNextContext::LtlNextContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::LtlNextContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitLtlNext(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- StplSpatialForallContext ------------------------------------------------------------------
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::SpatialForall() {
+  return getToken(SpatioTemporalPerceptionLogicParser::SpatialForall, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::spatialFormula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
+}
+
+SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::StplSpatialForallContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::StplSpatialForallContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitStplSpatialForall(this);
   else
     return visitor->visitChildren(this);
 }
@@ -799,7 +681,7 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(67);
+    setState(59);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 0, _ctx)) {
     case 1: {
@@ -807,11 +689,11 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
       _ctx = _localctx;
       previousContext = _localctx;
 
-      setState(34);
+      setState(32);
       match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-      setState(35);
+      setState(33);
       formula(0);
-      setState(36);
+      setState(34);
       match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
       break;
     }
@@ -820,7 +702,7 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
       _localctx = _tracker.createInstance<PlTrueContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(38);
+      setState(36);
       match(SpatioTemporalPerceptionLogicParser::True);
       break;
     }
@@ -829,7 +711,7 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
       _localctx = _tracker.createInstance<PlFalseContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(39);
+      setState(37);
       match(SpatioTemporalPerceptionLogicParser::False);
       break;
     }
@@ -838,10 +720,10 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
       _localctx = _tracker.createInstance<LtlEventuallyContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(40);
+      setState(38);
       match(SpatioTemporalPerceptionLogicParser::EventuallyOperator);
-      setState(41);
-      formula(22);
+      setState(39);
+      formula(17);
       break;
     }
 
@@ -849,10 +731,10 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
       _localctx = _tracker.createInstance<LtlAlwaysContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(42);
+      setState(40);
       match(SpatioTemporalPerceptionLogicParser::AlwaysOperator);
-      setState(43);
-      formula(21);
+      setState(41);
+      formula(16);
       break;
     }
 
@@ -860,126 +742,93 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
       _localctx = _tracker.createInstance<LtlNextContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(44);
+      setState(42);
       match(SpatioTemporalPerceptionLogicParser::NextOperator);
-      setState(45);
-      formula(20);
-      break;
-    }
-
-    case 7: {
-      _localctx = _tracker.createInstance<PtltlOnceContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(46);
-      match(SpatioTemporalPerceptionLogicParser::OnceOperator);
-      setState(47);
-      formula(17);
-      break;
-    }
-
-    case 8: {
-      _localctx = _tracker.createInstance<PtltlHistoricallyContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(48);
-      match(SpatioTemporalPerceptionLogicParser::HistoricallyOperator);
-      setState(49);
-      formula(16);
-      break;
-    }
-
-    case 9: {
-      _localctx = _tracker.createInstance<PtltlPreviousContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(50);
-      match(SpatioTemporalPerceptionLogicParser::PreviousOperator);
-      setState(51);
+      setState(43);
       formula(15);
       break;
     }
 
-    case 10: {
+    case 7: {
       _localctx = _tracker.createInstance<TqtlObjectQualifierContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(52);
+      setState(44);
       objectQualifier();
-      setState(53);
+      setState(45);
       formula(12);
       break;
     }
 
-    case 11: {
+    case 8: {
       _localctx = _tracker.createInstance<TptlFreezeTimeContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(55);
+      setState(47);
       match(SpatioTemporalPerceptionLogicParser::FreezeTime);
-      setState(56);
+      setState(48);
       match(SpatioTemporalPerceptionLogicParser::Identifier);
-      setState(57);
+      setState(49);
       formula(11);
       break;
     }
 
-    case 12: {
+    case 9: {
       _localctx = _tracker.createInstance<StplSpatialExistsContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(58);
+      setState(50);
       match(SpatioTemporalPerceptionLogicParser::SpatialExists);
-      setState(59);
+      setState(51);
       spatialFormula(0);
       break;
     }
 
-    case 13: {
+    case 10: {
       _localctx = _tracker.createInstance<StplSpatialForallContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(60);
+      setState(52);
       match(SpatioTemporalPerceptionLogicParser::SpatialForall);
-      setState(61);
+      setState(53);
       spatialFormula(0);
       break;
     }
 
-    case 14: {
+    case 11: {
       _localctx = _tracker.createInstance<PlNegationContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(62);
+      setState(54);
       match(SpatioTemporalPerceptionLogicParser::NegationOperator);
-      setState(63);
+      setState(55);
       formula(8);
       break;
     }
 
-    case 15: {
+    case 12: {
       _localctx = _tracker.createInstance<StplFunctionComparisonContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(64);
+      setState(56);
       fnComparison();
       break;
     }
 
-    case 16: {
+    case 13: {
       _localctx = _tracker.createInstance<TptlTimeConstraintContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(65);
+      setState(57);
       timeConstraint();
       break;
     }
 
-    case 17: {
+    case 14: {
       _localctx = _tracker.createInstance<PlPropositionContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(66);
+      setState(58);
       proposition();
       break;
     }
@@ -988,7 +837,7 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
       break;
     }
     _ctx->stop = _input->LT(-1);
-    setState(95);
+    setState(81);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 2, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -996,20 +845,20 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(93);
+        setState(79);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 1, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<LtlUntilContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(69);
+          setState(61);
 
-          if (!(precpred(_ctx, 19))) throw FailedPredicateException(this, "precpred(_ctx, 19)");
-          setState(70);
+          if (!(precpred(_ctx, 14))) throw FailedPredicateException(this, "precpred(_ctx, 14)");
+          setState(62);
           match(SpatioTemporalPerceptionLogicParser::UntilOperator);
-          setState(71);
-          formula(20);
+          setState(63);
+          formula(15);
           break;
         }
 
@@ -1017,96 +866,68 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
           auto newContext = _tracker.createInstance<LtlReleaseContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(72);
-
-          if (!(precpred(_ctx, 18))) throw FailedPredicateException(this, "precpred(_ctx, 18)");
-          setState(73);
-          match(SpatioTemporalPerceptionLogicParser::ReleaseOperator);
-          setState(74);
-          formula(19);
-          break;
-        }
-
-        case 3: {
-          auto newContext = _tracker.createInstance<PtltlSinceContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(75);
-
-          if (!(precpred(_ctx, 14))) throw FailedPredicateException(this, "precpred(_ctx, 14)");
-          setState(76);
-          match(SpatioTemporalPerceptionLogicParser::SinceOperator);
-          setState(77);
-          formula(15);
-          break;
-        }
-
-        case 4: {
-          auto newContext = _tracker.createInstance<PtltlTriggerContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(78);
+          setState(64);
 
           if (!(precpred(_ctx, 13))) throw FailedPredicateException(this, "precpred(_ctx, 13)");
-          setState(79);
-          match(SpatioTemporalPerceptionLogicParser::TriggerOperator);
-          setState(80);
+          setState(65);
+          match(SpatioTemporalPerceptionLogicParser::ReleaseOperator);
+          setState(66);
           formula(14);
           break;
         }
 
-        case 5: {
+        case 3: {
           auto newContext = _tracker.createInstance<PlConjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(81);
+          setState(67);
 
           if (!(precpred(_ctx, 7))) throw FailedPredicateException(this, "precpred(_ctx, 7)");
-          setState(82);
+          setState(68);
           match(SpatioTemporalPerceptionLogicParser::ConjunctionOperator);
-          setState(83);
+          setState(69);
           formula(8);
           break;
         }
 
-        case 6: {
+        case 4: {
           auto newContext = _tracker.createInstance<PlDisjunctionContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(84);
+          setState(70);
 
           if (!(precpred(_ctx, 6))) throw FailedPredicateException(this, "precpred(_ctx, 6)");
-          setState(85);
+          setState(71);
           match(SpatioTemporalPerceptionLogicParser::DisjunctionOperator);
-          setState(86);
+          setState(72);
           formula(7);
           break;
         }
 
-        case 7: {
+        case 5: {
           auto newContext = _tracker.createInstance<PlImplicationContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(87);
+          setState(73);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(88);
+          setState(74);
           match(SpatioTemporalPerceptionLogicParser::ImplicationOperator);
-          setState(89);
+          setState(75);
           formula(6);
           break;
         }
 
-        case 8: {
+        case 6: {
           auto newContext = _tracker.createInstance<PlIffContext>(_tracker.createInstance<FormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleFormula);
-          setState(90);
+          setState(76);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(91);
+          setState(77);
           match(SpatioTemporalPerceptionLogicParser::IffOperator);
-          setState(92);
+          setState(78);
           formula(5);
           break;
         }
@@ -1115,7 +936,7 @@ SpatioTemporalPerceptionLogicParser::FormulaContext* SpatioTemporalPerceptionLog
           break;
         } 
       }
-      setState(97);
+      setState(83);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 2, _ctx);
     }
@@ -1143,26 +964,22 @@ void SpatioTemporalPerceptionLogicParser::SpatialFormulaContext::copyFrom(Spatia
   ParserRuleContext::copyFrom(ctx);
 }
 
-//----------------- StplSpatialConjunctionContext ------------------------------------------------------------------
+//----------------- StplComplementContext ------------------------------------------------------------------
 
-std::vector<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext *> SpatioTemporalPerceptionLogicParser::StplSpatialConjunctionContext::spatialFormula() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>();
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplComplementContext::NegationOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::NegationOperator, 0);
 }
 
-SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplSpatialConjunctionContext::spatialFormula(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(i);
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplComplementContext::spatialFormula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
 }
 
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplSpatialConjunctionContext::ConjunctionOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::ConjunctionOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplSpatialConjunctionContext::StplSpatialConjunctionContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
+SpatioTemporalPerceptionLogicParser::StplComplementContext::StplComplementContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
 
 
-std::any SpatioTemporalPerceptionLogicParser::StplSpatialConjunctionContext::accept(tree::ParseTreeVisitor *visitor) {
+std::any SpatioTemporalPerceptionLogicParser::StplComplementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplSpatialConjunction(this);
+    return parserVisitor->visitStplComplement(this);
   else
     return visitor->visitChildren(this);
 }
@@ -1231,26 +1048,22 @@ std::any SpatioTemporalPerceptionLogicParser::StplSpatialUntilContext::accept(tr
   else
     return visitor->visitChildren(this);
 }
-//----------------- StplSpatialDisjunctionContext ------------------------------------------------------------------
+//----------------- StplInteriorContext ------------------------------------------------------------------
 
-std::vector<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext *> SpatioTemporalPerceptionLogicParser::StplSpatialDisjunctionContext::spatialFormula() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>();
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplInteriorContext::InteriorOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::InteriorOperator, 0);
 }
 
-SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplSpatialDisjunctionContext::spatialFormula(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(i);
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplInteriorContext::spatialFormula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
 }
 
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplSpatialDisjunctionContext::DisjunctionOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::DisjunctionOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplSpatialDisjunctionContext::StplSpatialDisjunctionContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
+SpatioTemporalPerceptionLogicParser::StplInteriorContext::StplInteriorContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
 
 
-std::any SpatioTemporalPerceptionLogicParser::StplSpatialDisjunctionContext::accept(tree::ParseTreeVisitor *visitor) {
+std::any SpatioTemporalPerceptionLogicParser::StplInteriorContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplSpatialDisjunction(this);
+    return parserVisitor->visitStplInterior(this);
   else
     return visitor->visitChildren(this);
 }
@@ -1327,60 +1140,68 @@ std::any SpatioTemporalPerceptionLogicParser::StplSpatialNextContext::accept(tre
   else
     return visitor->visitChildren(this);
 }
-//----------------- StplSpatialNegationContext ------------------------------------------------------------------
+//----------------- StplClosureContext ------------------------------------------------------------------
 
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplSpatialNegationContext::NegationOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::NegationOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplSpatialNegationContext::spatialFormula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplSpatialNegationContext::StplSpatialNegationContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplSpatialNegationContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplSpatialNegation(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplSpatialInteriorContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplSpatialInteriorContext::InteriorOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::InteriorOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplSpatialInteriorContext::spatialFormula() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplSpatialInteriorContext::StplSpatialInteriorContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplSpatialInteriorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplSpatialInterior(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplSpatialClosureContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplSpatialClosureContext::ClosureOperator() {
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplClosureContext::ClosureOperator() {
   return getToken(SpatioTemporalPerceptionLogicParser::ClosureOperator, 0);
 }
 
-SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplSpatialClosureContext::spatialFormula() {
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplClosureContext::spatialFormula() {
   return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
 }
 
-SpatioTemporalPerceptionLogicParser::StplSpatialClosureContext::StplSpatialClosureContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
+SpatioTemporalPerceptionLogicParser::StplClosureContext::StplClosureContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
 
 
-std::any SpatioTemporalPerceptionLogicParser::StplSpatialClosureContext::accept(tree::ParseTreeVisitor *visitor) {
+std::any SpatioTemporalPerceptionLogicParser::StplClosureContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplSpatialClosure(this);
+    return parserVisitor->visitStplClosure(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- StplIntersectionContext ------------------------------------------------------------------
+
+std::vector<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext *> SpatioTemporalPerceptionLogicParser::StplIntersectionContext::spatialFormula() {
+  return getRuleContexts<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>();
+}
+
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplIntersectionContext::spatialFormula(size_t i) {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(i);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplIntersectionContext::ConjunctionOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::ConjunctionOperator, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::StplIntersectionContext::StplIntersectionContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::StplIntersectionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitStplIntersection(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- StplUnionContext ------------------------------------------------------------------
+
+std::vector<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext *> SpatioTemporalPerceptionLogicParser::StplUnionContext::spatialFormula() {
+  return getRuleContexts<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>();
+}
+
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::StplUnionContext::spatialFormula(size_t i) {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(i);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplUnionContext::DisjunctionOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::DisjunctionOperator, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::StplUnionContext::StplUnionContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::StplUnionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitStplUnion(this);
   else
     return visitor->visitChildren(this);
 }
@@ -1410,7 +1231,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(121);
+    setState(107);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SpatioTemporalPerceptionLogicParser::EventuallyOperator: {
@@ -1418,19 +1239,19 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _ctx = _localctx;
         previousContext = _localctx;
 
-        setState(99);
+        setState(85);
         match(SpatioTemporalPerceptionLogicParser::EventuallyOperator);
-        setState(101);
+        setState(87);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
 
         || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-          setState(100);
+          setState(86);
           interval();
         }
-        setState(103);
+        setState(89);
         spatialFormula(11);
         break;
       }
@@ -1439,19 +1260,19 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplSpatialAlwaysContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(104);
+        setState(90);
         match(SpatioTemporalPerceptionLogicParser::AlwaysOperator);
-        setState(106);
+        setState(92);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
 
         || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-          setState(105);
+          setState(91);
           interval();
         }
-        setState(108);
+        setState(94);
         spatialFormula(10);
         break;
       }
@@ -1460,52 +1281,52 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplSpatialNextContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(109);
+        setState(95);
         match(SpatioTemporalPerceptionLogicParser::NextOperator);
-        setState(111);
+        setState(97);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
 
         || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-          setState(110);
+          setState(96);
           interval();
         }
-        setState(113);
+        setState(99);
         spatialFormula(9);
         break;
       }
 
       case SpatioTemporalPerceptionLogicParser::NegationOperator: {
-        _localctx = _tracker.createInstance<StplSpatialNegationContext>(_localctx);
+        _localctx = _tracker.createInstance<StplComplementContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(114);
+        setState(100);
         match(SpatioTemporalPerceptionLogicParser::NegationOperator);
-        setState(115);
+        setState(101);
         spatialFormula(6);
         break;
       }
 
       case SpatioTemporalPerceptionLogicParser::InteriorOperator: {
-        _localctx = _tracker.createInstance<StplSpatialInteriorContext>(_localctx);
+        _localctx = _tracker.createInstance<StplInteriorContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(116);
+        setState(102);
         match(SpatioTemporalPerceptionLogicParser::InteriorOperator);
-        setState(117);
+        setState(103);
         spatialFormula(3);
         break;
       }
 
       case SpatioTemporalPerceptionLogicParser::ClosureOperator: {
-        _localctx = _tracker.createInstance<StplSpatialClosureContext>(_localctx);
+        _localctx = _tracker.createInstance<StplClosureContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(118);
+        setState(104);
         match(SpatioTemporalPerceptionLogicParser::ClosureOperator);
-        setState(119);
+        setState(105);
         spatialFormula(2);
         break;
       }
@@ -1514,7 +1335,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplSpatialTermContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(120);
+        setState(106);
         spatialTerm();
         break;
       }
@@ -1523,7 +1344,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(143);
+    setState(129);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -1531,29 +1352,29 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(141);
+        setState(127);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 9, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<StplSpatialUntilContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(123);
+          setState(109);
 
           if (!(precpred(_ctx, 8))) throw FailedPredicateException(this, "precpred(_ctx, 8)");
-          setState(124);
+          setState(110);
           match(SpatioTemporalPerceptionLogicParser::UntilOperator);
-          setState(126);
+          setState(112);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
 
           || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-            setState(125);
+            setState(111);
             interval();
           }
-          setState(128);
+          setState(114);
           spatialFormula(9);
           break;
         }
@@ -1562,50 +1383,50 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
           auto newContext = _tracker.createInstance<StplSpatialReleaseContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(129);
+          setState(115);
 
           if (!(precpred(_ctx, 7))) throw FailedPredicateException(this, "precpred(_ctx, 7)");
-          setState(130);
+          setState(116);
           match(SpatioTemporalPerceptionLogicParser::ReleaseOperator);
-          setState(132);
+          setState(118);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
 
           || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-            setState(131);
+            setState(117);
             interval();
           }
-          setState(134);
+          setState(120);
           spatialFormula(8);
           break;
         }
 
         case 3: {
-          auto newContext = _tracker.createInstance<StplSpatialConjunctionContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<StplIntersectionContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(135);
+          setState(121);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(136);
+          setState(122);
           match(SpatioTemporalPerceptionLogicParser::ConjunctionOperator);
-          setState(137);
+          setState(123);
           spatialFormula(6);
           break;
         }
 
         case 4: {
-          auto newContext = _tracker.createInstance<StplSpatialDisjunctionContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<StplUnionContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(138);
+          setState(124);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(139);
+          setState(125);
           match(SpatioTemporalPerceptionLogicParser::DisjunctionOperator);
-          setState(140);
+          setState(126);
           spatialFormula(5);
           break;
         }
@@ -1614,7 +1435,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
           break;
         } 
       }
-      setState(145);
+      setState(131);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
     }
@@ -1675,13 +1496,13 @@ SpatioTemporalPerceptionLogicParser::SpatialTermContext* SpatioTemporalPerceptio
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(146);
+    setState(132);
     match(SpatioTemporalPerceptionLogicParser::BoundingBoxFunction);
-    setState(147);
+    setState(133);
     match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-    setState(148);
+    setState(134);
     match(SpatioTemporalPerceptionLogicParser::Identifier);
-    setState(149);
+    setState(135);
     match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
    
   }
@@ -1700,12 +1521,12 @@ SpatioTemporalPerceptionLogicParser::FnComparisonContext::FnComparisonContext(Pa
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<SpatioTemporalPerceptionLogicParser::FnExpressionContext *> SpatioTemporalPerceptionLogicParser::FnComparisonContext::fnExpression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FnExpressionContext>();
+std::vector<SpatioTemporalPerceptionLogicParser::ExpressionContext *> SpatioTemporalPerceptionLogicParser::FnComparisonContext::expression() {
+  return getRuleContexts<SpatioTemporalPerceptionLogicParser::ExpressionContext>();
 }
 
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::FnComparisonContext::fnExpression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnExpressionContext>(i);
+SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerceptionLogicParser::FnComparisonContext::expression(size_t i) {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ExpressionContext>(i);
 }
 
 SpatioTemporalPerceptionLogicParser::RelationalOperatorContext* SpatioTemporalPerceptionLogicParser::FnComparisonContext::relationalOperator() {
@@ -1738,841 +1559,12 @@ SpatioTemporalPerceptionLogicParser::FnComparisonContext* SpatioTemporalPercepti
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(151);
-    fnExpression(0);
-    setState(152);
-    relationalOperator();
-    setState(153);
-    fnExpression(0);
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- FnExpressionContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext::FnExpressionContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-
-size_t SpatioTemporalPerceptionLogicParser::FnExpressionContext::getRuleIndex() const {
-  return SpatioTemporalPerceptionLogicParser::RuleFnExpression;
-}
-
-void SpatioTemporalPerceptionLogicParser::FnExpressionContext::copyFrom(FnExpressionContext *ctx) {
-  ParserRuleContext::copyFrom(ctx);
-}
-
-//----------------- StplFnExpressionFnInvocationContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::FnInvocationContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionFnInvocationContext::fnInvocation() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnInvocationContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionFnInvocationContext::StplFnExpressionFnInvocationContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionFnInvocationContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionFnInvocation(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFnExpressionMinusContext ------------------------------------------------------------------
-
-std::vector<SpatioTemporalPerceptionLogicParser::FnExpressionContext *> SpatioTemporalPerceptionLogicParser::StplFnExpressionMinusContext::fnExpression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FnExpressionContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionMinusContext::fnExpression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnExpressionContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplFnExpressionMinusContext::SubtractionOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::SubtractionOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionMinusContext::StplFnExpressionMinusContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionMinusContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionMinus(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFnExpressionModuloContext ------------------------------------------------------------------
-
-std::vector<SpatioTemporalPerceptionLogicParser::FnExpressionContext *> SpatioTemporalPerceptionLogicParser::StplFnExpressionModuloContext::fnExpression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FnExpressionContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionModuloContext::fnExpression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnExpressionContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplFnExpressionModuloContext::ModuloOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::ModuloOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionModuloContext::StplFnExpressionModuloContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionModuloContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionModulo(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFnExpressionParenthesesContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplFnExpressionParenthesesContext::LeftParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionParenthesesContext::fnExpression() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnExpressionContext>(0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplFnExpressionParenthesesContext::RightParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionParenthesesContext::StplFnExpressionParenthesesContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionParenthesesContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionParentheses(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFnExpressionTermContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::TermContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionTermContext::term() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::TermContext>(0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionTermContext::StplFnExpressionTermContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionTermContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionTerm(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFnExpressionDivisionContext ------------------------------------------------------------------
-
-std::vector<SpatioTemporalPerceptionLogicParser::FnExpressionContext *> SpatioTemporalPerceptionLogicParser::StplFnExpressionDivisionContext::fnExpression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FnExpressionContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionDivisionContext::fnExpression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnExpressionContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplFnExpressionDivisionContext::DivisionOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::DivisionOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionDivisionContext::StplFnExpressionDivisionContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionDivisionContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionDivision(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFnExpressionTimesContext ------------------------------------------------------------------
-
-std::vector<SpatioTemporalPerceptionLogicParser::FnExpressionContext *> SpatioTemporalPerceptionLogicParser::StplFnExpressionTimesContext::fnExpression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FnExpressionContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionTimesContext::fnExpression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnExpressionContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplFnExpressionTimesContext::MultiplicationOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::MultiplicationOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionTimesContext::StplFnExpressionTimesContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionTimesContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionTimes(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- StplFnExpressionPlusContext ------------------------------------------------------------------
-
-std::vector<SpatioTemporalPerceptionLogicParser::FnExpressionContext *> SpatioTemporalPerceptionLogicParser::StplFnExpressionPlusContext::fnExpression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::FnExpressionContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::StplFnExpressionPlusContext::fnExpression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::FnExpressionContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplFnExpressionPlusContext::AdditionOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::AdditionOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::StplFnExpressionPlusContext::StplFnExpressionPlusContext(FnExpressionContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::StplFnExpressionPlusContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitStplFnExpressionPlus(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::fnExpression() {
-   return fnExpression(0);
-}
-
-SpatioTemporalPerceptionLogicParser::FnExpressionContext* SpatioTemporalPerceptionLogicParser::fnExpression(int precedence) {
-  ParserRuleContext *parentContext = _ctx;
-  size_t parentState = getState();
-  SpatioTemporalPerceptionLogicParser::FnExpressionContext *_localctx = _tracker.createInstance<FnExpressionContext>(_ctx, parentState);
-  SpatioTemporalPerceptionLogicParser::FnExpressionContext *previousContext = _localctx;
-  (void)previousContext; // Silence compiler, in case the context is not used by generated code.
-  size_t startState = 10;
-  enterRecursionRule(_localctx, 10, SpatioTemporalPerceptionLogicParser::RuleFnExpression, precedence);
-
-    
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    unrollRecursionContexts(parentContext);
-  });
-  try {
-    size_t alt;
-    enterOuterAlt(_localctx, 1);
-    setState(162);
-    _errHandler->sync(this);
-    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 11, _ctx)) {
-    case 1: {
-      _localctx = _tracker.createInstance<StplFnExpressionParenthesesContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-
-      setState(156);
-      match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-      setState(157);
-      fnExpression(0);
-      setState(158);
-      match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
-      break;
-    }
-
-    case 2: {
-      _localctx = _tracker.createInstance<StplFnExpressionFnInvocationContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(160);
-      fnInvocation();
-      break;
-    }
-
-    case 3: {
-      _localctx = _tracker.createInstance<StplFnExpressionTermContext>(_localctx);
-      _ctx = _localctx;
-      previousContext = _localctx;
-      setState(161);
-      term();
-      break;
-    }
-
-    default:
-      break;
-    }
-    _ctx->stop = _input->LT(-1);
-    setState(181);
-    _errHandler->sync(this);
-    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 13, _ctx);
-    while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
-      if (alt == 1) {
-        if (!_parseListeners.empty())
-          triggerExitRuleEvent();
-        previousContext = _localctx;
-        setState(179);
-        _errHandler->sync(this);
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 12, _ctx)) {
-        case 1: {
-          auto newContext = _tracker.createInstance<StplFnExpressionTimesContext>(_tracker.createInstance<FnExpressionContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFnExpression);
-          setState(164);
-
-          if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(165);
-          match(SpatioTemporalPerceptionLogicParser::MultiplicationOperator);
-          setState(166);
-          fnExpression(6);
-          break;
-        }
-
-        case 2: {
-          auto newContext = _tracker.createInstance<StplFnExpressionDivisionContext>(_tracker.createInstance<FnExpressionContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFnExpression);
-          setState(167);
-
-          if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(168);
-          match(SpatioTemporalPerceptionLogicParser::DivisionOperator);
-          setState(169);
-          fnExpression(5);
-          break;
-        }
-
-        case 3: {
-          auto newContext = _tracker.createInstance<StplFnExpressionModuloContext>(_tracker.createInstance<FnExpressionContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFnExpression);
-          setState(170);
-
-          if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(171);
-          match(SpatioTemporalPerceptionLogicParser::ModuloOperator);
-          setState(172);
-          fnExpression(4);
-          break;
-        }
-
-        case 4: {
-          auto newContext = _tracker.createInstance<StplFnExpressionPlusContext>(_tracker.createInstance<FnExpressionContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFnExpression);
-          setState(173);
-
-          if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-          setState(174);
-          match(SpatioTemporalPerceptionLogicParser::AdditionOperator);
-          setState(175);
-          fnExpression(3);
-          break;
-        }
-
-        case 5: {
-          auto newContext = _tracker.createInstance<StplFnExpressionMinusContext>(_tracker.createInstance<FnExpressionContext>(parentContext, parentState));
-          _localctx = newContext;
-          pushNewRecursionContext(newContext, startState, RuleFnExpression);
-          setState(176);
-
-          if (!(precpred(_ctx, 1))) throw FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(177);
-          match(SpatioTemporalPerceptionLogicParser::SubtractionOperator);
-          setState(178);
-          fnExpression(2);
-          break;
-        }
-
-        default:
-          break;
-        } 
-      }
-      setState(183);
-      _errHandler->sync(this);
-      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 13, _ctx);
-    }
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-  return _localctx;
-}
-
-//----------------- FnInvocationContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::FnInvocationContext::FnInvocationContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::FnInvocationContext::Identifier() {
-  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::FnInvocationContext::LeftParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::FnInvocationContext::argumentList() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::FnInvocationContext::RightParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
-}
-
-
-size_t SpatioTemporalPerceptionLogicParser::FnInvocationContext::getRuleIndex() const {
-  return SpatioTemporalPerceptionLogicParser::RuleFnInvocation;
-}
-
-
-std::any SpatioTemporalPerceptionLogicParser::FnInvocationContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitFnInvocation(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-SpatioTemporalPerceptionLogicParser::FnInvocationContext* SpatioTemporalPerceptionLogicParser::fnInvocation() {
-  FnInvocationContext *_localctx = _tracker.createInstance<FnInvocationContext>(_ctx, getState());
-  enterRule(_localctx, 12, SpatioTemporalPerceptionLogicParser::RuleFnInvocation);
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(184);
-    match(SpatioTemporalPerceptionLogicParser::Identifier);
-    setState(185);
-    match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-    setState(186);
-    argumentList();
-    setState(187);
-    match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- ObjectQualifierContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::ObjectQualifierContext::ObjectQualifierContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-
-size_t SpatioTemporalPerceptionLogicParser::ObjectQualifierContext::getRuleIndex() const {
-  return SpatioTemporalPerceptionLogicParser::RuleObjectQualifier;
-}
-
-void SpatioTemporalPerceptionLogicParser::ObjectQualifierContext::copyFrom(ObjectQualifierContext *ctx) {
-  ParserRuleContext::copyFrom(ctx);
-}
-
-//----------------- TqtlExistsQualifierContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::ExistsQuantifier() {
-  return getToken(SpatioTemporalPerceptionLogicParser::ExistsQuantifier, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::LeftParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::argumentList() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::RightParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::FreezeTime() {
-  return getToken(SpatioTemporalPerceptionLogicParser::FreezeTime, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::Identifier() {
-  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::TqtlExistsQualifierContext(ObjectQualifierContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitTqtlExistsQualifier(this);
-  else
-    return visitor->visitChildren(this);
-}
-//----------------- TqtlForallQualifierContext ------------------------------------------------------------------
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::ForallQuantifier() {
-  return getToken(SpatioTemporalPerceptionLogicParser::ForallQuantifier, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::LeftParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::argumentList() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::RightParenthesis() {
-  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::FreezeTime() {
-  return getToken(SpatioTemporalPerceptionLogicParser::FreezeTime, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::Identifier() {
-  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::TqtlForallQualifierContext(ObjectQualifierContext *ctx) { copyFrom(ctx); }
-
-
-std::any SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitTqtlForallQualifier(this);
-  else
-    return visitor->visitChildren(this);
-}
-SpatioTemporalPerceptionLogicParser::ObjectQualifierContext* SpatioTemporalPerceptionLogicParser::objectQualifier() {
-  ObjectQualifierContext *_localctx = _tracker.createInstance<ObjectQualifierContext>(_ctx, getState());
-  enterRule(_localctx, 14, SpatioTemporalPerceptionLogicParser::RuleObjectQualifier);
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    exitRule();
-  });
-  try {
-    setState(203);
-    _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case SpatioTemporalPerceptionLogicParser::ExistsQuantifier: {
-        _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext>(_localctx);
-        enterOuterAlt(_localctx, 1);
-        setState(189);
-        match(SpatioTemporalPerceptionLogicParser::ExistsQuantifier);
-        setState(190);
-        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-        setState(191);
-        argumentList();
-        setState(192);
-        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
-        setState(193);
-        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
-        setState(194);
-        match(SpatioTemporalPerceptionLogicParser::Identifier);
-        break;
-      }
-
-      case SpatioTemporalPerceptionLogicParser::ForallQuantifier: {
-        _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext>(_localctx);
-        enterOuterAlt(_localctx, 2);
-        setState(196);
-        match(SpatioTemporalPerceptionLogicParser::ForallQuantifier);
-        setState(197);
-        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-        setState(198);
-        argumentList();
-        setState(199);
-        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
-        setState(200);
-        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
-        setState(201);
-        match(SpatioTemporalPerceptionLogicParser::Identifier);
-        break;
-      }
-
-    default:
-      throw NoViableAltException(this);
-    }
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- ArgumentListContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::ArgumentListContext::ArgumentListContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArgumentListContext::Identifier() {
-  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArgumentListContext::Comma() {
-  return getToken(SpatioTemporalPerceptionLogicParser::Comma, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::ArgumentListContext::argumentList() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
-}
-
-
-size_t SpatioTemporalPerceptionLogicParser::ArgumentListContext::getRuleIndex() const {
-  return SpatioTemporalPerceptionLogicParser::RuleArgumentList;
-}
-
-
-std::any SpatioTemporalPerceptionLogicParser::ArgumentListContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitArgumentList(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::argumentList() {
-  ArgumentListContext *_localctx = _tracker.createInstance<ArgumentListContext>(_ctx, getState());
-  enterRule(_localctx, 16, SpatioTemporalPerceptionLogicParser::RuleArgumentList);
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    exitRule();
-  });
-  try {
-    setState(209);
-    _errHandler->sync(this);
-    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 15, _ctx)) {
-    case 1: {
-      enterOuterAlt(_localctx, 1);
-      setState(205);
-      match(SpatioTemporalPerceptionLogicParser::Identifier);
-      setState(206);
-      match(SpatioTemporalPerceptionLogicParser::Comma);
-      setState(207);
-      argumentList();
-      break;
-    }
-
-    case 2: {
-      enterOuterAlt(_localctx, 2);
-      setState(208);
-      match(SpatioTemporalPerceptionLogicParser::Identifier);
-      break;
-    }
-
-    default:
-      break;
-    }
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- TimeConstraintContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::TimeConstraintContext::TimeConstraintContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-std::vector<SpatioTemporalPerceptionLogicParser::ExpressionContext *> SpatioTemporalPerceptionLogicParser::TimeConstraintContext::expression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::ExpressionContext>();
-}
-
-SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerceptionLogicParser::TimeConstraintContext::expression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::ExpressionContext>(i);
-}
-
-SpatioTemporalPerceptionLogicParser::RelationalOperatorContext* SpatioTemporalPerceptionLogicParser::TimeConstraintContext::relationalOperator() {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::RelationalOperatorContext>(0);
-}
-
-
-size_t SpatioTemporalPerceptionLogicParser::TimeConstraintContext::getRuleIndex() const {
-  return SpatioTemporalPerceptionLogicParser::RuleTimeConstraint;
-}
-
-
-std::any SpatioTemporalPerceptionLogicParser::TimeConstraintContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitTimeConstraint(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-SpatioTemporalPerceptionLogicParser::TimeConstraintContext* SpatioTemporalPerceptionLogicParser::timeConstraint() {
-  TimeConstraintContext *_localctx = _tracker.createInstance<TimeConstraintContext>(_ctx, getState());
-  enterRule(_localctx, 18, SpatioTemporalPerceptionLogicParser::RuleTimeConstraint);
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(211);
+    setState(137);
     expression(0);
-    setState(212);
+    setState(138);
     relationalOperator();
-    setState(213);
+    setState(139);
     expression(0);
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- RelationalOperatorContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::RelationalOperatorContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::LessThanOrEqualTo() {
-  return getToken(SpatioTemporalPerceptionLogicParser::LessThanOrEqualTo, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::GreaterThanOrEqualTo() {
-  return getToken(SpatioTemporalPerceptionLogicParser::GreaterThanOrEqualTo, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::LeftChevron() {
-  return getToken(SpatioTemporalPerceptionLogicParser::LeftChevron, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::RightChevron() {
-  return getToken(SpatioTemporalPerceptionLogicParser::RightChevron, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::EqualTo() {
-  return getToken(SpatioTemporalPerceptionLogicParser::EqualTo, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::NotEqualTo() {
-  return getToken(SpatioTemporalPerceptionLogicParser::NotEqualTo, 0);
-}
-
-
-size_t SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::getRuleIndex() const {
-  return SpatioTemporalPerceptionLogicParser::RuleRelationalOperator;
-}
-
-
-std::any SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitRelationalOperator(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-SpatioTemporalPerceptionLogicParser::RelationalOperatorContext* SpatioTemporalPerceptionLogicParser::relationalOperator() {
-  RelationalOperatorContext *_localctx = _tracker.createInstance<RelationalOperatorContext>(_ctx, getState());
-  enterRule(_localctx, 20, SpatioTemporalPerceptionLogicParser::RuleRelationalOperator);
-  size_t _la = 0;
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(215);
-    _la = _input->LA(1);
-    if (!(((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & 103079222784) != 0)) {
-    _errHandler->recoverInline(this);
-    }
-    else {
-      _errHandler->reportMatch(this);
-      consume();
-    }
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- PropositionContext ------------------------------------------------------------------
-
-SpatioTemporalPerceptionLogicParser::PropositionContext::PropositionContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::PropositionContext::Identifier() {
-  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
-}
-
-
-size_t SpatioTemporalPerceptionLogicParser::PropositionContext::getRuleIndex() const {
-  return SpatioTemporalPerceptionLogicParser::RuleProposition;
-}
-
-
-std::any SpatioTemporalPerceptionLogicParser::PropositionContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitProposition(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-SpatioTemporalPerceptionLogicParser::PropositionContext* SpatioTemporalPerceptionLogicParser::proposition() {
-  PropositionContext *_localctx = _tracker.createInstance<PropositionContext>(_ctx, getState());
-  enterRule(_localctx, 22, SpatioTemporalPerceptionLogicParser::RuleProposition);
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(217);
-    match(SpatioTemporalPerceptionLogicParser::Identifier);
    
   }
   catch (RecognitionException &e) {
@@ -2691,10 +1683,37 @@ std::any SpatioTemporalPerceptionLogicParser::ArithmeticDivideContext::accept(tr
   else
     return visitor->visitChildren(this);
 }
+//----------------- ArithmeticModulusContext ------------------------------------------------------------------
+
+std::vector<SpatioTemporalPerceptionLogicParser::ExpressionContext *> SpatioTemporalPerceptionLogicParser::ArithmeticModulusContext::expression() {
+  return getRuleContexts<SpatioTemporalPerceptionLogicParser::ExpressionContext>();
+}
+
+SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerceptionLogicParser::ArithmeticModulusContext::expression(size_t i) {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ExpressionContext>(i);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArithmeticModulusContext::ModulusOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::ModulusOperator, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::ArithmeticModulusContext::ArithmeticModulusContext(ExpressionContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::ArithmeticModulusContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitArithmeticModulus(this);
+  else
+    return visitor->visitChildren(this);
+}
 //----------------- ArithmeticTermContext ------------------------------------------------------------------
 
 SpatioTemporalPerceptionLogicParser::TermContext* SpatioTemporalPerceptionLogicParser::ArithmeticTermContext::term() {
   return getRuleContext<SpatioTemporalPerceptionLogicParser::TermContext>(0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArithmeticTermContext::SubtractionOperator() {
+  return getToken(SpatioTemporalPerceptionLogicParser::SubtractionOperator, 0);
 }
 
 SpatioTemporalPerceptionLogicParser::ArithmeticTermContext::ArithmeticTermContext(ExpressionContext *ctx) { copyFrom(ctx); }
@@ -2729,26 +1748,18 @@ std::any SpatioTemporalPerceptionLogicParser::ArithmeticPlusContext::accept(tree
   else
     return visitor->visitChildren(this);
 }
-//----------------- ArithmeticModuloContext ------------------------------------------------------------------
+//----------------- StplFunctionCallContext ------------------------------------------------------------------
 
-std::vector<SpatioTemporalPerceptionLogicParser::ExpressionContext *> SpatioTemporalPerceptionLogicParser::ArithmeticModuloContext::expression() {
-  return getRuleContexts<SpatioTemporalPerceptionLogicParser::ExpressionContext>();
+SpatioTemporalPerceptionLogicParser::FunctionCallContext* SpatioTemporalPerceptionLogicParser::StplFunctionCallContext::functionCall() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::FunctionCallContext>(0);
 }
 
-SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerceptionLogicParser::ArithmeticModuloContext::expression(size_t i) {
-  return getRuleContext<SpatioTemporalPerceptionLogicParser::ExpressionContext>(i);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArithmeticModuloContext::ModuloOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::ModuloOperator, 0);
-}
-
-SpatioTemporalPerceptionLogicParser::ArithmeticModuloContext::ArithmeticModuloContext(ExpressionContext *ctx) { copyFrom(ctx); }
+SpatioTemporalPerceptionLogicParser::StplFunctionCallContext::StplFunctionCallContext(ExpressionContext *ctx) { copyFrom(ctx); }
 
 
-std::any SpatioTemporalPerceptionLogicParser::ArithmeticModuloContext::accept(tree::ParseTreeVisitor *visitor) {
+std::any SpatioTemporalPerceptionLogicParser::StplFunctionCallContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
-    return parserVisitor->visitArithmeticModulo(this);
+    return parserVisitor->visitStplFunctionCall(this);
   else
     return visitor->visitChildren(this);
 }
@@ -2763,10 +1774,10 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
   SpatioTemporalPerceptionLogicParser::ExpressionContext *_localctx = _tracker.createInstance<ExpressionContext>(_ctx, parentState);
   SpatioTemporalPerceptionLogicParser::ExpressionContext *previousContext = _localctx;
   (void)previousContext; // Silence compiler, in case the context is not used by generated code.
-  size_t startState = 24;
-  enterRecursionRule(_localctx, 24, SpatioTemporalPerceptionLogicParser::RuleExpression, precedence);
+  size_t startState = 10;
+  enterRecursionRule(_localctx, 10, SpatioTemporalPerceptionLogicParser::RuleExpression, precedence);
 
-    
+    size_t _la = 0;
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -2778,59 +1789,74 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(225);
+    setState(151);
     _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case SpatioTemporalPerceptionLogicParser::LeftParenthesis: {
-        _localctx = _tracker.createInstance<ArithmeticParenthesesContext>(_localctx);
-        _ctx = _localctx;
-        previousContext = _localctx;
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 12, _ctx)) {
+    case 1: {
+      _localctx = _tracker.createInstance<ArithmeticParenthesesContext>(_localctx);
+      _ctx = _localctx;
+      previousContext = _localctx;
 
-        setState(220);
-        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-        setState(221);
-        expression(0);
-        setState(222);
-        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
-        break;
-      }
+      setState(142);
+      match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+      setState(143);
+      expression(0);
+      setState(144);
+      match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+      break;
+    }
 
-      case SpatioTemporalPerceptionLogicParser::Scalar:
-      case SpatioTemporalPerceptionLogicParser::Identifier:
-      case SpatioTemporalPerceptionLogicParser::SubtractionOperator: {
-        _localctx = _tracker.createInstance<ArithmeticTermContext>(_localctx);
-        _ctx = _localctx;
-        previousContext = _localctx;
-        setState(224);
-        term();
-        break;
+    case 2: {
+      _localctx = _tracker.createInstance<StplFunctionCallContext>(_localctx);
+      _ctx = _localctx;
+      previousContext = _localctx;
+      setState(146);
+      functionCall();
+      break;
+    }
+
+    case 3: {
+      _localctx = _tracker.createInstance<ArithmeticTermContext>(_localctx);
+      _ctx = _localctx;
+      previousContext = _localctx;
+      setState(148);
+      _errHandler->sync(this);
+
+      _la = _input->LA(1);
+      if (_la == SpatioTemporalPerceptionLogicParser::SubtractionOperator) {
+        setState(147);
+        match(SpatioTemporalPerceptionLogicParser::SubtractionOperator);
       }
+      setState(150);
+      term();
+      break;
+    }
 
     default:
-      throw NoViableAltException(this);
+      break;
     }
     _ctx->stop = _input->LT(-1);
-    setState(244);
+    setState(170);
     _errHandler->sync(this);
-    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 18, _ctx);
+    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
       if (alt == 1) {
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(242);
+        setState(168);
         _errHandler->sync(this);
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 17, _ctx)) {
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 13, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<ArithmeticTimesContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(227);
+          setState(153);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(228);
+          setState(154);
           match(SpatioTemporalPerceptionLogicParser::MultiplicationOperator);
-          setState(229);
+          setState(155);
           expression(6);
           break;
         }
@@ -2839,26 +1865,26 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           auto newContext = _tracker.createInstance<ArithmeticDivideContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(230);
+          setState(156);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(231);
+          setState(157);
           match(SpatioTemporalPerceptionLogicParser::DivisionOperator);
-          setState(232);
+          setState(158);
           expression(5);
           break;
         }
 
         case 3: {
-          auto newContext = _tracker.createInstance<ArithmeticModuloContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
+          auto newContext = _tracker.createInstance<ArithmeticModulusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(233);
+          setState(159);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(234);
-          match(SpatioTemporalPerceptionLogicParser::ModuloOperator);
-          setState(235);
+          setState(160);
+          match(SpatioTemporalPerceptionLogicParser::ModulusOperator);
+          setState(161);
           expression(4);
           break;
         }
@@ -2867,12 +1893,12 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           auto newContext = _tracker.createInstance<ArithmeticPlusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(236);
+          setState(162);
 
           if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-          setState(237);
+          setState(163);
           match(SpatioTemporalPerceptionLogicParser::AdditionOperator);
-          setState(238);
+          setState(164);
           expression(3);
           break;
         }
@@ -2881,12 +1907,12 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           auto newContext = _tracker.createInstance<ArithmeticMinusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(239);
+          setState(165);
 
           if (!(precpred(_ctx, 1))) throw FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(240);
+          setState(166);
           match(SpatioTemporalPerceptionLogicParser::SubtractionOperator);
-          setState(241);
+          setState(167);
           expression(2);
           break;
         }
@@ -2895,9 +1921,9 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           break;
         } 
       }
-      setState(246);
+      setState(172);
       _errHandler->sync(this);
-      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 18, _ctx);
+      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx);
     }
   }
   catch (RecognitionException &e) {
@@ -2905,6 +1931,520 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
     _localctx->exception = std::current_exception();
     _errHandler->recover(this, _localctx->exception);
   }
+  return _localctx;
+}
+
+//----------------- FunctionCallContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::FunctionCallContext::FunctionCallContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::FunctionCallContext::AreaFunction() {
+  return getToken(SpatioTemporalPerceptionLogicParser::AreaFunction, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::FunctionCallContext::LeftParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::FunctionCallContext::spatialFormula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::FunctionCallContext::RightParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::FunctionCallContext::Identifier() {
+  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::FunctionCallContext::argumentList() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
+}
+
+
+size_t SpatioTemporalPerceptionLogicParser::FunctionCallContext::getRuleIndex() const {
+  return SpatioTemporalPerceptionLogicParser::RuleFunctionCall;
+}
+
+
+std::any SpatioTemporalPerceptionLogicParser::FunctionCallContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitFunctionCall(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+SpatioTemporalPerceptionLogicParser::FunctionCallContext* SpatioTemporalPerceptionLogicParser::functionCall() {
+  FunctionCallContext *_localctx = _tracker.createInstance<FunctionCallContext>(_ctx, getState());
+  enterRule(_localctx, 12, SpatioTemporalPerceptionLogicParser::RuleFunctionCall);
+
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
+  auto onExit = finally([=] {
+#endif
+    exitRule();
+  });
+  try {
+    setState(183);
+    _errHandler->sync(this);
+    switch (_input->LA(1)) {
+      case SpatioTemporalPerceptionLogicParser::AreaFunction: {
+        enterOuterAlt(_localctx, 1);
+        setState(173);
+        match(SpatioTemporalPerceptionLogicParser::AreaFunction);
+        setState(174);
+        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+        setState(175);
+        spatialFormula(0);
+        setState(176);
+        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+        break;
+      }
+
+      case SpatioTemporalPerceptionLogicParser::Identifier: {
+        enterOuterAlt(_localctx, 2);
+        setState(178);
+        match(SpatioTemporalPerceptionLogicParser::Identifier);
+        setState(179);
+        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+        setState(180);
+        argumentList();
+        setState(181);
+        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+        break;
+      }
+
+    default:
+      throw NoViableAltException(this);
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- ObjectQualifierContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::ObjectQualifierContext::ObjectQualifierContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+
+size_t SpatioTemporalPerceptionLogicParser::ObjectQualifierContext::getRuleIndex() const {
+  return SpatioTemporalPerceptionLogicParser::RuleObjectQualifier;
+}
+
+void SpatioTemporalPerceptionLogicParser::ObjectQualifierContext::copyFrom(ObjectQualifierContext *ctx) {
+  ParserRuleContext::copyFrom(ctx);
+}
+
+//----------------- TqtlExistsQualifierContext ------------------------------------------------------------------
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::ExistsQuantifier() {
+  return getToken(SpatioTemporalPerceptionLogicParser::ExistsQuantifier, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::LeftParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::argumentList() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::RightParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::FreezeTime() {
+  return getToken(SpatioTemporalPerceptionLogicParser::FreezeTime, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::Identifier() {
+  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::TqtlExistsQualifierContext(ObjectQualifierContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitTqtlExistsQualifier(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- TqtlForallQualifierContext ------------------------------------------------------------------
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::ForallQuantifier() {
+  return getToken(SpatioTemporalPerceptionLogicParser::ForallQuantifier, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::LeftParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::argumentList() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::RightParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::FreezeTime() {
+  return getToken(SpatioTemporalPerceptionLogicParser::FreezeTime, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::Identifier() {
+  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::TqtlForallQualifierContext(ObjectQualifierContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitTqtlForallQualifier(this);
+  else
+    return visitor->visitChildren(this);
+}
+SpatioTemporalPerceptionLogicParser::ObjectQualifierContext* SpatioTemporalPerceptionLogicParser::objectQualifier() {
+  ObjectQualifierContext *_localctx = _tracker.createInstance<ObjectQualifierContext>(_ctx, getState());
+  enterRule(_localctx, 14, SpatioTemporalPerceptionLogicParser::RuleObjectQualifier);
+
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
+  auto onExit = finally([=] {
+#endif
+    exitRule();
+  });
+  try {
+    setState(199);
+    _errHandler->sync(this);
+    switch (_input->LA(1)) {
+      case SpatioTemporalPerceptionLogicParser::ExistsQuantifier: {
+        _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext>(_localctx);
+        enterOuterAlt(_localctx, 1);
+        setState(185);
+        match(SpatioTemporalPerceptionLogicParser::ExistsQuantifier);
+        setState(186);
+        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+        setState(187);
+        argumentList();
+        setState(188);
+        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+        setState(189);
+        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
+        setState(190);
+        match(SpatioTemporalPerceptionLogicParser::Identifier);
+        break;
+      }
+
+      case SpatioTemporalPerceptionLogicParser::ForallQuantifier: {
+        _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext>(_localctx);
+        enterOuterAlt(_localctx, 2);
+        setState(192);
+        match(SpatioTemporalPerceptionLogicParser::ForallQuantifier);
+        setState(193);
+        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+        setState(194);
+        argumentList();
+        setState(195);
+        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+        setState(196);
+        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
+        setState(197);
+        match(SpatioTemporalPerceptionLogicParser::Identifier);
+        break;
+      }
+
+    default:
+      throw NoViableAltException(this);
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- ArgumentListContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::ArgumentListContext::ArgumentListContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArgumentListContext::Identifier() {
+  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArgumentListContext::Comma() {
+  return getToken(SpatioTemporalPerceptionLogicParser::Comma, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::ArgumentListContext::argumentList() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ArgumentListContext>(0);
+}
+
+
+size_t SpatioTemporalPerceptionLogicParser::ArgumentListContext::getRuleIndex() const {
+  return SpatioTemporalPerceptionLogicParser::RuleArgumentList;
+}
+
+
+std::any SpatioTemporalPerceptionLogicParser::ArgumentListContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitArgumentList(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPerceptionLogicParser::argumentList() {
+  ArgumentListContext *_localctx = _tracker.createInstance<ArgumentListContext>(_ctx, getState());
+  enterRule(_localctx, 16, SpatioTemporalPerceptionLogicParser::RuleArgumentList);
+
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
+  auto onExit = finally([=] {
+#endif
+    exitRule();
+  });
+  try {
+    setState(205);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 17, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(201);
+      match(SpatioTemporalPerceptionLogicParser::Identifier);
+      setState(202);
+      match(SpatioTemporalPerceptionLogicParser::Comma);
+      setState(203);
+      argumentList();
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(204);
+      match(SpatioTemporalPerceptionLogicParser::Identifier);
+      break;
+    }
+
+    default:
+      break;
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- TimeConstraintContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::TimeConstraintContext::TimeConstraintContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+std::vector<SpatioTemporalPerceptionLogicParser::ExpressionContext *> SpatioTemporalPerceptionLogicParser::TimeConstraintContext::expression() {
+  return getRuleContexts<SpatioTemporalPerceptionLogicParser::ExpressionContext>();
+}
+
+SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerceptionLogicParser::TimeConstraintContext::expression(size_t i) {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::ExpressionContext>(i);
+}
+
+SpatioTemporalPerceptionLogicParser::RelationalOperatorContext* SpatioTemporalPerceptionLogicParser::TimeConstraintContext::relationalOperator() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::RelationalOperatorContext>(0);
+}
+
+
+size_t SpatioTemporalPerceptionLogicParser::TimeConstraintContext::getRuleIndex() const {
+  return SpatioTemporalPerceptionLogicParser::RuleTimeConstraint;
+}
+
+
+std::any SpatioTemporalPerceptionLogicParser::TimeConstraintContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitTimeConstraint(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+SpatioTemporalPerceptionLogicParser::TimeConstraintContext* SpatioTemporalPerceptionLogicParser::timeConstraint() {
+  TimeConstraintContext *_localctx = _tracker.createInstance<TimeConstraintContext>(_ctx, getState());
+  enterRule(_localctx, 18, SpatioTemporalPerceptionLogicParser::RuleTimeConstraint);
+
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
+  auto onExit = finally([=] {
+#endif
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(207);
+    expression(0);
+    setState(208);
+    relationalOperator();
+    setState(209);
+    expression(0);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- RelationalOperatorContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::RelationalOperatorContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::LessThanOrEqualTo() {
+  return getToken(SpatioTemporalPerceptionLogicParser::LessThanOrEqualTo, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::GreaterThanOrEqualTo() {
+  return getToken(SpatioTemporalPerceptionLogicParser::GreaterThanOrEqualTo, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::LeftChevron() {
+  return getToken(SpatioTemporalPerceptionLogicParser::LeftChevron, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::RightChevron() {
+  return getToken(SpatioTemporalPerceptionLogicParser::RightChevron, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::EqualTo() {
+  return getToken(SpatioTemporalPerceptionLogicParser::EqualTo, 0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::NotEqualTo() {
+  return getToken(SpatioTemporalPerceptionLogicParser::NotEqualTo, 0);
+}
+
+
+size_t SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::getRuleIndex() const {
+  return SpatioTemporalPerceptionLogicParser::RuleRelationalOperator;
+}
+
+
+std::any SpatioTemporalPerceptionLogicParser::RelationalOperatorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitRelationalOperator(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+SpatioTemporalPerceptionLogicParser::RelationalOperatorContext* SpatioTemporalPerceptionLogicParser::relationalOperator() {
+  RelationalOperatorContext *_localctx = _tracker.createInstance<RelationalOperatorContext>(_ctx, getState());
+  enterRule(_localctx, 20, SpatioTemporalPerceptionLogicParser::RuleRelationalOperator);
+  size_t _la = 0;
+
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
+  auto onExit = finally([=] {
+#endif
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(211);
+    _la = _input->LA(1);
+    if (!(((_la & ~ 0x3fULL) == 0) &&
+      ((1ULL << _la) & 6442466304) != 0)) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- PropositionContext ------------------------------------------------------------------
+
+SpatioTemporalPerceptionLogicParser::PropositionContext::PropositionContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::PropositionContext::Identifier() {
+  return getToken(SpatioTemporalPerceptionLogicParser::Identifier, 0);
+}
+
+
+size_t SpatioTemporalPerceptionLogicParser::PropositionContext::getRuleIndex() const {
+  return SpatioTemporalPerceptionLogicParser::RuleProposition;
+}
+
+
+std::any SpatioTemporalPerceptionLogicParser::PropositionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitProposition(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+SpatioTemporalPerceptionLogicParser::PropositionContext* SpatioTemporalPerceptionLogicParser::proposition() {
+  PropositionContext *_localctx = _tracker.createInstance<PropositionContext>(_ctx, getState());
+  enterRule(_localctx, 22, SpatioTemporalPerceptionLogicParser::RuleProposition);
+
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
+  auto onExit = finally([=] {
+#endif
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(213);
+    match(SpatioTemporalPerceptionLogicParser::Identifier);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
   return _localctx;
 }
 
@@ -2927,10 +2467,6 @@ void SpatioTemporalPerceptionLogicParser::TermContext::copyFrom(TermContext *ctx
 
 tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArithmeticConstantContext::Scalar() {
   return getToken(SpatioTemporalPerceptionLogicParser::Scalar, 0);
-}
-
-tree::TerminalNode* SpatioTemporalPerceptionLogicParser::ArithmeticConstantContext::SubtractionOperator() {
-  return getToken(SpatioTemporalPerceptionLogicParser::SubtractionOperator, 0);
 }
 
 SpatioTemporalPerceptionLogicParser::ArithmeticConstantContext::ArithmeticConstantContext(TermContext *ctx) { copyFrom(ctx); }
@@ -2959,8 +2495,7 @@ std::any SpatioTemporalPerceptionLogicParser::ArithmeticVariableContext::accept(
 }
 SpatioTemporalPerceptionLogicParser::TermContext* SpatioTemporalPerceptionLogicParser::term() {
   TermContext *_localctx = _tracker.createInstance<TermContext>(_ctx, getState());
-  enterRule(_localctx, 26, SpatioTemporalPerceptionLogicParser::RuleTerm);
-  size_t _la = 0;
+  enterRule(_localctx, 24, SpatioTemporalPerceptionLogicParser::RuleTerm);
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -2970,30 +2505,21 @@ SpatioTemporalPerceptionLogicParser::TermContext* SpatioTemporalPerceptionLogicP
     exitRule();
   });
   try {
-    setState(252);
+    setState(217);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SpatioTemporalPerceptionLogicParser::Identifier: {
         _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::ArithmeticVariableContext>(_localctx);
         enterOuterAlt(_localctx, 1);
-        setState(247);
+        setState(215);
         match(SpatioTemporalPerceptionLogicParser::Identifier);
         break;
       }
 
-      case SpatioTemporalPerceptionLogicParser::Scalar:
-      case SpatioTemporalPerceptionLogicParser::SubtractionOperator: {
+      case SpatioTemporalPerceptionLogicParser::Scalar: {
         _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::ArithmeticConstantContext>(_localctx);
         enterOuterAlt(_localctx, 2);
-        setState(249);
-        _errHandler->sync(this);
-
-        _la = _input->LA(1);
-        if (_la == SpatioTemporalPerceptionLogicParser::SubtractionOperator) {
-          setState(248);
-          match(SpatioTemporalPerceptionLogicParser::SubtractionOperator);
-        }
-        setState(251);
+        setState(216);
         match(SpatioTemporalPerceptionLogicParser::Scalar);
         break;
       }
@@ -3069,7 +2595,7 @@ std::any SpatioTemporalPerceptionLogicParser::IntervalContext::accept(tree::Pars
 
 SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLogicParser::interval() {
   IntervalContext *_localctx = _tracker.createInstance<IntervalContext>(_ctx, getState());
-  enterRule(_localctx, 28, SpatioTemporalPerceptionLogicParser::RuleInterval);
+  enterRule(_localctx, 26, SpatioTemporalPerceptionLogicParser::RuleInterval);
   size_t _la = 0;
 
 #if __cplusplus > 201703L
@@ -3081,7 +2607,7 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(254);
+    setState(219);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::LeftBracket
 
@@ -3092,7 +2618,7 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(255);
+    setState(220);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::Infinity
 
@@ -3103,9 +2629,9 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(256);
+    setState(221);
     match(SpatioTemporalPerceptionLogicParser::Comma);
-    setState(257);
+    setState(222);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::Infinity
 
@@ -3116,7 +2642,7 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(258);
+    setState(223);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::RightBracket
 
@@ -3142,8 +2668,7 @@ bool SpatioTemporalPerceptionLogicParser::sempred(RuleContext *context, size_t r
   switch (ruleIndex) {
     case 1: return formulaSempred(antlrcpp::downCast<FormulaContext *>(context), predicateIndex);
     case 2: return spatialFormulaSempred(antlrcpp::downCast<SpatialFormulaContext *>(context), predicateIndex);
-    case 5: return fnExpressionSempred(antlrcpp::downCast<FnExpressionContext *>(context), predicateIndex);
-    case 12: return expressionSempred(antlrcpp::downCast<ExpressionContext *>(context), predicateIndex);
+    case 5: return expressionSempred(antlrcpp::downCast<ExpressionContext *>(context), predicateIndex);
 
   default:
     break;
@@ -3153,14 +2678,12 @@ bool SpatioTemporalPerceptionLogicParser::sempred(RuleContext *context, size_t r
 
 bool SpatioTemporalPerceptionLogicParser::formulaSempred(FormulaContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 0: return precpred(_ctx, 19);
-    case 1: return precpred(_ctx, 18);
-    case 2: return precpred(_ctx, 14);
-    case 3: return precpred(_ctx, 13);
-    case 4: return precpred(_ctx, 7);
-    case 5: return precpred(_ctx, 6);
-    case 6: return precpred(_ctx, 5);
-    case 7: return precpred(_ctx, 4);
+    case 0: return precpred(_ctx, 14);
+    case 1: return precpred(_ctx, 13);
+    case 2: return precpred(_ctx, 7);
+    case 3: return precpred(_ctx, 6);
+    case 4: return precpred(_ctx, 5);
+    case 5: return precpred(_ctx, 4);
 
   default:
     break;
@@ -3170,24 +2693,10 @@ bool SpatioTemporalPerceptionLogicParser::formulaSempred(FormulaContext *_localc
 
 bool SpatioTemporalPerceptionLogicParser::spatialFormulaSempred(SpatialFormulaContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 8: return precpred(_ctx, 8);
-    case 9: return precpred(_ctx, 7);
-    case 10: return precpred(_ctx, 5);
-    case 11: return precpred(_ctx, 4);
-
-  default:
-    break;
-  }
-  return true;
-}
-
-bool SpatioTemporalPerceptionLogicParser::fnExpressionSempred(FnExpressionContext *_localctx, size_t predicateIndex) {
-  switch (predicateIndex) {
-    case 12: return precpred(_ctx, 5);
-    case 13: return precpred(_ctx, 4);
-    case 14: return precpred(_ctx, 3);
-    case 15: return precpred(_ctx, 2);
-    case 16: return precpred(_ctx, 1);
+    case 6: return precpred(_ctx, 8);
+    case 7: return precpred(_ctx, 7);
+    case 8: return precpred(_ctx, 5);
+    case 9: return precpred(_ctx, 4);
 
   default:
     break;
@@ -3197,11 +2706,11 @@ bool SpatioTemporalPerceptionLogicParser::fnExpressionSempred(FnExpressionContex
 
 bool SpatioTemporalPerceptionLogicParser::expressionSempred(ExpressionContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 17: return precpred(_ctx, 5);
-    case 18: return precpred(_ctx, 4);
-    case 19: return precpred(_ctx, 3);
-    case 20: return precpred(_ctx, 2);
-    case 21: return precpred(_ctx, 1);
+    case 10: return precpred(_ctx, 5);
+    case 11: return precpred(_ctx, 4);
+    case 12: return precpred(_ctx, 3);
+    case 13: return precpred(_ctx, 2);
+    case 14: return precpred(_ctx, 1);
 
   default:
     break;

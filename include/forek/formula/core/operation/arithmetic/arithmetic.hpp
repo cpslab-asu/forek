@@ -3,6 +3,7 @@
 
 #include "divide.hpp"
 #include "minus.hpp"
+#include "modulus.hpp"
 #include "plus.hpp"
 #include "times.hpp"
 

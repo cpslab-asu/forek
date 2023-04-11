@@ -15,7 +15,7 @@ auto main() -> int {
     Model model = {{"p"}, {"p", "q"}, {"r"}, {"s"}, {"p"}};
 
     std::cout
-        << "Spatio-Temporal Perception Logic (STPL) REPL\n\nPlease type any valid PL formula "
+        << "Spatio-Temporal Perception Logic (STPL) REPL\n\nPlease type any valid STPL formula "
            "to evaluate. The set of\nAtomic Propositions (APs) is {`p`, `q`, `r`, `s`}.\n\nThe "
            "input model is: {{\"p\"}, {\"p\", \"q\"}, {\"r\"}, {\"s\"}, {\"p\"}}\n\nEnter Ctrl+D "
            "to exit at any moment.\n\n";
@@ -27,7 +27,7 @@ auto main() -> int {
         try {
             auto ir = req.parse();
         } catch (const std::exception& e) {
-            std::cerr << e.what() << "\n";
+            std::cerr << "SpatioTemporalPerceptionLogic: " << e.what() << "\n";
         }
 
         std::cout << ">> ";
