@@ -24,7 +24,7 @@ public:
 
     virtual std::any visitPlNegation(LinearTemporalLogicParser::PlNegationContext *context) = 0;
 
-    virtual std::any visitPlAtom(LinearTemporalLogicParser::PlAtomContext *context) = 0;
+    virtual std::any visitParentheses(LinearTemporalLogicParser::ParenthesesContext *context) = 0;
 
     virtual std::any visitLtlUntil(LinearTemporalLogicParser::LtlUntilContext *context) = 0;
 
@@ -36,13 +36,13 @@ public:
 
     virtual std::any visitLtlAlways(LinearTemporalLogicParser::LtlAlwaysContext *context) = 0;
 
-    virtual std::any visitLtlParentheses(LinearTemporalLogicParser::LtlParenthesesContext *context) = 0;
-
     virtual std::any visitPlIff(LinearTemporalLogicParser::PlIffContext *context) = 0;
 
     virtual std::any visitPlTrue(LinearTemporalLogicParser::PlTrueContext *context) = 0;
 
     virtual std::any visitPlDisjunction(LinearTemporalLogicParser::PlDisjunctionContext *context) = 0;
+
+    virtual std::any visitPlProposition(LinearTemporalLogicParser::PlPropositionContext *context) = 0;
 
     virtual std::any visitLtlRelease(LinearTemporalLogicParser::LtlReleaseContext *context) = 0;
 

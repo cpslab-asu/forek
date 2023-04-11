@@ -45,20 +45,20 @@ using Model = std::vector<std::vector<std::string>>;
 template <typename T>
 class LinearTemporalLogicInterpretation : public Visitor<T> {
    public:
-    auto visit(const Proposition<T>& ctx) -> T override { return true; }
-    auto visit(const True<T>& ctx) -> T override { return true; }
-    auto visit(const False<T>& ctx) -> T override { return false; }
+    auto visit(Proposition<T>& ctx) -> T override { return true; }
+    auto visit(True<T>& ctx) -> T override { return true; }
+    auto visit(False<T>& ctx) -> T override { return false; }
 
-    auto visit(const Not<T>& ctx) -> T override { return true; }
-    auto visit(const And<T>& ctx) -> T override { return true; };
-    auto visit(const Or<T>& ctx) -> T override { return true; }
-    auto visit(const Implies<T>& ctx) -> T override { return true; }
-    auto visit(const Iff<T>& ctx) -> T override { return true; };
-    auto visit(const Always<T>& ctx) -> T override { return true; }
-    auto visit(const Eventually<T>& ctx) -> T override { return true; }
-    auto visit(const Next<T>& ctx) -> T override { return true; }
-    auto visit(const Release<T>& ctx) -> T override { return true; }
-    auto visit(const Until<T>& ctx) -> T override { return true; }
+    auto visit(Not<T>& ctx) -> T override { return true; }
+    auto visit(And<T>& ctx) -> T override { return true; };
+    auto visit(Or<T>& ctx) -> T override { return true; }
+    auto visit(Implies<T>& ctx) -> T override { return true; }
+    auto visit(Iff<T>& ctx) -> T override { return true; };
+    auto visit(Always<T>& ctx) -> T override { return true; }
+    auto visit(Eventually<T>& ctx) -> T override { return true; }
+    auto visit(Next<T>& ctx) -> T override { return true; }
+    auto visit(Release<T>& ctx) -> T override { return true; }
+    auto visit(Until<T>& ctx) -> T override { return true; }
 };
 
 }  // namespace examples::ex01

@@ -13,16 +13,15 @@ namespace gen {
 class  MetricTemporalLogicLexer : public antlr4::Lexer {
 public:
   enum {
-    OnceOperator = 1, HistoricallyOperator = 2, PreviousOperator = 3, SinceOperator = 4, 
-    TriggerOperator = 5, EventuallyOperator = 6, AlwaysOperator = 7, NextOperator = 8, 
-    UntilOperator = 9, ReleaseOperator = 10, NegationOperator = 11, ConjunctionOperator = 12, 
-    DisjunctionOperator = 13, ImplicationOperator = 14, IffOperator = 15, 
-    True = 16, False = 17, Comma = 18, LeftBrace = 19, RightBrace = 20, 
-    LeftBracket = 21, RightBracket = 22, LeftChevron = 23, RightChevron = 24, 
-    LeftParenthesis = 25, RightParenthesis = 26, BlockComment = 27, LineComment = 28, 
-    Infinity = 29, Scalar = 30, Integer = 31, DecimalInteger = 32, BinaryInteger = 33, 
-    OctalInteger = 34, HexInteger = 35, Floating = 36, PointFloat = 37, 
-    ExponentFloat = 38, Identifier = 39, Whitespace = 40
+    EventuallyOperator = 1, AlwaysOperator = 2, NextOperator = 3, UntilOperator = 4, 
+    ReleaseOperator = 5, NegationOperator = 6, ConjunctionOperator = 7, 
+    DisjunctionOperator = 8, ImplicationOperator = 9, IffOperator = 10, 
+    True = 11, False = 12, Comma = 13, LeftBrace = 14, RightBrace = 15, 
+    LeftBracket = 16, RightBracket = 17, LeftChevron = 18, RightChevron = 19, 
+    LeftParenthesis = 20, RightParenthesis = 21, BlockComment = 22, LineComment = 23, 
+    Infinity = 24, Scalar = 25, Integer = 26, DecimalInteger = 27, BinaryInteger = 28, 
+    OctalInteger = 29, HexInteger = 30, Floating = 31, PointFloat = 32, 
+    ExponentFloat = 33, Identifier = 34, Whitespace = 35
   };
 
   explicit MetricTemporalLogicLexer(antlr4::CharStream *input);

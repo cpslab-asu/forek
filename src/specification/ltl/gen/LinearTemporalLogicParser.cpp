@@ -47,33 +47,27 @@ void lineartemporallogicparserParserInitialize() {
       "start", "formula", "proposition"
     },
     std::vector<std::string>{
-      "", "", "", "", "", "", "", "", "", "", "", "'true'", "'false'", "'@'", 
-      "'&'", "'''", "'*'", "'|'", "'^'", "':'", "','", "'$'", "'.'", "'='", 
-      "'!'", "'`'", "'#'", "'-'", "'%'", "'+'", "'\\u003F'", "'\"'", "';'", 
-      "'~'", "'_'", "'/'", "'\\'", "'{'", "'}'", "'['", "']'", "'<'", "'>'", 
-      "'('", "')'", "", "", "'inf'"
+      "", "", "", "", "", "", "", "", "", "", "", "'true'", "'false'", "','", 
+      "'{'", "'}'", "'['", "']'", "'<'", "'>'", "'('", "')'", "", "", "'inf'"
     },
     std::vector<std::string>{
       "", "EventuallyOperator", "AlwaysOperator", "NextOperator", "UntilOperator", 
       "ReleaseOperator", "NegationOperator", "ConjunctionOperator", "DisjunctionOperator", 
-      "ImplicationOperator", "IffOperator", "True", "False", "At", "Ampersand", 
-      "Apostrophe", "Asterick", "Bar", "Caret", "Colon", "Comma", "DollarSign", 
-      "Dot", "Equal", "ExclamationMark", "GraveAccent", "Hash", "Minus", 
-      "PercentSign", "Plus", "QuestionMark", "QuotationMark", "Semicolon", 
-      "Tilde", "Underscore", "Slash", "BackSlash", "LeftBrace", "RightBrace", 
-      "LeftBracket", "RightBracket", "LeftChevron", "RightChevron", "LeftParenthesis", 
-      "RightParenthesis", "BlockComment", "LineComment", "Infinity", "Scalar", 
-      "Integer", "DecimalInteger", "BinaryInteger", "OctalInteger", "HexInteger", 
-      "Floating", "PointFloat", "ExponentFloat", "Identifier", "Whitespace"
+      "ImplicationOperator", "IffOperator", "True", "False", "Comma", "LeftBrace", 
+      "RightBrace", "LeftBracket", "RightBracket", "LeftChevron", "RightChevron", 
+      "LeftParenthesis", "RightParenthesis", "BlockComment", "LineComment", 
+      "Infinity", "Scalar", "Integer", "DecimalInteger", "BinaryInteger", 
+      "OctalInteger", "HexInteger", "Floating", "PointFloat", "ExponentFloat", 
+      "Identifier", "Whitespace"
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,58,53,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
+  	4,1,35,53,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,26,8,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,46,8,1,10,1,
   	12,1,49,9,1,1,2,1,2,1,2,0,1,2,3,0,2,4,0,0,62,0,6,1,0,0,0,2,25,1,0,0,0,
   	4,50,1,0,0,0,6,7,3,2,1,0,7,8,5,0,0,1,8,1,1,0,0,0,9,10,6,1,-1,0,10,11,
-  	5,43,0,0,11,12,3,2,1,0,12,13,5,44,0,0,13,26,1,0,0,0,14,26,5,11,0,0,15,
+  	5,20,0,0,11,12,3,2,1,0,12,13,5,21,0,0,13,26,1,0,0,0,14,26,5,11,0,0,15,
   	26,5,12,0,0,16,17,5,1,0,0,17,26,3,2,1,11,18,19,5,2,0,0,19,26,3,2,1,10,
   	20,21,5,3,0,0,21,26,3,2,1,9,22,23,5,6,0,0,23,26,3,2,1,6,24,26,3,4,2,0,
   	25,9,1,0,0,0,25,14,1,0,0,0,25,15,1,0,0,0,25,16,1,0,0,0,25,18,1,0,0,0,
@@ -83,7 +77,7 @@ void lineartemporallogicparserParserInitialize() {
   	8,0,0,38,46,3,2,1,5,39,40,10,3,0,0,40,41,5,9,0,0,41,46,3,2,1,4,42,43,
   	10,2,0,0,43,44,5,10,0,0,44,46,3,2,1,3,45,27,1,0,0,0,45,30,1,0,0,0,45,
   	33,1,0,0,0,45,36,1,0,0,0,45,39,1,0,0,0,45,42,1,0,0,0,46,49,1,0,0,0,47,
-  	45,1,0,0,0,47,48,1,0,0,0,48,3,1,0,0,0,49,47,1,0,0,0,50,51,5,57,0,0,51,
+  	45,1,0,0,0,47,48,1,0,0,0,48,3,1,0,0,0,49,47,1,0,0,0,50,51,5,34,0,0,51,
   	5,1,0,0,0,3,25,45,47
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
@@ -222,18 +216,26 @@ std::any LinearTemporalLogicParser::PlNegationContext::accept(tree::ParseTreeVis
   else
     return visitor->visitChildren(this);
 }
-//----------------- PlAtomContext ------------------------------------------------------------------
+//----------------- ParenthesesContext ------------------------------------------------------------------
 
-LinearTemporalLogicParser::PropositionContext* LinearTemporalLogicParser::PlAtomContext::proposition() {
-  return getRuleContext<LinearTemporalLogicParser::PropositionContext>(0);
+tree::TerminalNode* LinearTemporalLogicParser::ParenthesesContext::LeftParenthesis() {
+  return getToken(LinearTemporalLogicParser::LeftParenthesis, 0);
 }
 
-LinearTemporalLogicParser::PlAtomContext::PlAtomContext(FormulaContext *ctx) { copyFrom(ctx); }
+LinearTemporalLogicParser::FormulaContext* LinearTemporalLogicParser::ParenthesesContext::formula() {
+  return getRuleContext<LinearTemporalLogicParser::FormulaContext>(0);
+}
+
+tree::TerminalNode* LinearTemporalLogicParser::ParenthesesContext::RightParenthesis() {
+  return getToken(LinearTemporalLogicParser::RightParenthesis, 0);
+}
+
+LinearTemporalLogicParser::ParenthesesContext::ParenthesesContext(FormulaContext *ctx) { copyFrom(ctx); }
 
 
-std::any LinearTemporalLogicParser::PlAtomContext::accept(tree::ParseTreeVisitor *visitor) {
+std::any LinearTemporalLogicParser::ParenthesesContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<LinearTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlAtom(this);
+    return parserVisitor->visitParentheses(this);
   else
     return visitor->visitChildren(this);
 }
@@ -340,29 +342,6 @@ std::any LinearTemporalLogicParser::LtlAlwaysContext::accept(tree::ParseTreeVisi
   else
     return visitor->visitChildren(this);
 }
-//----------------- LtlParenthesesContext ------------------------------------------------------------------
-
-tree::TerminalNode* LinearTemporalLogicParser::LtlParenthesesContext::LeftParenthesis() {
-  return getToken(LinearTemporalLogicParser::LeftParenthesis, 0);
-}
-
-LinearTemporalLogicParser::FormulaContext* LinearTemporalLogicParser::LtlParenthesesContext::formula() {
-  return getRuleContext<LinearTemporalLogicParser::FormulaContext>(0);
-}
-
-tree::TerminalNode* LinearTemporalLogicParser::LtlParenthesesContext::RightParenthesis() {
-  return getToken(LinearTemporalLogicParser::RightParenthesis, 0);
-}
-
-LinearTemporalLogicParser::LtlParenthesesContext::LtlParenthesesContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any LinearTemporalLogicParser::LtlParenthesesContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<LinearTemporalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitLtlParentheses(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- PlIffContext ------------------------------------------------------------------
 
 std::vector<LinearTemporalLogicParser::FormulaContext *> LinearTemporalLogicParser::PlIffContext::formula() {
@@ -421,6 +400,21 @@ LinearTemporalLogicParser::PlDisjunctionContext::PlDisjunctionContext(FormulaCon
 std::any LinearTemporalLogicParser::PlDisjunctionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<LinearTemporalLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlDisjunction(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- PlPropositionContext ------------------------------------------------------------------
+
+LinearTemporalLogicParser::PropositionContext* LinearTemporalLogicParser::PlPropositionContext::proposition() {
+  return getRuleContext<LinearTemporalLogicParser::PropositionContext>(0);
+}
+
+LinearTemporalLogicParser::PlPropositionContext::PlPropositionContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any LinearTemporalLogicParser::PlPropositionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<LinearTemporalLogicParserVisitor*>(visitor))
+    return parserVisitor->visitPlProposition(this);
   else
     return visitor->visitChildren(this);
 }
@@ -515,7 +509,7 @@ LinearTemporalLogicParser::FormulaContext* LinearTemporalLogicParser::formula(in
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case LinearTemporalLogicParser::LeftParenthesis: {
-        _localctx = _tracker.createInstance<LtlParenthesesContext>(_localctx);
+        _localctx = _tracker.createInstance<ParenthesesContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
 
@@ -591,7 +585,7 @@ LinearTemporalLogicParser::FormulaContext* LinearTemporalLogicParser::formula(in
       }
 
       case LinearTemporalLogicParser::Identifier: {
-        _localctx = _tracker.createInstance<PlAtomContext>(_localctx);
+        _localctx = _tracker.createInstance<PlPropositionContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
         setState(24);

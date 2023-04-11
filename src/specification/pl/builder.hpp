@@ -61,7 +61,8 @@ class PropositionalLogicBuilder : public gen::PropositionalLogicParserVisitor {
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlAtom(gen::PropositionalLogicParser::PlAtomContext* ctx) -> std::any override {
+    auto visitPlProposition(gen::PropositionalLogicParser::PlPropositionContext* ctx)
+        -> std::any override {
         return visit(ctx->proposition());
     }
 

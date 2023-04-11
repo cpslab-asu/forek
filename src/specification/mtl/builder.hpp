@@ -251,17 +251,24 @@ class MetricTemporalLogicBuilder : public gen::MetricTemporalLogicParserVisitor 
 
     auto visitInterval(gen::MetricTemporalLogicParser::IntervalContext* ctx) -> std::any override {
         double lower;
+        double upper;
+
         if (ctx->Infinity(0)) {
             lower = std::numeric_limits<double>::infinity();
+
+            if (ctx->Infinity(1)) {
+                upper = std::numeric_limits<double>::infinity();
+            } else {
+                upper = std::stod(ctx->Scalar(0)->getText());
+            }
         } else {
             lower = std::stod(ctx->Scalar(0)->getText());
-        }
 
-        double upper;
-        if (ctx->Infinity(1)) {
-            upper = std::numeric_limits<double>::infinity();
-        } else {
-            upper = std::stod(ctx->Scalar(1)->getText());
+            if (ctx->Infinity(0)) {
+                upper = std::numeric_limits<double>::infinity();
+            } else {
+                upper = std::stod(ctx->Scalar(1)->getText());
+            }
         }
 
         if (ctx->LeftParenthesis()) {

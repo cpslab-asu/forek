@@ -37,15 +37,15 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitPlAtom(PropositionalLogicParser::PlAtomContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual std::any visitPlDisjunction(PropositionalLogicParser::PlDisjunctionContext *ctx) override {
     return visitChildren(ctx);
   }
 
   virtual std::any visitPlImplication(PropositionalLogicParser::PlImplicationContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitPlProposition(PropositionalLogicParser::PlPropositionContext *ctx) override {
     return visitChildren(ctx);
   }
 

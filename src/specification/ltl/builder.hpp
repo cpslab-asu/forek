@@ -57,7 +57,7 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitLtlParentheses(gen::LinearTemporalLogicParser::LtlParenthesesContext* ctx)
+    auto visitParentheses(gen::LinearTemporalLogicParser::ParenthesesContext* ctx)
         -> std::any override {
         return visit(ctx->formula());
     }
@@ -72,7 +72,8 @@ class LinearTemporalLogicBuilder : public gen::LinearTemporalLogicParserVisitor 
         return Formula<T>(std::move(expr));
     }
 
-    auto visitPlAtom(gen::LinearTemporalLogicParser::PlAtomContext* ctx) -> std::any override {
+    auto visitPlProposition(gen::LinearTemporalLogicParser::PlPropositionContext* ctx)
+        -> std::any override {
         return visit(ctx->proposition());
     }
 

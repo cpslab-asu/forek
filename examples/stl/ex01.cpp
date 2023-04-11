@@ -14,10 +14,10 @@ auto main() -> int {
     std::string line;
     Model model = {{"p"}, {"p", "q"}, {"r"}, {"s"}, {"p"}};
 
-    std::cout << "Signal Temporal Logic (STL) REPL\n\nPlease type any valid STL formula "
-                 "to evaluate. The\nproposition variables `p` is true if model "
-                 "whereas `r` is False.\n\nThe input model is: {{\"p\"}, {\"p\", \"q\"}, {\"r\"}, "
-                 "{\"s\"}, {\"p\"}}\n\nEnter Ctrl+D to exit at any moment.\n\n";
+    std::cout << "Signal Temporal Logic (STL) REPL\n\nPlease type any valid STL formula to "
+                 "evaluate. The\nproposition variables `p` is true if model whereas `r` is "
+                 "False.\n\nThe input model is: {{\"p\"}, {\"p\", \"q\"}, {\"r\"}, {\"s\"}, "
+                 "{\"p\"}}\n\nEnter Ctrl+D to exit at any moment.\n\n";
 
     std::cout << ">> ";
     while (std::getline(std::cin, line)) {
@@ -26,7 +26,7 @@ auto main() -> int {
         try {
             auto ir = req.parse();
         } catch (const std::exception& e) {
-            std::cerr << "SignalTemporalLogic: Syntax error\n";
+            std::cerr << "SignalTemporalLogic: " << e.what() << "\n";
         }
 
         std::cout << ">> ";

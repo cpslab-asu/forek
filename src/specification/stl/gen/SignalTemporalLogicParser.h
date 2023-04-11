@@ -385,6 +385,7 @@ public:
     ArithmeticTermContext(ExpressionContext *ctx);
 
     TermContext *term();
+    antlr4::tree::TerminalNode *SubtractionOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -420,7 +421,6 @@ public:
     ArithmeticConstantContext(TermContext *ctx);
 
     antlr4::tree::TerminalNode *Scalar();
-    antlr4::tree::TerminalNode *SubtractionOperator();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };

@@ -4,7 +4,7 @@ start : expression EOF ;
 
 expression : LeftParenthesis expression RightParenthesis  #arithmeticParentheses
 
-    | term                                                #arithmeticTerm
+    | (SubtractionOperator)? term                         #arithmeticTerm
 
     | expression MultiplicationOperator expression        #arithmeticTimes
     | expression DivisionOperator expression              #arithmeticDivide
@@ -15,5 +15,5 @@ expression : LeftParenthesis expression RightParenthesis  #arithmeticParentheses
     ;
 
 term : Identifier                                         #arithmeticVariable
-    | (SubtractionOperator)? Scalar                       #arithmeticConstant
+    |  Scalar                                             #arithmeticConstant
     ;

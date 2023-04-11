@@ -16,17 +16,12 @@ public:
     EventuallyOperator = 1, AlwaysOperator = 2, NextOperator = 3, UntilOperator = 4, 
     ReleaseOperator = 5, NegationOperator = 6, ConjunctionOperator = 7, 
     DisjunctionOperator = 8, ImplicationOperator = 9, IffOperator = 10, 
-    True = 11, False = 12, At = 13, Ampersand = 14, Apostrophe = 15, Asterick = 16, 
-    Bar = 17, Caret = 18, Colon = 19, Comma = 20, DollarSign = 21, Dot = 22, 
-    Equal = 23, ExclamationMark = 24, GraveAccent = 25, Hash = 26, Minus = 27, 
-    PercentSign = 28, Plus = 29, QuestionMark = 30, QuotationMark = 31, 
-    Semicolon = 32, Tilde = 33, Underscore = 34, Slash = 35, BackSlash = 36, 
-    LeftBrace = 37, RightBrace = 38, LeftBracket = 39, RightBracket = 40, 
-    LeftChevron = 41, RightChevron = 42, LeftParenthesis = 43, RightParenthesis = 44, 
-    BlockComment = 45, LineComment = 46, Infinity = 47, Scalar = 48, Integer = 49, 
-    DecimalInteger = 50, BinaryInteger = 51, OctalInteger = 52, HexInteger = 53, 
-    Floating = 54, PointFloat = 55, ExponentFloat = 56, Identifier = 57, 
-    Whitespace = 58
+    True = 11, False = 12, Comma = 13, LeftBrace = 14, RightBrace = 15, 
+    LeftBracket = 16, RightBracket = 17, LeftChevron = 18, RightChevron = 19, 
+    LeftParenthesis = 20, RightParenthesis = 21, BlockComment = 22, LineComment = 23, 
+    Infinity = 24, Scalar = 25, Integer = 26, DecimalInteger = 27, BinaryInteger = 28, 
+    OctalInteger = 29, HexInteger = 30, Floating = 31, PointFloat = 32, 
+    ExponentFloat = 33, Identifier = 34, Whitespace = 35
   };
 
   enum {
@@ -91,11 +86,13 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  PlAtomContext : public FormulaContext {
+  class  ParenthesesContext : public FormulaContext {
   public:
-    PlAtomContext(FormulaContext *ctx);
+    ParenthesesContext(FormulaContext *ctx);
 
-    PropositionContext *proposition();
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    FormulaContext *formula();
+    antlr4::tree::TerminalNode *RightParenthesis();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
@@ -152,17 +149,6 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
-  class  LtlParenthesesContext : public FormulaContext {
-  public:
-    LtlParenthesesContext(FormulaContext *ctx);
-
-    antlr4::tree::TerminalNode *LeftParenthesis();
-    FormulaContext *formula();
-    antlr4::tree::TerminalNode *RightParenthesis();
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-  };
-
   class  PlIffContext : public FormulaContext {
   public:
     PlIffContext(FormulaContext *ctx);
@@ -190,6 +176,15 @@ public:
     std::vector<FormulaContext *> formula();
     FormulaContext* formula(size_t i);
     antlr4::tree::TerminalNode *DisjunctionOperator();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PlPropositionContext : public FormulaContext {
+  public:
+    PlPropositionContext(FormulaContext *ctx);
+
+    PropositionContext *proposition();
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };

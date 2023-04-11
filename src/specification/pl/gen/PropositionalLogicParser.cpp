@@ -47,38 +47,32 @@ void propositionallogicparserParserInitialize() {
       "start", "formula", "proposition"
     },
     std::vector<std::string>{
-      "", "", "", "", "", "", "'true'", "'false'", "'@'", "'&'", "'''", 
-      "'*'", "'|'", "'^'", "':'", "','", "'$'", "'.'", "'='", "'!'", "'`'", 
-      "'#'", "'-'", "'%'", "'+'", "'\\u003F'", "'\"'", "';'", "'~'", "'_'", 
-      "'/'", "'\\'", "'{'", "'}'", "'['", "']'", "'<'", "'>'", "'('", "')'", 
-      "", "", "'inf'"
+      "", "", "", "", "", "", "'true'", "'false'", "','", "'{'", "'}'", 
+      "'['", "']'", "'<'", "'>'", "'('", "')'", "", "", "'inf'"
     },
     std::vector<std::string>{
       "", "NegationOperator", "ConjunctionOperator", "DisjunctionOperator", 
-      "ImplicationOperator", "IffOperator", "True", "False", "At", "Ampersand", 
-      "Apostrophe", "Asterick", "Bar", "Caret", "Colon", "Comma", "DollarSign", 
-      "Dot", "Equal", "ExclamationMark", "GraveAccent", "Hash", "Minus", 
-      "PercentSign", "Plus", "QuestionMark", "QuotationMark", "Semicolon", 
-      "Tilde", "Underscore", "Slash", "BackSlash", "LeftBrace", "RightBrace", 
-      "LeftBracket", "RightBracket", "LeftChevron", "RightChevron", "LeftParenthesis", 
-      "RightParenthesis", "BlockComment", "LineComment", "Infinity", "Scalar", 
-      "Integer", "DecimalInteger", "BinaryInteger", "OctalInteger", "HexInteger", 
-      "Floating", "PointFloat", "ExponentFloat", "Identifier", "Whitespace"
+      "ImplicationOperator", "IffOperator", "True", "False", "Comma", "LeftBrace", 
+      "RightBrace", "LeftBracket", "RightBracket", "LeftChevron", "RightChevron", 
+      "LeftParenthesis", "RightParenthesis", "BlockComment", "LineComment", 
+      "Infinity", "Scalar", "Integer", "DecimalInteger", "BinaryInteger", 
+      "OctalInteger", "HexInteger", "Floating", "PointFloat", "ExponentFloat", 
+      "Identifier", "Whitespace"
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,53,41,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
+  	4,1,30,41,2,0,7,0,2,1,7,1,2,2,7,2,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,3,1,20,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,5,1,34,8,1,10,1,12,1,37,9,1,1,2,1,2,1,2,0,1,2,3,0,2,4,0,0,45,0,
   	6,1,0,0,0,2,19,1,0,0,0,4,38,1,0,0,0,6,7,3,2,1,0,7,8,5,0,0,1,8,1,1,0,0,
-  	0,9,10,6,1,-1,0,10,11,5,38,0,0,11,12,3,2,1,0,12,13,5,39,0,0,13,20,1,0,
+  	0,9,10,6,1,-1,0,10,11,5,15,0,0,11,12,3,2,1,0,12,13,5,16,0,0,13,20,1,0,
   	0,0,14,20,5,6,0,0,15,20,5,7,0,0,16,17,5,1,0,0,17,20,3,2,1,6,18,20,3,4,
   	2,0,19,9,1,0,0,0,19,14,1,0,0,0,19,15,1,0,0,0,19,16,1,0,0,0,19,18,1,0,
   	0,0,20,35,1,0,0,0,21,22,10,5,0,0,22,23,5,2,0,0,23,34,3,2,1,6,24,25,10,
   	4,0,0,25,26,5,3,0,0,26,34,3,2,1,5,27,28,10,3,0,0,28,29,5,4,0,0,29,34,
   	3,2,1,4,30,31,10,2,0,0,31,32,5,5,0,0,32,34,3,2,1,3,33,21,1,0,0,0,33,24,
   	1,0,0,0,33,27,1,0,0,0,33,30,1,0,0,0,34,37,1,0,0,0,35,33,1,0,0,0,35,36,
-  	1,0,0,0,36,3,1,0,0,0,37,35,1,0,0,0,38,39,5,52,0,0,39,5,1,0,0,0,3,19,33,
+  	1,0,0,0,36,3,1,0,0,0,37,35,1,0,0,0,38,39,5,29,0,0,39,5,1,0,0,0,3,19,33,
   	35
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
@@ -278,21 +272,6 @@ std::any PropositionalLogicParser::PlTrueContext::accept(tree::ParseTreeVisitor 
   else
     return visitor->visitChildren(this);
 }
-//----------------- PlAtomContext ------------------------------------------------------------------
-
-PropositionalLogicParser::PropositionContext* PropositionalLogicParser::PlAtomContext::proposition() {
-  return getRuleContext<PropositionalLogicParser::PropositionContext>(0);
-}
-
-PropositionalLogicParser::PlAtomContext::PlAtomContext(FormulaContext *ctx) { copyFrom(ctx); }
-
-
-std::any PropositionalLogicParser::PlAtomContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
-    return parserVisitor->visitPlAtom(this);
-  else
-    return visitor->visitChildren(this);
-}
 //----------------- PlDisjunctionContext ------------------------------------------------------------------
 
 std::vector<PropositionalLogicParser::FormulaContext *> PropositionalLogicParser::PlDisjunctionContext::formula() {
@@ -336,6 +315,21 @@ PropositionalLogicParser::PlImplicationContext::PlImplicationContext(FormulaCont
 std::any PropositionalLogicParser::PlImplicationContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
     return parserVisitor->visitPlImplication(this);
+  else
+    return visitor->visitChildren(this);
+}
+//----------------- PlPropositionContext ------------------------------------------------------------------
+
+PropositionalLogicParser::PropositionContext* PropositionalLogicParser::PlPropositionContext::proposition() {
+  return getRuleContext<PropositionalLogicParser::PropositionContext>(0);
+}
+
+PropositionalLogicParser::PlPropositionContext::PlPropositionContext(FormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any PropositionalLogicParser::PlPropositionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<PropositionalLogicParserVisitor*>(visitor))
+    return parserVisitor->visitPlProposition(this);
   else
     return visitor->visitChildren(this);
 }
@@ -450,7 +444,7 @@ PropositionalLogicParser::FormulaContext* PropositionalLogicParser::formula(int 
       }
 
       case PropositionalLogicParser::Identifier: {
-        _localctx = _tracker.createInstance<PlAtomContext>(_localctx);
+        _localctx = _tracker.createInstance<PlPropositionContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
         setState(18);

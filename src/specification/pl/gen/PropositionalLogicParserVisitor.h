@@ -30,11 +30,11 @@ public:
 
     virtual std::any visitPlTrue(PropositionalLogicParser::PlTrueContext *context) = 0;
 
-    virtual std::any visitPlAtom(PropositionalLogicParser::PlAtomContext *context) = 0;
-
     virtual std::any visitPlDisjunction(PropositionalLogicParser::PlDisjunctionContext *context) = 0;
 
     virtual std::any visitPlImplication(PropositionalLogicParser::PlImplicationContext *context) = 0;
+
+    virtual std::any visitPlProposition(PropositionalLogicParser::PlPropositionContext *context) = 0;
 
     virtual std::any visitPlConjunction(PropositionalLogicParser::PlConjunctionContext *context) = 0;
 

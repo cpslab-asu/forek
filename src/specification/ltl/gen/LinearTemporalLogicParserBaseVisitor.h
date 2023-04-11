@@ -25,7 +25,7 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitPlAtom(LinearTemporalLogicParser::PlAtomContext *ctx) override {
+  virtual std::any visitParentheses(LinearTemporalLogicParser::ParenthesesContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -49,10 +49,6 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitLtlParentheses(LinearTemporalLogicParser::LtlParenthesesContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual std::any visitPlIff(LinearTemporalLogicParser::PlIffContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -62,6 +58,10 @@ public:
   }
 
   virtual std::any visitPlDisjunction(LinearTemporalLogicParser::PlDisjunctionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitPlProposition(LinearTemporalLogicParser::PlPropositionContext *ctx) override {
     return visitChildren(ctx);
   }
 

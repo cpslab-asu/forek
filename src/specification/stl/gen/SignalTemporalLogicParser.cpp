@@ -72,11 +72,11 @@ void signaltemporallogicparserParserInitialize() {
   	8,1,1,1,1,1,1,1,3,1,51,8,1,1,1,1,1,1,1,1,1,3,1,57,8,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,72,8,1,10,1,12,1,75,9,1,1,2,1,
   	2,1,2,1,2,1,3,1,3,1,4,1,4,1,4,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,6,1,6,1,6,
-  	1,6,3,6,97,8,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,
-  	6,1,6,5,6,114,8,6,10,6,12,6,117,9,6,1,7,1,7,3,7,121,8,7,1,7,3,7,124,8,
+  	1,6,3,6,97,8,6,1,6,3,6,100,8,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,
+  	6,1,6,1,6,1,6,1,6,1,6,5,6,117,8,6,10,6,12,6,120,9,6,1,7,1,7,3,7,124,8,
   	7,1,7,0,2,2,12,8,0,2,4,6,8,10,12,14,0,4,2,0,1,4,22,23,2,0,20,20,24,24,
   	1,0,28,29,2,0,21,21,25,25,144,0,16,1,0,0,0,2,45,1,0,0,0,4,76,1,0,0,0,
-  	6,80,1,0,0,0,8,82,1,0,0,0,10,88,1,0,0,0,12,96,1,0,0,0,14,123,1,0,0,0,
+  	6,80,1,0,0,0,8,82,1,0,0,0,10,88,1,0,0,0,12,99,1,0,0,0,14,123,1,0,0,0,
   	16,17,3,2,1,0,17,18,5,0,0,1,18,1,1,0,0,0,19,20,6,1,-1,0,20,21,5,24,0,
   	0,21,22,3,2,1,0,22,23,5,25,0,0,23,46,1,0,0,0,24,46,5,15,0,0,25,46,5,16,
   	0,0,26,28,5,5,0,0,27,29,3,8,4,0,28,27,1,0,0,0,28,29,1,0,0,0,29,30,1,0,
@@ -96,17 +96,17 @@ void signaltemporallogicparserParserInitialize() {
   	0,0,0,76,77,3,12,6,0,77,78,3,6,3,0,78,79,3,12,6,0,79,5,1,0,0,0,80,81,
   	7,0,0,0,81,7,1,0,0,0,82,83,7,1,0,0,83,84,7,2,0,0,84,85,5,17,0,0,85,86,
   	7,2,0,0,86,87,7,3,0,0,87,9,1,0,0,0,88,89,5,38,0,0,89,11,1,0,0,0,90,91,
-  	6,6,-1,0,91,92,5,24,0,0,92,93,3,12,6,0,93,94,5,25,0,0,94,97,1,0,0,0,95,
-  	97,3,14,7,0,96,90,1,0,0,0,96,95,1,0,0,0,97,115,1,0,0,0,98,99,10,5,0,0,
-  	99,100,5,42,0,0,100,114,3,12,6,6,101,102,10,4,0,0,102,103,5,43,0,0,103,
-  	114,3,12,6,5,104,105,10,3,0,0,105,106,5,44,0,0,106,114,3,12,6,4,107,108,
-  	10,2,0,0,108,109,5,40,0,0,109,114,3,12,6,3,110,111,10,1,0,0,111,112,5,
-  	41,0,0,112,114,3,12,6,2,113,98,1,0,0,0,113,101,1,0,0,0,113,104,1,0,0,
-  	0,113,107,1,0,0,0,113,110,1,0,0,0,114,117,1,0,0,0,115,113,1,0,0,0,115,
-  	116,1,0,0,0,116,13,1,0,0,0,117,115,1,0,0,0,118,124,5,38,0,0,119,121,5,
-  	41,0,0,120,119,1,0,0,0,120,121,1,0,0,0,121,122,1,0,0,0,122,124,5,29,0,
-  	0,123,118,1,0,0,0,123,120,1,0,0,0,124,15,1,0,0,0,13,28,33,38,45,50,56,
-  	71,73,96,113,115,120,123
+  	6,6,-1,0,91,92,5,24,0,0,92,93,3,12,6,0,93,94,5,25,0,0,94,100,1,0,0,0,
+  	95,97,5,41,0,0,96,95,1,0,0,0,96,97,1,0,0,0,97,98,1,0,0,0,98,100,3,14,
+  	7,0,99,90,1,0,0,0,99,96,1,0,0,0,100,118,1,0,0,0,101,102,10,5,0,0,102,
+  	103,5,42,0,0,103,117,3,12,6,6,104,105,10,4,0,0,105,106,5,43,0,0,106,117,
+  	3,12,6,5,107,108,10,3,0,0,108,109,5,44,0,0,109,117,3,12,6,4,110,111,10,
+  	2,0,0,111,112,5,40,0,0,112,117,3,12,6,3,113,114,10,1,0,0,114,115,5,41,
+  	0,0,115,117,3,12,6,2,116,101,1,0,0,0,116,104,1,0,0,0,116,107,1,0,0,0,
+  	116,110,1,0,0,0,116,113,1,0,0,0,117,120,1,0,0,0,118,116,1,0,0,0,118,119,
+  	1,0,0,0,119,13,1,0,0,0,120,118,1,0,0,0,121,124,5,38,0,0,122,124,5,29,
+  	0,0,123,121,1,0,0,0,123,122,1,0,0,0,124,15,1,0,0,0,13,28,33,38,45,50,
+  	56,71,73,96,99,116,118,123
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -1296,6 +1296,10 @@ SignalTemporalLogicParser::TermContext* SignalTemporalLogicParser::ArithmeticTer
   return getRuleContext<SignalTemporalLogicParser::TermContext>(0);
 }
 
+tree::TerminalNode* SignalTemporalLogicParser::ArithmeticTermContext::SubtractionOperator() {
+  return getToken(SignalTemporalLogicParser::SubtractionOperator, 0);
+}
+
 SignalTemporalLogicParser::ArithmeticTermContext::ArithmeticTermContext(ExpressionContext *ctx) { copyFrom(ctx); }
 
 
@@ -1342,7 +1346,7 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
   size_t startState = 12;
   enterRecursionRule(_localctx, 12, SignalTemporalLogicParser::RuleExpression, precedence);
 
-    
+    size_t _la = 0;
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -1354,7 +1358,7 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(96);
+    setState(99);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SignalTemporalLogicParser::LeftParenthesis: {
@@ -1377,7 +1381,15 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
         _localctx = _tracker.createInstance<ArithmeticTermContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(95);
+        setState(96);
+        _errHandler->sync(this);
+
+        _la = _input->LA(1);
+        if (_la == SignalTemporalLogicParser::SubtractionOperator) {
+          setState(95);
+          match(SignalTemporalLogicParser::SubtractionOperator);
+        }
+        setState(98);
         term();
         break;
       }
@@ -1386,27 +1398,27 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(115);
+    setState(118);
     _errHandler->sync(this);
-    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
+    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 11, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
       if (alt == 1) {
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(113);
+        setState(116);
         _errHandler->sync(this);
-        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 9, _ctx)) {
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<ArithmeticTimesContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(98);
+          setState(101);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(99);
+          setState(102);
           match(SignalTemporalLogicParser::MultiplicationOperator);
-          setState(100);
+          setState(103);
           expression(6);
           break;
         }
@@ -1415,12 +1427,12 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           auto newContext = _tracker.createInstance<ArithmeticDivideContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(101);
+          setState(104);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(102);
+          setState(105);
           match(SignalTemporalLogicParser::DivisionOperator);
-          setState(103);
+          setState(106);
           expression(5);
           break;
         }
@@ -1429,12 +1441,12 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           auto newContext = _tracker.createInstance<ArithmeticModulusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(104);
+          setState(107);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(105);
+          setState(108);
           match(SignalTemporalLogicParser::ModulusOperator);
-          setState(106);
+          setState(109);
           expression(4);
           break;
         }
@@ -1443,12 +1455,12 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           auto newContext = _tracker.createInstance<ArithmeticPlusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(107);
+          setState(110);
 
           if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-          setState(108);
+          setState(111);
           match(SignalTemporalLogicParser::AdditionOperator);
-          setState(109);
+          setState(112);
           expression(3);
           break;
         }
@@ -1457,12 +1469,12 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           auto newContext = _tracker.createInstance<ArithmeticMinusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(110);
+          setState(113);
 
           if (!(precpred(_ctx, 1))) throw FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(111);
+          setState(114);
           match(SignalTemporalLogicParser::SubtractionOperator);
-          setState(112);
+          setState(115);
           expression(2);
           break;
         }
@@ -1471,9 +1483,9 @@ SignalTemporalLogicParser::ExpressionContext* SignalTemporalLogicParser::express
           break;
         } 
       }
-      setState(117);
+      setState(120);
       _errHandler->sync(this);
-      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
+      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 11, _ctx);
     }
   }
   catch (RecognitionException &e) {
@@ -1505,10 +1517,6 @@ tree::TerminalNode* SignalTemporalLogicParser::ArithmeticConstantContext::Scalar
   return getToken(SignalTemporalLogicParser::Scalar, 0);
 }
 
-tree::TerminalNode* SignalTemporalLogicParser::ArithmeticConstantContext::SubtractionOperator() {
-  return getToken(SignalTemporalLogicParser::SubtractionOperator, 0);
-}
-
 SignalTemporalLogicParser::ArithmeticConstantContext::ArithmeticConstantContext(TermContext *ctx) { copyFrom(ctx); }
 
 
@@ -1536,7 +1544,6 @@ std::any SignalTemporalLogicParser::ArithmeticVariableContext::accept(tree::Pars
 SignalTemporalLogicParser::TermContext* SignalTemporalLogicParser::term() {
   TermContext *_localctx = _tracker.createInstance<TermContext>(_ctx, getState());
   enterRule(_localctx, 14, SignalTemporalLogicParser::RuleTerm);
-  size_t _la = 0;
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -1552,23 +1559,14 @@ SignalTemporalLogicParser::TermContext* SignalTemporalLogicParser::term() {
       case SignalTemporalLogicParser::Identifier: {
         _localctx = _tracker.createInstance<SignalTemporalLogicParser::ArithmeticVariableContext>(_localctx);
         enterOuterAlt(_localctx, 1);
-        setState(118);
+        setState(121);
         match(SignalTemporalLogicParser::Identifier);
         break;
       }
 
-      case SignalTemporalLogicParser::Scalar:
-      case SignalTemporalLogicParser::SubtractionOperator: {
+      case SignalTemporalLogicParser::Scalar: {
         _localctx = _tracker.createInstance<SignalTemporalLogicParser::ArithmeticConstantContext>(_localctx);
         enterOuterAlt(_localctx, 2);
-        setState(120);
-        _errHandler->sync(this);
-
-        _la = _input->LA(1);
-        if (_la == SignalTemporalLogicParser::SubtractionOperator) {
-          setState(119);
-          match(SignalTemporalLogicParser::SubtractionOperator);
-        }
         setState(122);
         match(SignalTemporalLogicParser::Scalar);
         break;
