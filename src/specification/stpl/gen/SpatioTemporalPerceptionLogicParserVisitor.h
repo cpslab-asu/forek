@@ -78,6 +78,8 @@ public:
 
     virtual std::any visitStplSpatialNext(SpatioTemporalPerceptionLogicParser::StplSpatialNextContext *context) = 0;
 
+    virtual std::any visitSpatialParentheses(SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext *context) = 0;
+
     virtual std::any visitStplClosure(SpatioTemporalPerceptionLogicParser::StplClosureContext *context) = 0;
 
     virtual std::any visitStplIntersection(SpatioTemporalPerceptionLogicParser::StplIntersectionContext *context) = 0;

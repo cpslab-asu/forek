@@ -133,6 +133,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitSpatialParentheses(SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitStplClosure(SpatioTemporalPerceptionLogicParser::StplClosureContext *ctx) override {
     return visitChildren(ctx);
   }

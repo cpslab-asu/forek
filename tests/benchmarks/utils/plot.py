@@ -62,7 +62,7 @@ if __name__ == r"__main__":
     ax.set_ylabel('Memory Size (bytes)')
     ax.set_zlabel('Parse Time (ms)');
     
-    with open("../tqtl/benchmarks.csv") as infile:
+    with open("../stpl/benchmarks.csv") as infile:
         reader = csv.DictReader(infile)
 
         benches = {}

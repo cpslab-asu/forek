@@ -11,7 +11,7 @@
 
 #include <forek/forek.hpp>
 
-using forek::specification::tqtl::SpatioTemporalPerceptionLogic;
+using forek::specification::stpl::SpatioTemporalPerceptionLogic;
 
 auto main() -> int {
     auto dir = std::filesystem::path(__FILE__).parent_path();

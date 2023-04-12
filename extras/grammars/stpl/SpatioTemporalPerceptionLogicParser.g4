@@ -37,7 +37,8 @@ formula : LeftParenthesis formula RightParenthesis  #parentheses
 /// A spatial (S4) formula.
 ///
 /// Examples: `BBOX(obj1)`, `BBOX(obj1) && BBOX(obj2)`.
-spatialFormula : EventuallyOperator (interval)? spatialFormula   #stplSpatialEventually
+spatialFormula : LeftParenthesis spatialFormula RightParenthesis #spatialParentheses
+    | EventuallyOperator (interval)? spatialFormula   #stplSpatialEventually
     | AlwaysOperator (interval)? spatialFormula                  #stplSpatialAlways
     | NextOperator (interval)? spatialFormula                    #stplSpatialNext
     | spatialFormula UntilOperator (interval)? spatialFormula    #stplSpatialUntil

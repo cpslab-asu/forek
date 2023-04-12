@@ -399,6 +399,17 @@ public:
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
+  class  SpatialParenthesesContext : public SpatialFormulaContext {
+  public:
+    SpatialParenthesesContext(SpatialFormulaContext *ctx);
+
+    antlr4::tree::TerminalNode *LeftParenthesis();
+    SpatialFormulaContext *spatialFormula();
+    antlr4::tree::TerminalNode *RightParenthesis();
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
   class  StplClosureContext : public SpatialFormulaContext {
   public:
     StplClosureContext(SpatialFormulaContext *ctx);

@@ -1,9 +1,11 @@
 #include "forek/formula/core/operation/tqtl/qualifier.hpp"
 #include <forek/formula/core/operand/arithmetic/arithmetic.hpp>
 #include <forek/formula/core/operand/pl/pl.hpp>
+#include <forek/formula/core/operand/stpl/stpl.hpp>
 #include <forek/formula/core/operation/arithmetic/arithmetic.hpp>
 #include <forek/formula/core/operation/ltl/ltl.hpp>
 #include <forek/formula/core/operation/pl/pl.hpp>
+#include <forek/formula/core/operation/stpl/stpl.hpp>
 #include <forek/formula/core/operation/tptl/tptl.hpp>
 #include <forek/formula/core/operation/tqtl/tqtl.hpp>
 #include <forek/formula/visitor/arithmetic/visitor.hpp>
@@ -62,7 +64,7 @@ class SolverCounter : public Solver<T> {
 };
 
 template <typename T>
-class SpatioTemporalPerceptionLogicCounter : public forek::formula::visitor::tqtl::Visitor<T> {
+class SpatioTemporalPerceptionLogicCounter : public forek::formula::visitor::stpl::Visitor<T> {
    public:
     int memory = 0;
 
@@ -155,5 +157,111 @@ class SpatioTemporalPerceptionLogicCounter : public forek::formula::visitor::tqt
     auto visit(core::operation::tqtl::ForallQualifier<T>& ctx) -> T {
         memory += sizeof(ctx);
         return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operand::stpl::SpatialTerm<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return 1;
+    }
+
+    auto visit(core::operation::stpl::AlwaysSpatial<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::AlwaysSpatialBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::EventuallySpatial<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::EventuallySpatialBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::NextSpatial<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::NextSpatialBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::UntilSpatial<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::UntilSpatialBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::ReleaseSpatial<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::ReleaseSpatialBounded<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::Complement<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::Intersection<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+    auto visit(core::operation::stpl::Union<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::Interior<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::Closure<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::Area<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::Universe<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operation::stpl::NonEmpty<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return ctx.expr().data() + 1;
+    }
+
+    auto visit(core::operand::stpl::Function<T>& ctx) -> T {
+        memory += sizeof(ctx);
+        return 1;
+    }
+
+    auto visit(core::operation::stpl::FunctionCompare<T>& ctx) -> T {
+        memory += (sizeof(ctx) + dynamic_cast<SolverCounter<T>&>(this->solver()).memory);
+        dynamic_cast<SolverCounter<T>&>(this->solver()).memory = 0;
+
+        return ctx.lexpr().data() + ctx.rexpr().data() + 1;
     }
 };

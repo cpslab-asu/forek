@@ -70,81 +70,82 @@ void spatiotemporalperceptionlogicparserParserInitialize() {
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,53,226,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+  	4,1,53,230,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
   	7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,1,0,1,0,
   	1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,60,8,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,80,8,
-  	1,10,1,12,1,83,9,1,1,2,1,2,1,2,3,2,88,8,2,1,2,1,2,1,2,3,2,93,8,2,1,2,
-  	1,2,1,2,3,2,98,8,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,108,8,2,1,2,1,
-  	2,1,2,3,2,113,8,2,1,2,1,2,1,2,1,2,3,2,119,8,2,1,2,1,2,1,2,1,2,1,2,1,2,
-  	1,2,5,2,128,8,2,10,2,12,2,131,9,2,1,3,1,3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,
-  	1,5,1,5,1,5,1,5,1,5,1,5,1,5,3,5,149,8,5,1,5,3,5,152,8,5,1,5,1,5,1,5,1,
-  	5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,5,5,169,8,5,10,5,12,5,172,
-  	9,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,3,6,184,8,6,1,7,1,7,1,7,1,
-  	7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,200,8,7,1,8,1,8,1,8,1,8,
-  	3,8,206,8,8,1,9,1,9,1,9,1,9,1,10,1,10,1,11,1,11,1,12,1,12,3,12,218,8,
-  	12,1,13,1,13,1,13,1,13,1,13,1,13,1,13,0,3,2,4,10,14,0,2,4,6,8,10,12,14,
-  	16,18,20,22,24,26,0,4,2,0,10,13,31,32,2,0,29,29,33,33,1,0,37,38,2,0,30,
-  	30,34,34,257,0,28,1,0,0,0,2,59,1,0,0,0,4,107,1,0,0,0,6,132,1,0,0,0,8,
-  	137,1,0,0,0,10,151,1,0,0,0,12,183,1,0,0,0,14,199,1,0,0,0,16,205,1,0,0,
-  	0,18,207,1,0,0,0,20,211,1,0,0,0,22,213,1,0,0,0,24,217,1,0,0,0,26,219,
-  	1,0,0,0,28,29,3,2,1,0,29,30,5,0,0,1,30,1,1,0,0,0,31,32,6,1,-1,0,32,33,
-  	5,33,0,0,33,34,3,2,1,0,34,35,5,34,0,0,35,60,1,0,0,0,36,60,5,24,0,0,37,
-  	60,5,25,0,0,38,39,5,14,0,0,39,60,3,2,1,17,40,41,5,15,0,0,41,60,3,2,1,
-  	16,42,43,5,16,0,0,43,60,3,2,1,15,44,45,3,14,7,0,45,46,3,2,1,12,46,60,
-  	1,0,0,0,47,48,5,9,0,0,48,49,5,47,0,0,49,60,3,2,1,11,50,51,5,1,0,0,51,
-  	60,3,4,2,0,52,53,5,2,0,0,53,60,3,4,2,0,54,55,5,19,0,0,55,60,3,2,1,8,56,
-  	60,3,8,4,0,57,60,3,18,9,0,58,60,3,22,11,0,59,31,1,0,0,0,59,36,1,0,0,0,
-  	59,37,1,0,0,0,59,38,1,0,0,0,59,40,1,0,0,0,59,42,1,0,0,0,59,44,1,0,0,0,
-  	59,47,1,0,0,0,59,50,1,0,0,0,59,52,1,0,0,0,59,54,1,0,0,0,59,56,1,0,0,0,
-  	59,57,1,0,0,0,59,58,1,0,0,0,60,81,1,0,0,0,61,62,10,14,0,0,62,63,5,17,
-  	0,0,63,80,3,2,1,15,64,65,10,13,0,0,65,66,5,18,0,0,66,80,3,2,1,14,67,68,
-  	10,7,0,0,68,69,5,20,0,0,69,80,3,2,1,8,70,71,10,6,0,0,71,72,5,21,0,0,72,
-  	80,3,2,1,7,73,74,10,5,0,0,74,75,5,22,0,0,75,80,3,2,1,6,76,77,10,4,0,0,
-  	77,78,5,23,0,0,78,80,3,2,1,5,79,61,1,0,0,0,79,64,1,0,0,0,79,67,1,0,0,
-  	0,79,70,1,0,0,0,79,73,1,0,0,0,79,76,1,0,0,0,80,83,1,0,0,0,81,79,1,0,0,
-  	0,81,82,1,0,0,0,82,3,1,0,0,0,83,81,1,0,0,0,84,85,6,2,-1,0,85,87,5,14,
-  	0,0,86,88,3,26,13,0,87,86,1,0,0,0,87,88,1,0,0,0,88,89,1,0,0,0,89,108,
-  	3,4,2,11,90,92,5,15,0,0,91,93,3,26,13,0,92,91,1,0,0,0,92,93,1,0,0,0,93,
-  	94,1,0,0,0,94,108,3,4,2,10,95,97,5,16,0,0,96,98,3,26,13,0,97,96,1,0,0,
-  	0,97,98,1,0,0,0,98,99,1,0,0,0,99,108,3,4,2,9,100,101,5,19,0,0,101,108,
-  	3,4,2,6,102,103,5,3,0,0,103,108,3,4,2,3,104,105,5,4,0,0,105,108,3,4,2,
-  	2,106,108,3,6,3,0,107,84,1,0,0,0,107,90,1,0,0,0,107,95,1,0,0,0,107,100,
-  	1,0,0,0,107,102,1,0,0,0,107,104,1,0,0,0,107,106,1,0,0,0,108,129,1,0,0,
-  	0,109,110,10,8,0,0,110,112,5,17,0,0,111,113,3,26,13,0,112,111,1,0,0,0,
-  	112,113,1,0,0,0,113,114,1,0,0,0,114,128,3,4,2,9,115,116,10,7,0,0,116,
-  	118,5,18,0,0,117,119,3,26,13,0,118,117,1,0,0,0,118,119,1,0,0,0,119,120,
-  	1,0,0,0,120,128,3,4,2,8,121,122,10,5,0,0,122,123,5,20,0,0,123,128,3,4,
-  	2,6,124,125,10,4,0,0,125,126,5,21,0,0,126,128,3,4,2,5,127,109,1,0,0,0,
-  	127,115,1,0,0,0,127,121,1,0,0,0,127,124,1,0,0,0,128,131,1,0,0,0,129,127,
-  	1,0,0,0,129,130,1,0,0,0,130,5,1,0,0,0,131,129,1,0,0,0,132,133,5,5,0,0,
-  	133,134,5,33,0,0,134,135,5,47,0,0,135,136,5,34,0,0,136,7,1,0,0,0,137,
-  	138,3,10,5,0,138,139,3,20,10,0,139,140,3,10,5,0,140,9,1,0,0,0,141,142,
-  	6,5,-1,0,142,143,5,33,0,0,143,144,3,10,5,0,144,145,5,34,0,0,145,152,1,
-  	0,0,0,146,152,3,12,6,0,147,149,5,50,0,0,148,147,1,0,0,0,148,149,1,0,0,
-  	0,149,150,1,0,0,0,150,152,3,24,12,0,151,141,1,0,0,0,151,146,1,0,0,0,151,
-  	148,1,0,0,0,152,170,1,0,0,0,153,154,10,5,0,0,154,155,5,51,0,0,155,169,
-  	3,10,5,6,156,157,10,4,0,0,157,158,5,52,0,0,158,169,3,10,5,5,159,160,10,
-  	3,0,0,160,161,5,53,0,0,161,169,3,10,5,4,162,163,10,2,0,0,163,164,5,49,
-  	0,0,164,169,3,10,5,3,165,166,10,1,0,0,166,167,5,50,0,0,167,169,3,10,5,
-  	2,168,153,1,0,0,0,168,156,1,0,0,0,168,159,1,0,0,0,168,162,1,0,0,0,168,
-  	165,1,0,0,0,169,172,1,0,0,0,170,168,1,0,0,0,170,171,1,0,0,0,171,11,1,
-  	0,0,0,172,170,1,0,0,0,173,174,5,6,0,0,174,175,5,33,0,0,175,176,3,4,2,
-  	0,176,177,5,34,0,0,177,184,1,0,0,0,178,179,5,47,0,0,179,180,5,33,0,0,
-  	180,181,3,16,8,0,181,182,5,34,0,0,182,184,1,0,0,0,183,173,1,0,0,0,183,
-  	178,1,0,0,0,184,13,1,0,0,0,185,186,5,7,0,0,186,187,5,33,0,0,187,188,3,
-  	16,8,0,188,189,5,34,0,0,189,190,5,9,0,0,190,191,5,47,0,0,191,200,1,0,
-  	0,0,192,193,5,8,0,0,193,194,5,33,0,0,194,195,3,16,8,0,195,196,5,34,0,
-  	0,196,197,5,9,0,0,197,198,5,47,0,0,198,200,1,0,0,0,199,185,1,0,0,0,199,
-  	192,1,0,0,0,200,15,1,0,0,0,201,202,5,47,0,0,202,203,5,26,0,0,203,206,
-  	3,16,8,0,204,206,5,47,0,0,205,201,1,0,0,0,205,204,1,0,0,0,206,17,1,0,
-  	0,0,207,208,3,10,5,0,208,209,3,20,10,0,209,210,3,10,5,0,210,19,1,0,0,
-  	0,211,212,7,0,0,0,212,21,1,0,0,0,213,214,5,47,0,0,214,23,1,0,0,0,215,
-  	218,5,47,0,0,216,218,5,38,0,0,217,215,1,0,0,0,217,216,1,0,0,0,218,25,
-  	1,0,0,0,219,220,7,1,0,0,220,221,7,2,0,0,221,222,5,26,0,0,222,223,7,2,
-  	0,0,223,224,7,3,0,0,224,27,1,0,0,0,19,59,79,81,87,92,97,107,112,118,127,
-  	129,148,151,168,170,183,199,205,217
+  	1,10,1,12,1,83,9,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,92,8,2,1,2,1,2,1,2,
+  	3,2,97,8,2,1,2,1,2,1,2,3,2,102,8,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,
+  	2,112,8,2,1,2,1,2,1,2,3,2,117,8,2,1,2,1,2,1,2,1,2,3,2,123,8,2,1,2,1,2,
+  	1,2,1,2,1,2,1,2,1,2,5,2,132,8,2,10,2,12,2,135,9,2,1,3,1,3,1,3,1,3,1,3,
+  	1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,5,1,5,3,5,153,8,5,1,5,3,5,156,8,
+  	5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,5,5,173,
+  	8,5,10,5,12,5,176,9,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,3,6,188,
+  	8,6,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,204,8,
+  	7,1,8,1,8,1,8,1,8,3,8,210,8,8,1,9,1,9,1,9,1,9,1,10,1,10,1,11,1,11,1,12,
+  	1,12,3,12,222,8,12,1,13,1,13,1,13,1,13,1,13,1,13,1,13,0,3,2,4,10,14,0,
+  	2,4,6,8,10,12,14,16,18,20,22,24,26,0,4,2,0,10,13,31,32,2,0,29,29,33,33,
+  	1,0,37,38,2,0,30,30,34,34,262,0,28,1,0,0,0,2,59,1,0,0,0,4,111,1,0,0,0,
+  	6,136,1,0,0,0,8,141,1,0,0,0,10,155,1,0,0,0,12,187,1,0,0,0,14,203,1,0,
+  	0,0,16,209,1,0,0,0,18,211,1,0,0,0,20,215,1,0,0,0,22,217,1,0,0,0,24,221,
+  	1,0,0,0,26,223,1,0,0,0,28,29,3,2,1,0,29,30,5,0,0,1,30,1,1,0,0,0,31,32,
+  	6,1,-1,0,32,33,5,33,0,0,33,34,3,2,1,0,34,35,5,34,0,0,35,60,1,0,0,0,36,
+  	60,5,24,0,0,37,60,5,25,0,0,38,39,5,14,0,0,39,60,3,2,1,17,40,41,5,15,0,
+  	0,41,60,3,2,1,16,42,43,5,16,0,0,43,60,3,2,1,15,44,45,3,14,7,0,45,46,3,
+  	2,1,12,46,60,1,0,0,0,47,48,5,9,0,0,48,49,5,47,0,0,49,60,3,2,1,11,50,51,
+  	5,1,0,0,51,60,3,4,2,0,52,53,5,2,0,0,53,60,3,4,2,0,54,55,5,19,0,0,55,60,
+  	3,2,1,8,56,60,3,8,4,0,57,60,3,18,9,0,58,60,3,22,11,0,59,31,1,0,0,0,59,
+  	36,1,0,0,0,59,37,1,0,0,0,59,38,1,0,0,0,59,40,1,0,0,0,59,42,1,0,0,0,59,
+  	44,1,0,0,0,59,47,1,0,0,0,59,50,1,0,0,0,59,52,1,0,0,0,59,54,1,0,0,0,59,
+  	56,1,0,0,0,59,57,1,0,0,0,59,58,1,0,0,0,60,81,1,0,0,0,61,62,10,14,0,0,
+  	62,63,5,17,0,0,63,80,3,2,1,15,64,65,10,13,0,0,65,66,5,18,0,0,66,80,3,
+  	2,1,14,67,68,10,7,0,0,68,69,5,20,0,0,69,80,3,2,1,8,70,71,10,6,0,0,71,
+  	72,5,21,0,0,72,80,3,2,1,7,73,74,10,5,0,0,74,75,5,22,0,0,75,80,3,2,1,6,
+  	76,77,10,4,0,0,77,78,5,23,0,0,78,80,3,2,1,5,79,61,1,0,0,0,79,64,1,0,0,
+  	0,79,67,1,0,0,0,79,70,1,0,0,0,79,73,1,0,0,0,79,76,1,0,0,0,80,83,1,0,0,
+  	0,81,79,1,0,0,0,81,82,1,0,0,0,82,3,1,0,0,0,83,81,1,0,0,0,84,85,6,2,-1,
+  	0,85,86,5,33,0,0,86,87,3,4,2,0,87,88,5,34,0,0,88,112,1,0,0,0,89,91,5,
+  	14,0,0,90,92,3,26,13,0,91,90,1,0,0,0,91,92,1,0,0,0,92,93,1,0,0,0,93,112,
+  	3,4,2,11,94,96,5,15,0,0,95,97,3,26,13,0,96,95,1,0,0,0,96,97,1,0,0,0,97,
+  	98,1,0,0,0,98,112,3,4,2,10,99,101,5,16,0,0,100,102,3,26,13,0,101,100,
+  	1,0,0,0,101,102,1,0,0,0,102,103,1,0,0,0,103,112,3,4,2,9,104,105,5,19,
+  	0,0,105,112,3,4,2,6,106,107,5,3,0,0,107,112,3,4,2,3,108,109,5,4,0,0,109,
+  	112,3,4,2,2,110,112,3,6,3,0,111,84,1,0,0,0,111,89,1,0,0,0,111,94,1,0,
+  	0,0,111,99,1,0,0,0,111,104,1,0,0,0,111,106,1,0,0,0,111,108,1,0,0,0,111,
+  	110,1,0,0,0,112,133,1,0,0,0,113,114,10,8,0,0,114,116,5,17,0,0,115,117,
+  	3,26,13,0,116,115,1,0,0,0,116,117,1,0,0,0,117,118,1,0,0,0,118,132,3,4,
+  	2,9,119,120,10,7,0,0,120,122,5,18,0,0,121,123,3,26,13,0,122,121,1,0,0,
+  	0,122,123,1,0,0,0,123,124,1,0,0,0,124,132,3,4,2,8,125,126,10,5,0,0,126,
+  	127,5,20,0,0,127,132,3,4,2,6,128,129,10,4,0,0,129,130,5,21,0,0,130,132,
+  	3,4,2,5,131,113,1,0,0,0,131,119,1,0,0,0,131,125,1,0,0,0,131,128,1,0,0,
+  	0,132,135,1,0,0,0,133,131,1,0,0,0,133,134,1,0,0,0,134,5,1,0,0,0,135,133,
+  	1,0,0,0,136,137,5,5,0,0,137,138,5,33,0,0,138,139,5,47,0,0,139,140,5,34,
+  	0,0,140,7,1,0,0,0,141,142,3,10,5,0,142,143,3,20,10,0,143,144,3,10,5,0,
+  	144,9,1,0,0,0,145,146,6,5,-1,0,146,147,5,33,0,0,147,148,3,10,5,0,148,
+  	149,5,34,0,0,149,156,1,0,0,0,150,156,3,12,6,0,151,153,5,50,0,0,152,151,
+  	1,0,0,0,152,153,1,0,0,0,153,154,1,0,0,0,154,156,3,24,12,0,155,145,1,0,
+  	0,0,155,150,1,0,0,0,155,152,1,0,0,0,156,174,1,0,0,0,157,158,10,5,0,0,
+  	158,159,5,51,0,0,159,173,3,10,5,6,160,161,10,4,0,0,161,162,5,52,0,0,162,
+  	173,3,10,5,5,163,164,10,3,0,0,164,165,5,53,0,0,165,173,3,10,5,4,166,167,
+  	10,2,0,0,167,168,5,49,0,0,168,173,3,10,5,3,169,170,10,1,0,0,170,171,5,
+  	50,0,0,171,173,3,10,5,2,172,157,1,0,0,0,172,160,1,0,0,0,172,163,1,0,0,
+  	0,172,166,1,0,0,0,172,169,1,0,0,0,173,176,1,0,0,0,174,172,1,0,0,0,174,
+  	175,1,0,0,0,175,11,1,0,0,0,176,174,1,0,0,0,177,178,5,6,0,0,178,179,5,
+  	33,0,0,179,180,3,4,2,0,180,181,5,34,0,0,181,188,1,0,0,0,182,183,5,47,
+  	0,0,183,184,5,33,0,0,184,185,3,16,8,0,185,186,5,34,0,0,186,188,1,0,0,
+  	0,187,177,1,0,0,0,187,182,1,0,0,0,188,13,1,0,0,0,189,190,5,7,0,0,190,
+  	191,5,33,0,0,191,192,3,16,8,0,192,193,5,34,0,0,193,194,5,9,0,0,194,195,
+  	5,47,0,0,195,204,1,0,0,0,196,197,5,8,0,0,197,198,5,33,0,0,198,199,3,16,
+  	8,0,199,200,5,34,0,0,200,201,5,9,0,0,201,202,5,47,0,0,202,204,1,0,0,0,
+  	203,189,1,0,0,0,203,196,1,0,0,0,204,15,1,0,0,0,205,206,5,47,0,0,206,207,
+  	5,26,0,0,207,210,3,16,8,0,208,210,5,47,0,0,209,205,1,0,0,0,209,208,1,
+  	0,0,0,210,17,1,0,0,0,211,212,3,10,5,0,212,213,3,20,10,0,213,214,3,10,
+  	5,0,214,19,1,0,0,0,215,216,7,0,0,0,216,21,1,0,0,0,217,218,5,47,0,0,218,
+  	23,1,0,0,0,219,222,5,47,0,0,220,222,5,38,0,0,221,219,1,0,0,0,221,220,
+  	1,0,0,0,222,25,1,0,0,0,223,224,7,1,0,0,224,225,7,2,0,0,225,226,5,26,0,
+  	0,226,227,7,2,0,0,227,228,7,3,0,0,228,27,1,0,0,0,19,59,79,81,91,96,101,
+  	111,116,122,131,133,152,155,172,174,187,203,209,221
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -1140,6 +1141,29 @@ std::any SpatioTemporalPerceptionLogicParser::StplSpatialNextContext::accept(tre
   else
     return visitor->visitChildren(this);
 }
+//----------------- SpatialParenthesesContext ------------------------------------------------------------------
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext::LeftParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::LeftParenthesis, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext::spatialFormula() {
+  return getRuleContext<SpatioTemporalPerceptionLogicParser::SpatialFormulaContext>(0);
+}
+
+tree::TerminalNode* SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext::RightParenthesis() {
+  return getToken(SpatioTemporalPerceptionLogicParser::RightParenthesis, 0);
+}
+
+SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext::SpatialParenthesesContext(SpatialFormulaContext *ctx) { copyFrom(ctx); }
+
+
+std::any SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<SpatioTemporalPerceptionLogicParserVisitor*>(visitor))
+    return parserVisitor->visitSpatialParentheses(this);
+  else
+    return visitor->visitChildren(this);
+}
 //----------------- StplClosureContext ------------------------------------------------------------------
 
 tree::TerminalNode* SpatioTemporalPerceptionLogicParser::StplClosureContext::ClosureOperator() {
@@ -1219,7 +1243,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
   size_t startState = 4;
   enterRecursionRule(_localctx, 4, SpatioTemporalPerceptionLogicParser::RuleSpatialFormula, precedence);
 
-    size_t _la = 0;
+    
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -1231,27 +1255,43 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(107);
+    setState(111);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
-      case SpatioTemporalPerceptionLogicParser::EventuallyOperator: {
-        _localctx = _tracker.createInstance<StplSpatialEventuallyContext>(_localctx);
+      case SpatioTemporalPerceptionLogicParser::LeftParenthesis: {
+        _localctx = _tracker.createInstance<SpatialParenthesesContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
 
         setState(85);
-        match(SpatioTemporalPerceptionLogicParser::EventuallyOperator);
+        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+        setState(86);
+        spatialFormula(0);
         setState(87);
+        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+        break;
+      }
+
+      case SpatioTemporalPerceptionLogicParser::EventuallyOperator: {
+        _localctx = _tracker.createInstance<StplSpatialEventuallyContext>(_localctx);
+        _ctx = _localctx;
+        previousContext = _localctx;
+        setState(89);
+        match(SpatioTemporalPerceptionLogicParser::EventuallyOperator);
+        setState(91);
         _errHandler->sync(this);
 
-        _la = _input->LA(1);
-        if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
-
-        || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-          setState(86);
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 3, _ctx)) {
+        case 1: {
+          setState(90);
           interval();
+          break;
         }
-        setState(89);
+
+        default:
+          break;
+        }
+        setState(93);
         spatialFormula(11);
         break;
       }
@@ -1260,19 +1300,22 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplSpatialAlwaysContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(90);
+        setState(94);
         match(SpatioTemporalPerceptionLogicParser::AlwaysOperator);
-        setState(92);
+        setState(96);
         _errHandler->sync(this);
 
-        _la = _input->LA(1);
-        if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
-
-        || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-          setState(91);
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
+        case 1: {
+          setState(95);
           interval();
+          break;
         }
-        setState(94);
+
+        default:
+          break;
+        }
+        setState(98);
         spatialFormula(10);
         break;
       }
@@ -1281,19 +1324,22 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplSpatialNextContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(95);
+        setState(99);
         match(SpatioTemporalPerceptionLogicParser::NextOperator);
-        setState(97);
+        setState(101);
         _errHandler->sync(this);
 
-        _la = _input->LA(1);
-        if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
-
-        || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-          setState(96);
+        switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 5, _ctx)) {
+        case 1: {
+          setState(100);
           interval();
+          break;
         }
-        setState(99);
+
+        default:
+          break;
+        }
+        setState(103);
         spatialFormula(9);
         break;
       }
@@ -1302,9 +1348,9 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplComplementContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(100);
+        setState(104);
         match(SpatioTemporalPerceptionLogicParser::NegationOperator);
-        setState(101);
+        setState(105);
         spatialFormula(6);
         break;
       }
@@ -1313,9 +1359,9 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplInteriorContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(102);
+        setState(106);
         match(SpatioTemporalPerceptionLogicParser::InteriorOperator);
-        setState(103);
+        setState(107);
         spatialFormula(3);
         break;
       }
@@ -1324,9 +1370,9 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplClosureContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(104);
+        setState(108);
         match(SpatioTemporalPerceptionLogicParser::ClosureOperator);
-        setState(105);
+        setState(109);
         spatialFormula(2);
         break;
       }
@@ -1335,7 +1381,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         _localctx = _tracker.createInstance<StplSpatialTermContext>(_localctx);
         _ctx = _localctx;
         previousContext = _localctx;
-        setState(106);
+        setState(110);
         spatialTerm();
         break;
       }
@@ -1344,7 +1390,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(129);
+    setState(133);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -1352,29 +1398,32 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(127);
+        setState(131);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 9, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<StplSpatialUntilContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(109);
+          setState(113);
 
           if (!(precpred(_ctx, 8))) throw FailedPredicateException(this, "precpred(_ctx, 8)");
-          setState(110);
+          setState(114);
           match(SpatioTemporalPerceptionLogicParser::UntilOperator);
-          setState(112);
+          setState(116);
           _errHandler->sync(this);
 
-          _la = _input->LA(1);
-          if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
-
-          || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-            setState(111);
+          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx)) {
+          case 1: {
+            setState(115);
             interval();
+            break;
           }
-          setState(114);
+
+          default:
+            break;
+          }
+          setState(118);
           spatialFormula(9);
           break;
         }
@@ -1383,22 +1432,25 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
           auto newContext = _tracker.createInstance<StplSpatialReleaseContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(115);
+          setState(119);
 
           if (!(precpred(_ctx, 7))) throw FailedPredicateException(this, "precpred(_ctx, 7)");
-          setState(116);
+          setState(120);
           match(SpatioTemporalPerceptionLogicParser::ReleaseOperator);
-          setState(118);
+          setState(122);
           _errHandler->sync(this);
 
-          _la = _input->LA(1);
-          if (_la == SpatioTemporalPerceptionLogicParser::LeftBracket
-
-          || _la == SpatioTemporalPerceptionLogicParser::LeftParenthesis) {
-            setState(117);
+          switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 8, _ctx)) {
+          case 1: {
+            setState(121);
             interval();
+            break;
           }
-          setState(120);
+
+          default:
+            break;
+          }
+          setState(124);
           spatialFormula(8);
           break;
         }
@@ -1407,12 +1459,12 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
           auto newContext = _tracker.createInstance<StplIntersectionContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(121);
+          setState(125);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(122);
+          setState(126);
           match(SpatioTemporalPerceptionLogicParser::ConjunctionOperator);
-          setState(123);
+          setState(127);
           spatialFormula(6);
           break;
         }
@@ -1421,12 +1473,12 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
           auto newContext = _tracker.createInstance<StplUnionContext>(_tracker.createInstance<SpatialFormulaContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSpatialFormula);
-          setState(124);
+          setState(128);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(125);
+          setState(129);
           match(SpatioTemporalPerceptionLogicParser::DisjunctionOperator);
-          setState(126);
+          setState(130);
           spatialFormula(5);
           break;
         }
@@ -1435,7 +1487,7 @@ SpatioTemporalPerceptionLogicParser::SpatialFormulaContext* SpatioTemporalPercep
           break;
         } 
       }
-      setState(131);
+      setState(135);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 10, _ctx);
     }
@@ -1496,13 +1548,13 @@ SpatioTemporalPerceptionLogicParser::SpatialTermContext* SpatioTemporalPerceptio
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(132);
+    setState(136);
     match(SpatioTemporalPerceptionLogicParser::BoundingBoxFunction);
-    setState(133);
+    setState(137);
     match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-    setState(134);
+    setState(138);
     match(SpatioTemporalPerceptionLogicParser::Identifier);
-    setState(135);
+    setState(139);
     match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
    
   }
@@ -1559,11 +1611,11 @@ SpatioTemporalPerceptionLogicParser::FnComparisonContext* SpatioTemporalPercepti
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(137);
+    setState(141);
     expression(0);
-    setState(138);
+    setState(142);
     relationalOperator();
-    setState(139);
+    setState(143);
     expression(0);
    
   }
@@ -1789,7 +1841,7 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(151);
+    setState(155);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 12, _ctx)) {
     case 1: {
@@ -1797,11 +1849,11 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
       _ctx = _localctx;
       previousContext = _localctx;
 
-      setState(142);
+      setState(146);
       match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-      setState(143);
+      setState(147);
       expression(0);
-      setState(144);
+      setState(148);
       match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
       break;
     }
@@ -1810,7 +1862,7 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
       _localctx = _tracker.createInstance<StplFunctionCallContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(146);
+      setState(150);
       functionCall();
       break;
     }
@@ -1819,15 +1871,15 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
       _localctx = _tracker.createInstance<ArithmeticTermContext>(_localctx);
       _ctx = _localctx;
       previousContext = _localctx;
-      setState(148);
+      setState(152);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == SpatioTemporalPerceptionLogicParser::SubtractionOperator) {
-        setState(147);
+        setState(151);
         match(SpatioTemporalPerceptionLogicParser::SubtractionOperator);
       }
-      setState(150);
+      setState(154);
       term();
       break;
     }
@@ -1836,7 +1888,7 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
       break;
     }
     _ctx->stop = _input->LT(-1);
-    setState(170);
+    setState(174);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -1844,19 +1896,19 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(168);
+        setState(172);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 13, _ctx)) {
         case 1: {
           auto newContext = _tracker.createInstance<ArithmeticTimesContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(153);
+          setState(157);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(154);
+          setState(158);
           match(SpatioTemporalPerceptionLogicParser::MultiplicationOperator);
-          setState(155);
+          setState(159);
           expression(6);
           break;
         }
@@ -1865,12 +1917,12 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           auto newContext = _tracker.createInstance<ArithmeticDivideContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(156);
+          setState(160);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(157);
+          setState(161);
           match(SpatioTemporalPerceptionLogicParser::DivisionOperator);
-          setState(158);
+          setState(162);
           expression(5);
           break;
         }
@@ -1879,12 +1931,12 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           auto newContext = _tracker.createInstance<ArithmeticModulusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(159);
+          setState(163);
 
           if (!(precpred(_ctx, 3))) throw FailedPredicateException(this, "precpred(_ctx, 3)");
-          setState(160);
+          setState(164);
           match(SpatioTemporalPerceptionLogicParser::ModulusOperator);
-          setState(161);
+          setState(165);
           expression(4);
           break;
         }
@@ -1893,12 +1945,12 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           auto newContext = _tracker.createInstance<ArithmeticPlusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(162);
+          setState(166);
 
           if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-          setState(163);
+          setState(167);
           match(SpatioTemporalPerceptionLogicParser::AdditionOperator);
-          setState(164);
+          setState(168);
           expression(3);
           break;
         }
@@ -1907,12 +1959,12 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           auto newContext = _tracker.createInstance<ArithmeticMinusContext>(_tracker.createInstance<ExpressionContext>(parentContext, parentState));
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleExpression);
-          setState(165);
+          setState(169);
 
           if (!(precpred(_ctx, 1))) throw FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(166);
+          setState(170);
           match(SpatioTemporalPerceptionLogicParser::SubtractionOperator);
-          setState(167);
+          setState(171);
           expression(2);
           break;
         }
@@ -1921,7 +1973,7 @@ SpatioTemporalPerceptionLogicParser::ExpressionContext* SpatioTemporalPerception
           break;
         } 
       }
-      setState(172);
+      setState(176);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx);
     }
@@ -1989,31 +2041,31 @@ SpatioTemporalPerceptionLogicParser::FunctionCallContext* SpatioTemporalPercepti
     exitRule();
   });
   try {
-    setState(183);
+    setState(187);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SpatioTemporalPerceptionLogicParser::AreaFunction: {
         enterOuterAlt(_localctx, 1);
-        setState(173);
+        setState(177);
         match(SpatioTemporalPerceptionLogicParser::AreaFunction);
-        setState(174);
+        setState(178);
         match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-        setState(175);
+        setState(179);
         spatialFormula(0);
-        setState(176);
+        setState(180);
         match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
         break;
       }
 
       case SpatioTemporalPerceptionLogicParser::Identifier: {
         enterOuterAlt(_localctx, 2);
-        setState(178);
+        setState(182);
         match(SpatioTemporalPerceptionLogicParser::Identifier);
-        setState(179);
+        setState(183);
         match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-        setState(180);
+        setState(184);
         argumentList();
-        setState(181);
+        setState(185);
         match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
         break;
       }
@@ -2129,23 +2181,23 @@ SpatioTemporalPerceptionLogicParser::ObjectQualifierContext* SpatioTemporalPerce
     exitRule();
   });
   try {
-    setState(199);
+    setState(203);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SpatioTemporalPerceptionLogicParser::ExistsQuantifier: {
         _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::TqtlExistsQualifierContext>(_localctx);
         enterOuterAlt(_localctx, 1);
-        setState(185);
-        match(SpatioTemporalPerceptionLogicParser::ExistsQuantifier);
-        setState(186);
-        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-        setState(187);
-        argumentList();
-        setState(188);
-        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
         setState(189);
-        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
+        match(SpatioTemporalPerceptionLogicParser::ExistsQuantifier);
         setState(190);
+        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+        setState(191);
+        argumentList();
+        setState(192);
+        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+        setState(193);
+        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
+        setState(194);
         match(SpatioTemporalPerceptionLogicParser::Identifier);
         break;
       }
@@ -2153,17 +2205,17 @@ SpatioTemporalPerceptionLogicParser::ObjectQualifierContext* SpatioTemporalPerce
       case SpatioTemporalPerceptionLogicParser::ForallQuantifier: {
         _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::TqtlForallQualifierContext>(_localctx);
         enterOuterAlt(_localctx, 2);
-        setState(192);
-        match(SpatioTemporalPerceptionLogicParser::ForallQuantifier);
-        setState(193);
-        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
-        setState(194);
-        argumentList();
-        setState(195);
-        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
         setState(196);
-        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
+        match(SpatioTemporalPerceptionLogicParser::ForallQuantifier);
         setState(197);
+        match(SpatioTemporalPerceptionLogicParser::LeftParenthesis);
+        setState(198);
+        argumentList();
+        setState(199);
+        match(SpatioTemporalPerceptionLogicParser::RightParenthesis);
+        setState(200);
+        match(SpatioTemporalPerceptionLogicParser::FreezeTime);
+        setState(201);
         match(SpatioTemporalPerceptionLogicParser::Identifier);
         break;
       }
@@ -2225,23 +2277,23 @@ SpatioTemporalPerceptionLogicParser::ArgumentListContext* SpatioTemporalPercepti
     exitRule();
   });
   try {
-    setState(205);
+    setState(209);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 17, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(201);
+      setState(205);
       match(SpatioTemporalPerceptionLogicParser::Identifier);
-      setState(202);
+      setState(206);
       match(SpatioTemporalPerceptionLogicParser::Comma);
-      setState(203);
+      setState(207);
       argumentList();
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(204);
+      setState(208);
       match(SpatioTemporalPerceptionLogicParser::Identifier);
       break;
     }
@@ -2304,11 +2356,11 @@ SpatioTemporalPerceptionLogicParser::TimeConstraintContext* SpatioTemporalPercep
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(207);
+    setState(211);
     expression(0);
-    setState(208);
+    setState(212);
     relationalOperator();
-    setState(209);
+    setState(213);
     expression(0);
    
   }
@@ -2378,7 +2430,7 @@ SpatioTemporalPerceptionLogicParser::RelationalOperatorContext* SpatioTemporalPe
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(211);
+    setState(215);
     _la = _input->LA(1);
     if (!(((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 6442466304) != 0)) {
@@ -2435,7 +2487,7 @@ SpatioTemporalPerceptionLogicParser::PropositionContext* SpatioTemporalPerceptio
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(213);
+    setState(217);
     match(SpatioTemporalPerceptionLogicParser::Identifier);
    
   }
@@ -2505,13 +2557,13 @@ SpatioTemporalPerceptionLogicParser::TermContext* SpatioTemporalPerceptionLogicP
     exitRule();
   });
   try {
-    setState(217);
+    setState(221);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case SpatioTemporalPerceptionLogicParser::Identifier: {
         _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::ArithmeticVariableContext>(_localctx);
         enterOuterAlt(_localctx, 1);
-        setState(215);
+        setState(219);
         match(SpatioTemporalPerceptionLogicParser::Identifier);
         break;
       }
@@ -2519,7 +2571,7 @@ SpatioTemporalPerceptionLogicParser::TermContext* SpatioTemporalPerceptionLogicP
       case SpatioTemporalPerceptionLogicParser::Scalar: {
         _localctx = _tracker.createInstance<SpatioTemporalPerceptionLogicParser::ArithmeticConstantContext>(_localctx);
         enterOuterAlt(_localctx, 2);
-        setState(216);
+        setState(220);
         match(SpatioTemporalPerceptionLogicParser::Scalar);
         break;
       }
@@ -2607,7 +2659,7 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(219);
+    setState(223);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::LeftBracket
 
@@ -2618,7 +2670,7 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(220);
+    setState(224);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::Infinity
 
@@ -2629,9 +2681,9 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(221);
+    setState(225);
     match(SpatioTemporalPerceptionLogicParser::Comma);
-    setState(222);
+    setState(226);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::Infinity
 
@@ -2642,7 +2694,7 @@ SpatioTemporalPerceptionLogicParser::IntervalContext* SpatioTemporalPerceptionLo
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(223);
+    setState(227);
     _la = _input->LA(1);
     if (!(_la == SpatioTemporalPerceptionLogicParser::RightBracket
 

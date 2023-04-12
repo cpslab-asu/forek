@@ -14,6 +14,8 @@
 #include <forek/formula/core/operand/pl/false.hpp>
 #include <forek/formula/core/operand/pl/proposition.hpp>
 #include <forek/formula/core/operand/pl/true.hpp>
+#include <forek/formula/core/operand/stpl/function.hpp>
+#include <forek/formula/core/operand/stpl/term.hpp>
 #include <forek/formula/core/operation/arithmetic/divide.hpp>
 #include <forek/formula/core/operation/arithmetic/minus.hpp>
 #include <forek/formula/core/operation/arithmetic/modulus.hpp>
@@ -30,6 +32,20 @@
 #include <forek/formula/core/operation/pl/implies.hpp>
 #include <forek/formula/core/operation/pl/not.hpp>
 #include <forek/formula/core/operation/pl/or.hpp>
+#include <forek/formula/core/operation/stpl/always.hpp>
+#include <forek/formula/core/operation/stpl/area.hpp>
+#include <forek/formula/core/operation/stpl/closure.hpp>
+#include <forek/formula/core/operation/stpl/complement.hpp>
+#include <forek/formula/core/operation/stpl/eventually.hpp>
+#include <forek/formula/core/operation/stpl/fncompare.hpp>
+#include <forek/formula/core/operation/stpl/interior.hpp>
+#include <forek/formula/core/operation/stpl/intersection.hpp>
+#include <forek/formula/core/operation/stpl/next.hpp>
+#include <forek/formula/core/operation/stpl/nonempty.hpp>
+#include <forek/formula/core/operation/stpl/release.hpp>
+#include <forek/formula/core/operation/stpl/union.hpp>
+#include <forek/formula/core/operation/stpl/universe.hpp>
+#include <forek/formula/core/operation/stpl/until.hpp>
 #include <forek/formula/core/operation/tptl/constraint.hpp>
 #include <forek/formula/core/operation/tptl/freeze.hpp>
 #include <forek/formula/core/operation/tqtl/qualifier.hpp>
@@ -75,6 +91,28 @@ using forek::formula::core::operation::tptl::TimeConstraint;
 
 using forek::formula::core::operation::tqtl::ExistsQualifier;
 using forek::formula::core::operation::tqtl::ForallQualifier;
+
+using forek::formula::core::operand::stpl::Function;
+using forek::formula::core::operand::stpl::SpatialTerm;
+using forek::formula::core::operation::stpl::AlwaysSpatial;
+using forek::formula::core::operation::stpl::AlwaysSpatialBounded;
+using forek::formula::core::operation::stpl::Area;
+using forek::formula::core::operation::stpl::Closure;
+using forek::formula::core::operation::stpl::Complement;
+using forek::formula::core::operation::stpl::EventuallySpatial;
+using forek::formula::core::operation::stpl::EventuallySpatialBounded;
+using forek::formula::core::operation::stpl::FunctionCompare;
+using forek::formula::core::operation::stpl::Interior;
+using forek::formula::core::operation::stpl::Intersection;
+using forek::formula::core::operation::stpl::NextSpatial;
+using forek::formula::core::operation::stpl::NextSpatialBounded;
+using forek::formula::core::operation::stpl::NonEmpty;
+using forek::formula::core::operation::stpl::ReleaseSpatial;
+using forek::formula::core::operation::stpl::ReleaseSpatialBounded;
+using forek::formula::core::operation::stpl::Union;
+using forek::formula::core::operation::stpl::Universe;
+using forek::formula::core::operation::stpl::UntilSpatial;
+using forek::formula::core::operation::stpl::UntilSpatialBounded;
 
 template <typename T>
 class SpatioTemporalPerceptionLogicBuilder
@@ -458,6 +496,12 @@ class SpatioTemporalPerceptionLogicBuilder
         }
     }
 
+    auto visitSpatialParentheses(
+        gen::SpatioTemporalPerceptionLogicParser::SpatialParenthesesContext* ctx)
+        -> std::any override {
+        return visit(ctx->spatialFormula());
+    }
+
     auto visitStplFunctionCall(
         gen::SpatioTemporalPerceptionLogicParser::StplFunctionCallContext* ctx)
         -> std::any override {
@@ -476,56 +520,226 @@ class SpatioTemporalPerceptionLogicBuilder
     }
 
     auto visitSpatialTerm(gen::SpatioTemporalPerceptionLogicParser::SpatialTermContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto name = ctx->Identifier()->getText();
+        auto expr = std::make_unique<SpatialTerm<T>>(std::move(name));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitFnComparison(gen::SpatioTemporalPerceptionLogicParser::FnComparisonContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto relop = visit(ctx->relationalOperator());
+
+        auto lformula = visit(ctx->expression(0));
+        auto rformula = visit(ctx->expression(1));
+
+        auto expr = std::make_unique<FunctionCompare<T>>(
+            std::move(std::any_cast<Formula<T>>(lformula).expr()),
+            std::move(std::any_cast<Formula<T>>(rformula).expr()),
+            std::any_cast<std::string>(relop));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitFunctionCall(gen::SpatioTemporalPerceptionLogicParser::FunctionCallContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        if (ctx->AreaFunction()) {
+            auto formula = visit(ctx->spatialFormula());
+            auto expr =
+                std::make_unique<Area<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
+
+            return Formula<T>(std::move(expr));
+
+        } else {
+            auto name = ctx->Identifier()->getText();
+            auto variables = visit(ctx->argumentList());
+
+            auto expr = std::make_unique<Function<T>>(
+                std::move(name), std::move(std::any_cast<std::vector<std::string>>(variables)));
+
+            return Formula<T>(std::move(expr));
+        }
+    }
 
     auto visitStplSpatialForall(
         gen::SpatioTemporalPerceptionLogicParser::StplSpatialForallContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+        auto expr =
+            std::make_unique<Universe<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitStplSpatialExists(
         gen::SpatioTemporalPerceptionLogicParser::StplSpatialExistsContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+        auto expr =
+            std::make_unique<NonEmpty<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitStplSpatialAlways(
         gen::SpatioTemporalPerceptionLogicParser::StplSpatialAlwaysContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+
+        if (ctx->interval()) {
+            // bounded variant
+            auto interval = visit(ctx->interval());
+            auto expr = std::make_unique<AlwaysSpatialBounded<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()),
+                std::move(std::any_cast<Interval>(interval)));
+
+            return Formula<T>(std::move(expr));
+        } else {
+            auto expr = std::make_unique<AlwaysSpatial<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()));
+            return Formula<T>(std::move(expr));
+        }
+    }
 
     auto visitStplSpatialUntil(
         gen::SpatioTemporalPerceptionLogicParser::StplSpatialUntilContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto lformula = visit(ctx->spatialFormula(0));
+        auto rformula = visit(ctx->spatialFormula(1));
+
+        if (ctx->interval()) {
+            // bounded variant
+            auto interval = visit(ctx->interval());
+            auto expr = std::make_unique<UntilSpatialBounded<T>>(
+                std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                std::move(std::any_cast<Formula<T>>(rformula).expr()),
+                std::move(std::any_cast<Interval>(interval)));
+
+            return Formula<T>(std::move(expr));
+        } else {
+            auto expr = std::make_unique<UntilSpatial<T>>(
+                std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                std::move(std::any_cast<Formula<T>>(rformula).expr()));
+
+            return Formula<T>(std::move(expr));
+        }
+    }
 
     auto visitStplSpatialRelease(
         gen::SpatioTemporalPerceptionLogicParser::StplSpatialReleaseContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto lformula = visit(ctx->spatialFormula(0));
+        auto rformula = visit(ctx->spatialFormula(1));
+
+        if (ctx->interval()) {
+            // bounded variant
+            auto interval = visit(ctx->interval());
+            auto expr = std::make_unique<ReleaseSpatialBounded<T>>(
+                std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                std::move(std::any_cast<Formula<T>>(rformula).expr()),
+                std::move(std::any_cast<Interval>(interval)));
+
+            return Formula<T>(std::move(expr));
+        } else {
+            auto expr = std::make_unique<ReleaseSpatial<T>>(
+                std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                std::move(std::any_cast<Formula<T>>(rformula).expr()));
+
+            return Formula<T>(std::move(expr));
+        }
+    }
 
     auto visitStplSpatialEventually(
         gen::SpatioTemporalPerceptionLogicParser::StplSpatialEventuallyContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+
+        if (ctx->interval()) {
+            // bounded variant
+            auto interval = visit(ctx->interval());
+            auto expr = std::make_unique<EventuallySpatialBounded<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()),
+                std::move(std::any_cast<Interval>(interval)));
+
+            return Formula<T>(std::move(expr));
+        } else {
+            auto expr = std::make_unique<EventuallySpatial<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()));
+            return Formula<T>(std::move(expr));
+        }
+    }
 
     auto visitStplSpatialNext(gen::SpatioTemporalPerceptionLogicParser::StplSpatialNextContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+
+        if (ctx->interval()) {
+            // bounded variant
+            auto interval = visit(ctx->interval());
+            auto expr = std::make_unique<NextSpatialBounded<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()),
+                std::move(std::any_cast<Interval>(interval)));
+
+            return Formula<T>(std::move(expr));
+        } else {
+            auto expr = std::make_unique<NextSpatial<T>>(
+                std::move(std::any_cast<Formula<T>>(formula).expr()));
+            return Formula<T>(std::move(expr));
+        }
+    }
 
     auto visitStplComplement(gen::SpatioTemporalPerceptionLogicParser::StplComplementContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+        auto expr =
+            std::make_unique<Complement<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitStplInterior(gen::SpatioTemporalPerceptionLogicParser::StplInteriorContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+        auto expr =
+            std::make_unique<Interior<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitStplClosure(gen::SpatioTemporalPerceptionLogicParser::StplClosureContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto formula = visit(ctx->spatialFormula());
+        auto expr =
+            std::make_unique<Closure<T>>(std::move(std::any_cast<Formula<T>>(formula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitStplIntersection(
         gen::SpatioTemporalPerceptionLogicParser::StplIntersectionContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto lformula = visit(ctx->spatialFormula(0));
+        auto rformula = visit(ctx->spatialFormula(1));
+
+        auto expr = std::make_unique<Intersection<T>>(
+            std::move(std::any_cast<Formula<T>>(lformula).expr()),
+            std::move(std::any_cast<Formula<T>>(rformula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
 
     auto visitStplUnion(gen::SpatioTemporalPerceptionLogicParser::StplUnionContext* ctx)
-        -> std::any override {}
+        -> std::any override {
+        auto lformula = visit(ctx->spatialFormula(0));
+        auto rformula = visit(ctx->spatialFormula(1));
+
+        auto expr =
+            std::make_unique<Union<T>>(std::move(std::any_cast<Formula<T>>(lformula).expr()),
+                                       std::move(std::any_cast<Formula<T>>(rformula).expr()));
+
+        return Formula<T>(std::move(expr));
+    }
 };
 }  // namespace builder
 #endif
