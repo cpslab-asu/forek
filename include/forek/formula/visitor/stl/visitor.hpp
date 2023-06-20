@@ -2,7 +2,7 @@
 #define FOREK_FORMULA_VISITOR_STL_VISITOR_HPP
 
 #include <forek/formula/visitor/arithmetic/visitor.hpp>
-#include <forek/formula/visitor/ltl/visitor.hpp>
+#include <forek/formula/visitor/mtl/visitor.hpp>
 
 namespace forek::formula {
 namespace core::operation::stl {
@@ -12,7 +12,7 @@ class Predicate;
 
 namespace visitor::stl {
 template <typename T>
-class Visitor : public forek::formula::visitor::ltl::Visitor<T> {
+class Visitor : public forek::formula::visitor::mtl::Visitor<T> {
    protected:
     visitor::arithmetic::Visitor<T>& solver_;
 
